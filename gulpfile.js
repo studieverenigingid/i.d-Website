@@ -15,6 +15,9 @@ var prefix = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
+var browserSync = require('browser-sync').create();
+
+
 // Paths
 var src = 'src/';
 var dest = 'static/';
@@ -57,7 +60,10 @@ gulp.task('sassDev', function() {
         .pipe(concat('main.css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(dest + 'css'));
+        .pipe(gulp.dest(dest + 'css'))
+        .pipe(browserSync.reload({
+          stream: true
+        }));
 });
 
 gulp.task('copy-scss', function() {
@@ -76,7 +82,15 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(dest + 'fonts'));
 });
 
-gulp.task('watch', function() {
+gulp.task('browserSync', function() {
+  browserSync.init({
+    proxy: {
+      target: 'localhost:8888'
+    },
+  })
+})
+
+gulp.task('watch', ['browserSync'], function() {
    // Watch .js files
   gulp.watch(src + 'js/*.js', ['scriptsDev']);
    // Watch .scss files
@@ -84,7 +98,9 @@ gulp.task('watch', function() {
   // Watch image files
   gulp.watch(src + 'images/**/*', ['images']);
   // Watch font files
-  gulp.watch(src + 'fonts/*', ['fonts']);
+  gulp.watch(src + 'fonts/*', ['fonts', 'browserSync.reload']);
+  // Watch html files
+  gulp.watch('*.+(html|php)', browserSync.reload);
 });
 
 

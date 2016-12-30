@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/studieverenigingid/i.d-Website#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.5",

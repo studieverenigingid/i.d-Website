@@ -1,19 +1,19 @@
 /*-------------------------------------*\
 
-  i.d-WEBSITE WORDPRESS THEME
+	i.d-WEBSITE WORDPRESS THEME
 
-  See style.css for the WP info.
+	See style.css for the WP info.
 
-  - Nils Westhoff
-  - Floris Jansen, id@fmjansen.nl
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
 
-  base.scss
-  + Variables (colors and fonts)
-  + Reset
-  + Bies
-  + Footer
+	base.scss
+	+ Variables (colors and fonts)
+	+ Reset
+	+ Bies
+	+ Footer
 
-  ...
+	...
 
 \*-------------------------------------*/
 
@@ -22,7 +22,7 @@
 
 
 /*-------------------------------------*\
-  Variables (colors and fonts)
+	Variables (colors and fonts)
 \*-------------------------------------*/
 
 $font: 'Futura Lt BT', 'Roboto', sans-serif, sans-serif;
@@ -36,11 +36,11 @@ $text: #444444;
 
 
 /*-------------------------------------*\
-  Reset
+	Reset
 \*-------------------------------------*/
 
 body {
-  margin: 0;
+	margin: 0;
 }
 
 
@@ -48,21 +48,21 @@ body {
 
 
 /*-------------------------------------*\
-  Bies
+	Bies
 \*-------------------------------------*/
 // Holy bies
 .bies {
-  width: 100%;
-  overflow: hidden;
+	width: 100%;
+	overflow: hidden;
 }
 
 .bies__image {
-  min-height: 65px;
-  height: 65px;
+	min-height: 65px;
+	height: 65px;
 
-  @media (min-width: 876px) {
-    width: 100%;
-    height: auto;
-  }
+	@media (min-width: 876px) {
+		width: 100%;
+		height: auto;
+	}
 }
 // Amen

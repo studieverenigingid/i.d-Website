@@ -1,3 +1,6 @@
+<?php /* Create a variable for the image folder, so you don’t have to PHP it
+  every time, which would make your code significantly more ugly. */
+  $img_folder = get_bloginfo('template_directory') . '/static/img/'; ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
@@ -31,4 +34,11 @@
   <body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
     <header class="bies">
+      <picture>
+        <source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
+        <img class="bies__image" alt="Study association i.d"
+          srcset="<?=$img_folder?>bies.png 1x,
+            <?=$img_folder?>bies@2x.png 2x"
+          src="<?=$img_folder?>bies.png">
+      </picture>
     </header>

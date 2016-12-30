@@ -1,0 +1,68 @@
+/*-------------------------------------*\
+
+  i.d-WEBSITE WORDPRESS THEME
+
+  See style.css for the WP info.
+
+  - Nils Westhoff
+  - Floris Jansen, id@fmjansen.nl
+
+  base.scss
+  + Variables (colors and fonts)
+  + Reset
+  + Bies
+  + Footer
+
+  ...
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+  Variables (colors and fonts)
+\*-------------------------------------*/
+
+$font: 'Futura Lt BT', 'Roboto', sans-serif, sans-serif;
+$accent: #55ccbb;
+$background--light: #fffaf1;
+$background--dark: #998979;
+$text: #444444;
+
+
+
+
+
+/*-------------------------------------*\
+  Reset
+\*-------------------------------------*/
+
+body {
+  margin: 0;
+}
+
+
+
+
+
+/*-------------------------------------*\
+  Bies
+\*-------------------------------------*/
+// Holy bies
+.bies {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bies__image {
+  min-height: 65px;
+  height: 65px;
+
+  @media (min-width: 876px) {
+    width: 100%;
+    height: auto;
+  }
+}
+// Amen

@@ -22,16 +22,39 @@
 
 
 /*-------------------------------------*\
+	Dependencies
+\*-------------------------------------*/
+@font-face {
+	font-family: FuturaStd;
+	src: url(../fonts/FuturaStd-Heavy.otf);
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: FuturaBT;
+	src: url(../fonts/FuturaBT-Light.otf);
+	font-weight: 300;
+}
+
+@import "bourbon";
+@import "neat";
+
+
+
+/*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-
-$font: 'Futura Lt BT', 'Roboto', sans-serif, sans-serif;
+$font--heavy: 'FuturaStd', sans-serif;
+$font--light: 'FuturaBT', sans-serif;
 $accent: #55ccbb;
 $background--light: #fffaf1;
 $background--dark: #998979;
 $text: #444444;
 
-
+//breakpoints
+$brk--phone: new-breakpoint(min-width 480px 4);
+$brk--tablet: new-breakpoint(min-width 768px 8);
+$brk--desktop: new-breakpoint(min-width 992px 12);
 
 
 
@@ -55,6 +78,8 @@ body {
 .bies {
 	width: 100%;
 	overflow: hidden;
+	background: $background--dark;
+	padding: 0 0 15px;
 }
 
 .bies__image {
@@ -67,3 +92,8 @@ body {
 	}
 }
 // Amen
+
+
+
+
+

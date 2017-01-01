@@ -15,10 +15,6 @@ var prefix = require('gulp-autoprefixer');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
-// Include Bourbon Neat
-var bourbon = require("node-bourbon").includePaths;
-var neat = require("node-neat").includePaths;
-
 // Include browserSync
 var browserSync = require('browser-sync').create();
 
@@ -60,10 +56,6 @@ gulp.task('sassDev', function() {
 				.pipe(plumber(function(error) {
 						gutil.log(gutil.colors.red(error.message));
 						this.emit('end');
-				}))
-				.pipe(sass({
-					includePaths: bourbon,
-					includePaths: neat
 				}))
 				.pipe(sourcemaps.init())
 				.pipe(concat('main.css'))

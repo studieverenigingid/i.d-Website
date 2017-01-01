@@ -1,0 +1,39 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+$pad: 20px;
+$grid-cols: 12;
+
+@mixin container(){
+	padding: 0 $pad;
+}
+
+@mixin container-fluid(){
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+@mixin column($ratio){
+	margin: 0 0 $pad 0;
+	width: 100%/$grid-cols*$ratio;
+	float: left;
+	padding-right: $pad;
+	&:nth-child(#{$grid-cols/$ratio}n+1) {
+		padding-right: 0px;
+	}
+
+	&:nth-child(#{$grid-cols/$ratio}n+2) {
+		clear: both;
+	}
+  
+	&:after {
+		/* Or @extend clearfix */
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+}

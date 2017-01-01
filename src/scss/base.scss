@@ -48,13 +48,10 @@ $font--light: 'FuturaBT', sans-serif;
 $accent: #55ccbb;
 $background--light: #fffaf1;
 $background--dark: #998979;
+$background--gray: #444444;
 $text: #444444;
 
-//breakpoints
-$brk--phone: 768px;
-$brk--tablet: 998px;
-$brk--desktop: 1200px;
-
+$transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
 
 /*-------------------------------------*\
@@ -99,6 +96,45 @@ body {
 /*-------------------------------------*\
 	News section
 \*-------------------------------------*/
+.menu {
+	font-family: $font--light;
+	position: fixed;
+	top: 10em;
+	right: 0px;
+	background: rgba(44,44,44,.7);
+	color: white;
+	width: 220px;
+	transform: translateX(150px);
+	transition: transform 200ms $transition--cubic;
+
+	&:hover{
+		transform: translateX(0px);
+	}
+}
+
+.menu__list {
+	margin: 0;
+	padding: 35px 0 35px 30px;
+	list-style: none;
+}
+
+li {
+	padding: 10px;
+
+	a {
+		text-decoration: none;
+		color: white;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+/*-------------------------------------*\
+	News section
+\*-------------------------------------*/
 .news {
 	h1 {
 		font-family: $font--heavy;
@@ -107,21 +143,13 @@ body {
 		color: $background--dark;
 	}
 
-	@include container();
+	@include container-fluid();
 }
 
 .news__item {
 	display: block;
 	
-	@media screen and (max-width: $brk--phone){
-		@include column(12);
-	}
-	@media screen and (min-width: $brk--phone) and (max-width: $brk--tablet){
-		@include column(6);
-	}
-	@media screen and (min-width: $brk--tablet){
-		@include column(4);
-	}
+	@include column(12, 6, 4, 3);
 }
 
 
@@ -181,7 +209,7 @@ body {
 		height: 50%;
 		background: #010101;
 		content: '';
-		transition: width 0.3s cubic-bezier(0.77, 0, 0.175, 1), transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+		transition: width 0.3s $transition--cubic, transform 0.3s $transition--cubic;
 		transform: none
 	}
 

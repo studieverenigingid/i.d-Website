@@ -1,7 +1,7 @@
 <?php
 
 	register_nav_menus( array(
-			'primary' => 'Primary Menu'
+			'sidebar-menu' => 'Primary Menu'
 	) );
 
 	add_theme_support( 'post-thumbnails' );

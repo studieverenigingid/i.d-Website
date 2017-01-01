@@ -42,3 +42,7 @@
 					src="<?=$img_folder?>bies.png">
 			</picture>
 		</header>
+
+		<?php wp_nav_menu( array( 'theme_location' => 'sidebar-menu', 'container' => 'nav', 'container_class' => 'menu', 'menu_class' => 'menu__list' ) ); ?>
+
+	

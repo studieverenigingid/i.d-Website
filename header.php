@@ -44,7 +44,7 @@
 		</header>
 
 		<?php wp_nav_menu( array(
-			'theme_location' => 'sidebar-menu',
+			'theme_location' => 'primary-menu',
 			'container' => 'nav',
-			'container_class' => 'menu',
-			'menu_class' => 'menu__list' ) ); ?>
+			'container_class' => 'primary-menu',
+			'menu_class' => 'primary-menu__list' ) ); ?>

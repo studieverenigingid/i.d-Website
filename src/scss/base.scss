@@ -96,7 +96,7 @@ body {
 /*-------------------------------------*\
 	Menu section
 \*-------------------------------------*/
-.menu {
+.primary-menu {
 	font-family: $font--light;
 	position: fixed;
 	top: 10em;
@@ -112,7 +112,7 @@ body {
 	}
 }
 
-.menu__list {
+.primary-menu__list {
 	margin: 0;
 	padding: 35px 0 35px 30px;
 	list-style: none;
@@ -124,7 +124,7 @@ body {
 	a {
 		text-decoration: none;
 		color: white;
-		
+
 		&:hover {
 			text-decoration: underline;
 		}
@@ -148,7 +148,7 @@ body {
 
 .news__item {
 	display: block;
-	
+
 	@include column(12, 6, 4, 3);
 }
 
@@ -177,7 +177,7 @@ body {
 
 	a {
 		text-decoration: none;
-		color: black;	
+		color: black;
 
 		&:hover{
 			text-decoration: underline;

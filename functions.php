@@ -1,7 +1,7 @@
 <?php
 
 	register_nav_menus( array(
-			'sidebar-menu' => 'Primary Menu'
+			'primary-menu' => 'Primary Menu'
 	) );
 
 

@@ -34,13 +34,15 @@
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
 		<header class="bies">
-			<picture>
-				<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
-				<img class="bies__image" alt="Study association i.d"
-					srcset="<?=$img_folder?>bies.png 1x,
-						<?=$img_folder?>bies@2x.png 2x"
-					src="<?=$img_folder?>bies.png">
-			</picture>
+			<a href="<?php echo get_site_url(); ?>">
+				<picture>
+					<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
+					<img class="bies__image" alt="Study association i.d"
+						srcset="<?=$img_folder?>bies.png 1x,
+							<?=$img_folder?>bies@2x.png 2x"
+						src="<?=$img_folder?>bies.png">
+				</picture>
+			</a>
 		</header>
 
 		<?php wp_nav_menu( array(

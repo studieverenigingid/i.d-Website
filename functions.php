@@ -4,10 +4,17 @@
 			'sidebar-menu' => 'Primary Menu'
 	) );
 
-	add_theme_support( 'post-thumbnails' );
+
+	add_action( 'after_setup_theme', 'custom_theme_setup' );
+	add_action( 'init', 'modify_jquery' );
 
 
-	add_action('init', 'modify_jquery');
+	function custom_theme_setup() {
+	  add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
+	  add_theme_support( 'html5' ); // Make the search form input type="search"
+	  add_theme_support( 'title-tag' ); // Fix the document title tag
+	}
+
 
 	/* Replace Wordpress’s version of jQuery with Google API version, since most
 		 browsers will have it in their cache. */
@@ -28,11 +35,11 @@
 		<a class="moretag" href="'. get_permalink($post->ID) . '">Lees verder</a>';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
-	
+
 
 	function add_class_to_excerpt( $excerpt ) {
     	return str_replace('<p', '<p class="news__item__excerpt"', $excerpt);
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
-	
+
 ?>

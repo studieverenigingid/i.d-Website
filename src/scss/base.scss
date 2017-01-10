@@ -94,7 +94,7 @@ body {
 
 
 /*-------------------------------------*\
-	News section
+	Menu section
 \*-------------------------------------*/
 .menu {
 	font-family: $font--light;
@@ -118,7 +118,7 @@ body {
 	list-style: none;
 }
 
-li {
+.menu-item {
 	padding: 10px;
 
 	a {
@@ -174,6 +174,15 @@ li {
 	font-family:$font--heavy;
 	font-weight: 700;
 	font-size: 2em;
+
+	a {
+		text-decoration: none;
+		color: black;	
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
 }
 
 .news__item__meta {

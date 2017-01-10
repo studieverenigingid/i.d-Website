@@ -11,7 +11,7 @@
 		
 	<article class="news__item">
 		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news__item__thumb')); ?><?php endif; ?>
-		<h2 class="news__item__title"><?php the_title(); ?></h2>
+		<h2 class="news__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<h4 class="news__item__meta">
 			<?php $parentscategory ="";
 				foreach((get_the_category()) as $category) {

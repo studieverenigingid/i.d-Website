@@ -124,3 +124,4 @@ jspm_packages
 
 # Ignore static folder because you should compile it yourself
 static/
+src/fonts/

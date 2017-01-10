@@ -4,8 +4,49 @@
 
 
 
-<section class="events">
-</section>
+<?php $today = date('Ymd');
+
+$upcoming_loop = new WP_Query( array(
+  'post_type' => 'event',
+  'posts_per_page' => 4,
+  // 'meta_query' => array(
+  //   array(
+  //     'key'     => 'date',
+  //     'compare' => '>=',
+  //     'value'   => $today,
+  //   ),
+  // ),
+  // 'orderby' => 'date',
+  // 'order' => 'ASC',
+) );
+if ($upcoming_loop->have_posts()) :
+	$upcoming_no = 0; ?>
+
+	<section class="events">
+
+	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
+		if($upcoming_no === 0): ?>
+
+		<article class="event--large">
+			<?php if ( has_post_thumbnail() ) :
+				the_post_thumbnail('post-thumbnail', array(
+					'class' => 'event--large__thumb'
+				));
+			endif; ?>
+			<h2><?php the_title(); ?></h2>
+		</article>
+
+	<?php else:
+
+		 	include( 'small-event.php' );
+
+		endif;
+		$upcoming_no++;
+		endwhile; ?>
+
+	</section>
+
+<?php endif; wp_reset_postdata(); ?>
 
 
 

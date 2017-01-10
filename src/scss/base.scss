@@ -94,17 +94,17 @@ body {
 
 
 /*-------------------------------------*\
-	News section
+	Menu section
 \*-------------------------------------*/
-.menu {
+.primary-menu {
 	font-family: $font--light;
 	position: fixed;
 	top: 10em;
 	right: 0px;
-	background: rgba(44,44,44,.7);
+	background: $background--gray;
 	color: white;
 	width: 220px;
-	transform: translateX(150px);
+	transform: translateX(170px);
 	transition: transform 200ms $transition--cubic;
 
 	&:hover{
@@ -112,19 +112,20 @@ body {
 	}
 }
 
-.menu__list {
+.primary-menu__list {
 	margin: 0;
-	padding: 35px 0 35px 30px;
+	padding: 1rem 0;
 	list-style: none;
 }
 
-li {
-	padding: 10px;
+.menu-item {
 
 	a {
 		text-decoration: none;
 		color: white;
-		
+		padding: .8rem 1.4rem;
+		display: block;
+
 		&:hover {
 			text-decoration: underline;
 		}
@@ -148,7 +149,7 @@ li {
 
 .news__item {
 	display: block;
-	
+
 	@include column(12, 6, 4, 3);
 }
 
@@ -174,6 +175,15 @@ li {
 	font-family:$font--heavy;
 	font-weight: 700;
 	font-size: 2em;
+
+	a {
+		text-decoration: none;
+		color: black;
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
 }
 
 .news__item__meta {

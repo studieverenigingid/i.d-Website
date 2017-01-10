@@ -1,17 +1,25 @@
-<?php
-  get_header();
-?> 
+<?php get_header(); ?>
+
+
+
+
+
+<section class="events">
+</section>
+
+
+
+
+
 
 <section class="news">
-	<h1>Nieuws en blog</h1>
+	<h2>Nieuws en blog</h2>
 
-	<?php
-	  if(have_posts()) : while(have_posts()) : the_post();
-	?>
-		
+	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+
 	<article class="news__item">
 		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news__item__thumb')); ?><?php endif; ?>
-		<h2 class="news__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h3 class="news__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 		<h4 class="news__item__meta">
 			<?php $parentscategory ="";
 				foreach((get_the_category()) as $category) {
@@ -24,7 +32,7 @@
 		</h4>
 		<?php the_excerpt(); ?>
   	</article>
-	
+
 	<?php
 	  endwhile;
 	  endif;
@@ -32,6 +40,8 @@
 
 </section>
 
-<?php
-  get_footer();
-?>
+
+
+
+
+<?php get_footer(); ?>

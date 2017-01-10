@@ -23,5 +23,29 @@
 	Large event
 \*-------------------------------------*/
 .event--large {
-	background: red;
+	background: $background--dark;
+	overflow: hidden;
+	position: relative;
+	height: 80vh;
+}
+
+.event--large__thumb {
+	max-width: 60%;
+	max-height: 80%;
+	width: auto;
+	height: auto;
+	position: absolute;
+	right: 10%;
+	top: 50%;
+	transform: translateY(-50%);
+	box-shadow: 0 1.5rem 4rem transparentize(black, 0.7);
+}
+
+.event--large__name {
+	font-size: 3.5em;
+	color: white;
+	position: absolute;
+	top: 30%;
+	left: 20%;
+	text-shadow: 0 .5rem 1rem transparentize(black, 0.7);
 }

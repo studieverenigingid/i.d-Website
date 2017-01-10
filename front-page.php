@@ -28,12 +28,14 @@ if ($upcoming_loop->have_posts()) :
 		if($upcoming_no === 0): ?>
 
 		<article class="event--large">
-			<?php if ( has_post_thumbnail() ) :
-				the_post_thumbnail('post-thumbnail', array(
-					'class' => 'event--large__thumb'
-				));
-			endif; ?>
-			<h2><?php the_title(); ?></h2>
+			<a href="<?php the_permalink(); ?>">
+				<?php if ( has_post_thumbnail() ) :
+					the_post_thumbnail('post-thumbnail', array(
+						'class' => 'event--large__thumb'
+					));
+				endif; ?>
+				<h2 class="event--large__name"><?php the_title(); ?></h2>
+			</a>
 		</article>
 
 	<?php else:

@@ -86,7 +86,7 @@ gulp.task('fonts', function() {
 gulp.task('browserSync', function() {
 	browserSync.init({
 		proxy: {
-			target: 'localhost:8888'
+			target: 'wp:80'
 		},
 	})
 })
@@ -115,4 +115,3 @@ gulp.task('clear', function() {
 	gulp.src('images/**')
 		.pipe(cache.clear());
 });
-

@@ -37,7 +37,8 @@
 	font-weight: 300;
 }
 
-@import "grid";
+@import 'grid';
+
 
 
 
@@ -157,6 +158,35 @@ h1 {
 }
 
 
+
+
+
+
+/*-------------------------------------*\
+	Vacancies section
+\*-------------------------------------*/
+.vacancies {
+	@include container-fluid();
+}
+
+.vacancy__item {
+	@include columns(12,6,6,4);
+}
+
+.vacancy__item__thumb {
+	@include columns(12,12,6,6);
+	height: auto;
+}
+
+.vacancy__item__content {
+	@include columns(12,12,6,6);
+}
+
+
+
+
+
+
 /*-------------------------------------*\
 	News section
 \*-------------------------------------*/
@@ -167,7 +197,7 @@ h1 {
 .news__item {
 	display: block;
 
-	@include column(12, 6, 4, 3);
+	@include columns(12, 6, 4, 3);
 }
 
 

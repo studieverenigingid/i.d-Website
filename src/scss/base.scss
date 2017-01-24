@@ -37,7 +37,8 @@
 	font-weight: 300;
 }
 
-@import "grid";
+@import 'grid';
+
 
 
 
@@ -196,7 +197,7 @@ h1 {
 .news__item {
 	display: block;
 
-	@include column(12, 6, 4, 3);
+	@include columns(12, 6, 4, 3);
 }
 
 

@@ -1,5 +1,7 @@
 <?php
 
+	include( 'vacancy-post-type.php' ); 
+
 	register_nav_menus( array(
 			'primary-menu' => 'Primary Menu'
 	) );

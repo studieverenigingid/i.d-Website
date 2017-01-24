@@ -7,10 +7,29 @@
 <section class="events">
 </section>
 
+<section class="vacancies">
+	<h2>Vacatures</h2>
 
+	<?php
+	$args = array( 'post_type' => 'vacancy', 'posts_per_page' => 3 );
+	$loop = new WP_Query( $args );
+	if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
 
+	<article class="vacancy__item">
+		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'vacancy__item__thumb')); ?><?php endif; ?>
+		<div class="vacancy__item__content">
+			<h3 class="vacancy__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<?php the_excerpt(); ?>
+		</div>
 
+	</article>
 
+	<?php
+		endwhile;
+		endif;
+	?>
+
+</section>
 
 <section class="news">
 	<h2>Nieuws en blog</h2>
@@ -31,11 +50,11 @@
  		| <?php echo get_the_date(); ?>
 		</h4>
 		<?php the_excerpt(); ?>
-  	</article>
+	</article>
 
 	<?php
-	  endwhile;
-	  endif;
+		endwhile;
+		endif;
 	?>
 
 </section>

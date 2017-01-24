@@ -11,6 +11,7 @@ var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
+var rename = require('gulp-rename');
 
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
@@ -45,7 +46,6 @@ gulp.task('sass', function() {
 						gutil.log(gutil.colors.red(error.message));
 						this.emit('end');
 				}))
-				.pipe(concat('main.css'))
 				.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 				.pipe(prefix({browsers: ['last 2 version']}))
 				.pipe(gulp.dest(dest + 'css'));
@@ -60,7 +60,8 @@ gulp.task('sassDev', function() {
 				.pipe(sourcemaps.init())
 				.pipe(sass().on('error', sass.logError))
 				.pipe(sourcemaps.write())
-				.pipe(gulp.dest(dest + 'main.css'))
+				.pipe(rename('main.css'))
+				.pipe(gulp.dest(dest + 'css'))
 				.pipe(browserSync.reload({
 					stream: true
 				}));

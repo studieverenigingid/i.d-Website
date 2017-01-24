@@ -52,16 +52,15 @@ gulp.task('sass', function() {
 });
 
 gulp.task('sassDev', function() {
-		return gulp.src(src + 'scss/*.scss')
+		return gulp.src(src + 'scss/base.scss')
 				.pipe(plumber(function(error) {
 						gutil.log(gutil.colors.red(error.message));
 						this.emit('end');
 				}))
 				.pipe(sourcemaps.init())
-				.pipe(concat('main.css'))
 				.pipe(sass().on('error', sass.logError))
 				.pipe(sourcemaps.write())
-				.pipe(gulp.dest(dest + 'css'))
+				.pipe(gulp.dest(dest + 'main.css'))
 				.pipe(browserSync.reload({
 					stream: true
 				}));

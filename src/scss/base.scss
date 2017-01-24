@@ -157,6 +157,35 @@ h1 {
 }
 
 
+
+
+
+
+/*-------------------------------------*\
+	Vacancies section
+\*-------------------------------------*/
+.vacancies {
+	@include container-fluid();
+}
+
+.vacancy__item {
+	@include columns(12,6,6,4);
+}
+
+.vacancy__item__thumb {
+	@include columns(12,12,6,6);
+	height: auto;
+}
+
+.vacancy__item__content {
+	@include columns(12,12,6,6);
+}
+
+
+
+
+
+
 /*-------------------------------------*\
 	News section
 \*-------------------------------------*/

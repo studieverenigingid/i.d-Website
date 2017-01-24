@@ -58,3 +58,40 @@
 	left: 10%;
 	text-shadow: 0 .5rem 1rem transparentize(black, 0.7);
 }
+
+
+
+
+
+
+/*-------------------------------------*\
+	Small event
+\*-------------------------------------*/
+.events--small {
+	@include container-fluid();
+}
+
+.event--small {
+	overflow: hidden;
+	position: relative;
+	@include column(12, 6, 4, 3);
+}
+
+.event--small__anchor {
+	text-decoration: none;
+}
+
+.event--small__thumb {
+	box-shadow: 0 .2rem 1rem transparentize(black, 0.7);
+}
+
+.event--small__name {
+	font-size: 1.3em;
+	margin: .8em 0 .5em;
+	color: $text;
+}
+
+.event--small__descr {
+	margin: .5em 0 1em;
+	color: $text;
+}

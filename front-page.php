@@ -30,14 +30,15 @@ if ($upcoming_loop->have_posts()) :
 		<article class="event--large">
 			<a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail() ) :
-					the_post_thumbnail('post-thumbnail', array(
-						'class' => 'event--large__thumb'
-					));
+					the_post_thumbnail('post-thumbnail',
+            array('class' => 'event--large__thumb')
+          );
 				endif; ?>
 				<h2 class="event--large__name"><?php the_title(); ?></h2>
 			</a>
 		</article>
 
+    <section class="events--small">
 	<?php else:
 
 		 	include( 'small-event.php' );
@@ -46,6 +47,7 @@ if ($upcoming_loop->have_posts()) :
 		$upcoming_no++;
 		endwhile; ?>
 
+    </section>
 	</section>
 
 <?php endif; wp_reset_postdata(); ?>

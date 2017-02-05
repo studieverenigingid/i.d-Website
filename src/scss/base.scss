@@ -8,11 +8,14 @@
 	- Floris Jansen, id@fmjansen.nl
 
 	base.scss
+	+ Dependencies
 	+ Variables (colors and fonts)
 	+ Reset
-	+ Bies
 	+ Paragraph styles
+	+ Bies
+	+ Menu
 	+ Footer
+	+ Imports
 
 	...
 
@@ -42,6 +45,7 @@
 
 
 
+
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
@@ -56,6 +60,9 @@ $text: #444444;
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
 
+
+
+
 /*-------------------------------------*\
 	Reset
 \*-------------------------------------*/
@@ -64,6 +71,28 @@ body {
 	margin: 0;
 	background: $background--light;
 	font-family: $font--light;
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Paragraph styles
+\*-------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font--heavy;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 3em;
+	color: $background--dark;
 }
 
 
@@ -97,29 +126,7 @@ body {
 
 
 /*-------------------------------------*\
-	Paragraph styles
-\*-------------------------------------*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $font--heavy;
-	font-weight: 700;
-}
-
-h1 {
-	font-size: 3em;
-	color: $background--dark;
-}
-
-
-
-
-
-/*-------------------------------------*\
-	Menu section
+	Menu
 \*-------------------------------------*/
 .primary-menu {
 	font-family: $font--light;
@@ -143,8 +150,7 @@ h1 {
 	list-style: none;
 }
 
-.menu-item {
-
+.menu-item { // This deviates from our naming style guide because of Wordpress
 	a {
 		text-decoration: none;
 		color: white;
@@ -161,144 +167,15 @@ h1 {
 
 
 
-
-/*-------------------------------------*\
-	Vacancies section
-\*-------------------------------------*/
-.vacancies {
-	@include container-fluid();
-}
-
-.vacancy__item {
-	@include columns(12,6,6,4);
-}
-
-.vacancy__item__thumb {
-	@include columns(12,12,6,6);
-	height: auto;
-}
-
-.vacancy__item__content {
-	@include columns(12,12,6,6);
-}
-
-
-
-
-
-
-/*-------------------------------------*\
-	News section
-\*-------------------------------------*/
-.news {
-	@include container-fluid();
-}
-
-.news__item {
-	display: block;
-
-	@include columns(12, 6, 4, 3);
-}
-
-
-.news__item__meta, .news__item__excerpt, .news__item__content {
-	font-family:$font--light;
-	font-weight: 300;
-	font-size: 1em;
-}
-
-.news__item__title, .news__item__meta, .news__item__excerpt, .news__item__content {
-	padding-left: 25px;
-	margin:12px 0;
-}
-
-.news__item__thumb{
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-.news__item__title {
-	font-family:$font--heavy;
-	font-weight: 700;
-	font-size: 2em;
-
-	a {
-		text-decoration: none;
-		color: black;
-
-		&:hover{
-			text-decoration: underline;
-		}
-	}
-}
-
-.news__item__meta {
-	a{
-		color: $accent;
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-}
-
-// Read more styles
-.moretag {
-	display: inline-block;
-	padding: 0 0 0 14px;
-	position: relative;
-	background: no-repeat;
-	border: none;
-	border-radius: 0;
-	color: black;
-	font-family: $font--heavy;
-	font-weight: 700;
-	margin-top:12px;
-	text-decoration: none;
-
-	&:before, &:after {
-		display: block;
-		position: absolute;
-		right: auto;
-		left: 0;
-		width: 4px;
-		height: 50%;
-		background: #010101;
-		content: '';
-		transition: width 0.3s $transition--cubic, transform 0.3s $transition--cubic;
-		transform: none
-	}
-
-	&:before {
-		top: 0;
-		bottom: auto;
-		transform-origin: 100% 100%
-	}
-
-	&:after {
-		top: auto;
-		bottom: 0;
-		transform-origin: 100% 0
-	}
-
-	&:hover:before {
-		width: 3px;
-		transform: scaleX(1.3) translateX(5px) rotateZ(-36deg)
-	}
-
-	&:hover:after {
-		width: 3px;
-		transform: scaleX(1.3) translateX(5px) rotateZ(36deg)
-	}
-}
-
-
-
-
-
-
 /*-------------------------------------*\
 	Imports
 \*-------------------------------------*/
+
+// News messages (Report-i.d blog & news)
+@import "news";
+
+// Events
 @import "event";
+
+// Vacancies (vacatures)
+@import "vacancy";

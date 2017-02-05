@@ -1,0 +1,41 @@
+/*-------------------------------------*\
+
+	Vacancies (vacatures)
+	vacancy.scss (included in base.scss):
+	+ vacancy overview container
+	+ news item (shown on frontpage
+		and event overview)
+	+ read more link
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Vacancy overview container
+\*-------------------------------------*/
+.vacancies {
+	@include container-fluid();
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Vacancy item
+\*-------------------------------------*/
+.vacancy {
+	@include columns(12,6,6,4);
+}
+
+.vacancy__thumb {
+	@include columns(12,12,6,6);
+	height: auto;
+}
+
+.vacancy__content {
+	@include columns(12,12,6,6);
+}

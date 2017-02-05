@@ -56,14 +56,21 @@ if ($upcoming_loop->have_posts()) :
 	<h2>Vacatures</h2>
 
 	<?php
-	$args = array( 'post_type' => 'vacancy', 'posts_per_page' => 3 );
-	$loop = new WP_Query( $args );
-	if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
+		$args = array( 'post_type' => 'vacancy', 'posts_per_page' => 3 );
+		$loop = new WP_Query( $args );
+		if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
 
-	<article class="vacancy__item">
-		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'vacancy__item__thumb')); ?><?php endif; ?>
-		<div class="vacancy__item__content">
-			<h3 class="vacancy__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	<article class="vacancy">
+
+		<?php if ( has_post_thumbnail() ) : ?>
+			<?php the_post_thumbnail('post-thumbnail', array(
+				'class' => 'vacancy__thumb')); ?>
+		<?php endif; ?>
+
+		<div class="vacancy__content">
+			<h3 class="vacancy__title">
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			</h3>
 			<?php the_excerpt(); ?>
 		</div>
 
@@ -81,10 +88,10 @@ if ($upcoming_loop->have_posts()) :
 
 	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 
-	<article class="news__item">
-		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news__item__thumb')); ?><?php endif; ?>
-		<h3 class="news__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-		<h4 class="news__item__meta">
+	<article class="news-item">
+		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
+		<h3 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<h4 class="news-item__meta">
 			<?php $parentscategory ="";
 				foreach((get_the_category()) as $category) {
 					if ($category->category_parent == 0) {

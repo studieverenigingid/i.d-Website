@@ -13,9 +13,9 @@
 
 
 	function custom_theme_setup() {
-	  add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
-	  add_theme_support( 'html5' ); // Make the search form input type="search"
-	  add_theme_support( 'title-tag' ); // Fix the document title tag
+		add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
+		add_theme_support( 'html5' ); // Make the search form input type="search"
+		add_theme_support( 'title-tag' ); // Fix the document title tag
 	}
 
 
@@ -33,15 +33,17 @@
 
 	// Replaces the excerpt "Read More" text by a link
 	function new_excerpt_more($more) {
-	       global $post;
-		return '...
-		<a class="moretag" href="'. get_permalink($post->ID) . '">Lees verder</a>';
+		global $post;
+		$more_text = esc_attr_x('Read on', 'Read more link at (news) excerpt');
+		$more_link = '...<br><a class="moretag" href="%s">%s</a>';
+		$more_link = sprintf($more_link, get_permalink($post->ID), $more_text);
+		return $more_link;
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
 
 
 	function add_class_to_excerpt( $excerpt ) {
-    	return str_replace('<p', '<p class="news__item__excerpt"', $excerpt);
+			return str_replace('<p', '<p class="news-item__excerpt"', $excerpt);
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
 

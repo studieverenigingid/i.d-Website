@@ -1,6 +1,6 @@
 <?php
 
-	include( 'vacancy-post-type.php' ); 
+	include( 'vacancy-post-type.php' );
 
 	register_nav_menus( array(
 			'primary-menu' => 'Primary Menu'
@@ -12,9 +12,9 @@
 
 
 	function custom_theme_setup() {
-	  add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
-	  add_theme_support( 'html5' ); // Make the search form input type="search"
-	  add_theme_support( 'title-tag' ); // Fix the document title tag
+		add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
+		add_theme_support( 'html5' ); // Make the search form input type="search"
+		add_theme_support( 'title-tag' ); // Fix the document title tag
 	}
 
 
@@ -32,7 +32,7 @@
 
 	// Replaces the excerpt "Read More" text by a link
 	function new_excerpt_more($more) {
-	       global $post;
+				 global $post;
 		return '...
 		<a class="moretag" href="'. get_permalink($post->ID) . '">Lees verder</a>';
 	}
@@ -40,7 +40,7 @@
 
 
 	function add_class_to_excerpt( $excerpt ) {
-    	return str_replace('<p', '<p class="news__item__excerpt"', $excerpt);
+			return str_replace('<p', '<p class="news-item__excerpt"', $excerpt);
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
 

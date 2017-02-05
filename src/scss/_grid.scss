@@ -1,7 +1,7 @@
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 $pad: 20px;
@@ -15,11 +15,11 @@ $brk--desktop: 1200px;
 @mixin container-fluid() {
 	padding: 0 $pad;
 
-  &:after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
 }
 
 @mixin container() {
@@ -27,10 +27,10 @@ $brk--desktop: 1200px;
 	margin: 0 auto;
 
 	&:after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+		clear: both;
+		content: "";
+		display: block;
+	}
 }
 
 @mixin ratio($ratio) {

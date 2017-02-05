@@ -1,36 +1,62 @@
 /*-------------------------------------*\
-	News
+
+	News messages (Report-i.d blog & news)
+	news.scss (included in base.scss):
+	+ news overview container
+	+ news item (shown on frontpage
+		and event overview)
+	+ read more link
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	News overview container
 \*-------------------------------------*/
 .news {
 	@include container-fluid();
 }
 
-.news__item {
+
+
+
+
+/*-------------------------------------*\
+	News item
+\*-------------------------------------*/
+.news-item {
 	display: block;
 
 	@include columns(12, 6, 4, 3);
 }
 
-
-.news__item__meta, .news__item__excerpt, .news__item__content {
-	font-family:$font--light;
+.news-item__meta,
+.news-item__excerpt,
+.news-item__content {
+	font-family: $font--light;
 	font-weight: 300;
 	font-size: 1em;
 }
 
-.news__item__title, .news__item__meta, .news__item__excerpt, .news__item__content {
+.news-item__title,
+.news-item__meta,
+.news-item__excerpt,
+.news-item__content {
 	padding-left: 25px;
-	margin:12px 0;
+	margin: 12px 0;
 }
 
-.news__item__thumb{
+.news-item__thumb {
 	display: block;
 	width: 100%;
 	height: auto;
 }
 
-.news__item__title {
-	font-family:$font--heavy;
+.news-item__title {
+	font-family: $font--heavy;
 	font-weight: 700;
 	font-size: 2em;
 
@@ -44,17 +70,25 @@
 	}
 }
 
-.news__item__meta {
-	a{
+.news-item__meta {
+	a {
 		color: $accent;
 		text-decoration: none;
+
 		&:hover {
 			text-decoration: underline;
 		}
 	}
 }
 
-// Read more styles
+
+
+
+
+
+/*-------------------------------------*\
+	Read more link
+\*-------------------------------------*/
 .moretag {
 	display: inline-block;
 	padding: 0 0 0 14px;
@@ -68,7 +102,8 @@
 	margin-top:12px;
 	text-decoration: none;
 
-	&:before, &:after {
+	&:before,
+	&:after {
 		display: block;
 		position: absolute;
 		right: auto;

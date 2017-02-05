@@ -138,8 +138,9 @@ h1 {
 	width: 220px;
 	transform: translateX(170px);
 	transition: transform 200ms $transition--cubic;
+	z-index: 10;
 
-	&:hover{
+	&:hover {
 		transform: translateX(0px);
 	}
 }

@@ -74,7 +74,7 @@
 .event--small {
 	overflow: hidden;
 	position: relative;
-	@include column(12, 6, 4, 3);
+	@include columns(12, 6, 4, 3);
 }
 
 .event--small__anchor {

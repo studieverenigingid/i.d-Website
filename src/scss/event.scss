@@ -12,8 +12,10 @@
 	+ small event (shown on frontpage
 		and event overview)
 	+ event page
+	+ date block
 
 \*-------------------------------------*/
+
 
 
 
@@ -96,11 +98,80 @@
 
 .event--small__name {
 	font-size: 1.3em;
-	margin: .8em 0 .5em;
+	margin: .8em 0 .3em;
 	color: $text;
 }
 
-.event--small__descr {
-	margin: .5em 0 1em;
+.event--small__datetime {
+	margin: .3em 0 1em;
 	color: $text;
+}
+
+
+
+
+
+
+/*-------------------------------------*\
+	Event page
+\*-------------------------------------*/
+.event--page__thumb {
+	width: 100%;
+	overflow: hidden;
+	height: 50vh;
+}
+
+.event--page__img {
+	width: 100%;
+	height: auto;
+}
+
+.event--page__date-and-name {
+	width: 90%;
+	margin: auto;
+	text-align: center;
+	margin-top: -2rem;
+}
+
+@media (min-width: $brk--tablet){
+	.event--page__date-and-name {
+		margin-top: -3.5rem;
+	}
+
+	.event--page__name {
+		display: inline-block;
+		margin: .5em 0 .5em -5.5rem;
+		padding-left: 7rem;
+	}
+}
+
+
+
+
+
+
+/*-------------------------------------*\
+	Date block (recognizable element for
+	an event, similar to how Facebook
+	shows event dates)
+\*-------------------------------------*/
+.date-block {
+	border-radius: .4rem;
+	text-align: center;
+	width: 4.8rem;
+	background: white;
+	display: inline-block;
+	box-shadow: 0 .1rem .3rem transparentize(black, 0.9);
+	color: $text;
+}
+
+.date-block__day {
+	font-size: 2rem;
+	font-family: $font--heavy;
+	margin: .1rem 0 .5rem;
+}
+
+.date-block__month {
+	font-size: .9rem;
+	margin: .5rem 0 .1rem;
 }

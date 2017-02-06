@@ -86,7 +86,7 @@ gulp.task('fonts', function() {
 gulp.task('browserSync', function() {
 	browserSync.init({
 		proxy: {
-			target: 'wp:80'
+			target: 'localhost:80'
 		},
 	})
 })

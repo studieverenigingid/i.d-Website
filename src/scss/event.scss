@@ -72,7 +72,6 @@
 }
 
 .event--small {
-	overflow: hidden;
 	position: relative;
 	@include columns(12, 6, 4, 3);
 }
@@ -83,6 +82,16 @@
 
 .event--small__thumb {
 	box-shadow: 0 .2rem 1rem transparentize(black, 0.7);
+	padding-top: 50%;
+	height: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.event--small__img {
+	margin-top: -50%;
+	width: 100%;
+	height: auto;
 }
 
 .event--small__name {

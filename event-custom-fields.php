@@ -55,7 +55,7 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'options' => array (
-			'position' => 'acf_after_title',
+			'position' => 'normal',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 				0 => 'excerpt',

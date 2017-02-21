@@ -122,20 +122,24 @@
 
 .event--page__short-info {
 	width: 75%;
-	margin: 1rem 0 10% 12.5%;
-	padding: 2rem 2rem 2rem;
-	border: .7rem solid $background--light;
+	margin: 1em 0 10% 12.5%;
+	padding: 2em;
+	border: .7em solid $background--light;
 }
 
 .event--page__name {
 	margin: 0;
 	color: $background--light;
 	text-align: left;
+	position: relative;
+	z-index: 2;
 }
 
-.event--page__time {
+.event--page__datetime {
 	color: $background--light;
 	margin: .7rem 0;
+	position: relative;
+	z-index: 2;
 }
 
 .event--page__thumb {
@@ -143,6 +147,18 @@
 	max-width: 80vw;
 	margin: 5% -34% -4rem 5%;
 	float: right;
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 10em;
+		height: 10em;
+		background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }
 
 .event--page__img {
@@ -155,6 +171,10 @@
 	.event--page__short-info {
 		width: 64%;
 	}
+
+	.event--page__thumb {
+		width: 130%;
+	}
 }
 
 @media (min-width: $brk--phone) {
@@ -163,49 +183,22 @@
 	}
 
 	.event--page__thumb {
-		margin-right: -50%;
+		margin-right: -90%;
+		margin-top: -15%;
+		width: 120%;
+	}
+}
+
+@media (min-width: $brk--tablet) {
+	.event--page__short-info {
+		width: 36%;
+		margin: 3em 0 10% 18%;
+		padding: 3em;
 	}
 
-	// .event--page__short-info {
-	// 	margin-top: -3.5rem;
-	// }
-	//
-	// .event--page__name {
-	// 	display: inline-block;
-	// 	margin: .5em 0 .5em -5.5rem;
-	// 	padding-left: 7rem;
-	// }
-}
-
-
-
-
-
-
-/*-------------------------------------*\
-	Date block (recognizable element for
-	an event, similar to how Facebook
-	shows event dates)
-\*-------------------------------------*/
-.date-block {
-	border-radius: .4rem;
-	text-align: center;
-	width: 4.8rem;
-	background: white;
-	display: inline-block;
-	box-shadow: 0 .2rem .5rem transparentize(black, 0.8);
-	color: $text;
-	margin: -4rem -4rem 5% 5%;
-	float: right;
-}
-
-.date-block__day {
-	font-size: 2rem;
-	font-family: $font--heavy;
-	margin: .1rem 0 .5rem;
-}
-
-.date-block__month {
-	font-size: .9rem;
-	margin: .5rem 0 .1rem;
+	.event--page__thumb {
+		margin-top: -20%;
+		margin-right: -130%;
+		width: 170%;
+	}
 }

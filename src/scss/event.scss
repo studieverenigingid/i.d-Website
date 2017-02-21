@@ -11,8 +11,8 @@
 	+ large event (shown on frontpage)
 	+ small event (shown on frontpage
 		and event overview)
-	+ event page
-	+ date block
+	+ event page top
+	+ event page body
 
 \*-------------------------------------*/
 
@@ -113,7 +113,7 @@
 
 
 /*-------------------------------------*\
-	Event page
+	Event page top
 \*-------------------------------------*/
 .event--page__header {
 	background: $background--dark;
@@ -203,6 +203,14 @@
 	}
 }
 
+
+
+
+
+
+/*-------------------------------------*\
+	Event page body
+\*-------------------------------------*/
 .event--page__content {
 	padding-top: 25%;
 

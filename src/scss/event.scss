@@ -145,7 +145,7 @@
 .event--page__thumb {
 	width: 160%;
 	max-width: 80vw;
-	margin: 5% -34% -4rem 5%;
+	margin: 5% -34% 2rem 15%;
 	float: right;
 	position: relative;
 
@@ -200,5 +200,21 @@
 		margin-top: -20%;
 		margin-right: -130%;
 		width: 170%;
+	}
+}
+
+.event--page__content {
+	padding-top: 25%;
+
+	@media (min-width: $brk--phone) {
+		padding-top: 5em;
+	}
+
+	@media (min-width: $brk--tablet) {
+		padding-top: 8%;
+	}
+
+	@media (min-width: 1440px) {
+		padding-top: 14%;
 	}
 }

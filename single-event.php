@@ -30,14 +30,16 @@
 				?>
 			</div>
 
-			<div class="event--page__thumb">
-				<?php if ( has_post_thumbnail() ) :
+			<?php if ( has_post_thumbnail() ) : ?>
+				<div class="event--page__thumb">
+					<?php
 					the_post_thumbnail(
 						'large',
 						array('class' => 'event--page__img')
 					);
-				endif; ?>
-			</div>
+					?>
+				</div>
+			<?php endif; ?>
 
 		</div>
 
@@ -45,7 +47,11 @@
 
 
 
-	<?php the_content(); ?>
+	<main class="primary-content event--page__content">
+
+		<?php the_content(); ?>
+
+	</main>
 
 
 

@@ -41,7 +41,7 @@ if ($upcoming_loop->have_posts()) :
     <section class="events--small">
 	<?php else:
 
-		 	include( 'small-event.php' );
+      include( 'inc/small-event.php' );
 
 		endif;
 		$upcoming_no++;

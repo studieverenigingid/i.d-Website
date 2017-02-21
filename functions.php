@@ -1,11 +1,11 @@
 <?php
 
-	include( 'event-post-type.php' );
-	include( 'event-custom-fields.php' );
+	include( 'inc/event-post-type.php' );
+	include( 'inc/event-custom-fields.php' );
 
-	include( 'vacancy-post-type.php' );
+	include( 'inc/vacancy-post-type.php' );
 
-	include( 'walkers.php' );
+	include( 'inc/walkers.php' );
 
 	register_nav_menus( array(
 		'primary-menu' => 'Primary Menu',

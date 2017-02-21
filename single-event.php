@@ -22,11 +22,14 @@
 
 				$start_time = $start->format('H:i');
 				$end_time   = $end->format('H:i');
+
+				$location_name = get_field('location_name');
 			?>
 			<div class="event--page__datetime">
 				<?php
 					echo $month . ' ' . $day . ', ';
 					echo $start_time . ' – ' . $end_time;
+					echo ($location_name) ? ' @ ' . $location_name : '';
 				?>
 			</div>
 

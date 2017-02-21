@@ -66,7 +66,8 @@
 				$url = $butt['url'];
 				$text = $butt['text'];
 				$class = 'button--' . $key;
-				if ('' !== $url) echo "<a href='$url' class='button $class'>$text</a>";
+				if ($url !== '' && $url !== null && $url)
+					echo "<a href='$url' class='button $class'>$text</a>";
 			}
 		?>
 

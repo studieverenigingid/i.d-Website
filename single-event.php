@@ -49,6 +49,27 @@
 
 	<main class="primary-content event--page__content">
 
+		<?php
+			$buttons = array();
+
+			$buttons['fb'] = [
+				'url' => get_field('facebook_url'),
+				'text' => 'Facebook event'
+			];
+
+			$buttons['tickets'] = [
+				'url' => get_field('ticket_url'),
+				'text' => 'Get your tickets'
+			];
+
+			foreach ($buttons as $key => $butt) {
+				$url = $butt['url'];
+				$text = $butt['text'];
+				$class = 'button--' . $key;
+				if ('' !== $url) echo "<a href='$url' class='button $class'>$text</a>";
+			}
+		?>
+
 		<?php the_content(); ?>
 
 	</main>

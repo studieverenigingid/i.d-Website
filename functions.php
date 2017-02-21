@@ -1,5 +1,8 @@
 <?php
 
+	include( 'event-post-type.php' );
+	include( 'event-custom-fields.php' );
+
 	include( 'vacancy-post-type.php' );
 
 	register_nav_menus( array(

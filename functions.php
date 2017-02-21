@@ -5,8 +5,11 @@
 
 	include( 'vacancy-post-type.php' );
 
+	include( 'walkers.php' );
+
 	register_nav_menus( array(
-			'primary-menu' => 'Primary Menu'
+		'primary-menu' => 'Primary Menu',
+		'sitemap' => 'Footer Sitemap'
 	) );
 
 

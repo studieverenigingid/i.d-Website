@@ -191,6 +191,32 @@ h1 {
 
 
 
+/*-------------------------------------*\
+	Primary footer
+\*-------------------------------------*/
+.pri-footer {
+	background: $background--gray;
+}
+
+.sitemap {
+	overflow: hidden;
+	color: $background--light;
+}
+
+.sitemap__link {
+	color: $background--light;
+	padding: .2rem 0;
+	display: block;
+}
+
+.sitemap__heading {
+	color: $background--light;
+}
+
+
+
+
+
 
 /*-------------------------------------*\
 	Imports

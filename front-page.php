@@ -52,8 +52,9 @@ if ($upcoming_loop->have_posts()) :
 
 <?php endif; wp_reset_postdata(); ?>
 
+<h2>Vacatures</h2>
 <section class="vacancies">
-	<h2>Vacatures</h2>
+	
 
 	<?php
 		$args = array( 'post_type' => 'vacancy', 'posts_per_page' => 3 );
@@ -79,14 +80,20 @@ if ($upcoming_loop->have_posts()) :
 	<?php
 		endwhile;
 		endif;
+
+		wp_reset_postdata();
 	?>
 
 </section>
 
-<section class="news">
 	<h2>Nieuws en blog</h2>
+<section class="news">
+	
 
-	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+	<?php
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
+		$loop = new WP_Query( $args );
+		if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
 
 	<article class="news-item">
 		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
@@ -107,6 +114,8 @@ if ($upcoming_loop->have_posts()) :
 	<?php
 		endwhile;
 		endif;
+
+		wp_reset_postdata();
 	?>
 
 </section>

@@ -17,7 +17,7 @@
 	News overview container
 \*-------------------------------------*/
 .news {
-	@include container-fluid();
+	@include flex-container();
 }
 
 
@@ -28,10 +28,10 @@
 	News item
 \*-------------------------------------*/
 .news-item {
-	display: block;
-
-	@include columns(12, 6, 4, 3);
+	padding: $pad 0;
+	@include flex-content(100%, 100%, 48%, 31%);
 }
+
 
 .news-item__meta,
 .news-item__excerpt,

@@ -52,4 +52,7 @@
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
 
+	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
+	$img_folder = get_bloginfo('template_directory') . '/static/img/';
+
 ?>

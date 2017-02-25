@@ -1,3 +1,4 @@
+		<?php global $img_folder; ?>
 		<footer class="pri-footer">
 
 			<a href="<?php echo get_site_url(); ?>">

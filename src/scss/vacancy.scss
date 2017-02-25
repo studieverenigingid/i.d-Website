@@ -17,7 +17,7 @@
 	Vacancy overview container
 \*-------------------------------------*/
 .vacancies {
-	@include container-fluid();
+	@include flex-container();
 }
 
 
@@ -28,7 +28,7 @@
 	Vacancy item
 \*-------------------------------------*/
 .vacancy {
-	@include columns(12,6,6,4);
+	@include flex-content(100%, 100%, 48%, 31%);
 }
 
 .vacancy__thumb {

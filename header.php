@@ -1,6 +1,4 @@
-<?php /* Create a variable for the image folder, so you don’t have to PHP it
-	every time, which would make your code significantly more ugly. */
-	$img_folder = get_bloginfo('template_directory') . '/static/img/'; ?>
+<?php global $img_folder; ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>

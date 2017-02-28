@@ -121,8 +121,8 @@ h1 {
 }
 
 .bies__image {
-	min-height: 65px;
-	height: 65px;
+	min-height: 60px;
+	height: 60px;
 
 	@media (min-width: 876px) {
 		width: 100%;
@@ -130,6 +130,58 @@ h1 {
 	}
 }
 // Amen
+
+.bies__menu-toggle {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 3.1rem;
+	width: 3.1rem;
+	line-height: 3.1rem;
+	text-align: left;
+	color: white;
+	font-size: .9rem;
+	z-index: 11;
+	cursor: pointer;
+	transition: width 200ms ease-out;
+
+	@media (min-width: $brk--phone) {
+		display: none;
+	}
+
+	&:before,
+	&:after {
+		display: block;
+		content: "";
+		width: 1.2rem;
+		height: 4px;
+		box-shadow: 0 9px 0 0 white;
+		background: white;
+		position: absolute;
+		right: -.9rem;
+		top: 14px;
+		transition: right 200ms ease-out;
+	}
+
+	&:after {
+		top: 23px;
+		right: -.2rem;
+		width: .8rem;
+	}
+
+	&.opened {
+		width: 4.7rem;
+
+		&:before {
+			right: .9rem;
+		}
+
+		&:after {
+			right: .5rem;
+		}
+	}
+}
+
 
 
 
@@ -141,17 +193,31 @@ h1 {
 .primary-menu {
 	font-family: $font--light;
 	position: fixed;
-	top: 10em;
-	right: 0px;
+	right: 0;
+	top: 0;
 	background: $background--gray;
 	color: white;
-	width: 220px;
-	transform: translateX(170px);
+	width: 100%;
+	transform: translateX(100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
+	padding-top: 2.5rem;
 
-	&:hover {
-		transform: translateX(0px);
+	@media (max-width: $brk--phone + 1) {
+		&.opened {
+			transform: translateX(0px);
+		}
+	}
+
+	@media (min-width: $brk--phone) {
+		width: 220px;
+		transform: translateX(170px);
+		top: 10em;
+		padding-top: 0;
+
+		&:hover {
+			transform: translateX(0px);
+		}
 	}
 }
 

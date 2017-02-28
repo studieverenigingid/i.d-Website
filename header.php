@@ -32,6 +32,7 @@
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
 		<header class="bies">
+
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>
 					<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
@@ -41,6 +42,11 @@
 						src="<?=$img_folder?>bies.png">
 				</picture>
 			</a>
+
+			<div class="js-menu-toggle bies__menu-toggle">
+				menu
+			</div>
+
 		</header>
 
 		<?php wp_nav_menu( array(

@@ -4,6 +4,7 @@
 	include( 'inc/event-custom-fields.php' );
 
 	include( 'inc/vacancy-post-type.php' );
+	include( 'inc/vacancy-custom-fields.php' );
 
 	include( 'inc/walkers.php' );
 

@@ -19,7 +19,9 @@
 .vacancies {
 	@include flex-container();
 	padding: 0;
-	border: 1px solid $background--dark;
+	border-left: 1px solid $background--dark;
+	border-right: 1px solid $background--dark;
+	border-bottom: 1px solid $background--dark;
 }
 
 
@@ -35,6 +37,8 @@
 		flex: 1;	
 	}
 
+	border-top: 1px solid $background--dark;
+
 	@include flex-container();
 	padding: 0;
 }
@@ -46,6 +50,7 @@
 	img {
 		width: 100%;
 		height: auto;
+		display: block;
 	}
 }
 

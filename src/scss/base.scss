@@ -263,6 +263,30 @@ h1 {
 \*-------------------------------------*/
 .pri-footer {
 	background: $background--gray;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1rem $pad;
+
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.pri-footer__col {
+	flex-basis: 10rem;
+	flex-grow: 1;
+	width: 10rem;
+	margin: 0 1rem;
+}
+
+.pri-footer__association {
+	max-width: 16rem;
+}
+
+.pri-footer__logo {
+	@media (min-width: $brk--phone) {
+		margin: .3rem 0;
+	}
 }
 
 .sitemap {

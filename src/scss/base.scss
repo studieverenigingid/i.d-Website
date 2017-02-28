@@ -144,6 +144,7 @@ h1 {
 	z-index: 11;
 	cursor: pointer;
 	transition: width 200ms ease-out;
+	overflow: hidden;
 
 	@media (min-width: $brk--phone) {
 		display: none;
@@ -192,7 +193,7 @@ h1 {
 \*-------------------------------------*/
 .primary-menu {
 	font-family: $font--light;
-	position: fixed;
+	position: absolute;
 	right: 0;
 	top: 0;
 	background: $background--gray;
@@ -202,6 +203,8 @@ h1 {
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
 	padding-top: 2.5rem;
+	max-height: 80vh;
+	overflow-y: auto;
 
 	@media (max-width: $brk--phone + 1) {
 		&.opened {
@@ -212,8 +215,9 @@ h1 {
 	@media (min-width: $brk--phone) {
 		width: 220px;
 		transform: translateX(170px);
-		top: 10em;
+		top: 20vh;
 		padding-top: 0;
+		position: fixed;
 
 		&:hover {
 			transform: translateX(0px);

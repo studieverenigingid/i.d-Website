@@ -52,30 +52,38 @@ if ($upcoming_loop->have_posts()) :
 
 <?php endif; wp_reset_postdata(); ?>
 
-<h2>Vacatures</h2>
 <section class="vacancies">
-	
-
 	<?php
 		$args = array( 'post_type' => 'vacancy', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );
 		if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
 
-	<article class="vacancy">
+		<article class="vacancy">
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail('post-thumbnail', array(
-				'class' => 'vacancy__thumb')); ?>
-		<?php endif; ?>
+			<div class="vacancy__thumb">
+				<?php if ( has_post_thumbnail() ) : ?>
+					<?php the_post_thumbnail('thumb--vacancy', array(
+						'class' => 'thumb--vacancy')); ?>
+				<?php endif; ?>
+			</div>
 
-		<div class="vacancy__content">
-			<h3 class="vacancy__title">
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			</h3>
-			<?php the_excerpt(); ?>
-		</div>
+			<div class="vacancy__content">
+				<h3 class="vacancy__title">
+					<a href="<?php the_permalink(); ?>">
+						Vacancy:
+						<?php 
+							$categories = get_the_category();
+	 
+							if ( ! empty( $categories ) ) {
+							    echo esc_html( $categories[0]->name );   
+							}
+						?>
+					</a>
+				</h3>
+				<?php the_title(); ?>
+			</div>
 
-	</article>
+		</article>
 
 	<?php
 		endwhile;
@@ -84,9 +92,13 @@ if ($upcoming_loop->have_posts()) :
 		wp_reset_postdata();
 	?>
 
+	<div class="vacancy__archivelink">
+		<a href=""><h2>All vacancies</h2></a>
+	</div>
+
 </section>
 
-	<h2>Nieuws en blog</h2>
+<h2>Nieuws en blog</h2>
 <section class="news">
 	
 

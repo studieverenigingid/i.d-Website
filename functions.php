@@ -23,6 +23,8 @@
 		add_theme_support( 'title-tag' ); // Fix the document title tag
 	}
 
+	/* Add thumbnail size */
+	add_image_size( 'thumb--vacancy', 860, 500, array( 'center', 'center' ) );
 
 	/* Replace Wordpress’s version of jQuery with Google API version, since most
 		 browsers will have it in their cache. */

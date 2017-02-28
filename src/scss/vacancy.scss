@@ -18,6 +18,8 @@
 \*-------------------------------------*/
 .vacancies {
 	@include flex-container();
+	padding: 0;
+	border: 1px solid $background--dark;
 }
 
 
@@ -27,15 +29,55 @@
 /*-------------------------------------*\
 	Vacancy item
 \*-------------------------------------*/
-.vacancy {
-	@include flex-content(100%, 100%, 48%, 31%);
+.vacancy, .vacancy__archivelink {
+	@media (min-width: 512px) {
+		min-width: 512px;
+		flex: 1;	
+	}
+
+	@include flex-container();
+	padding: 0;
 }
 
 .vacancy__thumb {
-	@include columns(12,12,6,6);
-	height: auto;
+	flex: 1;
+	min-width: 256px;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .vacancy__content {
-	@include columns(12,12,6,6);
+	padding: $pad;
+	min-width: 256px;
+	flex:1;
+}
+
+.vacancy__title {
+	margin-top: 0px;
+	a {
+		color: $background--dark;
+		text-decoration: none;
+	}
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
+}
+
+.vacancy__archivelink {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $background--dark;
+	a {
+		text-decoration: none;
+		color: white;
+	}
+
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
 }

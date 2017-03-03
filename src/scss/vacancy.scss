@@ -29,7 +29,7 @@
 
 
 /*-------------------------------------*\
-	Vacancy item
+	Large vacancy
 \*-------------------------------------*/
 .vacancy, .vacancy__archivelink {
 	@media (min-width: 512px) {
@@ -58,10 +58,12 @@
 	padding: $pad;
 	min-width: 256px;
 	flex:1;
+	vertical-align: middle;
 }
 
 .vacancy__title {
-	margin-top: 0px;
+	margin: 0px;
+	font-size: 2rem;
 	a {
 		color: $background--dark;
 		text-decoration: none;
@@ -85,4 +87,42 @@
 	a:hover, a:focus {
 		text-decoration: underline;
 	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Small vacancy
+\*-------------------------------------*/
+.vacancies--small {
+	@include flex-container();
+	justify-content: flex-start;
+}
+
+.vacancy--small {
+	@media (min-width: 384px) {
+		min-width: 384px;
+		flex: 1;	
+	}
+
+	@include flex-container();
+	padding: 0 $pad;
+}
+
+.vacancy--small__thumb {
+	max-width: 100%;
+	height: auto;
+}
+
+.vacancy--small__name {
+	font-size: 1.3em;
+	margin: .8em 0 .3em;
+	color: $text;
+}
+
+.vacancy--small__description {
+	margin: .3em 0 1em;
+	color: $text;
 }

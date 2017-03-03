@@ -81,21 +81,3 @@ $brk--desktop: 1200px;
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
-
-@mixin flex-content($width--phone, $width--tablet, $width--desktop, $width--superwide){
-	@media (max-width: #{$brk--phone}-1) {
-		flex-basis: $width--phone;
-	}
-
-	@media (min-width: $brk--phone) and (max-width: #{$brk--tablet}-1) {
-		flex-basis: $width--tablet;
-	}
-
-	@media (min-width: $brk--tablet) and (max-width: #{$brk--desktop}-1) {
-		flex-basis: $width--desktop;
-	}
-
-	@media (min-width: $brk--desktop) {
-		flex-basis: $width--superwide;
-	}
-}

@@ -28,8 +28,9 @@
 	News item
 \*-------------------------------------*/
 .news-item {
-	padding: $pad 0;
-	@include flex-content(100%, 100%, 48%, 31%);
+	padding: $pad;
+	flex: 1;
+	min-width: 512px;
 }
 
 

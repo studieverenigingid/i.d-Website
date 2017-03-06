@@ -69,7 +69,7 @@ dashes
 3. Don’t use prefixes, we have autoprefixer
 4. Use 0, not none
 5. One selector per line
-6. Use BEM (Block, Element, Modifier) – example: `.btn` defines the precense of
+6. Use BEM (Block, Element, Modifier) – example: `.btn` defines the presence of
 	a shadow, the font, etc., `.btn--default` defines the colours for the default
 	button, `btn--education` the colours for the button when used in an education
 	context (for example in the onderwijsbriefje), `.btn__icon` defines the

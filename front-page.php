@@ -4,25 +4,26 @@
 
 
 
+<section class="events">
+
 <?php $today = date('Ymd');
 
 $upcoming_loop = new WP_Query( array(
   'post_type' => 'event',
   'posts_per_page' => 4,
-  // 'meta_query' => array(
-  //   array(
-  //     'key'     => 'date',
-  //     'compare' => '>=',
-  //     'value'   => $today,
-  //   ),
-  // ),
-  // 'orderby' => 'date',
-  // 'order' => 'ASC',
+  'meta_query' => array(
+    array(
+      'key'     => 'start_datetime',
+      'compare' => '>=',
+      'value'   => $today,
+      'type'    => 'DATE'
+    ),
+  ),
+  'orderby' => 'start_datetime',
+  'order' => 'ASC',
 ) );
 if ($upcoming_loop->have_posts()) :
 	$upcoming_no = 0; ?>
-
-	<section class="events">
 
 	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
 		if($upcoming_no === 0): ?>
@@ -41,22 +42,59 @@ if ($upcoming_loop->have_posts()) :
     <section class="events--small">
 	<?php else:
 
+      if($upcoming_no === 1) { ?>
+
+        <article class="event--small">
+          <h2 class="events--small__series-title">Upcoming events</h2>
+        </article>
+
+      <?php }
+
       include( 'inc/small-event.php' );
 
 		endif;
 		$upcoming_no++;
-		endwhile; ?>
+		endwhile; endif; ?>
+
+    </section>
+
+    <section class="events--small">
+      <?php
+        wp_reset_postdata();
+        $past_loop = new WP_Query( array(
+          'post_type' => 'event',
+          'posts_per_page' => 3,
+          'meta_query' => array(
+            array(
+              'key'     => 'start_datetime',
+              'compare' => '<',
+              'value'   => $today,
+              'type'    => 'DATE'
+            ),
+          ),
+          'orderby' => 'start_datetime',
+          'order' => 'DESC',
+        ) );
+        if ($past_loop->have_posts()) : ?>
+        <article class="event--small event-small--2">
+          <h2 class="events--small__series-title">Past events</h2>
+        </article>
+    <?php
+          while($past_loop->have_posts()) {
+            $past_loop->the_post();
+            include( 'inc/small-event.php' );
+          } endif; ?>
 
     </section>
 	</section>
 
-<?php endif; wp_reset_postdata(); ?>
+<?php wp_reset_postdata(); ?>
 
 <section class="vacancies">
 	<?php
 		// filter
 		function my_posts_where( $where ) {
-			
+
 			$where = str_replace("meta_key = 'dates_%", "meta_key LIKE 'dates_%", $where);
 
 			return $where;
@@ -102,11 +140,11 @@ if ($upcoming_loop->have_posts()) :
 				<h3 class="vacancy__title">
 					<a href="<?php the_permalink(); ?>">
 						Vacancy:
-						<?php 
+						<?php
 							$categories = get_the_category();
-	 
+
 							if ( ! empty( $categories ) ) {
-							    echo esc_html( $categories[0]->name );   
+							    echo esc_html( $categories[0]->name );
 							}
 						?>
 					</a>
@@ -131,7 +169,7 @@ if ($upcoming_loop->have_posts()) :
 
 <h2>Nieuws en blog</h2>
 <section class="news">
-	
+
 
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );

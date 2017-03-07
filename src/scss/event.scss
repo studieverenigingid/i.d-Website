@@ -71,6 +71,14 @@
 \*-------------------------------------*/
 .events--small {
 	@include container-fluid();
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.events--small__series-title {
+	color: $background--dark;
+	font-size: 2.4em;
+	margin: .8em .5em;
 }
 
 .event--small {

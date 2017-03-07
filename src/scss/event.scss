@@ -70,9 +70,13 @@
 	Small event
 \*-------------------------------------*/
 .events--small {
-	@include container-fluid();
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+	margin: 1rem;
+
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 
 .events--small__series-title {
@@ -87,7 +91,16 @@
 
 .event--small {
 	position: relative;
-	@include columns(12, 6, 4, 3);
+	margin: 0 1rem;
+
+	flex-basis: 14rem;
+	flex-grow: 1;
+	width: 14rem;
+	max-width: 20rem;
+
+	@media (min-width: $brk--desktop) {
+		margin: .5rem 1.5rem;
+	}
 }
 
 .event--small__anchor {

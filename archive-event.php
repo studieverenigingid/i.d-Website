@@ -1,14 +1,16 @@
 <?php get_header(); ?>
 
-<main class="events--small">
+<main>
 
 	<h1><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
 
-	<?php while(have_posts()) : the_post(); ?>
+	<section class="events--small">
+		<?php while(have_posts()) : the_post(); ?>
 
-		<?php include( 'inc/small-event.php' ); ?>
+			<?php include( 'inc/small-event.php' ); ?>
 
-	<?php endwhile; ?>
+		<?php endwhile; ?>
+	</section>
 
 	<nav class="pagination"><?php
 		$big = 999999999;

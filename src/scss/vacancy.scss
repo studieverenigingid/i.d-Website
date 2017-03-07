@@ -99,6 +99,7 @@
 .vacancies--small {
 	@include flex-container();
 	justify-content: flex-start;
+	flex-direction: row;
 }
 
 .vacancy--small {
@@ -113,16 +114,125 @@
 
 .vacancy--small__thumb {
 	max-width: 100%;
-	height: auto;
+	height: 100%;
+	display: block;
 }
 
-.vacancy--small__name {
+.vacancy--small__type {
 	font-size: 1.3em;
 	margin: .8em 0 .3em;
+	a {
+		text-decoration: none;
+		color: black;
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
+.vacancy--small__title {
+	margin: .3em 0 1em;
 	color: $text;
 }
 
-.vacancy--small__description {
-	margin: .3em 0 1em;
-	color: $text;
+
+
+
+
+/*-------------------------------------*\
+	Event page top
+\*-------------------------------------*/
+.vacancy--page__header {
+	background: $background--dark;
+	padding: .1rem 0 4rem;
+}
+
+.vacancy--page__short-info {
+	width: 75%;
+	margin: 1em 0 10% 12.5%;
+	padding: 2em;
+	border: .7em solid $background--light;
+}
+
+.vacancy--page__title {
+	margin: 0;
+	color: $background--light;
+	text-align: left;
+	position: relative;
+	z-index: 2;
+}
+
+.vacancy--page__type {
+	color: $background--light;
+	margin: .7rem 0;
+	position: relative;
+	z-index: 2;
+}
+
+.vacancy--page__thumb {
+	width: 160%;
+	max-width: 80vw;
+	margin: 5% -34% 2rem 15%;
+	float: right;
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 10em;
+		height: 10em;
+		background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.vacancy--page__img {
+	width: 100%;
+	height: auto;
+	box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+}
+
+.vacancy--page__content {
+	img {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 550px) {
+	.vacancy--page__short-info {
+		width: 64%;
+	}
+
+	.vacancy--page__thumb {
+		width: 130%;
+	}
+}
+
+@media (min-width: $brk--phone) {
+	.vacancy--page__short-info {
+		width: 50%;
+	}
+
+	.vacancy--page__thumb {
+		margin-right: -90%;
+		margin-top: -15%;
+		width: 120%;
+	}
+}
+
+@media (min-width: $brk--tablet) {
+	.vacancy--page__short-info {
+		width: 36%;
+		margin: 3em 0 10% 18%;
+		padding: 3em;
+	}
+
+	.vacancy--page__thumb {
+		margin-top: -20%;
+		margin-right: -130%;
+		width: 170%;
+	}
 }

@@ -29,8 +29,11 @@
 \*-------------------------------------*/
 .news-item {
 	padding: $pad;
-	flex: 1;
-	min-width: 512px;
+
+	@media (min-width: 512px) {
+ 		min-width: 512px;
+ 		flex: 1;	
+	}
 }
 
 

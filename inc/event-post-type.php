@@ -29,6 +29,7 @@ function create_event_post_type() {
 		),
 		'public' => true,
 		'has_archive' => true,
+		'menu_icon'   => 'dashicons-schedule',
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'rewrite' => true,

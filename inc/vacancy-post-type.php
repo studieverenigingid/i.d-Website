@@ -29,6 +29,7 @@ function create_vacancy_post_type() {
 		),
 		'public' => true,
 		'has_archive' => true,
+		'menu_icon'   => 'dashicons-building',
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'rewrite' => true,

@@ -326,7 +326,9 @@ h1 {
 
 .social__links {
 	.button {
+		display: inline-block;
 		padding: $pad/2 $pad;
+		margin: 5px 0;
 		border-radius: 50px;
 		color: white;
 		text-decoration: none;

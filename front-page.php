@@ -35,7 +35,31 @@ if ($upcoming_loop->have_posts()) :
             array('class' => 'event--large__thumb')
           );
 				endif; ?>
-				<h2 class="event--large__name"><?php the_title(); ?></h2>
+        <div class="event--large__info">
+          <h2 class="event--large__name"><?php the_title(); ?></h2>
+          <?php
+    				$start = new DateTime(get_field('start_datetime'));
+    				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+
+    				$end = new DateTime(get_field('end_datetime'));
+    				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+
+    				$month = $start->format('F');
+    				$day   = $start->format('jS');
+
+    				$start_time = $start->format('H:i');
+    				$end_time   = $end->format('H:i');
+
+    				$location_name = get_field('location_name');
+    			?>
+    			<div class="event--page__datetime">
+    				<?php
+    					echo $month . ' ' . $day . ', ';
+    					echo $start_time . ' – ' . $end_time;
+    					echo ($location_name) ? ' @ ' . $location_name : '';
+    				?>
+    			</div>
+        </div>
 			</a>
 		</article>
 

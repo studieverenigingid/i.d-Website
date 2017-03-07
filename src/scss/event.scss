@@ -52,13 +52,18 @@
 	}
 }
 
+.event--large__info {
+	position: absolute;
+	top: 22%;
+	left: 8%;
+	max-width: 50rem;
+	text-shadow: 0 .4rem .8rem transparentize(black, 0.6);
+}
+
 .event--large__name {
 	font-size: 3.5em;
 	color: white;
-	position: absolute;
-	top: 35%;
-	left: 10%;
-	text-shadow: 0 .5rem 1rem transparentize(black, 0.7);
+	margin: .1em 0 .6em;
 }
 
 

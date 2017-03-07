@@ -25,10 +25,12 @@
 
 			<div class="pri-footer__contact pri-footer__col">
 				<h2 class="sitemap__heading">Social media</h2>
-				<a href="https://www.instagram.com/studieverenigingid/" class="button button--insta">Instagram</a>
-				<a href="https://www.facebook.com/studieverenigingi.d/" class="button button--facebook">Facebook</a>
-				<a href="https://www.flickr.com/photos/svid/" class="button button-flickr">Flickr</a>
-				<a href="https://vimeo.com/studieverenigingid" class="button button--vimeo">Vimeo</a>
+				<div class="social__links" >
+					<a href="https://www.instagram.com/studieverenigingid/" class="button button--insta"><i class="fa fa-instagram"></i> Instagram</a>
+					<a href="https://www.facebook.com/studieverenigingi.d/" class="button button--facebook"><i class="fa fa-facebook"></i> Facebook</a>
+					<a href="https://www.flickr.com/photos/svid/" class="button button--flickr"><i class="fa fa-flickr"></i> Flickr</a>
+					<a href="https://vimeo.com/studieverenigingid" class="button button--vimeo"><i class="fa fa-vimeo"></i> Vimeo</a>
+				</div>
 			</div>
 
 		</footer>

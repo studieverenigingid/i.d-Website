@@ -114,42 +114,43 @@ if ($upcoming_loop->have_posts()) :
 
 <?php wp_reset_postdata(); ?>
 
-<section class="vacancies">
-	<?php
-		// filter
-		function my_posts_where( $where ) {
+<?php
+	// filter
+	function my_posts_where( $where ) {
 
-			$where = str_replace("meta_key = 'dates_%", "meta_key LIKE 'dates_%", $where);
+		$where = str_replace("meta_key = 'dates_%", "meta_key LIKE 'dates_%", $where);
 
-			return $where;
-		}
+		return $where;
+	}
 
-		add_filter('posts_where', 'my_posts_where');
+	add_filter('posts_where', 'my_posts_where');
 
 
-		// find todays date
-		$date = date('Ymd');
+	// find todays date
+	$date = date('Ymd');
 
-		// args
-		$args = array(
-			'post_type' => 'vacancy',
-			'meta_query'	=> array(
-				'relation'		=> 'AND',
-				array(
-					'key'		=> 'dates_%_start_date',
-					'compare'	=> '<=',
-					'value'		=> $date,
-				),
-				array(
-					'key'		=> 'dates_%_end_date',
-					'compare'	=> '>=',
-					'value'		=> $date,
-				)
+	// args
+	$args = array(
+		'post_type' => 'vacancy',
+		'meta_query'	=> array(
+			'relation'		=> 'AND',
+			array(
+				'key'		=> 'dates_%_start_date',
+				'compare'	=> '<=',
+				'value'		=> $date,
+			),
+			array(
+				'key'		=> 'dates_%_end_date',
+				'compare'	=> '>=',
+				'value'		=> $date,
 			)
-		);
+		)
+	);
 
-		$loop = new WP_Query( $args );
-		if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
+	$vacancy_loop = new WP_Query( $args );
+	if($vacancy_loop->have_posts()) : ?>
+    <section class="vacancies">
+    <?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
 		<article class="vacancy">
 
@@ -178,18 +179,19 @@ if ($upcoming_loop->have_posts()) :
 
 		</article>
 
-	<?php
-		endwhile;
+	<?php endwhile; ?>
+
+  <div class="vacancy__archivelink">
+		<a href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>"><h2>All vacancies</h2></a>
+	</div>
+
+  </section>
+
+  <?php
 		endif;
 
 		wp_reset_postdata();
 	?>
-
-	<div class="vacancy__archivelink">
-		<a href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>"><h2>All vacancies</h2></a>
-	</div>
-
-</section>
 
 <h2>Nieuws en blog</h2>
 <section class="news">

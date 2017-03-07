@@ -68,11 +68,17 @@ $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 	Reset
 \*-------------------------------------*/
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	background: $background--light;
 	font-family: $font--light;
 	font-size: 16px;
+	overflow-x: hidden;
+	position: relative;
 
 	@media (min-width: $brk--tablet) {
 		font-size: 18px;

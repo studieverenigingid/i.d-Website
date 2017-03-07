@@ -39,32 +39,9 @@
 
 	<main class="primary-content vacancy--page__content">
 
-		<?php
-			$buttons = array();
-
-			$buttons['fb'] = [
-				'url' => get_field('facebook_url'),
-				'text' => 'Facebook vacancy'
-			];
-
-			$buttons['tickets'] = [
-				'url' => get_field('ticket_url'),
-				'text' => 'Get your tickets'
-			];
-
-			foreach ($buttons as $key => $butt) {
-				$url = $butt['url'];
-				$text = $butt['text'];
-				$class = 'button--' . $key;
-				if ($url !== '' && $url !== null && $url)
-					echo "<a href='$url' class='button $class'>$text</a>";
-			}
-		?>
-
 		<?php the_content(); ?>
 
 	</main>
-
 
 
 <?php endwhile; endif; ?>

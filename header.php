@@ -8,6 +8,9 @@
 		<meta name="theme-color" content="#000000"><?php /* TODO:
 		replace with realfavicongenerator.net snippet */ ?>
 
+		<!-- Temporariy Icon Font -->
+		<script src="https://use.fontawesome.com/2682b15f5d.js"></script>
+
 		<?php
 			if ( ! function_exists( '_wp_render_title_tag' ) ) :
 			function spi_render_title() {

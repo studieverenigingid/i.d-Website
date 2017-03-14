@@ -58,10 +58,14 @@ $background--dark: #998979;
 $background--gray: #444444;
 $text: #444444;
 
-$hex--insta: #e1306c;
-$hex--facebook:#3b5998;
-$hex--flickr: #ff0084;
-$hex--vimeo: #1ab7ea;
+// Page specific color accents
+$hex-education: #F18918;
+
+// Social colors
+$hex-insta: #e1306c;
+$hex-facebook:#3b5998;
+$hex-flickr: #ff0084;
+$hex-vimeo: #1ab7ea;
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -114,6 +118,12 @@ h6 {
 h1 {
 	font-size: 3em;
 	color: $background--dark;
+}
+
+h2 {
+	font-size: 3.5em;
+	color: white;
+	margin: .1em 0 .6em;
 }
 
 
@@ -336,34 +346,34 @@ h1 {
 }
 
 .button--insta {
-	background: $hex--insta;
+	background: $hex-insta;
 
 	&:hover {
-		background: darken($hex--insta, 10%);
+		background: darken($hex-insta, 10%);
 	}
 }
 
 .button--facebook {
-	background: $hex--facebook;
+	background: $hex-facebook;
 	
 	&:hover {
-		background: darken($hex--facebook, 10%);
+		background: darken($hex-facebook, 10%);
 	}
 }
 
 .button--flickr {
-	background: $hex--flickr;
+	background: $hex-flickr;
 	
 	&:hover {
-		background: darken($hex--flickr, 10%);
+		background: darken($hex-flickr, 10%);
 	}
 }
 
 .button--vimeo {
-	background: $hex--vimeo;
+	background: $hex-vimeo;
 	
 	&:hover {
-		background: darken($hex--vimeo, 10%);
+		background: darken($hex-vimeo, 10%);
 	}
 }
 
@@ -381,3 +391,6 @@ h1 {
 
 // Vacancies (vacatures)
 @import "vacancy";
+
+// Education
+@import "education";

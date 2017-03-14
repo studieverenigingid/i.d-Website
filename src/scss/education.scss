@@ -1,0 +1,50 @@
+/*-------------------------------------*\
+
+    Started by Emil Flach
+	Education page and page specific styling
+	education.scss (included in base.scss):
+
+\*-------------------------------------*/
+
+.education {
+  &__hero {
+    position: relative;
+    background-color: $background--dark;
+    height: 60vh;
+
+    @media (max-width: $brk--phone) {
+      height: 80vh;
+    }
+
+    &-image {
+      display: none;
+
+    }
+  }
+  &__feedback {
+    position: absolute;
+    padding: 2rem 2rem 1rem;
+    background-color: $hex-education;
+    width: 40%;
+    right: 10%;
+    bottom: -2rem;
+
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      appearance: none;
+      color: white;
+      &::placeholder {
+        color: white;
+      }
+    }
+
+    @media(max-width: $brk--phone) {
+      width: 90%;
+      right: 5%;
+    }
+  }
+
+}

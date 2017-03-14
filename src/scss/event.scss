@@ -29,6 +29,7 @@
 	overflow: hidden;
 	position: relative;
 	height: 60vh;
+	margin-bottom: 1.5rem;
 
 	@media (min-width: $brk--phone) {
 		height: 80vh;
@@ -75,7 +76,6 @@
 	Small event
 \*-------------------------------------*/
 .events--small {
-	padding-top: 2rem;
 	padding-bottom: 2rem;
 	margin: 1rem;
 
@@ -255,4 +255,16 @@
 	@media (min-width: 1440px) {
 		padding-top: 14%;
 	}
+}
+
+
+
+
+
+
+/*-------------------------------------*\
+	Event archive
+\*-------------------------------------*/
+.archive__title {
+	margin: 1em 2rem .5em;
 }

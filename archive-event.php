@@ -2,7 +2,7 @@
 
 <main>
 
-	<h1><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
+	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
 
 	<section class="events--small">
 		<?php while(have_posts()) : the_post(); ?>

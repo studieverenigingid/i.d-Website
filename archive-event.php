@@ -4,13 +4,13 @@
 
 	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
 
-	<section class="events--small">
+	<div class="events--small">
 		<?php while(have_posts()) : the_post(); ?>
 
 			<?php include( 'inc/small-event.php' ); ?>
 
 		<?php endwhile; ?>
-	</section>
+	</div>
 
 	<nav class="pagination"><?php
 		$big = 999999999;

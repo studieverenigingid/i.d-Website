@@ -63,7 +63,7 @@ if ($upcoming_loop->have_posts()) :
 			</a>
 		</article>
 
-    <section class="events--small">
+    <div class="events--small">
 	<?php else:
 
       if($upcoming_no === 1) { ?>
@@ -80,9 +80,9 @@ if ($upcoming_loop->have_posts()) :
 		$upcoming_no++;
 		endwhile; endif; ?>
 
-    </section>
+    </div>
 
-    <section class="events--small">
+    <div class="events--small">
       <?php
         wp_reset_postdata();
         $past_loop = new WP_Query( array(
@@ -100,16 +100,16 @@ if ($upcoming_loop->have_posts()) :
           'order' => 'DESC',
         ) );
         if ($past_loop->have_posts()) : ?>
-        <article class="event--small event-small--2">
+        <div class="event--small event-small--2">
           <h2 class="events--small__series-title">Past events</h2>
-        </article>
+        </div>
     <?php
           while($past_loop->have_posts()) {
             $past_loop->the_post();
             include( 'inc/small-event.php' );
           } endif; ?>
 
-    </section>
+    </div>
 	</section>
 
 <?php wp_reset_postdata(); ?>

@@ -100,7 +100,7 @@ if ($upcoming_loop->have_posts()) :
           'order' => 'DESC',
         ) );
         if ($past_loop->have_posts()) : ?>
-        <div class="event--small event-small--2">
+        <div class="event--small event--small--end">
           <h2 class="events--small__series-title">Past events</h2>
         </div>
     <?php

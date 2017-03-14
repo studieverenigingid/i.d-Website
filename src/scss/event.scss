@@ -105,6 +105,12 @@
 	@media (min-width: $brk--desktop) {
 		margin: .5rem 1.5rem;
 	}
+
+	&--end {
+		@media (min-width: 1056px) {
+			order: 4;
+		}
+	}
 }
 
 .event--small__anchor {

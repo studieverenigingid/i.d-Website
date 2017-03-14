@@ -1,0 +1,39 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: PAGINATION
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	pagination.scss:
+	+
+
+\*-------------------------------------*/
+
+
+
+
+
+
+/*-------------------------------------*\
+	Pagination container
+\*-------------------------------------*/
+.pagination {
+	text-align: center;
+	padding: 0 0 2rem;
+}
+
+.page-numbers { // Wordpress doesn’t allow custom classes :DDDD
+	padding: .2em .5em;
+	display: inline-block;
+	border: 1px solid $background--dark;
+	color: $background--dark;
+	text-decoration: none;
+
+	&.current {
+		background: $background--dark;
+		color: $background--light;
+	}
+}

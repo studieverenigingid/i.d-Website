@@ -97,17 +97,24 @@
 	position: relative;
 	margin: 0 1rem;
 
-	flex-basis: 14rem;
+	flex-basis: 20rem;
 	flex-grow: 1;
 	width: 14rem;
-	max-width: 20rem;
 
 	@media (min-width: $brk--desktop) {
 		margin: .5rem 1.5rem;
 	}
+	@media (min-width: 1000px) {
+		flex-basis: 12.6rem;
+	}
+
+	@media (min-width: 1440px) {
+		max-width: 20rem;
+		flex-basis: 15rem;
+	}
 
 	&--end {
-		@media (min-width: 1056px) {
+		@media (min-width: 1000px) {
 			order: 4;
 		}
 	}

@@ -3,7 +3,17 @@
 ## Getting started
 Want to contribute? Setup your development environment:
 
-1. Assuming you’ve cloned this repo and installed
+### Back-end
+
+1. Set up a Wordpress installation
+2. Clone the repository to your `wp-content/themes`
+3. Create two menus at wp-admin/nav-menus.php and assign them to `Primary Menu` and `Footer Sitemap`
+4. Install [ACF](https://www.advancedcustomfields.com/)
+5. Generate or create fake posts (e.g. using [FakerPress](https://wordpress.org/plugins/fakerpress/))
+
+### Front-end
+
+1. Assuming you’ve installed
 [Node with npm](https://nodejs.org/en/) and [gulp](http://gulpjs.com/),
 run `npm install`
 2. Run `gulp` to compile, concat and copy the files to `static/` and have it

@@ -11,6 +11,7 @@
     position: relative;
     background-color: $background--dark;
     height: 60vh;
+    margin-bottom: 2rem;
 
     @media (max-width: $brk--phone) {
       height: 80vh;
@@ -28,23 +29,83 @@
     width: 40%;
     right: 10%;
     bottom: -2rem;
+    text-align: right;
+    overflow: hidden;
+
+    @media(max-width: $brk--phone) {
+      padding: 1rem;
+      width: 94%;
+      right: 3%;
+    }
+
+    &--sending {
+      button {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    &--success, &--failed {
+      textarea {
+        transform: translateX(150%);
+      }
+    }
+
+    &--success {
+      .education__feedback-message--failed {
+        opacity: 0;
+      }
+    }
+    &--failed {
+      .education__feedback-message--success {
+        opacity: 0;
+      }
+    }
+
+    &-message {
+      position: absolute;
+      top: 45%;
+      left: 2rem;
+      right: 2rem;
+      color: white;
+      text-align: center;
+      transform: translateY(-50%);
+    }
 
     textarea {
+      position: relative;
       width: 100%;
-      background-color: transparent;
+      padding: 0.5rem;
+      color: white;
+      background-color: darken($hex-education, 10%);
+      transition: transform 0.25s ease;
       border: none;
       outline: none;
       appearance: none;
-      color: white;
       &::placeholder {
         color: white;
       }
     }
 
-    @media(max-width: $brk--phone) {
-      width: 90%;
-      right: 5%;
+    button {
+      border: none;
+      outline: none;
+      background-color: $accent;
+      color: white;
+      padding: 1rem 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: darken($accent, 10%);
+      }
+      &:active {
+        background-color: lighten($accent, 10%);
+      }
     }
+
   }
 
 }

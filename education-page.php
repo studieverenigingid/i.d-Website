@@ -16,7 +16,13 @@ Template Name: Education Page
     <h2><?= the_title(); ?></h2>
 
     <form action="#" class="education__feedback">
-        <textarea name="feedback" id="" cols="30" rows="20" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>"></textarea>
+        <div class="education__feedback-message education__feedback-message--success">
+            <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
+        </div>
+        <div class="education__feedback-message education__feedback-message--failed">
+            <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
+        </div>
+        <textarea name="feedback" id="" cols="30" rows="20" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
         <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
     </form>
 </section>

@@ -1,13 +1,16 @@
 <?php get_header(); ?>
 
-<h1><?php echo esc_attr_x( 'Vacancies', 'archive title' ); ?></h1>
-<main class="vacancies--small">
+<main>
 
-	<?php while(have_posts()) : the_post(); ?>
+	<h1 class="archive__title"><?php echo esc_attr_x( 'Vacancies', 'archive title' ); ?></h1>
 
-		<?php include( 'inc/small-vacancy.php' ); ?>
+	<div class="vacancies--small">
+		<?php while(have_posts()) : the_post(); ?>
 
-	<?php endwhile; ?>
+			<?php include( 'inc/small-vacancy.php' ); ?>
+
+		<?php endwhile; ?>
+	</div>
 
 	<nav class="pagination"><?php
 		$big = 999999999;

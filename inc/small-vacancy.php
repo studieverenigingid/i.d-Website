@@ -1,26 +1,35 @@
 <article class="vacancy--small">
-		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('large', array( 'class' => 'vacancy--small__thumb')); ?><?php endif; ?>
-		<div>
-			<h3 class="vacancy--small__type">
-				<?php 
-					$categories = get_the_category();
 
-					if ( ! empty( $categories ) ) {
-					    echo esc_html( $categories[0]->name );   
-					}
-				?>
-			</h3>
-			<p class="vacancy--small__title">
-				<?php the_title(); ?>
-			</p>
-			<?php 
+	<?php
+		if ( has_post_thumbnail() ) {
+			the_post_thumbnail('large',
+				array( 'class' => 'vacancy__img')
+			);
+		}
+	?>
 
-				$file = get_field('vacancy_attachment');
+	<div>
 
-				if( $file ): ?>
-					
-					<a target="_BLANK" href="<?php echo $file['url']; ?>">Attachment</a>
+		<?php
+			$categories = get_the_category();
+			if ( !empty($categories) ) {
+		    echo '<h3>' . esc_html( $categories[0]->name ) . '</h3>';
+			}
+		?>
 
-				<?php endif; ?>
-		</div>
+		<p class="vacancy--small__title">
+			<?php the_title(); ?>
+		</p>
+
+		<?php
+			$file = get_field('vacancy_attachment');
+			if( $file ): ?>
+				<a target="_blank" class="button"
+					href="<?php echo $file['url']; ?>">
+					<i class="fa fa-file-text-o"></i> Attachment
+				</a>
+		<?php endif; ?>
+
+	</div>
+
 </article>

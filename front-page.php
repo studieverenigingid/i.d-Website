@@ -156,8 +156,8 @@ if ($upcoming_loop->have_posts()) :
 
 			<div class="vacancy__thumb">
 				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail('thumb--vacancy', array(
-						'class' => 'thumb--vacancy')); ?>
+					<?php the_post_thumbnail('vacancy__img', array(
+						'class' => 'vacancy__img')); ?>
 				<?php endif; ?>
 			</div>
 
@@ -173,13 +173,16 @@ if ($upcoming_loop->have_posts()) :
 					?>
 				</h3>
 				<p><?php the_title(); ?></p>
-				<?php 
+				<?php
 
 				$file = get_field('vacancy_attachment');
 
 				if( $file ): ?>
-					
-					<a target="_BLANK" href="<?php echo $file['url']; ?>">Attachment</a>
+
+					<a target="_blank" class="button"
+            href="<?php echo $file['url']; ?>">
+            <i class="fa fa-file-text-o"></i> Attachment
+          </a>
 
 				<?php endif; ?>
 			</div>
@@ -188,8 +191,11 @@ if ($upcoming_loop->have_posts()) :
 
 	<?php endwhile; ?>
 
-  <div class="vacancy__archivelink">
-		<a href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>"><h2>All vacancies</h2></a>
+  <div class="vacancy">
+		<a class="vacancy__archivelink"
+      href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+      <h2>All vacancies</h2>
+    </a>
 	</div>
 
   </section>

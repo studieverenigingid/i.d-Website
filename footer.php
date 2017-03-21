@@ -25,7 +25,7 @@
 
 			<div class="pri-footer__contact pri-footer__col">
 				<h2 class="sitemap__heading">Social media</h2>
-				<div class="social__links" >
+				<div>
 					<a href="https://www.instagram.com/studieverenigingid/" class="button button--insta"><i class="fa fa-instagram"></i> Instagram</a>
 					<a href="https://www.facebook.com/studieverenigingi.d/" class="button button--facebook"><i class="fa fa-facebook"></i> Facebook</a>
 					<a href="https://www.flickr.com/photos/svid/" class="button button--flickr"><i class="fa fa-flickr"></i> Flickr</a>

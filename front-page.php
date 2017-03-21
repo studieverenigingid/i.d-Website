@@ -163,18 +163,25 @@ if ($upcoming_loop->have_posts()) :
 
 			<div class="vacancy__content">
 				<h3 class="vacancy__title">
-					<a href="<?php the_permalink(); ?>">
-						Vacancy:
-						<?php
-							$categories = get_the_category();
+					Vacancy:
+					<?php
+						$categories = get_the_category();
 
-							if ( ! empty( $categories ) ) {
-							    echo esc_html( $categories[0]->name );
-							}
-						?>
-					</a>
+						if ( ! empty( $categories ) ) {
+						    echo esc_html( $categories[0]->name );
+						}
+					?>
 				</h3>
-				<?php the_title(); ?>
+				<p><?php the_title(); ?></p>
+				<?php 
+
+				$file = get_field('vacancy_attachment');
+
+				if( $file ): ?>
+					
+					<a target="_BLANK" href="<?php echo $file['url']; ?>">Attachment</a>
+
+				<?php endif; ?>
 			</div>
 
 		</article>

@@ -1,21 +1,26 @@
 <article class="vacancy--small">
-		<a href="<?php the_permalink(); ?>" class="vacancy--small__anchor">
-			<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('large', array( 'class' => 'vacancy--small__thumb')); ?><?php endif; ?>
-		</a>
+		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('large', array( 'class' => 'vacancy--small__thumb')); ?><?php endif; ?>
 		<div>
 			<h3 class="vacancy--small__type">
-				<a href="<?php the_permalink(); ?>">
-					<?php 
-						$categories = get_the_category();
+				<?php 
+					$categories = get_the_category();
 
-						if ( ! empty( $categories ) ) {
-						    echo esc_html( $categories[0]->name );   
-						}
-					?>
-				</a>
+					if ( ! empty( $categories ) ) {
+					    echo esc_html( $categories[0]->name );   
+					}
+				?>
 			</h3>
 			<p class="vacancy--small__title">
 				<?php the_title(); ?>
 			</p>
+			<?php 
+
+				$file = get_field('vacancy_attachment');
+
+				if( $file ): ?>
+					
+					<a target="_BLANK" href="<?php echo $file['url']; ?>">Attachment</a>
+
+				<?php endif; ?>
 		</div>
 </article>

@@ -58,10 +58,11 @@ $background--dark: #998979;
 $background--gray: #444444;
 $text: #444444;
 
-$hex--insta: #e1306c;
-$hex--facebook:#3b5998;
-$hex--flickr: #ff0084;
-$hex--vimeo: #1ab7ea;
+$social:
+	(insta, #e1306c),
+	(facebook, #3b5998),
+	(flickr, #ff0084),
+	(vimeo, #1ab7ea);
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -121,6 +122,37 @@ h1 {
 
 
 /*-------------------------------------*\
+	Buttons
+\*-------------------------------------*/
+@mixin button-background($color) {
+	background: $color;
+
+	&:hover,
+	&:focus {
+		background: darken($color, 10%);
+	}
+}
+
+.button {
+	display: inline-block;
+	padding: $pad/2 $pad;
+	margin: 5px 0;
+	border-radius: 50px;
+	color: white;
+	text-decoration: none;
+
+	@each $socialnetwork, $color in $social {
+		&--#{$socialnetwork} {
+			@include button-background($color);
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Bies
 \*-------------------------------------*/
 // Holy bies
@@ -130,70 +162,70 @@ h1 {
 	background: $background--dark;
 	padding: 0 0 15px;
 	position: relative;
-}
 
-.bies__image {
-	min-height: 60px;
-	height: 60px;
+	&__image {
+		min-height: 60px;
+		height: 60px;
 
-	@media (min-width: 1218px) {
-		width: 100%;
-		height: auto;
-	}
-}
-// Amen
-
-.bies__menu-toggle {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 3.1rem;
-	width: 3.1rem;
-	line-height: 3.1rem;
-	text-align: left;
-	color: white;
-	font-size: .9rem;
-	z-index: 11;
-	cursor: pointer;
-	transition: width 200ms ease-out;
-	overflow: hidden;
-
-	@media (min-width: $brk--phone) {
-		display: none;
+		@media (min-width: 1218px) {
+			width: 100%;
+			height: auto;
+		}
 	}
 
-	&:before,
-	&:after {
-		display: block;
-		content: "";
-		width: 1.2rem;
-		height: 4px;
-		box-shadow: 0 9px 0 0 white;
-		background: white;
+	&__menu-toggle {
 		position: absolute;
-		right: -.9rem;
-		top: 14px;
-		transition: right 200ms ease-out;
-	}
+		right: 0;
+		top: 0;
+		height: 3.1rem;
+		width: 3.1rem;
+		line-height: 3.1rem;
+		text-align: left;
+		color: white;
+		font-size: .9rem;
+		z-index: 11;
+		cursor: pointer;
+		transition: width 200ms ease-out;
+		overflow: hidden;
 
-	&:after {
-		top: 23px;
-		right: -.2rem;
-		width: .8rem;
-	}
+		@media (min-width: $brk--phone) {
+			display: none;
+		}
 
-	&.opened {
-		width: 4.7rem;
-
-		&:before {
-			right: .9rem;
+		&:before,
+		&:after {
+			display: block;
+			content: "";
+			width: 1.2rem;
+			height: 4px;
+			box-shadow: 0 9px 0 0 white;
+			background: white;
+			position: absolute;
+			right: -.9rem;
+			top: 14px;
+			transition: right 200ms ease-out;
 		}
 
 		&:after {
-			right: .5rem;
+			top: 23px;
+			right: -.2rem;
+			width: .8rem;
+		}
+
+		&.opened {
+			width: 4.7rem;
+
+			&:before {
+				right: .9rem;
+			}
+
+			&:after {
+				right: .5rem;
+			}
 		}
 	}
 }
+// Amen
 
 
 
@@ -235,12 +267,12 @@ h1 {
 			transform: translateX(0px);
 		}
 	}
-}
 
-.primary-menu__list {
-	margin: 0;
-	padding: 1rem 0;
-	list-style: none;
+	&__list {
+		margin: 0;
+		padding: 1rem 0;
+		list-style: none;
+	}
 }
 
 .menu-item { // This deviates from our naming style guide because of Wordpress
@@ -290,82 +322,43 @@ h1 {
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-}
 
-.pri-footer__col {
-	flex-basis: 10rem;
-	flex-grow: 1;
-	width: 10rem;
-	margin: 0 1rem;
-}
+	&__col {
+		flex-basis: 10rem;
+		flex-grow: 1;
+		width: 10rem;
+		margin: 0 1rem;
+	}
 
-.pri-footer__association {
-	max-width: 16rem;
-}
+	&__association {
+		max-width: 16rem;
+	}
 
-.pri-footer__logo {
-	@media (min-width: $brk--phone) {
-		margin: .3rem 0;
+	&__logo {
+		@media (min-width: $brk--phone) {
+			margin: .3rem 0;
+		}
 	}
 }
+
+
 
 .sitemap {
 	overflow: hidden;
 	color: $background--light;
-}
 
-.sitemap__link {
-	color: $background--light;
-	padding: .2rem 0;
-	display: block;
-}
+	&__link {
+		color: $background--light;
+		padding: .2rem 0;
+		display: block;
+	}
 
-.sitemap__heading {
-	color: $background--light;
-}
-
-.social__links {
-	.button {
-		display: inline-block;
-		padding: $pad/2 $pad;
-		margin: 5px 0;
-		border-radius: 50px;
-		color: white;
-		text-decoration: none;
+	&__heading {
+		color: $background--light;
 	}
 }
 
-.button--insta {
-	background: $hex--insta;
 
-	&:hover {
-		background: darken($hex--insta, 10%);
-	}
-}
-
-.button--facebook {
-	background: $hex--facebook;
-
-	&:hover {
-		background: darken($hex--facebook, 10%);
-	}
-}
-
-.button--flickr {
-	background: $hex--flickr;
-
-	&:hover {
-		background: darken($hex--flickr, 10%);
-	}
-}
-
-.button--vimeo {
-	background: $hex--vimeo;
-
-	&:hover {
-		background: darken($hex--vimeo, 10%);
-	}
-}
 
 
 

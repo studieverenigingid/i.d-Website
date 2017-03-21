@@ -146,6 +146,7 @@ h3 {
 	border-radius: 50px;
 	color: white;
 	text-decoration: none;
+	@include button-background($accent);
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {

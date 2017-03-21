@@ -45,5 +45,40 @@
 			),
 			'menu_order' => 0,
 		));
+
+		register_field_group(array (
+		'id' => 'acf_vacancy',
+		'title' => 'Vacancy',
+		'fields' => array (
+			array (
+				'key' => 'field_58d0e4e2ece31',
+				'label' => 'Vacancy attachment',
+				'name' => 'vacancy_attachment',
+				'type' => 'file',
+				'instructions' => 'Include a pdf or description for the vacancy',
+				'save_format' => 'object',
+				'library' => 'all',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'vacancy',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
+			),
+		),
+		'menu_order' => 0,
+		));
 	}
 ?>

@@ -10,6 +10,7 @@
 	base.scss
 	+ Dependencies
 	+ Variables (colors and fonts)
+	+ SCSS helper functions
 	+ Reset
 	+ Paragraph styles
 	+ Bies
@@ -69,8 +70,16 @@ $hex-vimeo: #1ab7ea;
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
+/*-------------------------------------*\
+	Helper functions
+\*-------------------------------------*/
 
-
+@mixin equalTLBR($val) {
+	top: $val;
+	left: $val;
+	bottom: $val;
+	right: $val;
+}
 
 
 /*-------------------------------------*\
@@ -125,6 +134,14 @@ h2 {
 	color: white;
 	padding: 0.1em 0 0.6em;
 	margin: 0;
+
+	@media (max-width: $brk--tablet) {
+		font-size: 3rem;
+	}
+
+	@media (max-width: $brk--phone) {
+		font-size: 2rem;
+	}
 }
 
 

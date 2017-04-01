@@ -43,7 +43,7 @@
 	function new_excerpt_more($more) {
 		global $post;
 		$more_text = esc_attr_x('Read on', 'Read more link at (news) excerpt');
-		$more_link = '...<br><a class="moretag" href="%s">%s</a>';
+		$more_link = '... <a class="moretag" href="%s">%s</a>';
 		$more_link = sprintf($more_link, get_permalink($post->ID), $more_text);
 		return $more_link;
 	}

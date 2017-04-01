@@ -31,60 +31,43 @@
 	padding: $pad;
 
 	@media (min-width: 512px) {
- 		min-width: 512px;
- 		flex: 1;	
+ 		min-width: 344px;
+ 		flex: 1;
 	}
-}
 
+	&__thumb {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 1em;
+	}
 
-.news-item__meta,
-.news-item__excerpt,
-.news-item__content {
-	font-family: $font--light;
-	font-weight: 300;
-	font-size: 1em;
-}
+	&__title {
+		font-family: $font--heavy;
+		font-weight: 700;
+		font-size: 2em;
 
-.news-item__title,
-.news-item__meta,
-.news-item__excerpt,
-.news-item__content {
-	padding-left: 25px;
-	margin: 12px 0;
-}
+		a {
+			text-decoration: none;
+			color: black;
 
-.news-item__thumb {
-	display: block;
-	width: 100%;
-	height: auto;
-}
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
 
-.news-item__title {
-	font-family: $font--heavy;
-	font-weight: 700;
-	font-size: 2em;
+	&__meta {
+		a {
+			color: $accent;
+			text-decoration: none;
 
-	a {
-		text-decoration: none;
-		color: black;
-
-		&:hover{
-			text-decoration: underline;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }
-
-.news-item__meta {
-	a {
-		color: $accent;
-		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-}
-
 
 
 
@@ -95,15 +78,15 @@
 \*-------------------------------------*/
 .moretag {
 	display: inline-block;
-	padding: 0 0 0 14px;
+	padding: 0 0 0 .6em;
 	position: relative;
 	background: no-repeat;
 	border: none;
 	border-radius: 0;
-	color: black;
+	color: $text;
 	font-family: $font--heavy;
 	font-weight: 700;
-	margin-top:12px;
+	margin-left: .3em;
 	text-decoration: none;
 
 	&:before,
@@ -112,23 +95,25 @@
 		position: absolute;
 		right: auto;
 		left: 0;
-		width: 4px;
-		height: 50%;
-		background: #010101;
+		width: 3px;
+		height: 40%;
+		background: $text;
 		content: '';
-		transition: width 0.3s $transition--cubic, transform 0.3s $transition--cubic;
+		transition:
+			width 0.3s $transition--cubic,
+			transform 0.3s $transition--cubic;
 		transform: none
 	}
 
 	&:before {
-		top: 0;
+		top: 10%;
 		bottom: auto;
 		transform-origin: 100% 100%
 	}
 
 	&:after {
 		top: auto;
-		bottom: 0;
+		bottom: 10%;
 		transform-origin: 100% 0
 	}
 

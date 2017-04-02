@@ -53,10 +53,10 @@
 $font--heavy: 'FuturaStd', sans-serif;
 $font--light: 'FuturaBT', sans-serif;
 $accent: #55ccbb;
-$background--light: #fffaf1;
-$background--dark: #998979;
-$background--gray: #444444;
-$text: #444444;
+$background--light: #fafafa;
+$background--dark: #11417e;
+$background--gray: #222;
+$text: #222;
 
 $social:
 	(insta, #e1306c),
@@ -170,7 +170,7 @@ p {
 .bies {
 	width: 100%;
 	overflow: hidden;
-	background: $background--dark;
+	background: $accent;
 	padding: 0 0 15px;
 	position: relative;
 

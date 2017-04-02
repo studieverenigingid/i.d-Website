@@ -31,6 +31,7 @@ if ($upcoming_loop->have_posts()) :
 		<article class="event--page__header">
 			<a href="<?php the_permalink(); ?>" class="event--page__link">
         <div class="event--page__short-info">
+          <span class="event--page__indication">Up next</span>
           <h2 class="event--page__name"><?php the_title(); ?></h2>
           <?php
     				$start = new DateTime(get_field('start_datetime'));

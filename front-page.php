@@ -28,15 +28,10 @@ if ($upcoming_loop->have_posts()) :
 	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
 		if($upcoming_no === 0): ?>
 
-		<article class="event--large">
-			<a href="<?php the_permalink(); ?>">
-				<?php if ( has_post_thumbnail() ) :
-					the_post_thumbnail('post-thumbnail',
-            array('class' => 'event--large__thumb')
-          );
-				endif; ?>
-        <div class="event--large__info">
-          <h2 class="event--large__name"><?php the_title(); ?></h2>
+		<article class="event--page__header">
+			<a href="<?php the_permalink(); ?>" class="event--page__link">
+        <div class="event--page__short-info">
+          <h2 class="event--page__name"><?php the_title(); ?></h2>
           <?php
     				$start = new DateTime(get_field('start_datetime'));
     				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
@@ -59,6 +54,17 @@ if ($upcoming_loop->have_posts()) :
     					echo ($location_name) ? ' @ ' . $location_name : '';
     				?>
     			</div>
+
+          <?php if ( has_post_thumbnail() ) : ?>
+    				<div class="event--page__thumb">
+    					<?php
+    					the_post_thumbnail(
+    						'large',
+    						array('class' => 'event--page__img')
+    					);
+    					?>
+    				</div>
+    			<?php endif; ?>
         </div>
 			</a>
 		</article>

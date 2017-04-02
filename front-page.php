@@ -88,6 +88,8 @@ if ($upcoming_loop->have_posts()) :
 
     </div>
 
+    <hr class="events--divider">
+
     <div class="events--small">
       <?php
         wp_reset_postdata();

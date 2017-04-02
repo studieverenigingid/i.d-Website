@@ -146,6 +146,14 @@
 		text-decoration: none;
 	}
 
+	&__indication {
+		line-height: 2rem;
+		color: $background--light;
+		text-transform: uppercase;
+		font-size: .8em;
+		font-family: $font--heavy;
+	}
+
 	&__name {
 		font-size: 3em;
 		margin: 0;

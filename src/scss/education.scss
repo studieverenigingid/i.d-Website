@@ -159,8 +159,10 @@
     &__item {
       position: absolute;
       @include equalTLBR(10%);
-      background-color: $background--gray;
+      background: $background--gray center;
+      background-size: cover;
       border-radius: 50%;
+      overflow: hidden;
 
       @media (max-width: $brk--tablet) {
         @include equalTLBR(12%);

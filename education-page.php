@@ -35,18 +35,15 @@ Template Name: Education Page
     <h2><?= esc_attr_x('Wat doen we met je feedback?', 'education-what-we-do-with-it')?></h2>
 
     <div class="education-process__item-wrap">
-        <div class="education-process__item">
-            Content
+        <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_1" ); ?>')">
         </div>
     </div>
     <div class="education-process__item-wrap">
-        <div class="education-process__item">
-            Content
+        <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_2" ); ?>')">
         </div>
     </div>
     <div class="education-process__item-wrap">
-        <div class="education-process__item">
-            Content
+        <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_3" ); ?>')">
         </div>
     </div>
 </section>

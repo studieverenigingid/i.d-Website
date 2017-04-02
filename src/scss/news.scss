@@ -6,6 +6,7 @@
 	+ news item (shown on frontpage
 		and event overview)
 	+ read more link
+	+ news item page
 
 \*-------------------------------------*/
 
@@ -66,6 +67,43 @@
 				text-decoration: underline;
 			}
 		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	News item page
+\*-------------------------------------*/
+.news-item {
+	&__header {
+		background: $accent;
+		text-align: center;
+		padding: .1rem;
+		font-size: 1.1em;
+		margin-bottom: 10%;
+	}
+
+	&__title--large {
+		color: $background--light;
+		margin: 1em .5em .2em;
+	}
+
+	&__meta--large {
+		color: $background--light;
+		margin: 1.4em;
+	}
+
+	&__thumb--large {
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+		margin: 0 auto -10%;
+		max-width: 80%;
+		width: auto;
+		max-height: 70vh;
+		height: auto;
+		position: relative;
 	}
 }
 

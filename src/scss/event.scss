@@ -241,5 +241,9 @@
 	Event archive
 \*-------------------------------------*/
 .archive__title {
-	margin: 1em 2rem .5em;
+	padding: .8em 2rem .8em;
+	margin: 0 0 2rem;
+	background: $accent;
+	color: $background--light;
+	text-align: center;
 }

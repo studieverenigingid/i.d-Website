@@ -18,8 +18,28 @@
     }
 
     &__image {
-      display: none;
+      position: absolute;
+      left: 10%;
+      bottom: 8rem;
+      height: auto;
+      width: auto;
+      max-height: 70%;
+      max-width: 35%;
 
+      @media (max-width: $brk--tablet) {
+        bottom: 6rem;
+      }
+    }
+
+    &__h2 {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+
+      @media (max-width: $brk--phone) {
+        bottom: auto;
+        left: 3%;
+      }
     }
   }
   &-feedback {
@@ -28,7 +48,6 @@
     right: 10%;
     bottom: -2rem;
     text-align: right;
-    overflow: hidden;
 
     @media(max-width: $brk--phone) {
       width: 94%;
@@ -80,7 +99,6 @@
     }
 
     h2 {
-      font-size: 3rem;
       text-align: left;
       padding-bottom: 0.2rem;
     }
@@ -92,6 +110,7 @@
       color: white;
       background-color: darken($hex-education, 10%);
       transition: transform 0.25s ease;
+      font-family: $font--light;
       border: none;
       outline: none;
       appearance: none;
@@ -99,6 +118,7 @@
         color: white;
         opacity: 1;
       }
+
     }
 
     button {
@@ -118,21 +138,23 @@
         background-color: lighten($accent, 10%);
       }
     }
-
   }
-  &-process {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: $brk--desktop;
-    margin: 6rem auto;
-    padding: 0 2rem;
 
+  &-process, &-news {
     h2 {
       text-align: center;
       color: $background--dark;
       width: 100%;
     }
+  }
+
+  &-process {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: $brk--large-desktop;
+    margin: 8rem auto;
+    padding: 0 2rem;
 
     &__item-wrap {
       position: relative;
@@ -177,6 +199,12 @@
       }
     }
   }
+
+  &-news {
+    margin: 8rem auto;
+  }
+
+
   &-about {
     position: relative;
     text-align: center;

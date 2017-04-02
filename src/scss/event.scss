@@ -20,61 +20,18 @@
 
 
 
-
-/*-------------------------------------*\
-	Large event
-\*-------------------------------------*/
-.event--large {
-	background: $background--dark;
-	overflow: hidden;
-	position: relative;
-	height: 60vh;
-	margin-bottom: 1.5rem;
-
-	@media (min-width: $brk--phone) {
-		height: 80vh;
-	}
-
-	&__thumb {
-		max-height: 80%;
-		max-width: 90%;
-		width: auto;
-		height: auto;
-		position: absolute;
-		right: 5%;
-		box-shadow: 0 1.5rem 4rem transparentize(black, 0.7);
-
-		@media (min-width: $brk--phone) {
-			max-width: 60%;
-			right: 10%;
-			top: 50%;
-			transform: translateY(-50%);
-		}
-	}
-
-	&__info {
-		position: absolute;
-		top: 22%;
-		left: 8%;
-		max-width: 50rem;
-		text-shadow: 0 .4rem .8rem transparentize(black, 0.6);
-	}
-
-	&__name {
-		font-size: 3.5em;
-		color: white;
-		margin: .1em 0 .6em;
-	}
-}
-
-
-
-
-
-
 /*-------------------------------------*\
 	Small event
 \*-------------------------------------*/
+.events--divider {
+	border-top: 1px solid transparentize($background--dark, 0.7);
+	margin: 1.5rem 2rem;
+
+	@media (min-width: $brk--phone) {
+		margin: 1.5rem 2.5rem 2.5rem;
+	}
+}
+
 .events--small {
 	margin: 1rem;
 
@@ -82,14 +39,14 @@
 	justify-content: flex-start;
 	flex-wrap: wrap;
 
+	@media (min-width: $brk--phone) {
+		margin: 1rem 2.5rem;
+	}
+
 	&__series-title {
 		color: $background--dark;
 		font-size: 2.4em;
 		margin: .2em 0;
-
-		@media (min-width: $brk--phone) {
-			margin: .8em .5em;
-		}
 	}
 }
 
@@ -106,6 +63,7 @@
 	@media (min-width: $brk--desktop) {
 		margin: .5rem 1.5rem;
 	}
+
 	@media (min-width: 1000px) {
 		flex-basis: 12.6rem;
 	}
@@ -155,8 +113,29 @@
 \*-------------------------------------*/
 .event--page {
 	&__header {
-		background: $background--dark;
+		background: $accent;
 		padding: .1rem 0 4rem;
+		margin-bottom: 34%;
+
+		@media (min-width: 550px) {
+			margin-bottom: 30%;
+		}
+
+		@media (min-width: $brk--phone) {
+			margin-bottom: 11%;
+		}
+
+		@media (min-width: $brk--tablet) {
+			margin-bottom: 13%;
+		}
+
+		@media (min-width: 1500px) {
+			margin-bottom: 19%;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
 	}
 
 	&__short-info {
@@ -164,9 +143,11 @@
 		margin: 1em 0 10% 12.5%;
 		padding: 2em;
 		border: .7em solid $background--light;
+		text-decoration: none;
 	}
 
 	&__name {
+		font-size: 3em;
 		margin: 0;
 		color: $background--light;
 		text-align: left;
@@ -239,22 +220,6 @@
 			margin-top: -20%;
 			margin-right: -110%;
 			width: 160%;
-		}
-	}
-
-	&__content {
-		padding-top: 25%;
-
-		@media (min-width: $brk--phone) {
-			padding-top: 5em;
-		}
-
-		@media (min-width: $brk--tablet) {
-			padding-top: 8%;
-		}
-
-		@media (min-width: 1440px) {
-			padding-top: 14%;
 		}
 	}
 }

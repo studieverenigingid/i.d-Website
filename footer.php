@@ -14,7 +14,7 @@
 			</div>
 
 			<div class="pri-footer__sitemap pri-footer__col">
-				<h2 class="sitemap__heading">Sitemap</h2>
+				<h2 class="pri-footer__heading">Sitemap</h2>
 				<?php wp_nav_menu( array(
 					'theme_location' => 'sitemap',
 					'container' => 'nav',
@@ -24,7 +24,7 @@
 			</div>
 
 			<div class="pri-footer__contact pri-footer__col">
-				<h2 class="sitemap__heading">Social media</h2>
+				<h2 class="pri-footer__heading">Social media</h2>
 				<div>
 					<a href="https://www.instagram.com/studieverenigingid/" class="button button--insta"><i class="fa fa-instagram"></i> Instagram</a>
 					<a href="https://www.facebook.com/studieverenigingi.d/" class="button button--facebook"><i class="fa fa-facebook"></i> Facebook</a>

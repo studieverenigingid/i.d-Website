@@ -60,7 +60,6 @@
 		margin: 0px;
 		font-size: 2rem;
 		color: $background--dark;
-		text-decoration: none;
 	}
 
 	&__archivelink {
@@ -70,7 +69,10 @@
 		justify-content: center;
 		background: $background--dark;
 		text-decoration: none;
-		color: white;
+		color: $background--light;
+		padding: 1em;
+		font-family: $font--heavy;
+		font-size: 1.8em;
 
 		&:hover,
 		&:focus {

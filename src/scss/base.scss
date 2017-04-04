@@ -117,8 +117,14 @@ h1 {
 	color: $background--dark;
 }
 
+h2 {
+	font-size: 2.4em;
+	color: $background--dark;
+	margin: 1.5em (2 * $pad) .5em;
+}
+
 h3 {
-	font-size: 1.3em;
+	font-size: 1.4em;
 	margin: .8em 0 .3em;
 	color: $text;
 }
@@ -350,6 +356,12 @@ p {
 			margin: .3rem 0;
 		}
 	}
+
+	&__heading {
+		color: $background--light;
+		margin: .8em 0 .6em;
+		font-size: 1.5em;
+	}
 }
 
 
@@ -362,10 +374,6 @@ p {
 		color: $background--light;
 		padding: .2rem 0;
 		display: block;
-	}
-
-	&__heading {
-		color: $background--light;
 	}
 }
 

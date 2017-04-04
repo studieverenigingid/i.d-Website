@@ -203,7 +203,7 @@ if ($upcoming_loop->have_posts()) :
   <div class="vacancy">
 		<a class="vacancy__archivelink"
       href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-      <h2>All vacancies</h2>
+      All vacancies
     </a>
 	</div>
 

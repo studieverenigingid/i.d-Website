@@ -36,6 +36,14 @@
  		flex: 1;
 	}
 
+	@media (min-width: 1415px) {
+		min-width: 380px;
+	}
+
+	@media (min-width: 1600px) {
+		min-width: 512px;
+	}
+
 	&__thumb {
 		display: block;
 		width: 100%;

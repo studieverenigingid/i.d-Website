@@ -257,7 +257,7 @@ if ($upcoming_loop->have_posts()) :
 	<?php 
 
 		// include autoload.php from the vimeo php library
-		require("/API/vimeo/autoload.php"); 
+		require("/inc/API/vimeo/autoload.php"); 
 
 		// The client id and client secret needed to use the vimeo API
 		$client_id = "9db6f4b9720d1faa30e14eebfa557b3de0c923ba";

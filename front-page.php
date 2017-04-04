@@ -12,12 +12,12 @@ $upcoming_loop = new WP_Query( array(
   'post_type' => 'event',
   'posts_per_page' => 4,
   'meta_query' => array(
-    array(
-      'key'     => 'start_datetime',
-      'compare' => '>=',
-      'value'   => $today,
-      'type'    => 'DATE'
-    ),
+	array(
+	  'key'     => 'start_datetime',
+	  'compare' => '>=',
+	  'value'   => $today,
+	  'type'    => 'DATE'
+	),
   ),
   'orderby' => 'start_datetime',
   'order' => 'ASC',
@@ -30,95 +30,95 @@ if ($upcoming_loop->have_posts()) :
 
 		<article class="event--page__header">
 			<a href="<?php the_permalink(); ?>" class="event--page__link">
-        <div class="event--page__short-info">
-          <span class="event--page__indication">Up next</span>
-          <h2 class="event--page__name"><?php the_title(); ?></h2>
-          <?php
-    				$start = new DateTime(get_field('start_datetime'));
-    				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+		<div class="event--page__short-info">
+		  <span class="event--page__indication">Up next</span>
+		  <h2 class="event--page__name"><?php the_title(); ?></h2>
+		  <?php
+					$start = new DateTime(get_field('start_datetime'));
+					$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
-    				$end = new DateTime(get_field('end_datetime'));
-    				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+					$end = new DateTime(get_field('end_datetime'));
+					$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
-    				$month = $start->format('F');
-    				$day   = $start->format('jS');
+					$month = $start->format('F');
+					$day   = $start->format('jS');
 
-    				$start_time = $start->format('H:i');
-    				$end_time   = $end->format('H:i');
+					$start_time = $start->format('H:i');
+					$end_time   = $end->format('H:i');
 
-    				$location_name = get_field('location_name');
-    			?>
-    			<div class="event--page__datetime">
-    				<?php
-    					echo $month . ' ' . $day . ', ';
-    					echo $start_time . ' – ' . $end_time;
-    					echo ($location_name) ? ' @ ' . $location_name : '';
-    				?>
-    			</div>
+					$location_name = get_field('location_name');
+				?>
+				<div class="event--page__datetime">
+					<?php
+						echo $month . ' ' . $day . ', ';
+						echo $start_time . ' – ' . $end_time;
+						echo ($location_name) ? ' @ ' . $location_name : '';
+					?>
+				</div>
 
-          <?php if ( has_post_thumbnail() ) : ?>
-    				<div class="event--page__thumb">
-    					<?php
-    					the_post_thumbnail(
-    						'large',
-    						array('class' => 'event--page__img')
-    					);
-    					?>
-    				</div>
-    			<?php endif; ?>
-        </div>
+		  <?php if ( has_post_thumbnail() ) : ?>
+					<div class="event--page__thumb">
+						<?php
+						the_post_thumbnail(
+							'large',
+							array('class' => 'event--page__img')
+						);
+						?>
+					</div>
+				<?php endif; ?>
+		</div>
 			</a>
 		</article>
 
-    <div class="events--small">
+	<div class="events--small">
 	<?php else:
 
-      if($upcoming_no === 1) { ?>
+	  if($upcoming_no === 1) { ?>
 
-        <article class="event--small">
-          <h2 class="events--small__series-title">Upcoming events</h2>
-        </article>
+		<article class="event--small">
+		  <h2 class="events--small__series-title">Upcoming events</h2>
+		</article>
 
-      <?php }
+	  <?php }
 
-      include( 'inc/small-event.php' );
+	  include( 'inc/small-event.php' );
 
 		endif;
 		$upcoming_no++;
 		endwhile; endif; ?>
 
-    </div>
+	</div>
 
-    <hr class="events--divider">
+	<hr class="events--divider">
 
-    <div class="events--small">
-      <?php
-        wp_reset_postdata();
-        $past_loop = new WP_Query( array(
-          'post_type' => 'event',
-          'posts_per_page' => 3,
-          'meta_query' => array(
-            array(
-              'key'     => 'start_datetime',
-              'compare' => '<',
-              'value'   => $today,
-              'type'    => 'DATE'
-            ),
-          ),
-          'orderby' => 'start_datetime',
-          'order' => 'DESC',
-        ) );
-        if ($past_loop->have_posts()) : ?>
-        <div class="event--small event--small--end">
-          <h2 class="events--small__series-title">Past events</h2>
-        </div>
-    <?php
-          while($past_loop->have_posts()) {
-            $past_loop->the_post();
-            include( 'inc/small-event.php' );
-          } endif; ?>
+	<div class="events--small">
+	  <?php
+		wp_reset_postdata();
+		$past_loop = new WP_Query( array(
+		  'post_type' => 'event',
+		  'posts_per_page' => 3,
+		  'meta_query' => array(
+			array(
+			  'key'     => 'start_datetime',
+			  'compare' => '<',
+			  'value'   => $today,
+			  'type'    => 'DATE'
+			),
+		  ),
+		  'orderby' => 'start_datetime',
+		  'order' => 'DESC',
+		) );
+		if ($past_loop->have_posts()) : ?>
+		<div class="event--small event--small--end">
+		  <h2 class="events--small__series-title">Past events</h2>
+		</div>
+	<?php
+		  while($past_loop->have_posts()) {
+			$past_loop->the_post();
+			include( 'inc/small-event.php' );
+		  } endif; ?>
 
-    </div>
+	</div>
 	</section>
 
 <?php wp_reset_postdata(); ?>
@@ -158,8 +158,8 @@ if ($upcoming_loop->have_posts()) :
 
 	$vacancy_loop = new WP_Query( $args );
 	if($vacancy_loop->have_posts()) : ?>
-    <section class="vacancies">
-    <?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
+	<section class="vacancies">
+	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
 		<article class="vacancy">
 
@@ -177,7 +177,7 @@ if ($upcoming_loop->have_posts()) :
 						$categories = get_the_category();
 
 						if ( ! empty( $categories ) ) {
-						    echo esc_html( $categories[0]->name );
+							echo esc_html( $categories[0]->name );
 						}
 					?>
 				</h3>
@@ -189,9 +189,9 @@ if ($upcoming_loop->have_posts()) :
 				if( $file ): ?>
 
 					<a target="_blank" class="button"
-            href="<?php echo $file['url']; ?>">
-            <i class="fa fa-file-text-o"></i> Attachment
-          </a>
+			href="<?php echo $file['url']; ?>">
+			<i class="fa fa-file-text-o"></i> Attachment
+		  </a>
 
 				<?php endif; ?>
 			</div>
@@ -202,9 +202,9 @@ if ($upcoming_loop->have_posts()) :
 
   <div class="vacancy">
 		<a class="vacancy__archivelink"
-      href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-      <h2>All vacancies</h2>
-    </a>
+	  href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+	  <h2>All vacancies</h2>
+	</a>
 	</div>
 
   </section>
@@ -235,8 +235,8 @@ if ($upcoming_loop->have_posts()) :
 					}
 				}
 				echo substr($parentscategory,0,-2); ?>
- 		| <?php echo get_the_date(); ?>
-    </div>
+		| <?php echo get_the_date(); ?>
+	</div>
 		<?php the_excerpt(); ?>
 	</article>
 
@@ -250,7 +250,54 @@ if ($upcoming_loop->have_posts()) :
 </section>
 
 
+<section class="social">
+	<h2>Social Media</h2>
 
+	<div class="social__wrapper">
+	<?php 
+
+		// include autoload.php from the vimeo php library
+		require("/API/vimeo/autoload.php"); 
+
+		// The client id and client secret needed to use the vimeo API
+		$client_id = "9db6f4b9720d1faa30e14eebfa557b3de0c923ba";
+		$client_secret = "59247s/cfNIvxurC/FgrJedMZNPQunRJcvxL6yN8CGXQqcklxFo4wWTPtO/ooYORdo+8sRcSCJKO6AaP0ErJUd/eQ8V9F0/NQfP88weOIOrArupr93fOpcPSZbZBsMsi";
+
+		$scope = "public";
+
+		$userId = "studieverenigingid";
+
+		// initialize the vimeo library
+		$lib = new \Vimeo\Vimeo($client_id, $client_secret);
+
+		// request an auth token (needed for all requests to the Vimeo API)
+		$token = $lib->clientCredentials($scope);
+
+		// set the token
+		$lib->setToken($token['body']['access_token']);
+
+		// request all of a user's videos, 50 per page
+		$videos = $lib->request("/users/$userId/videos", ['per_page' => 6]);
+
+		// loop through each video from the user
+		foreach($videos['body']['data'] as $video) {
+
+			// get the link to the video
+			$link = $video['link'];
+
+			// get the largest picture "thumb"
+			$pictures = $video['pictures']['sizes'];
+			$largestPicture = $pictures[count($pictures) - 2]['link'];
+
+			echo "<div class='social__container--vimeo' style='background-image:url(".$largestPicture.");' ><a class='social__link' href=".$link." target='_blank' ></a></div>";
+		}
+
+
+	?>
+	</div>
+
+
+</section>
 
 
 <?php get_footer(); ?>

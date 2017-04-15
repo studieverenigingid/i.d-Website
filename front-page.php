@@ -254,46 +254,7 @@ if ($upcoming_loop->have_posts()) :
 	<h2>Social Media</h2>
 
 	<div class="social__wrapper">
-	<?php 
-
-		// include autoload.php from the vimeo php library
-		require("/inc/API/vimeo/autoload.php"); 
-
-		// The client id and client secret needed to use the vimeo API
-		$client_id = "9db6f4b9720d1faa30e14eebfa557b3de0c923ba";
-		$client_secret = "59247s/cfNIvxurC/FgrJedMZNPQunRJcvxL6yN8CGXQqcklxFo4wWTPtO/ooYORdo+8sRcSCJKO6AaP0ErJUd/eQ8V9F0/NQfP88weOIOrArupr93fOpcPSZbZBsMsi";
-
-		$scope = "public";
-
-		$userId = "studieverenigingid";
-
-		// initialize the vimeo library
-		$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-
-		// request an auth token (needed for all requests to the Vimeo API)
-		$token = $lib->clientCredentials($scope);
-
-		// set the token
-		$lib->setToken($token['body']['access_token']);
-
-		// request all of a user's videos, 50 per page
-		$videos = $lib->request("/users/$userId/videos", ['per_page' => 6]);
-
-		// loop through each video from the user
-		foreach($videos['body']['data'] as $video) {
-
-			// get the link to the video
-			$link = $video['link'];
-
-			// get the largest picture "thumb"
-			$pictures = $video['pictures']['sizes'];
-			$largestPicture = $pictures[count($pictures) - 2]['link'];
-
-			echo "<div class='social__container--vimeo' style='background-image:url(".$largestPicture.");' ><a class='social__link' href=".$link." target='_blank' ></a></div>";
-		}
-
-
-	?>
+		<?php include 'inc/social-feed.php'; ?>
 	</div>
 
 

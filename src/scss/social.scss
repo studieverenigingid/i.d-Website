@@ -1,38 +1,59 @@
 @mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > .social__link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	display: inline-block;
+	background-size: cover;
+	background-position: center center;
+	margin-bottom: 35px;
 }
 
 .social__wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+	display: block;
+	overflow: auto;
+	white-space: nowrap;
+	margin-bottom: 30px; 
 }
 
 .social__container--vimeo {
-  @include aspect-ratio(16, 9);
-  background-size:cover;
-  background-position: center center;
-  width: 500px;
-  max-width: 33%;
+	@include aspect-ratio(16, 9);
+	width: 500px;
+	margin-left: 35px;
+	max-width: 47%;	
 }
 
-.social__container--instagram {
-  @include aspect-ratio(1, 1);
-  background-size:cover;
-  background-position: center center;
-  width: 500px;
-  max-width: 33%;
+.social__container--insta {
+	@include aspect-ratio(1, 1);
+	width: 281px;
+	margin-left:35px;
+	max-width: 26%;
+}
+
+@mixin social-background($color) {
+	color: white;
+	background: $color;
+
+	&:hover,
+	&:focus {
+		background: darken($color, 10%);
+	}
+}
+
+.social__title {
+	display: inline-block;
+	position: absolute;
+	left: -15px;
+	bottom: -25px;
+	padding: 15px;
+	font-family: $font--light;
+
+	@each $socialnetwork, $color in $social {
+		&--#{$socialnetwork} {
+			@include social-background($color);
+		}
+	}
 }

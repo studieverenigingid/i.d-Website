@@ -12,6 +12,8 @@
 
 	function id_settings_init(  ) { 
 
+		// Registering Vimeo section and fields
+
 		register_setting( 'vimeoSettings', 'id_settings' );
 
 		add_settings_section(
@@ -36,6 +38,8 @@
 			'vimeoSettings', 
 			'id_vimeoSettings_section' 
 		);
+
+		// Registering Instagram section and fields
 
 		register_setting( 'instagramSettings', 'id_settings' );
 
@@ -72,6 +76,7 @@
 
 	}
 
+	// Vimeo form rendering
 
 	function id_vimeo_api_id_render(  ) { 
 
@@ -98,6 +103,8 @@
 		echo __( 'Input Vimeo API keys', 'wordpress' );
 
 	}
+
+	// Instagram form rendering
 
 	function id_instagram_client_id_render(  ) { 
 
@@ -140,6 +147,8 @@
 
 	}
 
+	// Instagram section callback
+
 	function id_instagramSettings_section_callback(  ) { 
 		$options = get_option( 'id_settings' );
 
@@ -147,6 +156,7 @@
 
 	}
 
+	// i.d-Website settings page
 
 	function id_options_page() { 
 
@@ -168,6 +178,8 @@
 		<?php
 
 	}
+
+	// function to retrieve an access token for Instagram
 
 	function get_instagram_access_token(){
 		$options = get_option('id_settings');

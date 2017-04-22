@@ -27,38 +27,61 @@
 	Frontpage vacancy
 \*-------------------------------------*/
 .vacancy {
-	border-top: 1px solid $background--dark;
+	border: 1px solid $background--dark;
+	margin: 2rem 2rem 0;
 
 	@include flex-container();
 	padding: 0;
 
 	@media (min-width: 512px) {
-		min-width: 512px;
+		min-width: 400px;
 		flex: 1;
 	}
 
-	&__thumb {
-		flex: 1;
-		min-width: 256px;
+	@media (min-width: 1024px) {
+		margin: 2rem;
 	}
 
-	&__img {
-		width: 100%;
-		height: auto;
+	&__logo {
+		flex-grow: 0;
+		flex-shrink: 0;
 		display: block;
+		margin: 1rem 0 1rem 1rem;
 	}
 
-	&__content {
+	&__text {
 		padding: $pad;
 		min-width: 256px;
-		flex:1;
+		flex: 1;
 		vertical-align: middle;
+	}
+
+	&__intro {
+		margin-top: 0;
+	}
+
+	&__company {
+		font-family: $font--heavy;
 	}
 
 	&__title {
 		margin: 0px;
 		font-size: 2rem;
-		color: $background--dark;
+	}
+
+	&__details {
+		opacity: .5;
+	}
+
+	&__tag {
+		display: inline-block;
+		// border: 1px solid $text;
+		// padding: .22rem .44rem;
+		// border-radius: .22rem;
+	}
+
+	&__button {
+		margin: 0;
 	}
 
 	&__archivelink {

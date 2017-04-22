@@ -25,16 +25,18 @@
 			<?php
 				$location = get_field('location');
 				if ( !empty($location) ) { ?>
-					<span class="vacancy__location">
-			    	<?=$location?>
+					<span class="vacancy__tag  vacancy__location">
+			    	<i class="fa fa-map-marker"></i> <?=$location?>
 					</span>
 			<?php	} ?>
+
+			&bull;
 
 			<?php
 				$categories = get_the_category();
 				if ( !empty($categories) ) {
 					$category = esc_html( $categories[0]->name ); ?>
-					<span class="vacancy__type">
+					<span class="vacancy__tag  vacancy__type">
 			    	<?=$category?>
 					</span>
 			<?php	} ?>
@@ -43,7 +45,7 @@
 		<?php
 			$file = get_field('vacancy_attachment');
 			if ( $file ): ?>
-				<a target="_blank" class="button"
+				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $file['url']; ?>">
 					<i class="fa fa-file-text-o"></i> Description
 				</a>

@@ -158,6 +158,7 @@ if ($upcoming_loop->have_posts()) :
 
 	$vacancy_loop = new WP_Query( $args );
 	if($vacancy_loop->have_posts()) : ?>
+	<h2>Looking for a job?</h2>
 	<section class="vacancies">
 	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 

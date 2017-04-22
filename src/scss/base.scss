@@ -151,12 +151,23 @@ p {
 
 .button {
 	display: inline-block;
-	padding: $pad/2 $pad;
+	padding: .7em 1.4em;
 	margin: 5px 0;
 	border-radius: 50px;
 	color: white;
 	text-decoration: none;
 	@include button-background($accent);
+
+	&--light {
+		background: none;
+		border: 1px solid $accent;
+		color: $accent;
+
+		&:hover,
+		&:focus {
+			color: $background--light;
+		}
+	}
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {

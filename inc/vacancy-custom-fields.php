@@ -59,6 +59,19 @@
 				'save_format' => 'object',
 				'library' => 'all',
 			),
+			array (
+				'key' => 'field_58fb756ca23dc',
+				'label' => 'Company',
+				'name' => 'company',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
 		),
 		'location' => array (
 			array (

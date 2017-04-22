@@ -89,7 +89,7 @@ if ($upcoming_loop->have_posts()) :
 
 	</div>
 
-	<hr class="events--divider">
+	<hr class="frontpage__divider">
 
 	<div class="events--small">
 	  <?php
@@ -122,6 +122,8 @@ if ($upcoming_loop->have_posts()) :
 	</section>
 
 <?php wp_reset_postdata(); ?>
+
+<hr class="frontpage__divider">
 
 <?php
 	// filter

@@ -4,7 +4,6 @@
 	vacancy.scss (included in base.scss):
 	+ vacancy overview container
 	+ frontpage vacancy
-	+ small vacancy
 
 \*-------------------------------------*/
 
@@ -78,51 +77,5 @@
 		&:focus {
 			text-decoration: underline;
 		}
-	}
-}
-
-
-
-
-
-/*-------------------------------------*\
-	Small vacancy
-\*-------------------------------------*/
-.vacancies--small {
-	@include flex-container();
-	justify-content: flex-start;
-	flex-direction: row;
-}
-
-.vacancy--small {
-	padding: 0 $pad $pad $pad;
-
-	@media (min-width: 384px) {
-		min-width: 384px;
-		flex: 1;
-	}
-
-	&__thumb {
-		max-width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	&__type {
-		font-size: 1.3em;
-		margin: .8em 0 .3em;
-		a {
-			text-decoration: none;
-			color: black;
-
-			&:hover{
-				text-decoration: underline;
-			}
-		}
-	}
-
-	&__title {
-		margin: .3em 0 1em;
-		color: $text;
 	}
 }

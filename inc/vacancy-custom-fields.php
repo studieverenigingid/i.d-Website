@@ -72,6 +72,19 @@
 				'formatting' => 'none',
 				'maxlength' => '',
 			),
+			array (
+				'key' => 'field_58fb7c869c3ed',
+				'label' => 'Location',
+				'name' => 'location',
+				'type' => 'text',
+				'instructions' => 'The city/country/etc. where the job is located.',
+				'default_value' => '',
+				'placeholder' => 'Anywhere',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
 		),
 		'location' => array (
 			array (

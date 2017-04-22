@@ -161,42 +161,7 @@ if ($upcoming_loop->have_posts()) :
 	<section class="vacancies">
 	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-		<article class="vacancy">
-
-			<div class="vacancy__thumb">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail('vacancy__img', array(
-						'class' => 'vacancy__img')); ?>
-				<?php endif; ?>
-			</div>
-
-			<div class="vacancy__content">
-				<h3 class="vacancy__title">
-					Vacancy:
-					<?php
-						$categories = get_the_category();
-
-						if ( ! empty( $categories ) ) {
-							echo esc_html( $categories[0]->name );
-						}
-					?>
-				</h3>
-				<p><?php the_title(); ?></p>
-				<?php
-
-				$file = get_field('vacancy_attachment');
-
-				if( $file ): ?>
-
-					<a target="_blank" class="button"
-			href="<?php echo $file['url']; ?>">
-			<i class="fa fa-file-text-o"></i> Attachment
-		  </a>
-
-				<?php endif; ?>
-			</div>
-
-		</article>
+		<?php include 'inc/small-vacancy.php'; ?>
 
 	<?php endwhile; ?>
 

@@ -4,9 +4,11 @@
 
 
 
-	<header class="event--page__header">
+	<header class="event--page__header
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--no-thumb'; ?>">
 
-		<div class="event--page__short-info">
+		<div class="event--page__short-info
+			<?php if ( !has_post_thumbnail() ) echo 'event--page__short-info--no-thumb'; ?>">
 
 			<h1 class="event--page__name"><?php the_title(); ?></h1>
 

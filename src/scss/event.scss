@@ -130,6 +130,11 @@
 		@media (min-width: 1500px) {
 			margin-bottom: 19%;
 		}
+
+		&--no-thumb {
+			margin-bottom: 1rem;
+			padding-bottom: .1rem;
+		}
 	}
 
 	&__link {
@@ -142,6 +147,11 @@
 		padding: 2em;
 		border: .7em solid $background--light;
 		text-decoration: none;
+
+		&--no-thumb {
+			margin-bottom: -4em;
+			background: $accent;
+		}
 	}
 
 	&__indication {
@@ -220,6 +230,10 @@
 			width: 44%;
 			margin: 3em 0 10% 14%;
 			padding: 3em;
+
+			&--no-thumb {
+				margin-bottom: -6rem;
+			}
 		}
 
 		&__thumb {

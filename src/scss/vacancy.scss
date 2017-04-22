@@ -16,7 +16,11 @@
 \*-------------------------------------*/
 .vacancies {
 	@include flex-container();
-	padding: 0;
+	padding: 1rem;
+
+	@media (min-width: $brk--phone) {
+		padding: 1rem 2.5rem;
+	}
 }
 
 
@@ -27,37 +31,61 @@
 	Frontpage vacancy
 \*-------------------------------------*/
 .vacancy {
-	border: 1px solid $background--dark;
-	margin: 2rem 2rem 0;
+	margin: 1.5rem 1rem .5rem;
 
 	@include flex-container();
 	padding: 0;
 
 	@media (min-width: 512px) {
-		min-width: 400px;
+		min-width: 412px;
 		flex: 1;
+		align-items: center;
 	}
 
 	@media (min-width: 1024px) {
-		margin: 2rem;
+		margin: 1rem 1.5rem;
+	}
+
+	&__thumb {
+		flex-grow: 0;
+		flex-shrink: 0;
+		margin: 0 auto 1rem;
+		width: 150px;
+
+		@media (min-width: 494px) {
+			margin: 0 1.5rem 0 0;
+		}
+
+		@media (min-width: $brk--tablet) {
+			margin-right: 2rem;
+		}
 	}
 
 	&__logo {
-		flex-grow: 0;
-		flex-shrink: 0;
 		display: block;
-		margin: 1rem 0 1rem 1rem;
+		max-height: 5.8em;
+		width: auto;
+		margin: auto;
 	}
 
 	&__text {
-		padding: $pad;
 		min-width: 256px;
 		flex: 1;
 		vertical-align: middle;
+		margin-bottom: 1rem;
+
+		@media (min-width: 412px) {
+			min-width: 280px;
+		}
+
+		@media (min-width: 494px) {
+			min-width: 256px;
+			margin-bottom: 0;
+		}
 	}
 
 	&__intro {
-		margin-top: 0;
+		margin: 0 0 .6rem;
 	}
 
 	&__company {
@@ -66,11 +94,11 @@
 
 	&__title {
 		margin: 0px;
-		font-size: 2rem;
 	}
 
 	&__details {
-		opacity: .5;
+		opacity: .7;
+		margin: .6rem 0;
 	}
 
 	&__tag {
@@ -82,6 +110,7 @@
 
 	&__button {
 		margin: 0;
+		font-size: .9em;
 	}
 
 	&__archivelink {
@@ -89,16 +118,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: $background--dark;
+		border: 1px solid $accent;
 		text-decoration: none;
-		color: $background--light;
+		color: $accent;
 		padding: 1em;
 		font-family: $font--heavy;
 		font-size: 1.8em;
 
 		&:hover,
 		&:focus {
-			text-decoration: underline;
+			background: $accent;
+			color: $background--light;
 		}
 	}
 }

@@ -16,8 +16,6 @@ var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
-// Include browserSync
-var browserSync = require('browser-sync').create();
 
 
 // Paths
@@ -70,10 +68,7 @@ gulp.task('sassDev', function() {
 				.pipe(sass().on('error', sass.logError))
 				.pipe(sourcemaps.write())
 				.pipe(rename('main.css'))
-				.pipe(gulp.dest(dest + 'css'))
-				.pipe(browserSync.reload({
-					stream: true
-				}));
+				.pipe(gulp.dest(dest + 'css'));
 });
 
 gulp.task('copy-scss', function() {
@@ -92,15 +87,7 @@ gulp.task('fonts', function() {
 		.pipe(gulp.dest(dest + 'fonts'));
 });
 
-gulp.task('browserSync', function() {
-	browserSync.init({
-		proxy: {
-			target: 'localhost:80'
-		},
-	})
-})
-
-gulp.task('watch', ['browserSync'], function() {
+gulp.task('watch', function() {
 	 // Watch .js files
 	gulp.watch(src + 'js/*.js', ['scriptsDev']);
 	 // Watch .scss files
@@ -108,9 +95,7 @@ gulp.task('watch', ['browserSync'], function() {
 	// Watch image files
 	gulp.watch(src + 'images/**/*', ['images']);
 	// Watch font files
-	gulp.watch(src + 'fonts/*', ['fonts', 'browserSync.reload']);
-	// Watch html files
-	gulp.watch('*.+(html|php)', browserSync.reload);
+	gulp.watch(src + 'fonts/*', ['fonts']);
 });
 
 

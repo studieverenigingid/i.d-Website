@@ -1,12 +1,15 @@
 <article class="vacancy">
 
 	<?php
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail('thumb',
-				array( 'class' => 'vacancy__logo')
-			);
-		}
-	?>
+		if ( has_post_thumbnail() ) { ?>
+		<div class="vacancy__thumb">
+			<?php
+				the_post_thumbnail('thumb',
+					array( 'class' => 'vacancy__logo')
+				);
+			?>
+		</div>
+	<?php } ?>
 
 	<div class="vacancy__text">
 
@@ -45,7 +48,7 @@
 		<?php
 			$file = get_field('vacancy_attachment');
 			if ( $file ): ?>
-				<a target="_blank" class="button  vacancy__button"
+				<a target="_blank" class="button  button--light  vacancy__button"
 					href="<?php echo $file['url']; ?>">
 					<i class="fa fa-file-text-o"></i> Description
 				</a>

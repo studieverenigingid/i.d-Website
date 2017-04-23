@@ -1,36 +1,16 @@
 @mixin aspect-ratio($width, $height) {
 	position: relative;
+	display: inline-block;
+	background-size: cover;
+	background-position: center center;
+	margin-bottom: 1.5em;
+
 	&:before {
 		display: block;
 		content: "";
 		width: 100%;
 		padding-top: ($height / $width) * 100%;
 	}
-	display: inline-block;
-	background-size: cover;
-	background-position: center center;
-	margin-bottom: 35px;
-}
-
-.social__wrapper {
-	display: block;
-	overflow: auto;
-	white-space: nowrap;
-	margin-bottom: 30px; 
-}
-
-.social__container--vimeo {
-	@include aspect-ratio(16, 9);
-	width: 500px;
-	margin-left: 35px;
-	max-width: 47%;	
-}
-
-.social__container--insta {
-	@include aspect-ratio(1, 1);
-	width: 281px;
-	margin-left:35px;
-	max-width: 26%;
 }
 
 @mixin social-background($color) {
@@ -43,17 +23,48 @@
 	}
 }
 
-.social__title {
-	display: inline-block;
-	position: absolute;
-	left: -15px;
-	bottom: -25px;
-	padding: 15px;
-	font-family: $font--light;
+.social{
+	&__wrapper {
+		display: block;
+		overflow: auto;
+		white-space: nowrap;
+		margin-bottom: 1.5em;
+	}
 
-	@each $socialnetwork, $color in $social {
-		&--#{$socialnetwork} {
-			@include social-background($color);
+	&__link:last-of-type {
+		margin-right: 3em;
+	}
+
+
+	&__container {
+		margin-left: 1.5em;
+
+		&--vimeo {
+			@include aspect-ratio(16, 9);
+			width: 500px;
+			max-width: 47%;
+		}
+
+		&--insta {
+			@include aspect-ratio(1, 1);
+			width: 281px;
+			max-width: 26%;
+		}
+	}
+
+	&__title {
+		display: inline-block;
+		position: absolute;
+		left: -1em;
+		bottom: -1.5em;
+		padding: .8em;
+		font-family: $font--light;
+		color: white;
+
+		@each $socialnetwork, $color in $social {
+			&--#{$socialnetwork} {
+				@include button-background($color);
+			}
 		}
 	}
 }

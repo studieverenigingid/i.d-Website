@@ -7,10 +7,9 @@
 	<div class="news">
 
 	<?php
-		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
 		$loop = new WP_Query( $args );
-		if($loop->have_posts()) : while($loop->have_posts()) :
-			$loop->the_post();
+		if(have_posts()) : while(have_posts()) :
+			the_post();
 			include 'inc/small-news-item.php';
 		endwhile; endif;
 

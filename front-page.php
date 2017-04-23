@@ -123,8 +123,6 @@ if ($upcoming_loop->have_posts()) :
 
 <?php wp_reset_postdata(); ?>
 
-<hr class="frontpage__divider">
-
 <?php
 	// filter
 	function my_posts_where( $where ) {
@@ -162,9 +160,11 @@ if ($upcoming_loop->have_posts()) :
 	$vacancy_loop = new WP_Query( $args );
 	if($vacancy_loop->have_posts()) : ?>
 
-	<section class="vacancies">
+	<section class="vacancies vacancies--frontpage">
 
-    <h2 class="vacancies__title">Looking for a job?</h2>
+    <h2 class="vacancies__title vacancies__title--frontpage">
+      Looking for a job?
+    </h2>
 
   	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
@@ -173,15 +173,13 @@ if ($upcoming_loop->have_posts()) :
   	<?php endwhile; ?>
 
     <div class="vacancy">
-  		<a class="vacancy__archivelink"
+  		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
         href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
         All vacancies
       </a>
   	</div>
 
   </section>
-
-  <hr class="frontpage__divider">
 
   <?php
 		endif;

@@ -5,15 +5,15 @@
 		<?php
 			$company = get_field('company');
 		?>
-		<p class="vacancy__intro">
+		<p class="vacancy__intro vacancy__intro--frontpage">
 			<span class="vacancy__company"><?=$company?></span> is looking for a
 		</p>
 
-		<h3 class="vacancy__title">
+		<h3 class="vacancy__title vacancy__title--frontpage">
 			<?php the_title(); ?>
 		</h3>
 
-		<p class="vacancy__details">
+		<p class="vacancy__details vacancy__details--frontpage">
 			<?php
 				$location = get_field('location');
 				if ( !empty($location) ) { ?>

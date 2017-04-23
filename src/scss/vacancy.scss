@@ -22,12 +22,26 @@
 		padding: 1rem 2.5rem;
 	}
 
+	&--frontpage {
+		background: $background--dark;
+		color: $background--light;
+
+		@media (min-width: $brk--phone) {
+			padding: 2rem 2.5rem;
+		}
+	}
+
+
 	&__title {
 		width: 100%;
 		margin: .5em 1rem;
 
 		@media (min-width: $brk--phone) {
 			margin: 1rem 1.5rem;
+		}
+
+		&--frontpage {
+			color: $background--light;
 		}
 	}
 }
@@ -100,8 +114,12 @@
 	}
 
 	&__intro {
-		margin: 0 0 .6rem;
+		margin: 0 0 .4rem;
 		opacity: .6;
+
+		&--frontpage {
+			opacity: .75;
+		}
 	}
 
 	&__company {
@@ -110,11 +128,19 @@
 
 	&__title {
 		margin: 0px;
+
+		&--frontpage {
+			color: $background--light;
+		}
 	}
 
 	&__details {
+		margin: .4rem 0;
 		opacity: .6;
-		margin: .6rem 0;
+
+		&--frontpage {
+			opacity: .75;
+		}
 	}
 
 	&__tag {
@@ -145,6 +171,17 @@
 		&:focus {
 			background: $background--dark;
 			color: $background--light;
+		}
+
+		&--frontpage {
+			border-color: $background--light;
+			color: $background--light;
+
+			&:hover,
+			&:focus {
+				background: $background--light;
+				color: $accent;
+			}
 		}
 	}
 }

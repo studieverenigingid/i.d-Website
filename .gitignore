@@ -76,7 +76,7 @@ npm-debug.log*
 
 # Runtime data
 pids
-*.pid
+*.pidinc
 *.seed
 *.pid.lock
 
@@ -125,3 +125,4 @@ jspm_packages
 # Ignore static folder because you should compile it yourself
 static/
 src/fonts/
+inc/API

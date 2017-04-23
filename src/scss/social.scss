@@ -3,7 +3,6 @@
 	display: inline-block;
 	background-size: cover;
 	background-position: center center;
-	margin-bottom: 1.5em;
 
 	&:before {
 		display: block;
@@ -28,7 +27,10 @@
 		display: block;
 		overflow: auto;
 		white-space: nowrap;
-		margin-bottom: 1.5em;
+
+		@media (min-width: $brk--phone) {
+			margin-bottom: 1.5em;
+		}
 	}
 
 	&__link:last-of-type {
@@ -41,6 +43,7 @@
 	&__container {
 		@media (min-width: $brk--phone) {
 			margin-left: 1.6em;
+			margin-bottom: 1.5em;
 		}
 
 		&--vimeo {

@@ -1,6 +1,4 @@
-<?php
-	get_header();
-?>
+<?php get_header(); ?>
 
 <main>
 
@@ -23,6 +21,4 @@
 
 <?php include 'inc/pagination.php'; ?>
 
-<?php
-	get_footer();
-?>
+<?php get_footer(); ?>

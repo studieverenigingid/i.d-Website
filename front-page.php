@@ -4,10 +4,12 @@
 
 
 
+<!-- ****** -->
+<!-- EVENTS -->
+<!-- ****** -->
 <section class="events">
 
 <?php $today = date('Ymd');
-
 $upcoming_loop = new WP_Query( array(
   'post_type' => 'event',
   'posts_per_page' => 4,
@@ -28,53 +30,11 @@ if ($upcoming_loop->have_posts()) :
 	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
 		if($upcoming_no === 0): ?>
 
-		<article class="event--page__header">
-			<a href="<?php the_permalink(); ?>" class="event--page__link">
-		<div class="event--page__short-info">
-		  <span class="event--page__indication">Up next</span>
-		  <h2 class="event--page__name"><?php the_title(); ?></h2>
-		  <?php
-					$start = new DateTime(get_field('start_datetime'));
-					$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
-
-					$end = new DateTime(get_field('end_datetime'));
-					$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
-
-					$month = $start->format('F');
-					$day   = $start->format('jS');
-
-					$start_time = $start->format('H:i');
-					$end_time   = $end->format('H:i');
-
-					$location_name = get_field('location_name');
-				?>
-				<div class="event--page__datetime">
-					<?php
-						echo $month . ' ' . $day . ', ';
-						echo $start_time . ' – ' . $end_time;
-						echo ($location_name) ? ' @ ' . $location_name : '';
-					?>
-				</div>
-
-		  <?php if ( has_post_thumbnail() ) : ?>
-					<div class="event--page__thumb">
-						<?php
-						the_post_thumbnail(
-							'large',
-							array('class' => 'event--page__img')
-						);
-						?>
-					</div>
-				<?php endif; ?>
-		</div>
-			</a>
-		</article>
+    <?php include 'inc/frontpage-event.php'; ?>
 
 	<div class="events--small">
 	<?php else:
-
 	  if($upcoming_no === 1) { ?>
-
 		<article class="event--small">
 		  <h2 class="events--small__series-title">Upcoming events</h2>
 		</article>
@@ -123,42 +83,49 @@ if ($upcoming_loop->have_posts()) :
 
 <?php wp_reset_postdata(); ?>
 
+
+
+
+
+<!-- ********* -->
+<!-- VACANCIES -->
+<!-- ********* -->
 <?php
-	// filter
-	function my_posts_where( $where ) {
+// filter
+function my_posts_where( $where ) {
 
-		$where = str_replace("meta_key = 'dates_%", "meta_key LIKE 'dates_%", $where);
+	$where = str_replace("meta_key = 'dates_%", "meta_key LIKE 'dates_%", $where);
 
-		return $where;
-	}
+	return $where;
+}
 
-	add_filter('posts_where', 'my_posts_where');
+add_filter('posts_where', 'my_posts_where');
 
 
-	// find todays date
-	$date = date('Ymd');
+// find todays date
+$date = date('Ymd');
 
-	// args
-	$args = array(
-		'post_type' => 'vacancy',
-		'meta_query'	=> array(
-			'relation'		=> 'AND',
-			array(
-				'key'		=> 'dates_%_start_date',
-				'compare'	=> '<=',
-				'value'		=> $date,
-			),
-			array(
-				'key'		=> 'dates_%_end_date',
-				'compare'	=> '>=',
-				'value'		=> $date,
-			)
+// args
+$args = array(
+	'post_type' => 'vacancy',
+	'meta_query'	=> array(
+		'relation'		=> 'AND',
+		array(
+			'key'		=> 'dates_%_start_date',
+			'compare'	=> '<=',
+			'value'		=> $date,
+		),
+		array(
+			'key'		=> 'dates_%_end_date',
+			'compare'	=> '>=',
+			'value'		=> $date,
 		)
-	);
+	)
+);
 
-	$vacancy_loop = new WP_Query( $args );
-	if($vacancy_loop->have_posts()) : ?>
-	<section class="vacancies">
+$vacancy_loop = new WP_Query( $args );
+if($vacancy_loop->have_posts()) : ?>
+<section class="vacancies">
 	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
 		<article class="vacancy">
@@ -209,16 +176,35 @@ if ($upcoming_loop->have_posts()) :
 
   </section>
 
-  <?php
-		endif;
+<?php
+endif;
 
-		wp_reset_postdata();
-	?>
+wp_reset_postdata();
+?>
 
+
+
+
+
+<!-- ****** -->
+<!-- SOCIAL -->
+<!-- ****** -->
+<section class="social">
+	<h2>Social Media</h2>
+	<div class="social__wrapper">
+		<?php include 'inc/social-feed.php'; ?>
+	</div>
+</section>
+
+
+
+
+
+<!-- **** -->
+<!-- BLOG -->
+<!-- **** -->
 <h2>Nieuws en blog</h2>
 <section class="news">
-
-
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
 		$loop = new WP_Query( $args );
@@ -226,22 +212,10 @@ if ($upcoming_loop->have_posts()) :
 			$loop->the_post();
 			include 'inc/small-news-item.php';
 		endwhile; endif;
-
 		wp_reset_postdata();
 	?>
-
 </section>
 
-
-<section class="social">
-	<h2>Social Media</h2>
-
-	<div class="social__wrapper">
-		<?php include 'inc/social-feed.php'; ?>
-	</div>
-
-
-</section>
 
 
 <?php get_footer(); ?>

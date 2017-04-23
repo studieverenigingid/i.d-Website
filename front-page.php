@@ -143,6 +143,7 @@ if ($upcoming_loop->have_posts()) :
 	// args
 	$args = array(
 		'post_type' => 'vacancy',
+    'posts_per_page' => 2,
 		'meta_query'	=> array(
 			'relation'		=> 'AND',
 			array(
@@ -167,7 +168,7 @@ if ($upcoming_loop->have_posts()) :
 
   	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-  		<?php include 'inc/small-vacancy.php'; ?>
+  		<?php include 'inc/frontpage-vacancy.php'; ?>
 
   	<?php endwhile; ?>
 
@@ -179,6 +180,8 @@ if ($upcoming_loop->have_posts()) :
   	</div>
 
   </section>
+
+  <hr class="frontpage__divider">
 
   <?php
 		endif;

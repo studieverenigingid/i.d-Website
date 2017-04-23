@@ -55,6 +55,12 @@
 		margin: 1rem 1.5rem;
 	}
 
+	&--frontpage {
+		@media (min-width: 512px) {
+			min-width: 256px;
+		}
+	}
+
 	&__thumb {
 		flex-grow: 0;
 		flex-shrink: 0;

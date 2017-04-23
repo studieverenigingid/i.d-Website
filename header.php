@@ -50,10 +50,10 @@
 				menu
 			</div>
 
-		</header>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'primary-menu',
+				'container' => 'nav',
+				'container_class' => 'primary-menu',
+				'menu_class' => 'primary-menu__list' ) ); ?>
 
-		<?php wp_nav_menu( array(
-			'theme_location' => 'primary-menu',
-			'container' => 'nav',
-			'container_class' => 'primary-menu',
-			'menu_class' => 'primary-menu__list' ) ); ?>
+		</header>

@@ -175,7 +175,6 @@ p {
 // Holy bies
 .bies {
 	width: 100%;
-	overflow: hidden;
 	background: $accent;
 	padding: 0 0 15px;
 	position: relative;
@@ -183,6 +182,8 @@ p {
 	&__image {
 		min-height: 60px;
 		height: 60px;
+		position: relative;
+		z-index: 11;
 
 		@media (min-width: 1218px) {
 			width: 100%;
@@ -220,7 +221,8 @@ p {
 			position: absolute;
 			right: -.9rem;
 			top: 14px;
-			transition: right 200ms ease-out;
+			transition: right 200ms ease-out,
+				color 200ms ease-out;
 		}
 
 		&:after {
@@ -231,6 +233,7 @@ p {
 
 		&.opened {
 			width: 4.7rem;
+			color: transparent;
 
 			&:before {
 				right: .9rem;
@@ -263,7 +266,7 @@ p {
 	transform: translateX(100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
-	padding-top: 2.5rem;
+	padding-top: 3rem;
 	max-height: 80vh;
 	overflow-y: auto;
 

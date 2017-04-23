@@ -19,7 +19,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 		! empty ( $item->url )
 			and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
 
-		$attributes .= ' class="sitemap__link"';
+		$attributes .= ' class="sitemap__link pri-footer__link"';
 
 		$attributes	= trim( $attributes );
 		$title			 = apply_filters( 'the_title', $item->title, $item->ID );

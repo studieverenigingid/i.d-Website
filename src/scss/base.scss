@@ -345,15 +345,33 @@ p {
 		flex-grow: 1;
 		width: 10rem;
 		margin: 0 1rem;
+		opacity: .88;
 	}
 
 	&__association {
-		max-width: 16rem;
+		color: $background--light;
+		font-size: .9em;
 	}
 
 	&__logo {
+		max-width: 16rem;
+
 		@media (min-width: $brk--phone) {
 			margin: .3rem 0;
+		}
+	}
+
+	&__name {
+		font-family: $font--heavy;
+	}
+
+	&__link {
+		color: $background--light;
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 
@@ -371,7 +389,6 @@ p {
 	color: $background--light;
 
 	&__link {
-		color: $background--light;
 		padding: .2rem 0;
 		display: block;
 	}

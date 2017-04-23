@@ -160,20 +160,23 @@ if ($upcoming_loop->have_posts()) :
 
 	$vacancy_loop = new WP_Query( $args );
 	if($vacancy_loop->have_posts()) : ?>
-	<h2>Looking for a job?</h2>
+
 	<section class="vacancies">
-	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-		<?php include 'inc/small-vacancy.php'; ?>
+    <h2 class="vacancies__title">Looking for a job?</h2>
 
-	<?php endwhile; ?>
+  	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-  <div class="vacancy">
-		<a class="vacancy__archivelink"
-      href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-      All vacancies
-    </a>
-	</div>
+  		<?php include 'inc/small-vacancy.php'; ?>
+
+  	<?php endwhile; ?>
+
+    <div class="vacancy">
+  		<a class="vacancy__archivelink"
+        href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+        All vacancies
+      </a>
+  	</div>
 
   </section>
 

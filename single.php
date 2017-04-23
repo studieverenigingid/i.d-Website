@@ -11,7 +11,8 @@
 		<h1 class="news-item__title--large"><?php the_title(); ?></h1>
 
 		<div class="news-item__meta--large">
-			<?php $parentscategory ="";
+			<?php $parentscategory = "";
+				$has_cats = false;
 				foreach((get_the_category()) as $category) {
 					if ($category->category_parent == 0) {
 						$cat_link = get_category_link($category->cat_ID);
@@ -21,9 +22,10 @@
 							'class="news-item__category"' .
 							'title="' . $cat_name . '">' .
 							$cat_name . '</a>, ';
+						$has_cats = true;
 					}
-					echo substr($parentscategory,0,-2) . ' | ';
-				} ?>
+				}
+				if ($has_cats) echo substr($parentscategory,0,-2) . ' | '; ?>
  			<?php echo get_the_date(); ?>
 		</div>
 

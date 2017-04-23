@@ -113,8 +113,12 @@ h6 {
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.5em;
 	color: $background--dark;
+
+	@media (min-width: $brk--phone) {
+		font-size: 3em;
+	}
 }
 
 h2 {

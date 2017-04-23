@@ -222,27 +222,10 @@ if ($upcoming_loop->have_posts()) :
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
 		$loop = new WP_Query( $args );
-		if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
-
-	<article class="news-item">
-		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
-		<h3 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-		<div class="news-item__meta">
-			<?php $parentscategory ="";
-				foreach((get_the_category()) as $category) {
-					if ($category->category_parent == 0) {
-						$parentscategory .= ' <a href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
-					}
-				}
-				echo substr($parentscategory,0,-2); ?>
-		| <?php echo get_the_date(); ?>
-	</div>
-		<?php the_excerpt(); ?>
-	</article>
-
-	<?php
-		endwhile;
-		endif;
+    if($loop->have_posts()) : while($loop->have_posts()) :
+			$loop->the_post();
+			include 'inc/small-news-item.php';
+		endwhile; endif;
 
 		wp_reset_postdata();
 	?>

@@ -58,7 +58,7 @@
 					--><div class="social__container social__container--vimeo"
 							style="background-image:url('<?=$largestPicture?>');">
 							<div class="social__title social__title--vimeo">
-								<i class="fa fa-vimeo social__icon"></i> Vimeo
+								<i class="fa fa-vimeo social__ico"></i> Vimeo
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with
 								these comments
@@ -99,7 +99,7 @@
 					--><div class="social__container social__container--insta"
 							style="background-image:url('<?=$image_url?>');">
 							<div class="social__title social__title--insta">
-								<i class="fa fa-instagram social__icon"></i> Instagram
+								<i class="fa fa-instagram social__ico"></i> Instagram
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with
 								these comments

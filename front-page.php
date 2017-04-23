@@ -181,6 +181,10 @@ if ($upcoming_loop->have_posts()) :
 
   </section>
 
+  <?php else: ?>
+
+  <hr class="frontpage__divider">
+
   <?php
 		endif;
 

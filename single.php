@@ -14,11 +14,17 @@
 			<?php $parentscategory ="";
 				foreach((get_the_category()) as $category) {
 					if ($category->category_parent == 0) {
-						$parentscategory .= ' <a href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
+						$cat_link = get_category_link($category->cat_ID);
+						$cat_name = $category->name;
+						$parentscategory .= ' <a ' .
+							'href="' . $cat_link . '"' .
+							'class="news-item__category"' .
+							'title="' . $cat_name . '">' .
+							$cat_name . '</a>, ';
 					}
-				}
-				echo substr($parentscategory,0,-2); ?>
- 			| <?php echo get_the_date(); ?>
+					echo substr($parentscategory,0,-2) . ' | ';
+				} ?>
+ 			<?php echo get_the_date(); ?>
 		</div>
 
 		<?php if ( has_post_thumbnail() ) : ?>

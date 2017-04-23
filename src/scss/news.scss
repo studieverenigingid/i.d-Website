@@ -99,6 +99,11 @@
 		margin: 1.4em;
 	}
 
+	&__category {
+		color: white;
+		font-family: $font--heavy;
+	}
+
 	&__thumb--large {
 		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
 		margin: 0 auto -10%;

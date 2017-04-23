@@ -8,10 +8,11 @@
 		function connectToVimeo($options) {
 
 			// include autoload.php from the vimeo php library
-			$Vimeo_API_uri = "/API/vimeo/autoload.php";
+			$Vimeo_API_uri = get_template_directory() . "/inc/API/vimeo/autoload.php";
 			if (file_exists($Vimeo_API_uri)): // Check if the API is present
 				require $Vimeo_API_uri; // If so, include it
 			else:
+				error_log('Vimeo API not found');
 				return false;
 			endif;
 
@@ -32,14 +33,14 @@
 			// set the token
 			$lib->setToken($token['body']['access_token']);
 
-			// request all of a user's videos, 50 per page
+			// request all of a user's videos, 3 per page
 			$videos = $lib->request("/users/$userId/videos", ['per_page' => 3]);
 
 			return $videos;
 		}
 
-		function latestVimeoPosts() {
-			$videos = connectToVimeo();
+		function latestVimeoPosts($options) {
+			$videos = connectToVimeo($options);
 
 			// loop through each video from the user
 			foreach($videos['body']['data'] as $video) {

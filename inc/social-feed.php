@@ -52,16 +52,17 @@
 
 				// get the largest picture "thumb"
 				$pictures = $video['pictures']['sizes'];
-				$largestPicture = $pictures[count($pictures) - 2]['link'];?>
+				$largestPicture = $pictures[count($pictures) - 2]['link'];?><!--
 
-					<a class="social__link" href="<?=$link?>" target="_blank">
-						<div class="social__container social__container--vimeo"
+				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
+					--><div class="social__container social__container--vimeo"
 							style="background-image:url('<?=$largestPicture?>');">
 							<div class="social__title social__title--vimeo">
-								<i class="fa fa-vimeo"></i> Vimeo
+								<i class="fa fa-vimeo social__icon"></i> Vimeo
 							</div></div></a><!-- These closing tags have to be next to
-								eachother to prevent a space character with underline -->
-			<?php }
+								eachother to prevent a space character with underline, same with
+								these comments
+			--><?php }
 		}
 
 
@@ -92,17 +93,17 @@
 			foreach ($posts['data'] as $post) {
 				$image_url = $post['images']['standard_resolution']['url'];
 				$link = $post['link'];
-				$date = date('M j, Y', $post['created_time']); ?>
+				$date = date('M j, Y', $post['created_time']); ?><!--
 
-					<a class="social__link" href="<?=$link?>" target="_blank">
-						<div class="social__container social__container--insta"
+				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
+					--><div class="social__container social__container--insta"
 							style="background-image:url('<?=$image_url?>');">
 							<div class="social__title social__title--insta">
-								<i class="fa fa-instagram"></i> Instagram
+								<i class="fa fa-instagram social__icon"></i> Instagram
 							</div></div></a><!-- These closing tags have to be next to
-								eachother to prevent a space character with underline -->
-
-			<?php }
+								eachother to prevent a space character with underline, same with
+								these comments
+			--><?php }
 		}
 
 		latestVimeoPosts($options);

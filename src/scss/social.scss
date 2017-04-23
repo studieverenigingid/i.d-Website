@@ -32,39 +32,66 @@
 	}
 
 	&__link:last-of-type {
-		margin-right: 3em;
+		@media (min-width: $brk--phone) {
+			margin-right: 3em;
+		}
 	}
 
 
 	&__container {
-		margin-left: 1.5em;
+		@media (min-width: $brk--phone) {
+			margin-left: 1.6em;
+		}
 
 		&--vimeo {
 			@include aspect-ratio(16, 9);
 			width: 500px;
-			max-width: 47%;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 47%;
+			}
 		}
 
 		&--insta {
 			@include aspect-ratio(1, 1);
 			width: 281px;
-			max-width: 26%;
+			max-width: 33%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 26%;
+			}
 		}
 	}
 
 	&__title {
 		display: inline-block;
 		position: absolute;
-		left: -1em;
-		bottom: -1.5em;
-		padding: .8em;
+		padding: .6em;
 		font-family: $font--light;
 		color: white;
+		bottom: 0;
+		font-size: .8em;
+		width: 2.15em;
+		color: transparent;
+
+		@media (min-width: $brk--phone) {
+			font-size: 1em;
+			padding: .8em;
+			bottom: -1.5em;
+			left: -1em;
+			width: auto;
+			color: white;
+		}
 
 		@each $socialnetwork, $color in $social {
 			&--#{$socialnetwork} {
 				@include button-background($color);
 			}
 		}
+	}
+
+	&__icon {
+		color: white;
 	}
 }

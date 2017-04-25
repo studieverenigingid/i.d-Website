@@ -98,6 +98,16 @@
 		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 	}
 
+	&__header {
+		text-align: center;
+		background: $accent;
+		padding: 1rem 0;
+
+		@media (min-width: $brk--phone) {
+			padding: .1rem 0 2rem;
+		}
+	}
+
 	&__thumb {
 		flex-grow: 0;
 		flex-shrink: 0;
@@ -118,6 +128,10 @@
 		max-height: 5.8em;
 		width: auto;
 		margin: auto;
+
+		&--large {
+			margin: 1rem 0 2rem;
+		}
 	}
 
 	&__text {
@@ -142,6 +156,12 @@
 		&--frontpage {
 			opacity: .75;
 		}
+
+		&--large {
+			color: $background--light;
+			opacity: .85;
+			font-size: 1.2em;
+		}
 	}
 
 	&__company {
@@ -163,6 +183,11 @@
 
 	&__title {
 		margin: 0px;
+
+		&--large {
+			color: $background--light;
+			margin: .8rem 0;
+		}
 	}
 
 	&__details {
@@ -172,18 +197,16 @@
 		&--frontpage {
 			opacity: .75;
 		}
+
+		&--large {
+			color: $background--light;
+			opacity: .85;
+			font-size: 1.2em;
+		}
 	}
 
 	&__tag {
 		display: inline-block;
-		// border: 1px solid $text;
-		// padding: .22rem .44rem;
-		// border-radius: .22rem;
-	}
-
-	&__button {
-		margin: 0;
-		font-size: .9em;
 	}
 
 	&__archivelink {
@@ -214,5 +237,15 @@
 				color: $background--dark;
 			}
 		}
+	}
+
+	&__button-group {
+		text-align: center;
+		padding: .5rem 0 1rem;
+	}
+
+	&__button {
+		margin: 0;
+		font-size: .9em;
 	}
 }

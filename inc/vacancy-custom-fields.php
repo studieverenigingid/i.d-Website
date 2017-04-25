@@ -101,7 +101,6 @@
 			'position' => 'acf_after_title',
 			'layout' => 'no_box',
 			'hide_on_screen' => array (
-				0 => 'the_content',
 			),
 		),
 		'menu_order' => 0,

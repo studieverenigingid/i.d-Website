@@ -60,6 +60,22 @@
 				'library' => 'all',
 			),
 			array (
+				'key' => 'field_58ff63b7b0fd9',
+				'label' => 'Apply directly',
+				'name' => 'apply_directly',
+				'type' => 'text',
+				'instructions' => 'Enter an url if people can apply through that directly, e.g.
+
+	https://jobs.coolcompany.com/apply
+	mailto:apply@coolcompany.com',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
 				'key' => 'field_58fb756ca23dc',
 				'label' => 'Company',
 				'name' => 'company',

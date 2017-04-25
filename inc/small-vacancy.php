@@ -1,4 +1,4 @@
-<article class="vacancy">
+<article class="vacancy vacancy--archive">
 
 	<?php
 		if ( has_post_thumbnail() ) { ?>
@@ -21,7 +21,9 @@
 		</p>
 
 		<h3 class="vacancy__title">
-			<?php the_title(); ?>
+			<a href="<?php the_permalink(); ?>" class="vacancy__link">
+				<?php the_title(); ?>
+			</a>
 		</h3>
 
 		<p class="vacancy__details">
@@ -44,15 +46,6 @@
 					</span>
 			<?php	} ?>
 		</p>
-
-		<?php
-			$file = get_field('vacancy_attachment');
-			if ( $file ): ?>
-				<a target="_blank" class="button  button--light  vacancy__button"
-					href="<?php echo $file['url']; ?>">
-					<i class="fa fa-file-text-o"></i> Description
-				</a>
-		<?php endif; ?>
 
 	</div>
 

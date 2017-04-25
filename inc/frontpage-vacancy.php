@@ -9,8 +9,10 @@
 			<span class="vacancy__company"><?=$company?></span> is looking for a
 		</p>
 
-		<h3 class="vacancy__title vacancy__title--frontpage">
-			<?php the_title(); ?>
+		<h3 class="vacancy__title">
+			<a href="<?php the_permalink(); ?>" class="vacancy__link vacancy__link--frontpage">
+				<?php the_title(); ?>
+			</a>
 		</h3>
 
 		<p class="vacancy__details vacancy__details--frontpage">

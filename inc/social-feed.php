@@ -39,33 +39,6 @@
 			return $videos;
 		}
 
-		function latestVimeoPosts($options) {
-			$videos = connectToVimeo($options);
-
-			// loop through each video from the user
-			foreach($videos['body']['data'] as $video) {
-
-				// get the link to the video
-				$link = $video['link'];
-				$title = $video['name'];
-				$date = date('M j, Y', strtotime($video['created_time']));
-
-				// get the largest picture "thumb"
-				$pictures = $video['pictures']['sizes'];
-				$largestPicture = $pictures[count($pictures) - 2]['link'];?><!--
-
-				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
-					--><div class="social__container social__container--vimeo"
-							style="background-image:url('<?=$largestPicture?>');">
-							<div class="social__title social__title--vimeo">
-								<i class="fa fa-vimeo social__ico"></i> Vimeo
-							</div></div></a><!-- These closing tags have to be next to
-								eachother to prevent a space character with underline, same with
-								these comments
-			--><?php }
-		}
-
-
 		// Instagram API
 
 		// Connect to Instagram
@@ -84,29 +57,88 @@
 			return $result;
 		}
 
-		function latestInstaPosts($options) {
+		function createVimeoArray($options) {
+			$videos = connectToVimeo($options);
+			$vimeoPosts = array();
+			$i = 0;
+
+			// loop through each video from the user
+			foreach($videos['body']['data'] as $video) {
+
+				// get the link to the video
+				$link = $video['link'];
+				$title = $video['name'];
+				$date = strtotime($video['created_time']);
+
+				// get the largest picture "thumb"
+				$pictures = $video['pictures']['sizes'];
+				$largestPicture = $pictures[count($pictures) - 2]['link'];
+
+				$vimeoPosts[$i]['link'] = $link;
+				$vimeoPosts[$i]['date'] = $date;
+				$vimeoPosts[$i]['thumb'] = $largestPicture;
+				$vimeoPosts[$i]['type'] = 'Vimeo';
+				$vimeoPosts[$i]['class'] = 'vimeo';
+				$vimeoPosts[$i]['icon'] = 'vimeo';
+				$i++;
+			 }
+
+			 return($vimeoPosts);
+		}
+
+		function createInstaArray($options) {
 			$instagram_access_token = $options['id_instagram_access_token_field'];
 			$url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='.$instagram_access_token.'&count=3';
 			$instagramInfo = connectToInstagram($url);
 			$posts = json_decode($instagramInfo, true);
+			$i = 0;
 
 			foreach ($posts['data'] as $post) {
 				$image_url = $post['images']['standard_resolution']['url'];
 				$link = $post['link'];
-				$date = date('M j, Y', $post['created_time']); ?><!--
+				$date = $post['created_time'];
+
+				$instaPosts[$i]['link'] = $link;
+				$instaPosts[$i]['date'] = $date;
+				$instaPosts[$i]['thumb'] = $image_url;
+				$instaPosts[$i]['type'] = 'Instagram';
+				$instaPosts[$i]['class'] = 'insta';
+				$instaPosts[$i]['icon'] = 'instagram';
+				$i++;
+			}
+			return($instaPosts);
+		}
+
+		function latestPosts($instaPosts, $vimeoPosts){
+			$latestPosts = array_merge_recursive($instaPosts, $vimeoPosts);
+
+			function sortFunction($a, $b){
+				return $b['date'] - $a['date'];
+			}
+
+			$sortedPosts = usort($latestPosts, 'sortFunction');
+
+			foreach ($latestPosts as $post) {
+				$image_url = $post['thumb'];
+				$link = $post['link'];
+				$date = $post['date'];
+				$type = $post['type'];
+				$class = $post['class'];
+				$icon = $post['icon']; ?><!--
 
 				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
-					--><div class="social__container social__container--insta"
+				--><div class="social__container social__container--<?=$class?>"
 							style="background-image:url('<?=$image_url?>');">
-							<div class="social__title social__title--insta">
-								<i class="fa fa-instagram social__ico"></i> Instagram
+							<div class="social__title social__title--<?=$class?>">
+								<i class="fa fa-<?=$icon?> social__ico"></i> <?=$type?>
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with
 								these comments
 			--><?php }
 		}
 
-		latestVimeoPosts($options);
-		latestInstaPosts($options);
+		$vimeoPosts = createVimeoArray($options);
+		$instaPosts = createInstaArray($options);
+		latestPosts($instaPosts, $vimeoPosts);
 
 	?>

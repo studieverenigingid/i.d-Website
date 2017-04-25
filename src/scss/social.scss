@@ -59,7 +59,7 @@
 		&--insta {
 			@include aspect-ratio(1, 1);
 			width: 281px;
-			max-width: 33%;
+			max-width: 33.7%;
 
 			@media (min-width: $brk--phone) {
 				max-width: 26%;

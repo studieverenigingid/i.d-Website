@@ -15,19 +15,29 @@
 	Vacancy overview container
 \*-------------------------------------*/
 .vacancies {
-	@include flex-container();
-	padding: 1rem;
-
-	@media (min-width: $brk--phone) {
-		padding: 1rem 2.5rem;
-	}
-
 	&--frontpage {
+		padding: 1rem;
 		background: $background--dark;
 		color: $background--light;
+		@include flex-container();
 
 		@media (min-width: $brk--phone) {
 			padding: 2rem 2.5rem;
+		}
+	}
+
+
+	&--archive {
+		margin-bottom: 2rem;
+
+		@media (min-width: $brk--phone) {
+			width: 80%;
+			max-width: 50rem;
+			padding: 0;
+			margin: -3.5rem auto 2rem;
+			background: $background--light;
+			overflow: hidden;
+			border: 1px solid rgba(0, 0, 0, 0.08);
 		}
 	}
 
@@ -43,6 +53,13 @@
 		&--frontpage {
 			color: $background--light;
 		}
+	}
+}
+
+.archive__title--vacancies {
+	@media (min-width: $brk--phone) {
+		padding-bottom: 5rem;
+		margin-bottom: 0;
 	}
 }
 
@@ -75,6 +92,12 @@
 		}
 	}
 
+	&--archive {
+		margin: 0;
+		padding: 2rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
 	&__thumb {
 		flex-grow: 0;
 		flex-shrink: 0;
@@ -101,7 +124,6 @@
 		min-width: 256px;
 		flex: 1;
 		vertical-align: middle;
-		margin-bottom: 1rem;
 
 		@media (min-width: 412px) {
 			min-width: 280px;
@@ -126,16 +148,25 @@
 		font-family: $font--heavy;
 	}
 
-	&__title {
-		margin: 0px;
+	&__link {
+		color: $text;
+		text-decoration: none;
 
 		&--frontpage {
 			color: $background--light;
 		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__title {
+		margin: 0px;
 	}
 
 	&__details {
-		margin: .4rem 0;
+		margin: .4rem 0 0;
 		opacity: .6;
 
 		&--frontpage {
@@ -180,7 +211,7 @@
 			&:hover,
 			&:focus {
 				background: $background--light;
-				color: $accent;
+				color: $background--dark;
 			}
 		}
 	}

@@ -161,12 +161,23 @@ blockquote {
 
 .button {
 	display: inline-block;
-	padding: $pad/2 $pad;
+	padding: .7em 1.4em;
 	margin: 5px 0;
 	border-radius: 50px;
 	color: white;
 	text-decoration: none;
 	@include button-background($accent);
+
+	&--light {
+		background: none;
+		border: 1px solid $accent;
+		color: $accent;
+
+		&:hover,
+		&:focus {
+			color: $background--light;
+		}
+	}
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
@@ -336,6 +347,16 @@ blockquote {
 		max-width: 100%;
 	}
 }
+
+.frontpage__divider {
+	border-top: 1px solid transparentize($background--dark, 0.7);
+	margin: 1.5rem 2rem;
+
+	@media (min-width: $brk--phone) {
+		margin: 1.5rem 2.5rem 2.5rem;
+	}
+}
+
 
 
 

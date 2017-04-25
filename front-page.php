@@ -49,7 +49,7 @@ if ($upcoming_loop->have_posts()) :
 
 	</div>
 
-	<hr class="events--divider">
+	<hr class="frontpage__divider">
 
 	<div class="events--small">
 	  <?php
@@ -102,79 +102,55 @@ function my_posts_where( $where ) {
 add_filter('posts_where', 'my_posts_where');
 
 
-// find todays date
-$date = date('Ymd');
+	// find todays date
+	$date = date('Ymd');
 
-// args
-$args = array(
-	'post_type' => 'vacancy',
-	'meta_query'	=> array(
-		'relation'		=> 'AND',
-		array(
-			'key'		=> 'dates_%_start_date',
-			'compare'	=> '<=',
-			'value'		=> $date,
-		),
-		array(
-			'key'		=> 'dates_%_end_date',
-			'compare'	=> '>=',
-			'value'		=> $date,
+	// args
+	$args = array(
+		'post_type' => 'vacancy',
+		'posts_per_page' => 2,
+		'meta_query'	=> array(
+			'relation'		=> 'AND',
+			array(
+				'key'		=> 'dates_%_start_date',
+				'compare'	=> '<=',
+				'value'		=> $date,
+			),
+			array(
+				'key'		=> 'dates_%_end_date',
+				'compare'	=> '>=',
+				'value'		=> $date,
+			)
 		)
-	)
-);
+	);
 
-$vacancy_loop = new WP_Query( $args );
-if($vacancy_loop->have_posts()) : ?>
-<section class="vacancies">
-	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
+	$vacancy_loop = new WP_Query( $args );
+	if($vacancy_loop->have_posts()) : ?>
 
-		<article class="vacancy">
+	<section class="vacancies vacancies--frontpage">
 
-			<div class="vacancy__thumb">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail('vacancy__img', array(
-						'class' => 'vacancy__img')); ?>
-				<?php endif; ?>
-			</div>
+    <h2 class="vacancies__title vacancies__title--frontpage">
+      Looking for a job?
+    </h2>
 
-			<div class="vacancy__content">
-				<h3 class="vacancy__title">
-					Vacancy:
-					<?php
-						$categories = get_the_category();
+  	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-						if ( ! empty( $categories ) ) {
-							echo esc_html( $categories[0]->name );
-						}
-					?>
-				</h3>
-				<p><?php the_title(); ?></p>
-				<?php
+  		<?php include 'inc/frontpage-vacancy.php'; ?>
 
-				$file = get_field('vacancy_attachment');
+  	<?php endwhile; ?>
 
-				if( $file ): ?>
-
-					<a target="_blank" class="button"
-			href="<?php echo $file['url']; ?>">
-			<i class="fa fa-file-text-o"></i> Attachment
-		  </a>
-
-				<?php endif; ?>
-			</div>
-
-		</article>
-
-	<?php endwhile; ?>
-
-  <div class="vacancy">
-		<a class="vacancy__archivelink"
-      href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-      All vacancies
-    </a>
-	</div>
+    <div class="vacancy">
+  		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
+        href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+        All vacancies
+      </a>
+  	</div>
 
   </section>
+
+  <?php else: ?>
+
+  <hr class="frontpage__divider">
 
 <?php
 endif;

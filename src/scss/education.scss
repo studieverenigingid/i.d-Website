@@ -1,0 +1,246 @@
+/*-------------------------------------*\
+
+    Started by Emil Flach
+	Education page and page specific styling
+	education.scss (included in base.scss):
+
+\*-------------------------------------*/
+
+.education {
+  &-hero {
+    position: relative;
+    background-color: $background--dark;
+    height: 60vh;
+    margin-bottom: 2rem;
+
+    @media (max-width: $brk--phone) {
+      height: 75vh;
+    }
+
+    &__image {
+      position: absolute;
+      left: 10%;
+      bottom: 8rem;
+      height: auto;
+      width: auto;
+      max-height: 70%;
+      max-width: 35%;
+
+      @media (max-width: $brk--tablet) {
+        bottom: 6rem;
+      }
+    }
+
+    &__h2 {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+
+      @media (max-width: $brk--phone) {
+        bottom: auto;
+        left: 3%;
+      }
+    }
+  }
+  &-feedback {
+    position: absolute;
+    width: 40%;
+    right: 10%;
+    bottom: -2rem;
+    text-align: right;
+
+    @media(max-width: $brk--phone) {
+      width: 94%;
+      right: 3%;
+    }
+
+    &--sending {
+      button {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    &--success, &--failed {
+      textarea {
+        transform: translateX(150%);
+      }
+    }
+
+    &--success {
+      .education-feedback__message--failed {
+        opacity: 0;
+      }
+    }
+    &--failed {
+      .education-feedback__message--success {
+        opacity: 0;
+      }
+    }
+
+    &__wrap {
+      padding: 2rem 2rem 1rem;
+      background-color: $hex-education;
+
+      @media(max-width: $brk--phone) {
+        padding: 1rem;
+      }
+    }
+
+    &__message {
+      position: absolute;
+      top: 45%;
+      left: 2rem;
+      right: 2rem;
+      color: white;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    h2 {
+      text-align: left;
+      padding-bottom: 0.2rem;
+    }
+
+    textarea {
+      position: relative;
+      width: 100%;
+      padding: 0.5rem;
+      color: white;
+      background-color: darken($hex-education, 10%);
+      transition: transform 0.25s ease;
+      font-family: $font--light;
+      border: none;
+      outline: none;
+      appearance: none;
+      &::placeholder {
+        color: white;
+        opacity: 1;
+      }
+
+    }
+
+    button {
+      border: none;
+      outline: none;
+      background-color: $accent;
+      color: white;
+      padding: 1rem 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: darken($accent, 10%);
+      }
+      &:active {
+        background-color: lighten($accent, 10%);
+      }
+    }
+  }
+
+  &-process, &-news {
+    h2 {
+      text-align: center;
+      color: $background--dark;
+      width: 100%;
+    }
+  }
+
+  &-process {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: $brk--large-desktop;
+    margin: 8rem auto;
+    padding: 0 2rem;
+
+    &__item-wrap {
+      position: relative;
+      width: 33.3%;
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      @media (max-width: $brk--tablet) {
+        width: 50%;
+      }
+
+      @media (max-width: $brk--phone) {
+        width: 70%;
+      }
+
+      @media (max-width: $brk--real-phone) {
+        width: 90%;
+      }
+    }
+
+    &__item {
+      position: absolute;
+      @include equalTLBR(10%);
+      background: $background--gray center;
+      background-size: cover;
+      border-radius: 50%;
+      overflow: hidden;
+
+      @media (max-width: $brk--tablet) {
+        @include equalTLBR(12%);
+      }
+
+      @media (max-width: $brk--phone) {
+        @include equalTLBR(8%);
+      }
+
+      @media (max-width: $brk--real-phone) {
+        @include equalTLBR(6%);
+      }
+    }
+  }
+
+  &-news {
+    margin: 8rem auto;
+  }
+
+
+  &-about {
+    position: relative;
+    text-align: center;
+    max-width: $brk--phone;
+    margin: 4rem auto;
+    padding: 1rem;
+
+    h2 {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: $background--dark;
+      width: 100%;
+      margin-bottom: -4.5rem;
+
+      @media (max-width: $brk--tablet) {
+        margin-bottom: -2.8rem;
+      }
+
+      @media (max-width: $brk--phone) {
+        margin-bottom: -2rem;
+      }
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    &__description {
+      max-width: $brk--tablet;
+      text-align: left;
+      padding: 2rem 1rem 1rem;
+      margin: 0 auto;
+
+    }
+  }
+}

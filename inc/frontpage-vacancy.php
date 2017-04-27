@@ -1,32 +1,21 @@
-<article class="vacancy vacancy--archive">
-
-	<?php
-		if ( has_post_thumbnail() ) { ?>
-		<div class="vacancy__thumb">
-			<?php
-				the_post_thumbnail('thumb',
-					array( 'class' => 'vacancy__logo')
-				);
-			?>
-		</div>
-	<?php } ?>
+<article class="vacancy vacancy--frontpage">
 
 	<div class="vacancy__text">
 
 		<?php
 			$company = get_field('company');
 		?>
-		<p class="vacancy__intro">
+		<p class="vacancy__intro vacancy__intro--frontpage">
 			<span class="vacancy__company"><?=$company?></span> is looking for a
 		</p>
 
 		<h3 class="vacancy__title">
-			<a href="<?php the_permalink(); ?>" class="vacancy__link">
+			<a href="<?php the_permalink(); ?>" class="vacancy__link vacancy__link--frontpage">
 				<?php the_title(); ?>
 			</a>
 		</h3>
 
-		<p class="vacancy__details">
+		<p class="vacancy__details vacancy__details--frontpage">
 			<?php
 				$location = get_field('location');
 				if ( !empty($location) ) { ?>

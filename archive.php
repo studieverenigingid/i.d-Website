@@ -2,11 +2,12 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo apply_filters( 'the_title', get_the_title( get_option( 'page_for_posts' ) ) ); ?></h1>
+	<h1 class="archive__title"><?php the_archive_title(); ?></h1>
 
 	<div class="news">
 
 	<?php
+		$loop = new WP_Query( $args );
 		if(have_posts()) : while(have_posts()) :
 			the_post();
 			include 'inc/small-news-item.php';

@@ -3,9 +3,7 @@
 	Vacancies (vacatures)
 	vacancy.scss (included in base.scss):
 	+ vacancy overview container
-	+ news item (shown on frontpage
-		and event overview)
-	+ read more link
+	+ frontpage vacancy
 
 \*-------------------------------------*/
 
@@ -17,123 +15,52 @@
 	Vacancy overview container
 \*-------------------------------------*/
 .vacancies {
-	@include flex-container();
-	padding: 0;
-	border-left: 1px solid $background--dark;
-	border-right: 1px solid $background--dark;
-	border-bottom: 1px solid $background--dark;
-}
+	&--frontpage {
+		padding: 1rem;
+		background: $background--dark;
+		color: $background--light;
+		@include flex-container();
 
-
-
-
-
-/*-------------------------------------*\
-	Large vacancy
-\*-------------------------------------*/
-.vacancy, .vacancy__archivelink {
-	@media (min-width: 512px) {
-		min-width: 512px;
-		flex: 1;	
+		@media (min-width: $brk--phone) {
+			padding: 2rem 2.5rem;
+		}
 	}
 
-	border-top: 1px solid $background--dark;
 
-	@include flex-container();
-	padding: 0;
-}
+	&--archive {
+		margin-bottom: 2rem;
 
-.vacancy__thumb {
-	flex: 1;
-	min-width: 256px;
+		@media (min-width: $brk--phone) {
+			width: 80%;
+			max-width: 50rem;
+			padding: 0;
+			margin: -3.5rem auto 2rem;
+			background: $background--light;
+			overflow: hidden;
+			border: 1px solid rgba(0, 0, 0, 0.08);
+		}
+	}
 
-	img {
+
+	&__title {
 		width: 100%;
-		height: auto;
-		display: block;
-	}
-}
+		margin: .5em 1rem;
 
-.vacancy__content {
-	padding: $pad;
-	min-width: 256px;
-	flex:1;
-	vertical-align: middle;
-}
+		@media (min-width: $brk--phone) {
+			margin: 1rem 1.5rem;
+		}
 
-.vacancy__title {
-	margin: 0px;
-	font-size: 2rem;
-	a {
-		color: $background--dark;
-		text-decoration: none;
-	}
-	a:hover, a:focus {
-		text-decoration: underline;
-	}
-}
-
-.vacancy__archivelink {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: $background--dark;
-	a {
-		text-decoration: none;
-		color: white;
-	}
-
-	a:hover, a:focus {
-		text-decoration: underline;
-	}
-}
-
-
-
-
-
-/*-------------------------------------*\
-	Small vacancy
-\*-------------------------------------*/
-.vacancies--small {
-	@include flex-container();
-	justify-content: flex-start;
-	flex-direction: row;
-}
-
-.vacancy--small {
-	@media (min-width: 384px) {
-		min-width: 384px;
-		flex: 1;	
-	}
-
-	@include flex-container();
-	padding: 0 $pad;
-}
-
-.vacancy--small__thumb {
-	max-width: 100%;
-	height: 100%;
-	display: block;
-}
-
-.vacancy--small__type {
-	font-size: 1.3em;
-	margin: .8em 0 .3em;
-	a {
-		text-decoration: none;
-		color: black;
-
-		&:hover{
-			text-decoration: underline;
+		&--frontpage {
+			color: $background--light;
 		}
 	}
 }
 
-.vacancy--small__title {
-	margin: .3em 0 1em;
-	color: $text;
+.archive__title--vacancies {
+	@media (min-width: $brk--phone) {
+		padding-bottom: 5rem;
+		margin-bottom: 0;
+	}
 }
 
 
@@ -141,98 +68,184 @@
 
 
 /*-------------------------------------*\
-	Event page top
+	Frontpage vacancy
 \*-------------------------------------*/
-.vacancy--page__header {
-	background: $background--dark;
-	padding: .1rem 0 4rem;
-}
+.vacancy {
+	margin: 1.5rem 1rem .5rem;
 
-.vacancy--page__short-info {
-	width: 75%;
-	margin: 1em 0 10% 12.5%;
-	padding: 2em;
-	border: .7em solid $background--light;
-}
+	@include flex-container();
+	padding: 0;
 
-.vacancy--page__title {
-	margin: 0;
-	color: $background--light;
-	text-align: left;
-	position: relative;
-	z-index: 2;
-}
+	@media (min-width: 512px) {
+		min-width: 412px;
+		flex: 1;
+		align-items: center;
+	}
 
-.vacancy--page__type {
-	color: $background--light;
-	margin: .7rem 0;
-	position: relative;
-	z-index: 2;
-}
+	@media (min-width: 1024px) {
+		margin: 1rem 1.5rem;
+	}
 
-.vacancy--page__thumb {
-	width: 160%;
-	max-width: 80vw;
-	margin: 5% -34% 2rem 15%;
-	float: right;
-	position: relative;
+	&--frontpage {
+		@media (min-width: 512px) {
+			min-width: 256px;
+		}
+	}
 
-	&:before {
+	&--archive {
+		margin: 0;
+		padding: 2rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	&__header {
+		text-align: center;
+		background: $accent;
+		padding: 1rem 0;
+
+		@media (min-width: $brk--phone) {
+			padding: .1rem 0 2rem;
+		}
+	}
+
+	&__thumb {
+		flex-grow: 0;
+		flex-shrink: 0;
+		margin: 0 auto 1rem;
+		width: 150px;
+
+		@media (min-width: 494px) {
+			margin: 0 1.5rem 0 0;
+		}
+
+		@media (min-width: $brk--tablet) {
+			margin-right: 2rem;
+		}
+	}
+
+	&__logo {
 		display: block;
-		content: "";
-		width: 10em;
-		height: 10em;
-		background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-}
+		max-height: 5.8em;
+		width: auto;
+		margin: auto;
 
-.vacancy--page__img {
-	width: 100%;
-	height: auto;
-	box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
-}
-
-.vacancy--page__content {
-	img {
-		max-width: 100%;
-	}
-}
-
-@media (min-width: 550px) {
-	.vacancy--page__short-info {
-		width: 64%;
+		&--large {
+			margin: 1rem 0 2rem;
+		}
 	}
 
-	.vacancy--page__thumb {
-		width: 130%;
-	}
-}
+	&__text {
+		min-width: 256px;
+		flex: 1;
+		vertical-align: middle;
 
-@media (min-width: $brk--phone) {
-	.vacancy--page__short-info {
-		width: 50%;
-	}
+		@media (min-width: 412px) {
+			min-width: 280px;
+		}
 
-	.vacancy--page__thumb {
-		margin-right: -90%;
-		margin-top: -15%;
-		width: 120%;
-	}
-}
-
-@media (min-width: $brk--tablet) {
-	.vacancy--page__short-info {
-		width: 36%;
-		margin: 3em 0 10% 18%;
-		padding: 3em;
+		@media (min-width: 494px) {
+			min-width: 256px;
+			margin-bottom: 0;
+		}
 	}
 
-	.vacancy--page__thumb {
-		margin-top: -20%;
-		margin-right: -130%;
-		width: 170%;
+	&__intro {
+		margin: 0 0 .4rem;
+		opacity: .6;
+
+		&--frontpage {
+			opacity: .75;
+		}
+
+		&--large {
+			color: $background--light;
+			opacity: .85;
+			font-size: 1.2em;
+		}
+	}
+
+	&__company {
+		font-family: $font--heavy;
+	}
+
+	&__link {
+		color: $text;
+		text-decoration: none;
+
+		&--frontpage {
+			color: $background--light;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__title {
+		margin: 0px;
+
+		&--large {
+			color: $background--light;
+			margin: .8rem 0;
+		}
+	}
+
+	&__details {
+		margin: .4rem 0 0;
+		opacity: .6;
+
+		&--frontpage {
+			opacity: .75;
+		}
+
+		&--large {
+			color: $background--light;
+			opacity: .85;
+			font-size: 1.2em;
+		}
+	}
+
+	&__tag {
+		display: inline-block;
+	}
+
+	&__archivelink {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid $background--dark;
+		text-decoration: none;
+		color: $background--dark;
+		padding: 1em;
+		font-family: $font--heavy;
+		font-size: 1.8em;
+
+		&:hover,
+		&:focus {
+			background: $background--dark;
+			color: $background--light;
+		}
+
+		&--frontpage {
+			border-color: $background--light;
+			color: $background--light;
+
+			&:hover,
+			&:focus {
+				background: $background--light;
+				color: $background--dark;
+			}
+		}
+	}
+
+	&__button-group {
+		text-align: center;
+		padding: .5rem 0 1rem;
+	}
+
+	&__button {
+		margin: 0;
+		font-size: .9em;
 	}
 }

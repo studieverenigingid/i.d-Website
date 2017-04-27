@@ -5,7 +5,7 @@
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#000000"><?php /* TODO:
+		<meta name="theme-color" content="#55ccbb"><?php /* TODO:
 		replace with realfavicongenerator.net snippet */ ?>
 
 		<!-- Temporariy Icon Font -->
@@ -50,10 +50,10 @@
 				menu
 			</div>
 
-		</header>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'primary-menu',
+				'container' => 'nav',
+				'container_class' => 'primary-menu',
+				'menu_class' => 'primary-menu__list' ) ); ?>
 
-		<?php wp_nav_menu( array(
-			'theme_location' => 'primary-menu',
-			'container' => 'nav',
-			'container_class' => 'primary-menu',
-			'menu_class' => 'primary-menu__list' ) ); ?>
+		</header>

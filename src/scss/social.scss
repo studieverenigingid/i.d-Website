@@ -1,0 +1,100 @@
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	display: inline-block;
+	background-size: cover;
+	background-position: center center;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+}
+
+@mixin social-background($color) {
+	color: white;
+	background: $color;
+
+	&:hover,
+	&:focus {
+		background: darken($color, 10%);
+	}
+}
+
+.social{
+	&__wrapper {
+		display: block;
+		overflow: auto;
+		white-space: nowrap;
+
+		@media (min-width: $brk--phone) {
+			margin-bottom: 1.5em;
+		}
+	}
+
+	&__link:last-of-type {
+		@media (min-width: $brk--phone) {
+			margin-right: 3em;
+		}
+	}
+
+
+	&__container {
+		@media (min-width: $brk--phone) {
+			margin-left: 1.6em;
+			margin-bottom: 1.5em;
+		}
+
+		&--vimeo {
+			@include aspect-ratio(16, 9);
+			width: 500px;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 47%;
+			}
+		}
+
+		&--insta {
+			@include aspect-ratio(1, 1);
+			width: 281px;
+			max-width: 33.7%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 26%;
+			}
+		}
+	}
+
+	&__title {
+		display: inline-block;
+		position: absolute;
+		padding: .6em;
+		font-family: $font--light;
+		color: white;
+		bottom: 0;
+		font-size: .8em;
+		width: 2.15em;
+		color: transparent;
+
+		@media (min-width: $brk--phone) {
+			font-size: 1em;
+			padding: .8em;
+			bottom: -1.5em;
+			left: -1em;
+			width: auto;
+			color: white;
+		}
+
+		@each $socialnetwork, $color in $social {
+			&--#{$socialnetwork} {
+				@include button-background($color);
+			}
+		}
+	}
+
+	&__ico {
+		color: white;
+	}
+}

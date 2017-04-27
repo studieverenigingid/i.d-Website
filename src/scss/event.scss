@@ -20,121 +20,76 @@
 
 
 
-
-/*-------------------------------------*\
-	Large event
-\*-------------------------------------*/
-.event--large {
-	background: $background--dark;
-	overflow: hidden;
-	position: relative;
-	height: 60vh;
-
-	@media (min-width: $brk--phone) {
-		height: 80vh;
-	}
-}
-
-.event--large__thumb {
-	max-height: 80%;
-	max-width: 90%;
-	width: auto;
-	height: auto;
-	position: absolute;
-	right: 5%;
-	box-shadow: 0 1.5rem 4rem transparentize(black, 0.7);
-
-	@media (min-width: $brk--phone) {
-		max-width: 60%;
-		right: 10%;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-}
-
-.event--large__info {
-	position: absolute;
-	top: 22%;
-	left: 8%;
-	max-width: 50rem;
-	text-shadow: 0 .4rem .8rem transparentize(black, 0.6);
-}
-
-.event--large__name {
-	font-size: 3.5em;
-	color: white;
-	margin: .1em 0 .6em;
-}
-
-
-
-
-
-
 /*-------------------------------------*\
 	Small event
 \*-------------------------------------*/
 .events--small {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
 	margin: 1rem;
 
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-}
-
-.events--small__series-title {
-	color: $background--dark;
-	font-size: 2.4em;
-	margin: .2em 0;
 
 	@media (min-width: $brk--phone) {
-		margin: .8em .5em;
+		margin: 1rem 2.5rem;
+	}
+
+	&__series-title {
+		margin: .2em 0;
 	}
 }
+
+
 
 .event--small {
 	position: relative;
 	margin: 0 1rem;
 
-	flex-basis: 14rem;
+	flex-basis: 20rem;
 	flex-grow: 1;
 	width: 14rem;
-	max-width: 20rem;
 
 	@media (min-width: $brk--desktop) {
 		margin: .5rem 1.5rem;
 	}
-}
 
-.event--small__anchor {
-	text-decoration: none;
-}
+	@media (min-width: 1000px) {
+		flex-basis: 12.6rem;
+	}
 
-.event--small__thumb {
-	box-shadow: 0 .2rem 1rem transparentize(black, 0.7);
-	padding-top: 50%;
-	height: 0;
-	width: 100%;
-	overflow: hidden;
-}
+	@media (min-width: 1440px) {
+		max-width: 20rem;
+		flex-basis: 15rem;
+	}
 
-.event--small__img {
-	margin-top: -50%;
-	width: 100%;
-	height: auto;
-}
+	&--end {
+		@media (min-width: 1000px) {
+			order: 4;
+		}
+	}
 
-.event--small__name {
-	font-size: 1.3em;
-	margin: .8em 0 .3em;
-	color: $text;
-}
+	&__anchor {
+		text-decoration: none;
+	}
 
-.event--small__datetime {
-	margin: .3em 0 1em;
-	color: $text;
+	&__thumb {
+		box-shadow: 0 .2rem 1rem transparentize(black, 0.7);
+		padding-top: 50%;
+		height: 0;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	&__img {
+		margin-top: -50%;
+		width: 100%;
+		height: auto;
+	}
+
+	&__datetime {
+		margin: .3em 0 1em;
+		color: $text;
+	}
 }
 
 
@@ -145,91 +100,138 @@
 /*-------------------------------------*\
 	Event page top
 \*-------------------------------------*/
-.event--page__header {
-	background: $background--dark;
-	padding: .1rem 0 4rem;
-}
+.event--page {
+	&__header {
+		background: $accent;
+		padding: .1rem 0 4rem;
+		margin-bottom: 34%;
 
-.event--page__short-info {
-	width: 75%;
-	margin: 1em 0 10% 12.5%;
-	padding: 2em;
-	border: .7em solid $background--light;
-}
+		@media (min-width: 550px) {
+			margin-bottom: 30%;
+		}
 
-.event--page__name {
-	margin: 0;
-	color: $background--light;
-	text-align: left;
-	position: relative;
-	z-index: 2;
-}
+		@media (min-width: $brk--phone) {
+			margin-bottom: 11%;
+		}
 
-.event--page__datetime {
-	color: $background--light;
-	margin: .7rem 0;
-	position: relative;
-	z-index: 2;
-}
+		@media (min-width: $brk--tablet) {
+			margin-bottom: 13%;
+		}
 
-.event--page__thumb {
-	width: 160%;
-	max-width: 80vw;
-	margin: 5% -34% 2rem 15%;
-	float: right;
-	position: relative;
+		@media (min-width: 1500px) {
+			margin-bottom: 19%;
+		}
 
-	&:before {
-		display: block;
-		content: "";
-		width: 10em;
-		height: 10em;
-		background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-}
-
-.event--page__img {
-	width: 100%;
-	height: auto;
-	box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
-}
-
-@media (min-width: 550px) {
-	.event--page__short-info {
-		width: 64%;
+		&--no-thumb {
+			margin-bottom: 1rem;
+			padding-bottom: .1rem;
+		}
 	}
 
-	.event--page__thumb {
-		width: 130%;
-	}
-}
-
-@media (min-width: $brk--phone) {
-	.event--page__short-info {
-		width: 50%;
+	&__link {
+		text-decoration: none;
 	}
 
-	.event--page__thumb {
-		margin-right: -90%;
-		margin-top: -15%;
-		width: 120%;
-	}
-}
+	&__short-info {
+		width: 80%;
+		margin: 1em 0 10% 10%;
+		padding: 2em;
+		border: .7em solid $background--light;
+		text-decoration: none;
 
-@media (min-width: $brk--tablet) {
-	.event--page__short-info {
-		width: 44%;
-		margin: 3em 0 10% 14%;
-		padding: 3em;
+		&--no-thumb {
+			margin-bottom: -4em;
+			background: $accent;
+		}
 	}
 
-	.event--page__thumb {
-		margin-top: -20%;
-		margin-right: -110%;
+	&__indication {
+		line-height: 2rem;
+		color: $background--light;
+		text-transform: uppercase;
+		font-size: .8em;
+		font-family: $font--heavy;
+	}
+
+	&__name {
+		font-size: 3em;
+		margin: 0;
+		color: $background--light;
+		text-align: left;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__datetime {
+		color: $background--light;
+		margin: .7rem 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__thumb {
 		width: 160%;
+		max-width: 75vw;
+		margin: 5% -25% 2rem 15%;
+		float: right;
+		position: relative;
+
+		&:before {
+			display: block;
+			content: "";
+			width: 10em;
+			height: 10em;
+			background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+	}
+
+	@media (min-width: 550px) {
+		&__short-info {
+			width: 64%;
+		}
+
+		&__thumb {
+			width: 130%;
+		}
+	}
+
+	@media (min-width: $brk--phone) {
+		&__short-info {
+			width: 50%;
+		}
+
+		&__thumb {
+			margin-right: -90%;
+			margin-top: -15%;
+			width: 120%;
+		}
+	}
+
+	@media (min-width: $brk--tablet) {
+		&__short-info {
+			width: 44%;
+			margin: 3em 0 10% 14%;
+			padding: 3em;
+
+			&--no-thumb {
+				margin-bottom: -6rem;
+			}
+		}
+
+		&__thumb {
+			margin-top: -20%;
+			margin-right: -110%;
+			width: 160%;
+		}
 	}
 }
 
@@ -239,20 +241,12 @@
 
 
 /*-------------------------------------*\
-	Event page body
+	Event archive
 \*-------------------------------------*/
-.event--page__content {
-	padding-top: 25%;
-
-	@media (min-width: $brk--phone) {
-		padding-top: 5em;
-	}
-
-	@media (min-width: $brk--tablet) {
-		padding-top: 8%;
-	}
-
-	@media (min-width: 1440px) {
-		padding-top: 14%;
-	}
+.archive__title {
+	padding: .8em 2rem .8em;
+	margin: 0 0 2rem;
+	background: $accent;
+	color: $background--light;
+	text-align: center;
 }

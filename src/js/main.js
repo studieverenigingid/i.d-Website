@@ -1,6 +1,7 @@
 jQuery(document).ready(onDocReady);
 
-function onDocReady ($ = jQuery) {
+function onDocReady () {
+	var $ = jQuery;
 	menuToggler();
 	ajaxFeedbackForm();
 	fixVHAfterLoad();

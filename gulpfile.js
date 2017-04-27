@@ -16,8 +16,6 @@ var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 
-// Include browserSync
-var browserSync = require('browser-sync').create();
 
 
 // Paths
@@ -27,6 +25,10 @@ var dest = 'static/';
  // Concatenate & Minify JS
 gulp.task('scripts', function() {
 		return gulp.src(src + 'js/*.js')
+				.pipe(plumber(function(error) {
+						gutil.log(gutil.colors.red(error.message));
+						this.emit('end');
+				}))
 				.pipe(concat('main.js'))
 				.pipe(uglify())
 				.pipe(gulp.dest(dest + 'js'));
@@ -34,6 +36,10 @@ gulp.task('scripts', function() {
 
 gulp.task('scriptsDev', function() {
 		return gulp.src(src + 'js/*.js')
+				.pipe(plumber(function(error) {
+						gutil.log(gutil.colors.red(error.message));
+						this.emit('end');
+				}))
 				.pipe(sourcemaps.init())
 				.pipe(concat('main.js'))
 				.pipe(sourcemaps.write())
@@ -41,13 +47,14 @@ gulp.task('scriptsDev', function() {
 });
 
 gulp.task('sass', function() {
-		return gulp.src(src + 'scss/*.scss')
+		return gulp.src(src + 'scss/base.scss')
 				.pipe(plumber(function(error) {
 						gutil.log(gutil.colors.red(error.message));
 						this.emit('end');
 				}))
 				.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 				.pipe(prefix({browsers: ['last 2 version']}))
+				.pipe(rename('main.css'))
 				.pipe(gulp.dest(dest + 'css'));
 });
 
@@ -61,10 +68,7 @@ gulp.task('sassDev', function() {
 				.pipe(sass().on('error', sass.logError))
 				.pipe(sourcemaps.write())
 				.pipe(rename('main.css'))
-				.pipe(gulp.dest(dest + 'css'))
-				.pipe(browserSync.reload({
-					stream: true
-				}));
+				.pipe(gulp.dest(dest + 'css'));
 });
 
 gulp.task('copy-scss', function() {
@@ -83,15 +87,7 @@ gulp.task('fonts', function() {
 		.pipe(gulp.dest(dest + 'fonts'));
 });
 
-gulp.task('browserSync', function() {
-	browserSync.init({
-		proxy: {
-			target: 'localhost:80'
-		},
-	})
-})
-
-gulp.task('watch', ['browserSync'], function() {
+gulp.task('watch', function() {
 	 // Watch .js files
 	gulp.watch(src + 'js/*.js', ['scriptsDev']);
 	 // Watch .scss files
@@ -99,9 +95,7 @@ gulp.task('watch', ['browserSync'], function() {
 	// Watch image files
 	gulp.watch(src + 'images/**/*', ['images']);
 	// Watch font files
-	gulp.watch(src + 'fonts/*', ['fonts', 'browserSync.reload']);
-	// Watch html files
-	gulp.watch('*.+(html|php)', browserSync.reload);
+	gulp.watch(src + 'fonts/*', ['fonts']);
 });
 
 

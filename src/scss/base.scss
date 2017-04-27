@@ -10,7 +10,6 @@
 	base.scss
 	+ Dependencies
 	+ Variables (colors and fonts)
-	+ SCSS helper functions
 	+ Reset
 	+ Paragraph styles
 	+ Bies
@@ -54,32 +53,21 @@
 $font--heavy: 'FuturaStd', sans-serif;
 $font--light: 'FuturaBT', sans-serif;
 $accent: #55ccbb;
-$background--light: #fffaf1;
-$background--dark: #998979;
-$background--gray: #444444;
-$text: #444444;
+$background--light: #fafafa;
+$background--dark: #11417e;
+$background--gray: #222;
+$text: #222;
 
-// Page specific color accents
-$hex-education: #F18918;
-
-// Social colors
-$hex-insta: #e1306c;
-$hex-facebook:#3b5998;
-$hex-flickr: #ff0084;
-$hex-vimeo: #1ab7ea;
+$social:
+	(insta, #e1306c),
+	(facebook, #3b5998),
+	(flickr, #ff0084),
+	(vimeo, #1ab7ea);
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
-/*-------------------------------------*\
-	Helper functions
-\*-------------------------------------*/
 
-@mixin equalTLBR($val) {
-	top: $val;
-	left: $val;
-	bottom: $val;
-	right: $val;
-}
+
 
 
 /*-------------------------------------*\
@@ -96,7 +84,6 @@ body {
 	font-family: $font--light;
 	font-size: 16px;
 	overflow-x: hidden;
-	position: relative;
 
 	@media (min-width: $brk--tablet) {
 		font-size: 18px;
@@ -125,22 +112,76 @@ h6 {
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.5em;
 	color: $background--dark;
+
+	@media (min-width: $brk--phone) {
+		font-size: 3em;
+	}
 }
 
 h2 {
-	font-size: 3.5em;
-	color: white;
-	padding: 0.1em 0 0.6em;
-	margin: 0;
+	font-size: 2.4em;
+	color: $background--dark;
+	margin: 1.5em (2 * $pad) .5em;
+}
 
-	@media (max-width: $brk--tablet) {
-		font-size: 3rem;
+h3 {
+	font-size: 1.4em;
+	margin: .8em 0 .3em;
+	color: $text;
+}
+
+p {
+	line-height: 1.4;
+}
+
+blockquote {
+	margin: 1em 0;
+	padding-left: 1.5em;
+	border-left: .7em solid #eee;
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Buttons
+\*-------------------------------------*/
+@mixin button-background($color) {
+	background: $color;
+
+	&:hover,
+	&:focus {
+		background: darken($color, 10%);
+	}
+}
+
+.button {
+	display: inline-block;
+	padding: .7em 1.4em;
+	margin: 5px 0;
+	border-radius: 50px;
+	color: white;
+	text-decoration: none;
+	@include button-background($accent);
+
+	&--light {
+		background: none;
+		border: 1px solid $accent;
+		color: $accent;
+
+		&:hover,
+		&:focus {
+			color: $background--light;
+		}
 	}
 
-	@media (max-width: $brk--phone) {
-		font-size: 2rem;
+	@each $socialnetwork, $color in $social {
+		&--#{$socialnetwork} {
+			@include button-background($color);
+		}
 	}
 }
 
@@ -154,74 +195,77 @@ h2 {
 // Holy bies
 .bies {
 	width: 100%;
-	overflow: hidden;
-	background: $background--dark;
+	background: $accent;
 	padding: 0 0 15px;
 	position: relative;
-}
 
-.bies__image {
-	min-height: 60px;
-	height: 60px;
+	&__image {
+		min-height: 60px;
+		height: 60px;
+		position: relative;
+		z-index: 11;
 
-	@media (min-width: 876px) {
-		width: 100%;
-		height: auto;
-	}
-}
-// Amen
-
-.bies__menu-toggle {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 3.1rem;
-	width: 3.1rem;
-	line-height: 3.1rem;
-	text-align: left;
-	color: white;
-	font-size: .9rem;
-	z-index: 11;
-	cursor: pointer;
-	transition: width 200ms ease-out;
-	overflow: hidden;
-
-	@media (min-width: $brk--phone) {
-		display: none;
+		@media (min-width: 1218px) {
+			width: 100%;
+			height: auto;
+		}
 	}
 
-	&:before,
-	&:after {
-		display: block;
-		content: "";
-		width: 1.2rem;
-		height: 4px;
-		box-shadow: 0 9px 0 0 white;
-		background: white;
+	&__menu-toggle {
 		position: absolute;
-		right: -.9rem;
-		top: 14px;
-		transition: right 200ms ease-out;
-	}
+		right: 0;
+		top: 0;
+		height: 3.1rem;
+		width: 3.1rem;
+		line-height: 3.1rem;
+		text-align: left;
+		color: white;
+		font-size: .9rem;
+		z-index: 11;
+		cursor: pointer;
+		transition: width 200ms ease-out;
+		overflow: hidden;
 
-	&:after {
-		top: 23px;
-		right: -.2rem;
-		width: .8rem;
-	}
+		@media (min-width: $brk--phone) {
+			display: none;
+		}
 
-	&.opened {
-		width: 4.7rem;
-
-		&:before {
-			right: .9rem;
+		&:before,
+		&:after {
+			display: block;
+			content: "";
+			width: 1.2rem;
+			height: 4px;
+			box-shadow: 0 9px 0 0 white;
+			background: white;
+			position: absolute;
+			right: -.9rem;
+			top: 14px;
+			transition: right 200ms ease-out,
+				color 200ms ease-out;
 		}
 
 		&:after {
-			right: .5rem;
+			top: 23px;
+			right: -.2rem;
+			width: .8rem;
+		}
+
+		&.opened {
+			width: 4.7rem;
+			color: transparent;
+
+			&:before {
+				right: .9rem;
+			}
+
+			&:after {
+				right: .5rem;
+			}
 		}
 	}
 }
+// Amen
 
 
 
@@ -242,7 +286,7 @@ h2 {
 	transform: translateX(100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
-	padding-top: 2.5rem;
+	padding-top: 3rem;
 	max-height: 80vh;
 	overflow-y: auto;
 
@@ -263,12 +307,12 @@ h2 {
 			transform: translateX(0px);
 		}
 	}
-}
 
-.primary-menu__list {
-	margin: 0;
-	padding: 1rem 0;
-	list-style: none;
+	&__list {
+		margin: 0;
+		padding: 1rem 0;
+		list-style: none;
+	}
 }
 
 .menu-item { // This deviates from our naming style guide because of Wordpress
@@ -303,6 +347,16 @@ h2 {
 	}
 }
 
+.frontpage__divider {
+	border-top: 1px solid transparentize($background--dark, 0.7);
+	margin: 1.5rem 2rem;
+
+	@media (min-width: $brk--phone) {
+		margin: 1.5rem 2.5rem 2.5rem;
+	}
+}
+
+
 
 
 
@@ -313,87 +367,67 @@ h2 {
 	background: $background--gray;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 1rem $pad;
+	padding: 1rem $pad 2rem;
 
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-}
 
-.pri-footer__col {
-	flex-basis: 10rem;
-	flex-grow: 1;
-	width: 10rem;
-	margin: 0 1rem;
-}
+	&__col {
+		flex-basis: 10rem;
+		flex-grow: 1;
+		width: 10rem;
+		margin: 0 1rem;
+		opacity: .88;
+	}
 
-.pri-footer__association {
-	max-width: 16rem;
-}
+	&__association {
+		color: $background--light;
+		font-size: .9em;
+	}
 
-.pri-footer__logo {
-	@media (min-width: $brk--phone) {
-		margin: .3rem 0;
+	&__logo {
+		max-width: 16rem;
+
+		@media (min-width: $brk--phone) {
+			margin: .3rem 0;
+		}
+	}
+
+	&__name {
+		font-family: $font--heavy;
+	}
+
+	&__link {
+		color: $background--light;
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__heading {
+		color: $background--light;
+		margin: .8em 0 .6em;
+		font-size: 1.5em;
 	}
 }
+
+
 
 .sitemap {
 	overflow: hidden;
 	color: $background--light;
-}
 
-.sitemap__link {
-	color: $background--light;
-	padding: .2rem 0;
-	display: block;
-}
-
-.sitemap__heading {
-	color: $background--light;
-}
-
-.social__links {
-	.button {
-		display: inline-block;
-		padding: $pad/2 $pad;
-		margin: 5px 0;
-		border-radius: 50px;
-		color: white;
-		text-decoration: none;
+	&__link {
+		padding: .2rem 0;
+		display: block;
 	}
 }
 
-.button--insta {
-	background: $hex-insta;
 
-	&:hover {
-		background: darken($hex-insta, 10%);
-	}
-}
-
-.button--facebook {
-	background: $hex-facebook;
-	
-	&:hover {
-		background: darken($hex-facebook, 10%);
-	}
-}
-
-.button--flickr {
-	background: $hex-flickr;
-	
-	&:hover {
-		background: darken($hex-flickr, 10%);
-	}
-}
-
-.button--vimeo {
-	background: $hex-vimeo;
-	
-	&:hover {
-		background: darken($hex-vimeo, 10%);
-	}
-}
 
 
 
@@ -409,6 +443,12 @@ h2 {
 
 // Vacancies (vacatures)
 @import "vacancy";
+
+// Social
+@import "social";
+
+// Pagination
+@import "pagination";
 
 // Education
 @import "education";

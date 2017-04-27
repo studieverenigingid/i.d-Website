@@ -6,6 +6,7 @@
 	+ news item (shown on frontpage
 		and event overview)
 	+ read more link
+	+ news item page
 
 \*-------------------------------------*/
 
@@ -31,60 +32,88 @@
 	padding: $pad;
 
 	@media (min-width: 512px) {
- 		min-width: 512px;
- 		flex: 1;	
+ 		min-width: 344px;
+ 		flex: 1;
 	}
-}
 
+	@media (min-width: 1415px) {
+		min-width: 380px;
+	}
 
-.news-item__meta,
-.news-item__excerpt,
-.news-item__content {
-	font-family: $font--light;
-	font-weight: 300;
-	font-size: 1em;
-}
+	@media (min-width: 1600px) {
+		min-width: 512px;
+	}
 
-.news-item__title,
-.news-item__meta,
-.news-item__excerpt,
-.news-item__content {
-	padding-left: 25px;
-	margin: 12px 0;
-}
+	&__thumb {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
 
-.news-item__thumb {
-	display: block;
-	width: 100%;
-	height: auto;
-}
+	&__title {
+		a {
+			text-decoration: none;
+			color: black;
 
-.news-item__title {
-	font-family: $font--heavy;
-	font-weight: 700;
-	font-size: 2em;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
 
-	a {
-		text-decoration: none;
-		color: black;
+	&__meta {
+		a {
+			color: $accent;
+			text-decoration: none;
 
-		&:hover{
-			text-decoration: underline;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 }
 
-.news-item__meta {
-	a {
-		color: $accent;
-		text-decoration: none;
 
-		&:hover {
-			text-decoration: underline;
-		}
+
+
+
+/*-------------------------------------*\
+	News item page
+\*-------------------------------------*/
+.news-item {
+	&__header {
+		background: $accent;
+		text-align: center;
+		padding: .1rem;
+		font-size: 1.1em;
+		margin-bottom: 10%;
+	}
+
+	&__title--large {
+		color: $background--light;
+		margin: 1em .5em .2em;
+	}
+
+	&__meta--large {
+		color: $background--light;
+		margin: 1.4em;
+	}
+
+	&__category {
+		color: white;
+		font-family: $font--heavy;
+	}
+
+	&__thumb--large {
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+		margin: 0 auto -10%;
+		max-width: 80%;
+		width: auto;
+		max-height: 70vh;
+		height: auto;
+		position: relative;
 	}
 }
-
 
 
 
@@ -95,15 +124,15 @@
 \*-------------------------------------*/
 .moretag {
 	display: inline-block;
-	padding: 0 0 0 14px;
+	padding: 0 0 0 .6em;
 	position: relative;
 	background: no-repeat;
 	border: none;
 	border-radius: 0;
-	color: black;
+	color: $text;
 	font-family: $font--heavy;
 	font-weight: 700;
-	margin-top:12px;
+	margin-left: .3em;
 	text-decoration: none;
 
 	&:before,
@@ -112,23 +141,25 @@
 		position: absolute;
 		right: auto;
 		left: 0;
-		width: 4px;
-		height: 50%;
-		background: #010101;
+		width: 3px;
+		height: 40%;
+		background: $text;
 		content: '';
-		transition: width 0.3s $transition--cubic, transform 0.3s $transition--cubic;
+		transition:
+			width 0.3s $transition--cubic,
+			transform 0.3s $transition--cubic;
 		transform: none
 	}
 
 	&:before {
-		top: 0;
+		top: 10%;
 		bottom: auto;
 		transform-origin: 100% 100%
 	}
 
 	&:after {
 		top: auto;
-		bottom: 0;
+		bottom: 10%;
 		transform-origin: 100% 0
 	}
 

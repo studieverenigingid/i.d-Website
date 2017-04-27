@@ -3,7 +3,24 @@
 ## Getting started
 Want to contribute? Setup your development environment:
 
-1. Assuming you’ve cloned this repo and installed
+### Back-end
+
+1. Set up a Wordpress installation
+2. Clone the repository to your `wp-content/themes`
+3. Create two menus at wp-admin/nav-menus.php and assign them to `Primary Menu` and `Footer Sitemap`
+4. Install [ACF](https://www.advancedcustomfields.com/)
+5. Generate or create fake posts (e.g. using [FakerPress](https://wordpress.org/plugins/fakerpress/))*
+6. Download the [Vimeo PHP library](https://github.com/vimeo/vimeo.php/releases), rename the `vimeo.php-X.X.X` folder to `vimeo` and put it in `/inc/API`
+7. Register a (test-)app at [Vimeo](https://developer.vimeo.com/apps)
+8. Register a (test-)app at [Instagram](https://www.instagram.com/developer/register/)
+9. Put the app ID’s and secrets in the admin at `https://[your-wp-installation]/wp-admin/options-general.php?page=i.d-website_settings`
+
+
+_\*Please note both vacancies and events need some extra content (i.e. dates) to actually show up on the front page_
+
+### Front-end
+
+1. Assuming you’ve installed
 [Node with npm](https://nodejs.org/en/) and [gulp](http://gulpjs.com/),
 run `npm install`
 2. Run `gulp` to compile, concat and copy the files to `static/` and have it

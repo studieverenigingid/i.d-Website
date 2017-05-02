@@ -243,6 +243,43 @@
 	}
 }
 
+.event {
+	&__files {
+		@extend .primary-content;
+		padding-top: 1rem;
+		border-top: 1px solid transparentize($background--dark, 0.7);
+	}
+
+	&__file {
+		border: 1px solid transparentize($accent, 0.7);
+		display: block;
+		text-decoration: none;
+		margin: .5em 0;
+		transition: all 100ms ease-out;
+
+		&:hover {
+			box-shadow: 0 .1rem .3rem transparentize(black, 0.8);
+			background: $accent;
+			border-color: transparent;
+		}
+	}
+
+	&__file-name {
+		margin: 0;
+		padding: .8em .8em .6em;
+		word-wrap: break-word;
+
+		&:hover {
+			color: $background--light;
+		}
+	}
+
+	&__section-title {
+		margin: .5em 0 .5em;
+		font-size: 2em;
+	}
+}
+
 
 
 

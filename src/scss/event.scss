@@ -194,6 +194,10 @@
 		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
 	}
 
+	&__content {
+		padding-top: 4em;
+	}
+
 	@media (min-width: 550px) {
 		&__short-info {
 			width: 64%;
@@ -231,6 +235,10 @@
 			margin-top: -20%;
 			margin-right: -110%;
 			width: 160%;
+		}
+
+		&__content {
+			padding-top: 6rem;
 		}
 	}
 }

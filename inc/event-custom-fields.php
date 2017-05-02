@@ -91,7 +91,7 @@ if(function_exists("register_field_group"))
 			),
 		),
 		'options' => array (
-			'position' => 'normal',
+			'position' => 'side',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 				0 => 'excerpt',

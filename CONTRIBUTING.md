@@ -8,7 +8,7 @@ Want to contribute? Setup your development environment:
 1. Set up a Wordpress installation
 2. Clone the repository to your `wp-content/themes`
 3. Create two menus at wp-admin/nav-menus.php and assign them to `Primary Menu` and `Footer Sitemap`
-4. Install [ACF](https://www.advancedcustomfields.com/)
+4. Install [ACF](https://www.advancedcustomfields.com/) (or ACF Pro if you have it and want to use/test the files at events, too)
 5. Generate or create fake posts (e.g. using [FakerPress](https://wordpress.org/plugins/fakerpress/))*
 6. Download the [Vimeo PHP library](https://github.com/vimeo/vimeo.php/releases), rename the `vimeo.php-X.X.X` folder to `vimeo` and put it in `/inc/API`
 7. Register a (test-)app at [Vimeo](https://developer.vimeo.com/apps)

@@ -186,6 +186,12 @@
 			top: 0;
 			left: 0;
 		}
+
+		&--education {
+			&:before {
+				display: none;
+			}
+		}
 	}
 
 	&__img {

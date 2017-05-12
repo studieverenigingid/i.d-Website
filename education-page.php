@@ -5,30 +5,36 @@ Template Name: Education Page
 get_header();
 ?>
 
-    <section class="education-hero fix-me">
 
-        <?php if ( has_post_thumbnail() ) :
-            the_post_thumbnail('post-thumbnail',
-                array('class' => 'education-hero__image')
-            );
-        endif; ?>
+    <header class="event--page__header
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--no-thumb'; ?>">
 
-        <h2 class="education-hero__h2"><?= the_title(); ?></h2>
+        <div class="event--page__short-info
+			<?php if ( !has_post_thumbnail() ) echo 'event--page__short-info--no-thumb'; ?>">
 
-        <form action="#" class="education-feedback">
-            <h2><?= esc_attr_x('Feedback', 'feedback-form-title')?></h2>
-            <div class="education-feedback__wrap">
-                <div class="education-feedback__message education-feedback__message--success">
-                    <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
+            <h1 class="event--page__name"><?php the_title(); ?></h1>
+
+            <?php if ( has_post_thumbnail() ) : ?>
+                <div class="event--page__thumb event--page__thumb--education">
+                    <form action="#" class="education-feedback">
+                        <div class="education-feedback__wrap">
+                            <h2><?= esc_attr_x('Feedback', 'feedback-form-title')?></h2>
+                            <div class="education-feedback__message education-feedback__message--success">
+                                <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
+                            </div>
+                            <div class="education-feedback__message education-feedback__message--failed">
+                                <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
+                            </div>
+                            <textarea name="feedback" id="" cols="30" rows="15" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
+                            <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
+                        </div>
+                    </form>
                 </div>
-                <div class="education-feedback__message education-feedback__message--failed">
-                    <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
-                </div>
-                <textarea name="feedback" id="" cols="30" rows="15" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
-                <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
-            </div>
-        </form>
-    </section>
+            <?php endif; ?>
+
+        </div>
+
+    </header>
 
 
     <section class="education-process">

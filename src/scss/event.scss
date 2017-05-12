@@ -194,6 +194,10 @@
 		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
 	}
 
+	&__content {
+		padding-top: 4em;
+	}
+
 	@media (min-width: 550px) {
 		&__short-info {
 			width: 64%;
@@ -232,6 +236,46 @@
 			margin-right: -110%;
 			width: 160%;
 		}
+
+		&__content {
+			padding-top: 6rem;
+		}
+	}
+}
+
+.event {
+	&__files {
+		@extend .primary-content;
+		padding-top: 1rem;
+		border-top: 1px solid transparentize($background--dark, 0.7);
+	}
+
+	&__file {
+		border: 1px solid transparentize($accent, 0.7);
+		display: block;
+		text-decoration: none;
+		margin: .5em 0;
+		transition: all 100ms ease-out;
+
+		&:hover {
+			box-shadow: 0 .1rem .3rem transparentize(black, 0.8);
+			background: $accent;
+			border-color: transparent;
+		}
+	}
+
+	&__file-name {
+		margin: 0;
+		padding: .8em .8em .6em;
+		word-wrap: break-word;
+
+		&:hover {
+			color: $background--light;
+		}
+	}
+
+	&__section-title {
+		margin: .5em 0 .5em;
 	}
 }
 

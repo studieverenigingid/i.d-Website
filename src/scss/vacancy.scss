@@ -123,6 +123,15 @@
 		}
 	}
 
+	&__logo-box {
+		background: white;
+		padding: 1.5rem;
+		box-shadow: 0 .1rem .4rem transparentize(black, 0.8);
+		margin: 1rem 0 2rem;
+		display: inline-block;
+		border-radius: .3rem;
+	}
+
 	&__logo {
 		display: block;
 		max-height: 5.8em;
@@ -130,7 +139,7 @@
 		margin: auto;
 
 		&--large {
-			margin: 1rem 0 2rem;
+			margin: 0;
 		}
 	}
 

@@ -9,9 +9,11 @@
 	<header class="vacancy__header">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail('post-thumbnail',
-				array( 'class' => 'vacancy__logo--large')
-			); ?>
+			<div class="vacancy__logo-box">
+				<?php the_post_thumbnail('post-thumbnail',
+					array( 'class' => 'vacancy__logo vacancy__logo--large')
+				); ?>
+			</div>
 		<?php endif; ?>
 
 		<?php

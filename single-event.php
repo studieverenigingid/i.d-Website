@@ -80,6 +80,35 @@
 
 	</main>
 
+	<?php
+		// Files
+		// check if there are files
+		if ( have_rows('file_list') ):
+	?>
+		<section class="event__files">
+			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
+			<?php
+				// loop through the files
+				while ( have_rows('file_list') ) :
+					the_row();
+					$file = get_sub_field('file');
+
+					if ( get_sub_field('file_name') !== '' ) {
+						$file_name = get_sub_field('file_name');
+					} else {
+						$file_name = $file['name'];
+					}
+				?>
+					<a class="event__file" href="<?=$file['url']?>" target="_blank">
+						<h3 class="event__file-name">
+							<i class="fa fa-file-text-o"></i>
+							<?=$file_name?>
+						</h3>
+					</a>
+			<?php endwhile;?>
+		</section>
+	<?php endif; ?>
+
 
 
 <?php endwhile; endif; ?>

@@ -31,12 +31,16 @@
 	&__container {
 		background-color: $background--light;
 		border: 1px solid rgba(0, 0, 0, 0.08);
-		margin: -56px auto 56px;
+		margin: 56px auto 56px;
 		width: 90%;
 		max-width: 1200px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-start;
+
+		&:first-of-type{
+			margin-top:-56px;
+		}
 	}
 
 	&__subtitle {

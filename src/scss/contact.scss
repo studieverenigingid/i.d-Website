@@ -31,16 +31,37 @@
 	&__container {
 		background-color: $background--light;
 		border: 1px solid rgba(0, 0, 0, 0.08);
-		margin: -56px auto 56px;
+		margin: 56px auto 56px;
 		width: 90%;
 		max-width: 1200px;
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		&:first-of-type{
+			margin-top:-56px;
+		}
+	}
+
+	&__subtitle {
+		display: block;
+		margin: 0;
+		padding: .8em 2rem .8em;
+		flex: 0 0 100%;
 	}
 
 	&__block {
-		min-width: 250px;
+		flex-basis: 33%;
+		flex-grow: 1;
 		padding: $pad;
+
+		@media (max-width: $brk--desktop) {
+			flex-basis:50%;
+		}
+
+		@media (max-width: $brk--tablet) {
+			flex-basis:100%;
+		}
 	}
 
 	&__img {

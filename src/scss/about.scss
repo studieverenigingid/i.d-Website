@@ -1,0 +1,66 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: EVENT
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	about.scss:
+	+ about page top
+	+ (board)
+	+ (committee)
+	+ honorary members
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	About page top
+\*-------------------------------------*/
+.about {
+
+	&__top {
+		padding: 1.5rem;
+		margin: 0 0 5%;
+		background: $accent;
+	}
+
+	&__title {
+		color: $background--light;
+		text-align: center;
+	}
+
+	&__descr {
+		color: $background--light;
+		font-size: 1.3em;
+		margin: auto;
+		padding: 1em 0 1em;
+	}
+
+	&__thumb {
+		max-width: 100%;
+		width: 34rem;
+		height: auto;
+	}
+
+	@media (min-width: $brk--tablet) {
+		&__descr {
+			padding-left: 34%;
+			position: relative;
+			z-index: 2;
+			max-width: 80%;
+		}
+
+		&__thumb {
+			margin: -22% 0 -5% 5%;
+			position: relative;
+			z-index: 1;
+			width: 40%;
+		}
+	}
+}

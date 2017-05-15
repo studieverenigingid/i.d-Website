@@ -65,6 +65,16 @@
 				max-width: 26%;
 			}
 		}
+
+		&--flickr {
+			@include aspect-ratio(3, 2);
+			width: 422px;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 47%;
+			}
+		}
 	}
 
 	&__title {

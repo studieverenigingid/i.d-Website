@@ -161,8 +161,12 @@
     flex-wrap: wrap;
     width: 100%;
     max-width: $brk--large-desktop;
-    margin: 0 auto 8rem;
+    margin: 0 auto 4rem;
     padding: 0 2rem;
+
+    @media(max-width: $brk--desktop) {
+      margin-bottom: 2rem;
+    }
 
     &__item-wrap {
       position: relative;
@@ -210,7 +214,11 @@
   }
 
   &-news {
-    margin: 4rem auto;
+    margin: 4rem auto 0;
+
+    @media(max-width: $brk--desktop) {
+      margin-top: 2rem;
+    }
   }
 
 
@@ -218,7 +226,7 @@
     position: relative;
     text-align: center;
     max-width: $brk--phone;
-    margin: 4rem auto;
+    margin: 0 auto 4rem;
     padding: 1rem;
 
     img {

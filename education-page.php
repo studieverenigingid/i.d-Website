@@ -6,34 +6,26 @@ get_header();
 ?>
 
 
-    <header class="event--page__header
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--no-thumb'; ?>">
-
-        <div class="event--page__short-info
-			<?php if ( !has_post_thumbnail() ) echo 'event--page__short-info--no-thumb'; ?>">
-
+    <header class="event--page__header event--page__education">
+        <div class="event--page__short-info">
             <h1 class="event--page__name"><?php the_title(); ?></h1>
 
-            <?php if ( has_post_thumbnail() ) : ?>
-                <div class="event--page__thumb event--page__thumb--education">
-                    <form action="#" class="education-feedback">
-                        <div class="education-feedback__wrap">
-                            <h2><?= esc_attr_x('Feedback', 'feedback-form-title')?></h2>
-                            <div class="education-feedback__message education-feedback__message--success">
-                                <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
-                            </div>
-                            <div class="education-feedback__message education-feedback__message--failed">
-                                <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
-                            </div>
-                            <textarea name="feedback" id="" cols="30" rows="15" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
-                            <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
+            <div class="event--page__thumb event--page__thumb--education">
+                <form action="#" class="education-feedback">
+                    <div class="education-feedback__wrap">
+                        <h2><?= esc_attr_x('Feedback', 'feedback-form-title')?></h2>
+                        <div class="education-feedback__message education-feedback__message--success">
+                            <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
                         </div>
-                    </form>
-                </div>
-            <?php endif; ?>
-
+                        <div class="education-feedback__message education-feedback__message--failed">
+                            <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
+                        </div>
+                        <textarea name="feedback" id="" cols="30" rows="15" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
+                        <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </header>
 
 
@@ -41,15 +33,15 @@ get_header();
         <h2><?= esc_attr_x('Wat doen we met je feedback?', 'education-what-we-do-with-it')?></h2>
 
         <div class="education-process__item-wrap">
-            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_1" ); ?>')">
+            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_1" )['sizes']['medium'] ?>')">
             </div>
         </div>
         <div class="education-process__item-wrap">
-            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_2" ); ?>')">
+            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_2" )['sizes']['medium'] ?>')">
             </div>
         </div>
         <div class="education-process__item-wrap">
-            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_3" ); ?>')">
+            <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_3" )['sizes']['medium'] ?>')">
             </div>
         </div>
     </section>
@@ -91,13 +83,10 @@ get_header();
 
     <section class="education-about">
         <h2><?= esc_attr_x('Wie zijn we?', 'education-who-are-we')?></h2>
-
-        <img src="<?=$img_folder?>whoarewe.jpg" alt="A demo image">
-
+        <img src="<?= get_field( "commity_photo" )['sizes']['large'] ?>" alt="<?= get_field( "commity_photo" )['url'] ?>">
         <div class="education-about__description">
-            Lorem Khaled Ipsum is a major key to success. A major key, never panic. Don’t panic, when it gets crazy and rough, don’t panic, stay calm. Congratulations, you played yourself.
+            <?= get_field( "commity_description" ); ?>
         </div>
-
     </section>
 
 

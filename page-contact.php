@@ -19,30 +19,67 @@ get_header(); ?>
 
 <section class="contact-page__container">
 		<h2 class="contact-page__subtitle">I have a question</h2>
-		<div class="contact-page__block">
-			<h3>How do I change my address?</h3>
-			<p>If you'd like to change your address (or other contact info), please send our secretary an e-mail. Or do it yourself in our fancy new member area.</p>
-			<a class="contact-page__info__button button button--mail" href="mailto:svid@tudelft.nl"><i class="fa fa-envelope"></i> svid@tudelft.nl</a>
-		</div>
-		<div class="contact-page__block">
-			<h3>Can I add a vacancy to your website?</h3>
-			<p>If you'd like your vacancy to be on our vacancy page, send our commissioner of external affairs an e-mail, if you prefer to call, that's fine as well.</p>
-			<a class="contact-page__info__button button button--mail" href="mailto:extern-svid@tudelft.nl"><i class="fa fa-envelope"></i> extern-svid@tudelft.nl</a>
-			<a class="contact-page__info__button button button--call" href="tel:+31(0)152783012"><i class="fa fa-envelope"></i> +31 (0)15 278 3012</a>
-		</div>
-		<div class="contact-page__block">
-			<h3>Where do I send feedback about education?</h3>
-			<p>If you have any feedback on education at IDE, be sure to check out the <a href="/education">education</a> page. You can send an e-mail with any questions as well.</p>
-			<a class="contact-page__info__button button button--mail" href="mailto:bachelor-svid@tudelft.nl"><i class="fa fa-envelope"></i> bachelor-svid@tudelft.nl</a>
-			<a class="contact-page__info__button button button--mail" href="mailto:master-svid@tudelft.nl"><i class="fa fa-envelope"></i> master-svid@tudelft.nl</a>
-		</div>
-		<div class="contact-page__block">
-			<h3>I have another question.</h3>
-			<p>If you have any other questions, there's plenty of ways to reach us.</p>
-			<a class="contact-page__info__button button button--mail" href="mailto:svid@tudelft.nl"><i class="fa fa-envelope"></i> svid@tudelft.nl</a>
-			<a class="contact-page__info__button button button--call" href="tel:+31(0)152783012"><i class="fa fa-envelope"></i> +31 (0)15 278 3012</a>
-			<a class="contact-page__info__button button button--messenger" target="blank" href="https://m.me/studieverenigingi.d"><i class="fa fa-comment"></i> /studieverenigingi.d</a>
-		</div>
+
+		<?php
+			// check if the repeater field has rows of data
+			if( have_rows('contact_page_block') ):
+
+				// loop through the rows of data
+				while ( have_rows('contact_page_block') ) : the_row();
+
+					// display a sub field value ?>
+					<div class="contact-page__block">
+						<h3><?php the_sub_field('contact_block_title');?></h3>
+						<?php the_sub_field('contact_block_content'); ?>
+
+						<?php
+							// check if the repeater field has rows of data
+							if( have_rows('contact_block_buttons') ):
+
+								// loop through the rows of data
+								while ( have_rows('contact_block_buttons') ) : the_row();
+									$field_name = "contact_button_type";
+									$field = get_sub_field_object($field_name)['value'];
+
+									if($field == "mail"){
+										$type = "mail";
+										$prefix = "mailto:";
+										$fa_class = "envelope";
+									} elseif ($field == "call") {
+										$type = "call";
+										$prefix = "tel:";
+										$fa_class = "phone";
+									} elseif ($field == "messenger") {
+										$type = "messenger";
+										$prefix = "https://m.me";
+										$fa_class = "comment";
+									} else {} ?>
+
+									<a class="contact-page__info__button button button--<?php echo $type; ?>" 
+									href="<?php echo $prefix; the_sub_field('contact_button_content'); ?>"><i class="fa fa-<?php echo $fa_class; ?>"></i>
+										<?php the_sub_field('contact_button_content');?>
+									</a>
+
+								<?php endwhile;
+
+							else :
+
+								// no rows found
+
+							endif;
+						?>
+
+					</div>
+
+				<?php endwhile;
+
+			else :
+
+				// no rows found
+
+			endif;
+
+		?>
 </section>
 
 <section class="contact-page__container">
@@ -79,7 +116,9 @@ get_header(); ?>
 			<li>Friday: 9:00 - 17:00</li>
 		</ul>
 	</div>
+</section>
 
+<section class="contact-page__container">
 	<h2 class="contact-page__subtitle">Other information</h2>
 	<div class="contact-page__block">
 		<ul>

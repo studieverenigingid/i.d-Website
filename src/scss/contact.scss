@@ -1,0 +1,74 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: CONTACT
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	contact.scss:
+	+ Contact Page
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Contact Page
+\*-------------------------------------*/
+.contact-page {
+	&__title {
+		padding: .8em 2rem .8em;
+		margin: 0 0 2rem;
+		background: $accent;
+		color: $background--light;
+		text-align: center;
+	}
+
+	&__container {
+		background-color: $background--light;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		margin: 56px auto 56px;
+		width: 90%;
+		max-width: 1200px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		&:first-of-type{
+			margin-top:-56px;
+		}
+	}
+
+	&__subtitle {
+		display: block;
+		margin: 0;
+		padding: .8em 2rem .8em;
+		flex: 0 0 100%;
+	}
+
+	&__block {
+		flex-basis: 33%;
+		flex-grow: 1;
+		padding: $pad;
+
+		@media (max-width: $brk--desktop) {
+			flex-basis:50%;
+		}
+
+		@media (max-width: $brk--tablet) {
+			flex-basis:100%;
+		}
+	}
+
+	&__img {
+		width: 90%;
+		max-width: 960px;
+		height: auto;
+		margin: -6em auto 0;
+		display: block;
+	}
+}

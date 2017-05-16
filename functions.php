@@ -8,6 +8,8 @@
 
 	include( 'inc/group-post-type.php' );
 
+	include( 'inc/contact-custom-fields.php' );
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );

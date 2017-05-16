@@ -57,12 +57,17 @@ $background--light: #fafafa;
 $background--dark: #11417e;
 $background--gray: #222;
 $text: #222;
+$hex-education: #F18918;
 
 $social:
 	(insta, #e1306c),
 	(facebook, #3b5998),
 	(flickr, #ff0084),
-	(vimeo, #1ab7ea);
+	(vimeo, #1ab7ea),
+	(messenger, #0084ff),
+	(maps, #fbbc05),
+	(mail, red),
+	(call, #1dcc00);
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -361,6 +366,23 @@ blockquote {
 
 
 /*-------------------------------------*\
+	Primary content
+\*-------------------------------------*/
+.not-found {
+	background: $accent;
+	padding: 10%;
+	color: $background--light;
+
+	&__title {
+		color: $background--light;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Footer
 \*-------------------------------------*/
 .pri-footer {
@@ -447,8 +469,14 @@ blockquote {
 // Social
 @import "social";
 
+// Contact
+@import "contact";
+
 // Pagination
 @import "pagination";
 
 // About page
 @import "about";
+
+// Education
+@import "education";

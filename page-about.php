@@ -58,4 +58,8 @@
 
 
 
+<section class="master-coms"></section>
+
+
+
 <?php get_footer(); ?>

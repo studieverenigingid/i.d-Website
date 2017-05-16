@@ -25,42 +25,62 @@
 .about {
 
 	&__top {
-		padding: 1.5rem;
-		margin: 0 0 5%;
+		padding: .1rem 5%;
+		margin: 0 0 5rem;
 		background: $accent;
 	}
 
 	&__title {
 		color: $background--light;
-		text-align: center;
+		max-width: 30rem;
 	}
 
 	&__descr {
 		color: $background--light;
 		font-size: 1.3em;
-		margin: auto;
-		padding: 1em 0 1em;
+		max-width: 30rem;
 	}
 
 	&__thumb {
-		max-width: 100%;
-		width: 34rem;
+		margin-bottom: -3rem;
+	}
+
+	&__img {
+		width: 100%;
 		height: auto;
 	}
 
-	@media (min-width: $brk--tablet) {
-		&__descr {
-			padding-left: 34%;
-			position: relative;
-			z-index: 2;
-			max-width: 80%;
+	@media (min-width: $brk--phone) {
+		&__top {
+			padding: .1rem 8%;
 		}
 
 		&__thumb {
-			margin: -22% 0 -5% 5%;
-			position: relative;
-			z-index: 1;
-			width: 40%;
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
+			}
+		}
+
+		&__img {
+			width: 70%;
+			float: right;
+		}
+	}
+
+	@media (min-width: $brk--tablet) {
+		&__top {
+			padding: 4rem 10%;
+		}
+
+		&__descr,
+		&__title {
+			max-width: 36rem;
+		}
+
+		&__thumb {
+			margin-bottom: -7rem;
 		}
 	}
 }

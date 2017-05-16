@@ -7,9 +7,11 @@
 	<h1 class="about__title"><?php the_title(); ?></h1>
 	<p class="about__descr"><?php echo get_the_content(); ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
-		<?php the_post_thumbnail('post-thumbnail',
-			array( 'class' => 'about__thumb')
-		); ?>
+		<div class="about__thumb">
+			<?php the_post_thumbnail('post-thumbnail',
+				array( 'class' => 'about__img')
+			); ?>
+		</div>
 	<?php endif; ?>
 </main>
 <?php endwhile; endif; ?>

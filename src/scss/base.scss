@@ -366,6 +366,23 @@ blockquote {
 
 
 /*-------------------------------------*\
+	Primary content
+\*-------------------------------------*/
+.not-found {
+	background: $accent;
+	padding: 10%;
+	color: $background--light;
+
+	&__title {
+		color: $background--light;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Footer
 \*-------------------------------------*/
 .pri-footer {

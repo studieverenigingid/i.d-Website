@@ -1,6 +1,6 @@
 /*-------------------------------------*\
 
-	i.d-WEBSITE WORDPRESS THEME: EVENT
+	i.d-WEBSITE WORDPRESS THEME: ABOUT PAGE
 
 	See style.css for the WP info.
 
@@ -81,6 +81,42 @@
 
 		&__thumb {
 			margin-bottom: -7rem;
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Board
+\*-------------------------------------*/
+.board {
+	text-align: center;
+	margin: 6.5em 0 2rem;
+
+	@media (min-width: $brk--tablet) {
+		margin: 14% 0 4%;
+	}
+
+	&__indication {
+		margin: .5em;
+		font-family: $font--heavy;
+		opacity: .5;
+	}
+
+	&__title {
+		margin-top: .2em;
+	}
+
+	&__img {
+		max-width: 100%;
+		width: 44rem;
+		height: auto;
+
+		@media (min-width: $brk--desktop) {
+			width: 60%;
 		}
 	}
 }

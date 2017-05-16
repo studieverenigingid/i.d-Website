@@ -18,7 +18,35 @@
 
 
 
-<section class="board"></section>
+<section class="board">
+
+	<?php
+		wp_reset_postdata();
+		$args = array( 'post_type' => 'group', 'posts_per_page' => 6 );
+		$loop = new WP_Query( $args );
+    if($loop->have_posts()) : while($loop->have_posts()) :
+			$loop->the_post();?>
+
+		<p class="board__indication">
+			<?php echo esc_attr_x('The current board', 'shows above the board title'); ?>
+		</p>
+		<h2 class="board__title">
+			<?php the_title(); ?>
+		</h2>
+
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="board__thumb">
+				<?php the_post_thumbnail('large',
+					array( 'class' => 'board__img')
+				); ?>
+			</div>
+
+		<?php endif; ?>
+	<?php
+		endwhile; endif;
+		wp_reset_postdata();
+	?>
+</section>
 
 
 

@@ -6,7 +6,8 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
-	include( 'inc/group-post-type.php' );
+	include( 'inc/committee-post-type.php' );
+	include( 'inc/board-post-type.php' );
 
 	include( 'inc/contact-custom-fields.php' );
 

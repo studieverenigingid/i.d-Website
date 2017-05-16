@@ -22,7 +22,7 @@
 
 	<?php
 		wp_reset_postdata();
-		$args = array( 'post_type' => 'group', 'posts_per_page' => 6 );
+		$args = array( 'post_type' => 'board', 'posts_per_page' => 6 );
 		$loop = new WP_Query( $args );
     if($loop->have_posts()) : while($loop->have_posts()) :
 			$loop->the_post();?>
@@ -46,11 +46,27 @@
 		endwhile; endif;
 		wp_reset_postdata();
 	?>
+
 </section>
 
 
 
-<section class="committees"></section>
+<section class="committees">
+	<?php
+		wp_reset_postdata();
+		$args = array( 'post_type' => 'committee', 'posts_per_page' => 30 );
+		$loop = new WP_Query( $args );
+    if($loop->have_posts()) : while($loop->have_posts()) : ?>
+		<h2>Our committees</h2>
+		<?php $loop->the_post(); ?>
+			<article class="committee">
+
+			</article>
+		<?php
+			endwhile; endif;
+			wp_reset_postdata();
+		?>
+</section>
 
 
 

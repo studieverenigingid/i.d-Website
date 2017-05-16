@@ -6,6 +6,8 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
+	include( 'inc/group-post-type.php' );
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );

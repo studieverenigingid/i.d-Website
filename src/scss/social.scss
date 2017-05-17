@@ -65,6 +65,26 @@
 				max-width: 26%;
 			}
 		}
+
+		&--flickr--landscape {
+			@include aspect-ratio(3, 2);
+			width: 422px;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 47%;
+			}
+		}
+
+		&--flickr--portrait {
+			@include aspect-ratio(2, 3);
+			width: 187px;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 47%;
+			}
+		}
 	}
 
 	&__title {

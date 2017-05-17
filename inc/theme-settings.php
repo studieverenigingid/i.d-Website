@@ -3,40 +3,40 @@
 	add_action( 'admin_init', 'id_settings_init' );
 
 
-	function id_add_admin_menu(  ) { 
+	function id_add_admin_menu(  ) {
 
 		add_submenu_page( 'options-general.php', 'i.d-Website Settings', 'i.d-Website Settings', 'manage_options', 'i.d-website_settings', 'id_options_page' );
 
 	}
 
 
-	function id_settings_init(  ) { 
+	function id_settings_init(  ) {
 
 		// Registering Vimeo section and fields
 
 		register_setting( 'vimeoSettings', 'id_settings' );
 
 		add_settings_section(
-			'id_vimeoSettings_section', 
-			__( 'Vimeo API settings', 'wordpress' ), 
-			'id_vimeoSettings_section_callback', 
+			'id_vimeoSettings_section',
+			__( 'Vimeo API settings', 'wordpress' ),
+			'id_vimeoSettings_section_callback',
 			'vimeoSettings'
 		);
 
-		add_settings_field( 
-			'id_vimeo_api_id_field', 
-			__( 'Vimeo API ID', 'wordpress' ), 
-			'id_vimeo_api_id_render', 
-			'vimeoSettings', 
-			'id_vimeoSettings_section' 
+		add_settings_field(
+			'id_vimeo_api_id_field',
+			__( 'Vimeo API ID', 'wordpress' ),
+			'id_vimeo_api_id_render',
+			'vimeoSettings',
+			'id_vimeoSettings_section'
 		);
 
-		add_settings_field( 
-			'id_vimeo_api_secret_field', 
-			__( 'Vimeo API Secret', 'wordpress' ), 
-			'id_vimeo_api_secret_render', 
-			'vimeoSettings', 
-			'id_vimeoSettings_section' 
+		add_settings_field(
+			'id_vimeo_api_secret_field',
+			__( 'Vimeo API Secret', 'wordpress' ),
+			'id_vimeo_api_secret_render',
+			'vimeoSettings',
+			'id_vimeoSettings_section'
 		);
 
 		// Registering Instagram section and fields
@@ -44,41 +44,58 @@
 		register_setting( 'instagramSettings', 'id_settings' );
 
 		add_settings_section(
-			'id_instagramSettings_section', 
-			__( 'Instagram API settings', 'wordpress' ), 
-			'id_instagramSettings_section_callback', 
+			'id_instagramSettings_section',
+			__( 'Instagram API settings', 'wordpress' ),
+			'id_instagramSettings_section_callback',
 			'instagramSettings'
 		);
 
-		add_settings_field( 
-			'id_instagram_client_id_field', 
-			__( 'Instagram client ID', 'wordpress' ), 
-			'id_instagram_client_id_render', 
-			'instagramSettings', 
-			'id_instagramSettings_section' 
+		add_settings_field(
+			'id_instagram_client_id_field',
+			__( 'Instagram client ID', 'wordpress' ),
+			'id_instagram_client_id_render',
+			'instagramSettings',
+			'id_instagramSettings_section'
 		);
 
-		add_settings_field( 
-			'id_instagram_client_secret_field', 
-			__( 'Instagram client secret', 'wordpress' ), 
-			'id_instagram_client_secret_render', 
-			'instagramSettings', 
-			'id_instagramSettings_section' 
+		add_settings_field(
+			'id_instagram_client_secret_field',
+			__( 'Instagram client secret', 'wordpress' ),
+			'id_instagram_client_secret_render',
+			'instagramSettings',
+			'id_instagramSettings_section'
 		);
 
-		add_settings_field( 
-			'id_instagram_access_token_field', 
-			__( 'Instagram access token', 'wordpress' ), 
-			'id_instagram_access_token_render', 
-			'instagramSettings', 
-			'id_instagramSettings_section' 
+		add_settings_field(
+			'id_instagram_access_token_field',
+			__( 'Instagram access token', 'wordpress' ),
+			'id_instagram_access_token_render',
+			'instagramSettings',
+			'id_instagramSettings_section'
+		);
+
+		register_setting( 'flickrSettings', 'id_settings' );
+
+		add_settings_section(
+			'id_flickrSettings_section',
+			__( 'Flickr API settings', 'wordpress' ),
+			'id_flickrSettings_section_callback',
+			'flickrSettings'
+		);
+
+		add_settings_field(
+			'id_flickr_api_key_field',
+			__( 'Flickr API Key', 'wordpress' ),
+			'id_flickr_api_key_render',
+			'flickrSettings',
+			'id_flickrSettings_section'
 		);
 
 	}
 
 	// Vimeo form rendering
 
-	function id_vimeo_api_id_render(  ) { 
+	function id_vimeo_api_id_render(  ) {
 
 		$options = get_option( 'id_settings' );
 		?>
@@ -88,7 +105,7 @@
 	}
 
 
-	function id_vimeo_api_secret_render(  ) { 
+	function id_vimeo_api_secret_render(  ) {
 
 		$options = get_option( 'id_settings' );
 		?>
@@ -98,7 +115,7 @@
 	}
 
 
-	function id_vimeoSettings_section_callback(  ) { 
+	function id_vimeoSettings_section_callback(  ) {
 
 		echo __( 'Input Vimeo API keys', 'wordpress' );
 
@@ -106,7 +123,7 @@
 
 	// Instagram form rendering
 
-	function id_instagram_client_id_render(  ) { 
+	function id_instagram_client_id_render(  ) {
 
 		$options = get_option( 'id_settings' );
 		?>
@@ -115,7 +132,7 @@
 
 	}
 
-	function id_instagram_client_secret_render(  ) { 
+	function id_instagram_client_secret_render(  ) {
 
 		$options = get_option( 'id_settings' );
 		?>
@@ -124,7 +141,7 @@
 
 	}
 
-	function id_instagram_access_token_render(  ) { 
+	function id_instagram_access_token_render(  ) {
 
 		$options = get_option( 'id_settings' );
 
@@ -149,16 +166,33 @@
 
 	// Instagram section callback
 
-	function id_instagramSettings_section_callback(  ) { 
+	function id_instagramSettings_section_callback(  ) {
 		$options = get_option( 'id_settings' );
 
 		echo __( 'Enter your Instagram Client ID, then log in to your Instagram account to get your access token', 'wordpress' );
 
 	}
 
+	// Flickr form rendering
+
+	function id_flickr_api_key_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='text' name='id_settings[id_flickr_api_key_field]' value='<?php echo $options['id_flickr_api_key_field']; ?>'>
+		<?php
+
+	}
+
+	function id_flickrSettings_section_callback(  ) {
+
+		echo __( 'Input Flickr API keys & settings', 'wordpress' );
+
+	}
+
 	// i.d-Website settings page
 
-	function id_options_page() { 
+	function id_options_page() {
 
 		?>
 		<form action='options.php' method='post'>
@@ -171,6 +205,9 @@
 
 			settings_fields( 'instagramSettings' );
 			do_settings_sections( 'instagramSettings' );
+
+			settings_fields( 'flickrSettings' );
+			do_settings_sections( 'flickrSettings' );
 			submit_button();
 			?>
 

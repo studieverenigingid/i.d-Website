@@ -113,7 +113,9 @@
 			$api_key = $options['id_flickr_api_key_field'];
 			$user_id = "35506884@N07";
 			$username = "svid";
+
 			$data = request('https://api.flickr.com/services/rest/?method=flickr.photosets.getList&format=json&nojsoncallback=1&api_key='.$api_key.'&user_id='.$user_id.'&page=1&per_page=3&primary_photo_extras=url_m');
+			// TODO: Handle errors?
 			$photosets = json_decode($data, true)['photosets']['photoset'];
 
 			foreach ($photosets as $photoset) {

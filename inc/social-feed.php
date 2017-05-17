@@ -123,7 +123,7 @@
 
 				$result[] = [
 					'type' => 'Flickr',
-					'class' => 'flickr', //.($photoset['primary_photo_extras']['height_m'] > $photoset['primary_photo_extras']['width_m'] ? 'vertical' : 'horizontal'),
+					'class' => 'flickr flickr--'.($photoset['primary_photo_extras']['height_m'] > $photoset['primary_photo_extras']['width_m'] ? 'portrait' : 'landscape'),
 					'icon' => 'flickr',
 					'link' => 'https://www.flickr.com/photos/'.$username.'/albums/'.$photoset['id'],
 					'date' => $photoset['date_create'],
@@ -152,9 +152,9 @@
 				$icon = $post['icon']; ?><!--
 
 				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
-				--><div class="social__container social__container--<?=$class?>"
+				--><div class="social__container <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__container--$1', $class);?>"
 							style="background-image:url('<?=$image_url?>');">
-							<div class="social__title social__title--<?=$class?>">
+							<div class="social__title <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__title--$1', $class);?>">
 								<i class="fa fa-<?=$icon?> social__ico"></i> <?=$type?>
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with

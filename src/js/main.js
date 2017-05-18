@@ -5,6 +5,7 @@ function onDocReady () {
 	menuToggler();
 	ajaxFeedbackForm();
 	fixVHAfterLoad();
+    vibrantLoad();
 }
 
 function menuToggler () {
@@ -41,4 +42,22 @@ function ajaxFeedbackForm() {
 
 function fixVHAfterLoad() {
 	$('.fix-me').height($('.fix-me').height());
+}
+
+function vibrantLoad() {
+    var img = document.querySelector('#event--page__img');
+
+    var vibrant = new Vibrant(img);
+    var swatches = vibrant.swatches()
+    for (var swatch in swatches)
+    if (swatches.hasOwnProperty(swatch) && swatches[swatch])
+    console.log(swatch, swatches[swatch].getHex()); 
+
+    changeColorVibrant = document.getElementsByClassName('colorVibrant');
+
+    for (var i = 0; i < changeColorVibrant.length; i++) {
+        changeColorVibrant[i].style.backgroundColor = swatches['DarkVibrant'].getHex();
+    }
+
+    
 }

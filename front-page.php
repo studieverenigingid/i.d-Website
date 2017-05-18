@@ -30,7 +30,7 @@ if ($upcoming_loop->have_posts()) :
 	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
 		if($upcoming_no === 0): ?>
 
-    <?php include 'inc/frontpage-event.php'; ?>
+	<?php include 'inc/frontpage-event.php'; ?>
 
 	<div class="events--small">
 	<?php else:
@@ -79,7 +79,7 @@ if ($upcoming_loop->have_posts()) :
 		  } endif; ?>
 
 	</div>
-	</section>
+</section>
 
 <?php wp_reset_postdata(); ?>
 
@@ -129,22 +129,22 @@ add_filter('posts_where', 'my_posts_where');
 
 	<section class="vacancies vacancies--frontpage">
 
-    <h2 class="vacancies__title vacancies__title--frontpage">
-      Looking for a job?
-    </h2>
+	<h2 class="vacancies__title vacancies__title--frontpage">
+	  Looking for a job?
+	</h2>
 
-  	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
+	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-  		<?php include 'inc/frontpage-vacancy.php'; ?>
+		<?php include 'inc/frontpage-vacancy.php'; ?>
 
-  	<?php endwhile; ?>
+	<?php endwhile; ?>
 
-    <div class="vacancy">
-  		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
-        href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-        All vacancies
-      </a>
-  	</div>
+	<div class="vacancy">
+		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
+		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+		All vacancies
+	  </a>
+	</div>
 
   </section>
 
@@ -184,7 +184,7 @@ wp_reset_postdata();
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
 		$loop = new WP_Query( $args );
-    if($loop->have_posts()) : while($loop->have_posts()) :
+	if($loop->have_posts()) : while($loop->have_posts()) :
 			$loop->the_post();
 			include 'inc/small-news-item.php';
 		endwhile; endif;

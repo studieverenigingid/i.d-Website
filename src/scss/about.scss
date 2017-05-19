@@ -120,3 +120,32 @@
 		}
 	}
 }
+
+
+
+
+
+/*-------------------------------------*\
+	Committees
+\*-------------------------------------*/
+.committees {
+	margin: 1rem;
+
+	&__grid {
+		@include flex-container();
+	}
+
+	@media (min-width: $brk--phone) {
+		margin: 1rem 2.5rem;
+	}
+}
+
+
+
+.committee {
+	margin: 0 1rem 2rem;
+
+	flex-basis: 20rem;
+	flex-grow: 1;
+	width: 14rem;
+}

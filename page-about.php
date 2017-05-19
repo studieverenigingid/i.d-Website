@@ -56,16 +56,21 @@
 		wp_reset_postdata();
 		$args = array( 'post_type' => 'committee', 'posts_per_page' => 30 );
 		$loop = new WP_Query( $args );
-    if($loop->have_posts()) : while($loop->have_posts()) : ?>
-		<h2>Our committees</h2>
-		<?php $loop->the_post(); ?>
-			<article class="committee">
+    if($loop->have_posts()) : ?>
 
-			</article>
-		<?php
-			endwhile; endif;
-			wp_reset_postdata();
-		?>
+		<h2>Our committees</h2>
+
+		<div class="committees__grid">
+			<?php while($loop->have_posts()) : $loop->the_post(); ?>
+				<article class="committee">
+					<h3 class="committee__name"><?php the_title(); ?></h3>
+				</article>
+			<?php
+				endwhile; endif;
+				wp_reset_postdata();
+			?>
+		</div>
+
 </section>
 
 

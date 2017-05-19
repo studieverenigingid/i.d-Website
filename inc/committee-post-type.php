@@ -45,21 +45,3 @@ function committee_activate() {
 function committee_deactivate() {
 	flush_rewrite_rules();
 }
-
-register_activation_hook( __FILE__, 'committee_activate' );
-register_deactivation_hook( __FILE__, 'committee_deactivate' );
-
-register_taxonomy( 'committee-name', array('committee'), array(
-	'hierarchical' => true,
-	'labels' => array(
-		'name' => 'Committee names',
-		'singular_name' => 'Committee name',
-		'search_items' =>  'Search committee names',
-		'all_items' => 'All committee names',
-		'edit_item' => 'Change committee name',
-		'update_item' => 'Update committee name',
-		'add_new_item' => 'Add new committee name',
-		'new_item_name' => 'New interview committee name'
-	),
-	'show_ui' => true,
-));

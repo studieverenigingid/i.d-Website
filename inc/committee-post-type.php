@@ -45,3 +45,21 @@ function committee_activate() {
 function committee_deactivate() {
 	flush_rewrite_rules();
 }
+
+register_activation_hook( __FILE__, 'committee_activate' );
+register_deactivation_hook( __FILE__, 'committee_deactivate' );
+
+register_taxonomy( 'committee-group', array('committee'), array(
+	'hierarchical' => true,
+	'labels' => array(
+		'name' => 'Committee groups',
+		'singular_name' => 'Committee group',
+		'search_items' =>  'Search committee groups',
+		'all_items' => 'All committee groups',
+		'edit_item' => 'Change committee group',
+		'update_item' => 'Update committee group',
+		'add_new_item' => 'Add new committee group',
+		'new_item_name' => 'New committee group'
+	),
+	'show_ui' => true,
+));

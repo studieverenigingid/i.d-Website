@@ -182,7 +182,7 @@ wp_reset_postdata();
 <h2>Nieuws en blog</h2>
 <section class="news">
 	<?php
-		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );
 	if($loop->have_posts()) : while($loop->have_posts()) :
 			$loop->the_post();

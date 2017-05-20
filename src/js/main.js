@@ -51,13 +51,14 @@ function vibrantLoad() {
     var swatches = vibrant.swatches()
     for (var swatch in swatches)
     if (swatches.hasOwnProperty(swatch) && swatches[swatch])
-    console.log(swatch, swatches[swatch].getHex()); 
+    console.log(swatch, swatches[swatch].getHex());
 
     changeColorVibrant = document.getElementsByClassName('colorVibrant');
 
-    for (var i = 0; i < changeColorVibrant.length; i++) {
-        changeColorVibrant[i].style.backgroundColor = swatches['DarkVibrant'].getHex();
-    }
+		var DarkVibrantHex = swatches['DarkVibrant'].getHex()
 
-    
+		$('meta[name=theme-color]').remove();
+		$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
+		$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background-color:'+DarkVibrantHex+';}</style>');
+
 }

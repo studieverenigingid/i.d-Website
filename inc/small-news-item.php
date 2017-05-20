@@ -10,8 +10,8 @@
 					$cat_name = $category->name;
 					$parentscategory .= ' <a ' .
 						'href="' . $cat_link . '"' .
-						'class="news-item__category"' .
-						'title="' . $cat_name . '">' .
+						' class="news-item__category"' .
+						' title="' . $cat_name . '">' .
 						$cat_name . '</a>, ';
 					$has_cats = true;
 				}

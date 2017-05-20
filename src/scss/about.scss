@@ -134,6 +134,7 @@
 
 	&__grid {
 		@include flex-container();
+		justify-content: center;
 	}
 
 	@media (min-width: $brk--tablet) {
@@ -152,39 +153,58 @@ $groups:
 
 
 
-.committee {
-	margin: 0 0 1rem;
-	background: $background--light;
-	border: 1px solid #eee;
-	padding: 1.5rem;
-	text-align: center;
+.comm-group {
 	word-wrap: break-word;
-	transition: all ease-out 100ms;
-	flex-basis: 14.2rem;
-	flex-grow: 1;
-	width: 14.2rem;
+	width: 10.5rem;
+	padding: 1.5rem;
 
-	@media (min-width: $brk--phone) {
+	display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+
+	@media (min-width: 360px) {
 		margin: 0 1rem 2rem;
 	}
 
-	&:hover {
-		box-shadow: 0 .2rem 1rem transparentize(black, 0.7);
-		border-color: transparent;
-	}
-
 	&__name {
-		vertical-align: middle;
-		font-size: 1.2em;
+		margin: 0;
+		text-align: left;
+		display: inline;
+		color: $background--light;
 	}
 
 	@each $group, $color in $groups {
 		&--#{$group} {
 			background: $color;
-
-			& .committee--group__name {
-				color: $background--light;
-			}
 		}
+	}
+}
+
+
+
+.committee {
+	margin: 0 0 1rem;
+	text-align: left;
+	word-wrap: break-word;
+	transition: all ease-out 100ms;
+	flex-grow: 0;
+	width: 10.5rem;
+	max-width: 14rem;
+
+	@media (min-width: 360px) {
+		margin: 0 1rem 2rem;
+	}
+
+	&__thumb {
+		width: 100%;
+		padding-top: 66%;
+		background-position: center;
+		background-size: cover;
+	}
+
+	&__name {
+		margin: .8em 0 0;
+		font-size: 1.2rem;
 	}
 }

@@ -79,24 +79,27 @@
     		)
 			);
 
-			$group_class = 'committee--'.$group->slug;
+			$group_class = 'comm-group--'.$group->slug;
 			$group_name = $group->name;
 
 			$loop = new WP_Query( $args );
 	    if($loop->have_posts()) : ?>
 
-			<article class="committee committee--group <?=$group_class?>">
-				<h3 class="committee--group__name"><?=$group_name?></h3>
+			<article class="comm-group <?=$group_class?>">
+				<h3 class="comm-group__name"><?=$group_name?></h3>
 			</article>
 
-				<?php while($loop->have_posts()) : $loop->the_post(); ?>
-					<article class="committee">
-						<h4 class="committee__name"><?php the_title(); ?></h4>
-					</article>
-				<?php
-					endwhile; endif;
-					wp_reset_postdata();
-				?>
+			<?php while($loop->have_posts()) : $loop->the_post(); ?>
+				<article class="committee">
+					<div class="committee__thumb <?=$group_class?>"
+						style="background-image: url(<?=the_post_thumbnail_url('thumb')?>)"
+					></div>
+					<h4 class="committee__name"><?php the_title(); ?></h4>
+				</article>
+			<?php
+				endwhile; endif;
+				wp_reset_postdata();
+			?>
 		<?php } ?>
 
 	</div>
@@ -105,11 +108,15 @@
 
 
 
-<section class="hon-mems"></section>
+<section class="hon-mems">
+	<h2 class="about__sub-title">Our honorary members</h2>
+</section>
 
 
 
-<section class="master-coms"></section>
+<section class="master-coms">
+	<h2 class="about__sub-title">Our master communities</h2>
+</section>
 
 
 

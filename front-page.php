@@ -9,7 +9,10 @@
 <!-- ****** -->
 <section class="events">
 
-<?php $today = date('Ymd');
+<?php
+
+// Create the loop with upcoming events
+$today = date('Ymd');
 $upcoming_loop = new WP_Query( array(
   'post_type' => 'event',
   'posts_per_page' => 4,
@@ -24,61 +27,76 @@ $upcoming_loop = new WP_Query( array(
   'orderby' => 'start_datetime',
   'order' => 'ASC',
 ) );
+
+// Cycle through the upcoming event loop
 if ($upcoming_loop->have_posts()) :
-	$upcoming_no = 0; ?>
+  $upcoming_no = 0;
+  while($upcoming_loop->have_posts()) :
+    $upcoming_loop->the_post();
+    if($upcoming_no === 0) {
 
-	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
-		if($upcoming_no === 0): ?>
+      // Render the large event at the top of the page
+      include 'inc/frontpage-event.php';
 
-	<?php include 'inc/frontpage-event.php'; ?>
+    } else {
 
-	<div class="events--small">
-	<?php else:
-	  if($upcoming_no === 1) { ?>
-		<article class="event--small">
-		  <h2 class="events--small__series-title">Upcoming events</h2>
-		</article>
+      // Render the up to three other upcoming events ?>
+	    <div class="events--small">
 
-	  <?php }
+	      <?php if($upcoming_no === 1) { ?>
+		      <article class="event--small">
+		        <h2 class="events--small__series-title">Upcoming events</h2>
+		      </article>
+	      <?php } ?>
 
-	  include( 'inc/small-event.php' );
+        <?php include( 'inc/small-event.php' ); ?>
 
-		endif;
+      </div>
+      <hr class="frontpage__divider">
+
+	 <?php }
 		$upcoming_no++;
-		endwhile; endif; ?>
+	endwhile;
+endif;
+wp_reset_postdata();
 
-	</div>
 
-	<hr class="frontpage__divider">
 
-	<div class="events--small">
-	  <?php
-		wp_reset_postdata();
-		$past_loop = new WP_Query( array(
-		  'post_type' => 'event',
-		  'posts_per_page' => 3,
-		  'meta_query' => array(
-			array(
-			  'key'     => 'start_datetime',
-			  'compare' => '<',
-			  'value'   => $today,
-			  'type'    => 'DATE'
-			),
-		  ),
-		  'orderby' => 'start_datetime',
-		  'order' => 'DESC',
-		) );
-		if ($past_loop->have_posts()) : ?>
+// Create the loop with past events
+$past_loop = new WP_Query( array(
+  'post_type' => 'event',
+  'posts_per_page' => 3,
+  'meta_query' => array(
+	array(
+	  'key'     => 'start_datetime',
+	  'compare' => '<',
+	  'value'   => $today,
+	  'type'    => 'DATE'
+	),
+  ),
+  'orderby' => 'start_datetime',
+  'order' => 'DESC',
+) );
+
+// Cycle through the upcoming event loop
+if ($past_loop->have_posts()) : ?>
+
+  <div class="events--small">
+
 		<div class="event--small event--small--end">
 		  <h2 class="events--small__series-title">Past events</h2>
 		</div>
-	<?php
-		  while($past_loop->have_posts()) {
-			$past_loop->the_post();
-			include( 'inc/small-event.php' );
-		  } endif; ?>
 
-	</div>
+  	<?php
+  		while($past_loop->have_posts()) {
+  		  $past_loop->the_post();
+  			include( 'inc/small-event.php' );
+      }
+    ?>
+  </div>
+
+<?php endif; ?>
+
 </section>
 
 <?php wp_reset_postdata(); ?>

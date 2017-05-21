@@ -47,18 +47,20 @@ function fixVHAfterLoad() {
 function vibrantLoad() {
     var img = document.querySelector('#event--page__img');
 
-    var vibrant = new Vibrant(img);
-    var swatches = vibrant.swatches()
-    for (var swatch in swatches)
-    if (swatches.hasOwnProperty(swatch) && swatches[swatch])
-    console.log(swatch, swatches[swatch].getHex());
+		console.log(img);
 
-    changeColorVibrant = document.getElementsByClassName('colorVibrant');
+		if (typeof(img) != 'undefined' && img != null) {
+			var vibrant = new Vibrant(img);
+	    var swatches = vibrant.swatches()
+	    for (var swatch in swatches)
+	    if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
 
-		var DarkVibrantHex = swatches['DarkVibrant'].getHex()
+	    changeColorVibrant = document.getElementsByClassName('colorVibrant');
 
-		$('meta[name=theme-color]').remove();
-		$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
-		$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background-color:'+DarkVibrantHex+';}</style>');
+			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
 
+			$('meta[name=theme-color]').remove();
+			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
+			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
+		}
 }

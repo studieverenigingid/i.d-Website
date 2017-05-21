@@ -53,7 +53,7 @@
 
 <section class="committees">
 
-	<h2 class="about__sub-title">Our committees</h2>
+	<h2 class="about__sub-title about__sub-title--light">Some of our committees</h2>
 
 	<div class="committees__grid">
 	<?php
@@ -69,7 +69,7 @@
 		foreach ($groups as $key => $group) {
 			$args = array(
 				'post_type' => 'committee',
-				'posts_per_page' => 30,
+				'posts_per_page' => 1,
 				'tax_query' => array(
         	array(
             'taxonomy' => 'committee-group',
@@ -85,16 +85,13 @@
 			$loop = new WP_Query( $args );
 	    if($loop->have_posts()) : ?>
 
-			<article class="comm-group <?=$group_class?>">
-				<h3 class="comm-group__name"><?=$group_name?></h3>
-			</article>
-
 			<?php while($loop->have_posts()) : $loop->the_post(); ?>
 				<article class="committee">
 					<div class="committee__thumb <?=$group_class?>"
 						style="background-image: url(<?=the_post_thumbnail_url('thumb')?>)"
 					></div>
 					<h4 class="committee__name"><?php the_title(); ?></h4>
+					<?php the_excerpt(); ?>
 				</article>
 			<?php
 				endwhile; endif;
@@ -103,6 +100,11 @@
 		<?php } ?>
 
 	</div>
+
+	<a class="button committees__all"
+		href="<?php echo get_post_type_archive_link( 'committees' ); ?>">
+		View all committees
+	</a>
 
 </section>
 

@@ -38,6 +38,10 @@
 	&__sub-title {
 		margin-top: .2em;
 		text-align: center;
+
+		&--light {
+			color: $background--light;
+		}
 	}
 
 	&__descr {
@@ -130,15 +134,30 @@
 	Committees
 \*-------------------------------------*/
 .committees {
-	margin: 1rem 0;
+	padding: 4rem 0 3rem;
+	background: $accent;
+	color: $background--light;
+
+	@media (min-width: $brk--tablet) {
+		margin: 10% 0 4%;
+	}
 
 	&__grid {
 		@include flex-container();
 		justify-content: center;
+
+		@media (min-width: $brk--tablet) {
+			margin-top: 3rem;
+		}
 	}
 
-	@media (min-width: $brk--tablet) {
-		margin: 10% 0 4%;
+	&__all {
+		margin: 0 auto;
+		display: block;
+		width: 16rem;
+		max-width: 100%;
+		text-align: center;
+		font-family: $font--heavy;
 	}
 }
 
@@ -155,7 +174,7 @@ $groups:
 
 .comm-group {
 	word-wrap: break-word;
-	width: 10.5rem;
+	width: 10.5em;
 	padding: 1.5rem;
 
 	display: flex;
@@ -184,16 +203,15 @@ $groups:
 
 
 .committee {
-	margin: 0 0 1rem;
+	margin: 1rem;
 	text-align: left;
 	word-wrap: break-word;
 	transition: all ease-out 100ms;
-	flex-grow: 0;
-	width: 10.5rem;
-	max-width: 14rem;
+	flex-grow: 1;
+	width: 10.5em;
 
 	@media (min-width: 360px) {
-		margin: 0 1rem 2rem;
+		margin: 0 1.1rem 2rem;
 	}
 
 	&__thumb {
@@ -204,7 +222,7 @@ $groups:
 	}
 
 	&__name {
-		margin: .8em 0 0;
-		font-size: 1.2rem;
+		margin: 1em 0 0;
+		font-size: 1.5rem;
 	}
 }

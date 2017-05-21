@@ -40,21 +40,26 @@ if ($upcoming_loop->have_posts()) :
 
     } else {
 
-      // Render the up to three other upcoming events ?>
-	    <div class="events--small">
+      // Render the up to three other upcoming events
 
-	      <?php if($upcoming_no === 1) { ?>
+      // If it is the first small one, open the container and show title
+      if($upcoming_no === 1) { ?>
+	      <div class="events--small">
 		      <article class="event--small">
 		        <h2 class="events--small__series-title">Upcoming events</h2>
 		      </article>
-	      <?php } ?>
+	    <?php } ?>
 
-        <?php include( 'inc/small-event.php' ); ?>
+      <?php include( 'inc/small-event.php' ); ?>
 
-      </div>
-      <hr class="frontpage__divider">
+      <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
 
-	 <?php }
+        </div>
+        <hr class="frontpage__divider">
+
+      <?php }
+
+	  }
 		$upcoming_no++;
 	endwhile;
 endif;

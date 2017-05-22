@@ -47,6 +47,7 @@ if ($upcoming_loop->have_posts()) :
 	      <div class="events--small">
 		      <article class="event--small">
 		        <h2 class="events--small__series-title">Upcoming events</h2>
+		        <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
 		      </article>
 	    <?php } ?>
 
@@ -90,6 +91,7 @@ if ($past_loop->have_posts()) : ?>
 
 		<div class="event--small event--small--end">
 		  <h2 class="events--small__series-title">Past events</h2>
+		  <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
 		</div>
 
   	<?php

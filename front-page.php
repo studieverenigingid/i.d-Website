@@ -49,7 +49,7 @@ if ($upcoming_loop->have_posts()) :
 
 	</div>
 
-	<hr class="frontpage__divider">
+	<hr class="divider">
 
 	<div class="events--small">
 	  <?php
@@ -150,7 +150,7 @@ add_filter('posts_where', 'my_posts_where');
 
   <?php else: ?>
 
-  <hr class="frontpage__divider">
+  <hr class="divider">
 
 <?php
 endif;

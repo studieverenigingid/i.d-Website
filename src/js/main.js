@@ -45,7 +45,7 @@ function fixVHAfterLoad() {
 }
 
 function vibrantLoad() {
-    var img = document.querySelector('#event--page__img');
+    var img = document.querySelector('.event--page__img');
 
 		console.log(img);
 

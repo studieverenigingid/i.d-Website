@@ -51,9 +51,13 @@
 
 
 
+<hr class="divider">
+
+
+
 <section class="committees">
 
-	<h2 class="about__sub-title about__sub-title--light">Some of our committees</h2>
+	<h2 class="about__sub-title">Some of our committees</h2>
 
 	<div class="committees__grid">
 	<?php
@@ -102,7 +106,7 @@
 	</div>
 
 	<a class="button committees__all"
-		href="<?php echo get_post_type_archive_link( 'committees' ); ?>">
+		href="<?php echo get_post_type_archive_link( 'committee' ); ?>">
 		View all committees
 	</a>
 
@@ -110,14 +114,22 @@
 
 
 
-<section class="hon-mems">
-	<h2 class="about__sub-title">Our honorary members</h2>
-</section>
+<hr class="divider">
 
 
 
 <section class="master-coms">
 	<h2 class="about__sub-title">Our master communities</h2>
+</section>
+
+
+
+<hr class="divider">
+
+
+
+<section class="hon-mems">
+	<h2 class="about__sub-title">Our honorary members</h2>
 </section>
 
 

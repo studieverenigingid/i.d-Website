@@ -106,7 +106,7 @@
 	margin: 6.5em 0 3rem;
 
 	@media (min-width: $brk--tablet) {
-		margin: 14% 0 4%;
+		margin: 14% 0 10%;
 	}
 
 	&__indication {
@@ -134,12 +134,10 @@
 	Committees
 \*-------------------------------------*/
 .committees {
-	padding: 4rem 0 3rem;
-	background: $accent;
-	color: $background--light;
+	margin: 15% 0 15%;
 
 	@media (min-width: $brk--tablet) {
-		margin: 10% 0 4%;
+		margin: 10% 0 10%;
 	}
 
 	&__grid {

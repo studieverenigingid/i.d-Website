@@ -158,13 +158,13 @@
 
 
 
-<hr class="divider">
+<!-- <hr class="divider"> -->
 
 
 
-<section class="hon-mems">
-	<h2 class="about__sub-title">Our honorary members</h2>
-</section>
+<!-- <section class="hon-mems">
+	<h2 class="about__sub-title">Coming soon: Our honorary members</h2>
+</section> -->
 
 
 

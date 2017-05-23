@@ -120,6 +120,40 @@
 
 <section class="master-coms">
 	<h2 class="about__sub-title">Our master communities</h2>
+	<div class="master-coms__list">
+		<?php
+			$args = array(
+		    'post_type'      => 'page',
+		    'posts_per_page' => -1,
+		    'post_parent'    => get_the_ID(),
+		    'order'          => 'ASC',
+				'orderby'        => 'menu_order'
+			);
+			$parent = new WP_Query( $args );
+			if ( $parent->have_posts() ) :
+				while ( $parent->have_posts() ) :
+					$parent->the_post(); ?>
+
+					<article class="master-com">
+						<a class="master-com__link"
+							href="<?php the_permalink(); ?>">
+						<?php
+							the_post_thumbnail('medium',
+								array( 'class' => 'master-com__thumb')
+							);
+						?>
+							<h3>
+									<?php the_title(); ?>
+							</h3>
+						</a>
+					</article>
+
+				<?php
+				endwhile;
+			endif;
+			wp_reset_query();
+		?>
+	</div>
 </section>
 
 

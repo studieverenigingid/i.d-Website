@@ -224,3 +224,45 @@ $groups:
 		font-size: 1.5rem;
 	}
 }
+
+
+
+
+
+/*-------------------------------------*\
+	Master communities
+\*-------------------------------------*/
+.master-coms {
+	margin: 15% 0 15%;
+
+	@media (min-width: $brk--tablet) {
+		margin: 10% 0 10%;
+	}
+
+	&__list {
+		margin-top: 2em;
+		@include flex-container();
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+
+
+.master-com {
+	width: 250px;
+
+	&__link {
+		text-decoration: none;
+		color: $accent;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__thumb {
+		max-width: 200px;
+		height: auto;
+	}
+}

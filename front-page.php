@@ -45,10 +45,10 @@ if ($upcoming_loop->have_posts()) :
       // If it is the first small one, open the container and show title
       if($upcoming_no === 1) { ?>
 	      <div class="events--small">
-		      <article class="event--small">
+		      <div class="event--small">
 		        <h2 class="events--small__series-title">Upcoming events</h2>
 		        <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
-		      </article>
+		      </div>
 	    <?php } ?>
 
       <?php include( 'inc/small-event.php' ); ?>
@@ -191,7 +191,7 @@ wp_reset_postdata();
 <!-- SOCIAL -->
 <!-- ****** -->
 <section class="social">
-	<h2>Social Media</h2>
+	<h2 class="section__title">Social Media</h2>
 	<div class="social__wrapper">
 		<?php include 'inc/social-feed.php'; ?>
 	</div>
@@ -204,8 +204,8 @@ wp_reset_postdata();
 <!-- **** -->
 <!-- BLOG -->
 <!-- **** -->
-<h2>Nieuws en blog</h2>
 <section class="news">
+  <h2 class="section__title">Nieuws en blog</h2>
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );

@@ -193,7 +193,6 @@ wp_reset_postdata();
 <section class="social">
 	<h2 class="section__title">Social Media</h2>
 	<div class="social__wrapper">
-		<?php include 'inc/social-feed.php'; ?>
 	</div>
 </section>
 

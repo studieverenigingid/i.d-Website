@@ -20,6 +20,8 @@
 
 	add_action( 'after_setup_theme', 'custom_theme_setup' );
 	add_action( 'init', 'modify_jquery' );
+	add_action( 'wp_ajax_nopriv_social_feed_ajax_request', 'social_feed_ajax_request' );
+	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 
 
 	function custom_theme_setup() {
@@ -58,6 +60,13 @@
 			return str_replace('<p', '<p class="news-item__excerpt"', $excerpt);
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
+
+	function social_feed_ajax_request() {
+	// do what you want with the variables passed through here
+		include 'inc/social-feed.php';
+		wp_die();
+	}
+
 
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
 	$img_folder = get_bloginfo('template_directory') . '/static/img/';

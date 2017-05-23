@@ -27,7 +27,10 @@
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
-			array('jquery'), '0.1', true ); ?>
+			array('jquery'), '0.1', true );
+			wp_localize_script( 'scripts', 'wpjs_object',
+			array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		?>
 
 		<?php wp_head(); ?>
 

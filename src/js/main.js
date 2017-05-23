@@ -5,7 +5,8 @@ function onDocReady () {
 	menuToggler();
 	ajaxFeedbackForm();
 	fixVHAfterLoad();
-    vibrantLoad();
+  vibrantLoad();
+	socialFeed();
 }
 
 function menuToggler () {
@@ -63,4 +64,20 @@ function vibrantLoad() {
 			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
 			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
 		}
+}
+
+function socialFeed(){
+	$.ajax({
+		type: "GET",
+		url: wpjs_object.ajaxurl,
+		data: {
+			action: 'social_feed_ajax_request'
+		},
+		success:function(data){
+			$('.social__wrapper').html(data);
+		},
+		error: function(errorThrown){
+			console.log('Joe kan de Social feed niet vinden, joe.');
+		}
+	});
 }

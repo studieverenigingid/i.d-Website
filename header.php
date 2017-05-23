@@ -8,9 +8,6 @@
 		<meta name="theme-color" content="#55ccbb"><?php /* TODO:
 		replace with realfavicongenerator.net snippet */ ?>
 
-		<!-- Temporariy Icon Font -->
-		<script src="https://use.fontawesome.com/2682b15f5d.js"></script>
-
 		<?php
 			if ( ! function_exists( '_wp_render_title_tag' ) ) :
 			function spi_render_title() {
@@ -22,8 +19,10 @@
 			endif;
 		?>
 
-		<?php wp_enqueue_style('main',
-			get_template_directory_uri() . '/static/css/main.css') ?>
+		<?php wp_enqueue_style('fontawesome',
+		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+		wp_enqueue_style('main',
+			get_template_directory_uri() . '/static/css/main.css'); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',

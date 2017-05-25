@@ -22,7 +22,7 @@
 
 	<?php
 		wp_reset_postdata();
-		$args = array( 'post_type' => 'board', 'posts_per_page' => 6 );
+		$args = array( 'post_type' => 'board', 'posts_per_page' => 1 );
 		$loop = new WP_Query( $args );
     if($loop->have_posts()) : while($loop->have_posts()) :
 			$loop->the_post();?>
@@ -40,12 +40,21 @@
 					array( 'class' => 'board__img')
 				); ?>
 			</div>
-
 		<?php endif; ?>
+
+		<div class="board__description">
+			<?php the_content(); ?>
+		</div>
+
 	<?php
 		endwhile; endif;
 		wp_reset_postdata();
 	?>
+
+	<a class="button committees__all"
+		href="<?php echo get_post_type_archive_link( 'board' ); ?>">
+		View previous boards
+	</a>
 
 </section>
 

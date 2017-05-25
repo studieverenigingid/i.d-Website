@@ -124,6 +124,19 @@
 			width: 60%;
 		}
 	}
+
+	&__description {
+		@extend .primary-content;
+		text-align: left;
+
+		p {
+			line-height: 1.6;
+		}
+	}
+
+	&--small {
+		border-top: .44em solid #ef686c;
+	}
 }
 
 

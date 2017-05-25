@@ -5,6 +5,7 @@ function onDocReady () {
 	menuToggler();
 	ajaxFeedbackForm();
 	fixVHAfterLoad();
+    vibrantLoad();
 }
 
 function menuToggler () {
@@ -41,4 +42,25 @@ function ajaxFeedbackForm() {
 
 function fixVHAfterLoad() {
 	$('.fix-me').height($('.fix-me').height());
+}
+
+function vibrantLoad() {
+    var img = document.querySelector('#event--page__img');
+
+		console.log(img);
+
+		if (typeof(img) != 'undefined' && img != null) {
+			var vibrant = new Vibrant(img);
+	    var swatches = vibrant.swatches()
+	    for (var swatch in swatches)
+	    if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
+
+	    changeColorVibrant = document.getElementsByClassName('colorVibrant');
+
+			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
+
+			$('meta[name=theme-color]').remove();
+			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
+			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
+		}
 }

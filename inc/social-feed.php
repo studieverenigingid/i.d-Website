@@ -3,6 +3,20 @@
 		// Wordpress options
 		$options = get_option('id_settings');
 
+		function request($url){
+			$ch = curl_init();
+
+			curl_setopt_array($ch, array(
+				CURLOPT_URL => $url,
+			 	CURLOPT_RETURNTRANSFER => true,
+			 	CURLOPT_SSL_VERIFYPEER => false,
+			 	CURLOPT_SSL_VERIFYHOST => 2
+			));
+			$result = curl_exec($ch);
+			curl_close($ch);
+			return $result;
+		}
+
 		// Vimeo API
 
 		function connectToVimeo($options) {
@@ -39,24 +53,6 @@
 			return $videos;
 		}
 
-		// Instagram API
-
-		// Connect to Instagram
-
-		function connectToInstagram($url){
-			$ch = curl_init();
-
-			curl_setopt_array($ch, array(
-				CURLOPT_URL => $url,
-			 	CURLOPT_RETURNTRANSFER => true,
-			 	CURLOPT_SSL_VERIFYPEER => false,
-			 	CURLOPT_SSL_VERIFYHOST => 2
-			));
-			$result = curl_exec($ch);
-			curl_close($ch);
-			return $result;
-		}
-
 		function createVimeoArray($options) {
 			$videos = connectToVimeo($options);
 			$vimeoPosts = array();
@@ -86,10 +82,12 @@
 			 return($vimeoPosts);
 		}
 
+		// Instagram
+
 		function createInstaArray($options) {
 			$instagram_access_token = $options['id_instagram_access_token_field'];
 			$url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='.$instagram_access_token.'&count=3';
-			$instagramInfo = connectToInstagram($url);
+			$instagramInfo = request($url);
 			$posts = json_decode($instagramInfo, true);
 			$i = 0;
 
@@ -109,8 +107,37 @@
 			return($instaPosts);
 		}
 
-		function latestPosts($instaPosts, $vimeoPosts){
-			$latestPosts = array_merge_recursive($instaPosts, $vimeoPosts);
+		// Flickr
+
+		function createFlickrArray($options) {
+			$api_key = $options['id_flickr_api_key_field'];
+			$user_id = "35506884@N07";
+			$username = "svid";
+
+			$data = request('https://api.flickr.com/services/rest/?method=flickr.photosets.getList&format=json&nojsoncallback=1&api_key='.$api_key.'&user_id='.$user_id.'&page=1&per_page=3&primary_photo_extras=url_m');
+			// TODO: Handle errors?
+			$photosets = json_decode($data, true)['photosets']['photoset'];
+
+			foreach ($photosets as $photoset) {
+				$image_url = $post['images']['standard_resolution']['url'];
+				$link = $post['link'];
+				$date = $post['created_time'];
+
+				$result[] = [
+					'type' => 'Flickr',
+					'class' => 'flickr flickr--'.($photoset['primary_photo_extras']['height_m'] > $photoset['primary_photo_extras']['width_m'] ? 'portrait' : 'landscape'),
+					'icon' => 'flickr',
+					'link' => 'https://www.flickr.com/photos/'.$username.'/albums/'.$photoset['id'],
+					'date' => $photoset['date_create'],
+					'thumb' => $photoset['primary_photo_extras']['url_m']
+				];
+			}
+
+			return($result);
+		}
+
+		function latestPosts(){
+			$latestPosts = call_user_func_array(array_merge_recursive, func_get_args());
 
 			function sortFunction($a, $b){
 				return $b['date'] - $a['date'];
@@ -127,9 +154,9 @@
 				$icon = $post['icon']; ?><!--
 
 				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
-				--><div class="social__container social__container--<?=$class?>"
+				--><div class="social__container <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__container--$1', $class);?>"
 							style="background-image:url('<?=$image_url?>');">
-							<div class="social__title social__title--<?=$class?>">
+							<div class="social__title <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__title--$1', $class);?>">
 								<i class="fa fa-<?=$icon?> social__ico"></i> <?=$type?>
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with
@@ -139,6 +166,7 @@
 
 		$vimeoPosts = createVimeoArray($options);
 		$instaPosts = createInstaArray($options);
-		latestPosts($instaPosts, $vimeoPosts);
+		$flickrPhotosets = createFlickrArray($options);
+		latestPosts($instaPosts, $vimeoPosts, $flickrPhotosets);
 
 	?>

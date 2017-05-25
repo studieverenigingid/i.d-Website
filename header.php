@@ -34,7 +34,7 @@
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies">
+		<header class="bies colorVibrant">
 
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>

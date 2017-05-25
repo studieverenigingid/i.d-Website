@@ -1,4 +1,4 @@
-<article class="event--page__header">
+<article class="event--page__header colorVibrant">
 	<a href="<?php the_permalink(); ?>" class="event--page__link">
 		<div class="event--page__short-info">
 
@@ -29,11 +29,12 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-			<div class="event--page__thumb">
+			<div class="event--page__thumb colorVibrantGradient">
 				<?php
 				the_post_thumbnail(
 					'large',
-					array('class' => 'event--page__img')
+					array('class' => 'event--page__img',
+						'id' => 'event--page__img')
 				);
 				?>
 			</div>

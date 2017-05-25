@@ -9,7 +9,10 @@
 <!-- ****** -->
 <section class="events">
 
-<?php $today = date('Ymd');
+<?php
+
+// Create the loop with upcoming events
+$today = date('Ymd');
 $upcoming_loop = new WP_Query( array(
   'post_type' => 'event',
   'posts_per_page' => 4,
@@ -24,62 +27,80 @@ $upcoming_loop = new WP_Query( array(
   'orderby' => 'start_datetime',
   'order' => 'ASC',
 ) );
+
+// Cycle through the upcoming event loop
 if ($upcoming_loop->have_posts()) :
-	$upcoming_no = 0; ?>
+  $upcoming_no = 0;
+  while($upcoming_loop->have_posts()) :
+    $upcoming_loop->the_post();
+    if($upcoming_no === 0) {
 
-	<?php while($upcoming_loop->have_posts()) : $upcoming_loop->the_post();
-		if($upcoming_no === 0): ?>
+      // Render the large event at the top of the page
+      include 'inc/frontpage-event.php';
 
-    <?php include 'inc/frontpage-event.php'; ?>
+    } else {
 
-	<div class="events--small">
-	<?php else:
-	  if($upcoming_no === 1) { ?>
-		<article class="event--small">
-		  <h2 class="events--small__series-title">Upcoming events</h2>
-		</article>
+      // Render the up to three other upcoming events
 
-	  <?php }
+      // If it is the first small one, open the container and show title
+      if($upcoming_no === 1) { ?>
+	      <div class="events--small">
+		      <article class="event--small">
+		        <h2 class="events--small__series-title">Upcoming events</h2>
+		      </article>
+	    <?php } ?>
 
-	  include( 'inc/small-event.php' );
+      <?php include( 'inc/small-event.php' ); ?>
 
-		endif;
+      <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
+
+        </div>
+        <hr class="divider">
+
+      <?php }
+
+	  }
 		$upcoming_no++;
-		endwhile; endif; ?>
+	endwhile;
+endif;
+wp_reset_postdata();
 
-	</div>
+// Create the loop with past events
+$past_loop = new WP_Query( array(
+  'post_type' => 'event',
+  'posts_per_page' => 3,
+  'meta_query' => array(
+	array(
+	  'key'     => 'start_datetime',
+	  'compare' => '<',
+	  'value'   => $today,
+	  'type'    => 'DATE'
+	),
+  ),
+  'orderby' => 'start_datetime',
+  'order' => 'DESC',
+) );
 
-	<hr class="divider">
+// Cycle through the upcoming event loop
+if ($past_loop->have_posts()) : ?>
 
-	<div class="events--small">
-	  <?php
-		wp_reset_postdata();
-		$past_loop = new WP_Query( array(
-		  'post_type' => 'event',
-		  'posts_per_page' => 3,
-		  'meta_query' => array(
-			array(
-			  'key'     => 'start_datetime',
-			  'compare' => '<',
-			  'value'   => $today,
-			  'type'    => 'DATE'
-			),
-		  ),
-		  'orderby' => 'start_datetime',
-		  'order' => 'DESC',
-		) );
-		if ($past_loop->have_posts()) : ?>
+  <div class="events--small">
+
 		<div class="event--small event--small--end">
 		  <h2 class="events--small__series-title">Past events</h2>
 		</div>
-	<?php
-		  while($past_loop->have_posts()) {
-			$past_loop->the_post();
-			include( 'inc/small-event.php' );
-		  } endif; ?>
 
-	</div>
-	</section>
+  	<?php
+  		while($past_loop->have_posts()) {
+  		  $past_loop->the_post();
+  			include( 'inc/small-event.php' );
+      }
+    ?>
+  </div>
+
+<?php endif; ?>
+
+</section>
 
 <?php wp_reset_postdata(); ?>
 
@@ -129,22 +150,22 @@ add_filter('posts_where', 'my_posts_where');
 
 	<section class="vacancies vacancies--frontpage">
 
-    <h2 class="vacancies__title vacancies__title--frontpage">
-      Looking for a job?
-    </h2>
+	<h2 class="vacancies__title vacancies__title--frontpage">
+	  Looking for a job?
+	</h2>
 
-  	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
+	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
 
-  		<?php include 'inc/frontpage-vacancy.php'; ?>
+		<?php include 'inc/frontpage-vacancy.php'; ?>
 
-  	<?php endwhile; ?>
+	<?php endwhile; ?>
 
-    <div class="vacancy">
-  		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
-        href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-        All vacancies
-      </a>
-  	</div>
+	<div class="vacancy">
+		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
+		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+		All vacancies
+	  </a>
+	</div>
 
   </section>
 
@@ -182,9 +203,9 @@ wp_reset_postdata();
 <h2>Nieuws en blog</h2>
 <section class="news">
 	<?php
-		$args = array( 'post_type' => 'post', 'posts_per_page' => 6 );
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );
-    if($loop->have_posts()) : while($loop->have_posts()) :
+	if($loop->have_posts()) : while($loop->have_posts()) :
 			$loop->the_post();
 			include 'inc/small-news-item.php';
 		endwhile; endif;

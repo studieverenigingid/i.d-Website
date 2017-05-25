@@ -219,6 +219,15 @@ $groups:
 		background-size: cover;
 	}
 
+	&__link {
+		text-decoration: none;
+		color: $text;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
 	&__name {
 		margin: 1em 0 0;
 		font-size: 1.5rem;
@@ -264,5 +273,9 @@ $groups:
 	&__thumb {
 		max-width: 200px;
 		height: auto;
+	}
+
+	&__logo {
+		vertical-align: middle;
 	}
 }

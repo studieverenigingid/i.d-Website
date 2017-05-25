@@ -194,6 +194,7 @@ $groups:
 	@each $group, $color in $groups {
 		&--#{$group} {
 			background: $color;
+			border-top: .44em solid $color;
 		}
 	}
 }

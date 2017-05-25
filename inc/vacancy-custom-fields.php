@@ -11,8 +11,15 @@
 					'name' => 'dates_%_start_date',
 					'type' => 'date_picker',
 					'instructions' => 'Set date to start promotion of vacancy on front page',
-					'date_format' => 'yymmdd',
-					'display_format' => 'dd/mm/yy',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'display_format' => 'd/m/Y',
+					'return_format' => 'd/m/Y',
 					'first_day' => 1,
 				),
 				array (
@@ -21,8 +28,15 @@
 					'name' => 'dates_%_end_date',
 					'type' => 'date_picker',
 					'instructions' => 'Set date to end promotion of vacancy on front page',
-					'date_format' => 'yymmdd',
-					'display_format' => 'dd/mm/yy',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'display_format' => 'd/m/Y',
+					'return_format' => 'd/m/Y',
 					'first_day' => 1,
 				),
 			),
@@ -44,6 +58,13 @@
 				),
 			),
 			'menu_order' => 0,
+			'position' => 'side',
+			'style' => 'default',
+			'label_placement' => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen' => '',
+			'active' => 1,
+			'description' => '',
 		));
 
 		register_field_group(array (
@@ -120,6 +141,13 @@
 			),
 		),
 		'menu_order' => 0,
+		'position' => 'side',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => 1,
+		'description' => '',
 		));
 	}
 ?>

@@ -4,7 +4,7 @@
 
 
 
-	<header class="event--page__header
+	<header class="event--page__header colorVibrant
 		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--no-thumb'; ?>">
 
 		<div class="event--page__short-info
@@ -36,7 +36,7 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="event--page__thumb">
+				<div class="event--page__thumb colorVibrantGradient">
 					<?php
 					the_post_thumbnail(
 						'large',

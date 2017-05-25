@@ -33,8 +33,7 @@
 				<?php
 				the_post_thumbnail(
 					'large',
-					array('class' => 'event--page__img',
-						'id' => 'event--page__img')
+					array('class' => 'event--page__img')
 				);
 				?>
 			</div>

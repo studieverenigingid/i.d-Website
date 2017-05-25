@@ -37,6 +37,19 @@
 	&__series-title {
 		margin: .2em 0;
 	}
+
+	&__series-link {
+		margin: .2em 0;
+
+		a {
+			color: #000;
+			text-decoration: none;
+
+			&:focus, &:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }
 
 
@@ -70,6 +83,11 @@
 
 	&__anchor {
 		text-decoration: none;
+		color: #000;
+
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
 	}
 
 	&__thumb {
@@ -78,6 +96,11 @@
 		height: 0;
 		width: 100%;
 		overflow: hidden;
+		transition: box-shadow .5s $transition--cubic;
+
+		&:hover, &:focus {
+			box-shadow: 0 .2rem 1.8rem transparentize(black, 0.5);
+		}
 	}
 
 	&__img {

@@ -10,7 +10,10 @@
 					); ?>
 			</div>
 		<?php endif; ?>
-		<h3 class="event--small__name"><?php the_title(); ?></h3>
+		</a>
+		<a href="<?php the_permalink(); ?>" class="event--small__anchor" >
+			<h3 class="event--small__name"><?php the_title(); ?></h3>
+		</a>
 		<p class="event--small__datetime">
 
 			<?php
@@ -28,5 +31,5 @@
 			?>
 
 		</p>
-	</a>
+	
 </article>

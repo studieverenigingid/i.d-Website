@@ -57,7 +57,7 @@ get_header();
         if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
 
             <article class="news-item">
-                <?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
+                <?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('medium_large', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
                 <h3 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <h4 class="news-item__meta">
                     <?php $parentscategory ="";

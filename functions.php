@@ -71,12 +71,6 @@
 	@ini_set( 'post_max_size', '64M');
 	@ini_set( 'max_execution_time', '300' );
 
-	function set_posts_per_page_for_committees( $query ) {
-	  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'committee' ) ) {
-	    $query->set( 'posts_per_page', '-1' );
-	  }
-	}
-	add_action( 'pre_get_posts', 'set_posts_per_page_for_committees' );
 
 
 ?>

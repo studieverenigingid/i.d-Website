@@ -63,3 +63,10 @@ register_taxonomy( 'committee-group', array('committee'), array(
 	),
 	'show_ui' => true,
 ));
+
+function set_posts_per_page_for_committees( $query ) {
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'committee' ) ) {
+		$query->set( 'posts_per_page', '-1' );
+	}
+}
+add_action( 'pre_get_posts', 'set_posts_per_page_for_committees' );

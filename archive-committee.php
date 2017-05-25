@@ -21,6 +21,4 @@
 
 </main>
 
-<?php include 'inc/pagination.php'; ?>
-
 <?php get_footer(); ?>

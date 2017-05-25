@@ -87,24 +87,14 @@
 			$group_name = $group->name;
 
 			$loop = new WP_Query( $args );
-	    if($loop->have_posts()) : ?>
-
-			<?php while($loop->have_posts()) : $loop->the_post(); ?>
-				<article class="committee">
-					<a class="committee__link"
-						href="<?php the_permalink(); ?>">
-						<div class="committee__thumb <?=$group_class?>"
-							style="background-image: url(<?=the_post_thumbnail_url('thumb')?>)">
-						</div>
-						<h4 class="committee__name"><?php the_title(); ?></h4>
-					</a>
-					<?php the_excerpt(); ?>
-				</article>
-			<?php
-				endwhile; endif;
-				wp_reset_postdata();
-			?>
-		<?php } ?>
+	    if($loop->have_posts()) :
+				while($loop->have_posts()) :
+					$loop->the_post();
+					include 'inc/small-committee.php';
+				endwhile;
+			endif;
+			wp_reset_postdata();
+		} ?>
 
 	</div>
 

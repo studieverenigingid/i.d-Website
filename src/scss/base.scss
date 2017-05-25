@@ -352,7 +352,8 @@ blockquote {
 	}
 }
 
-.frontpage__divider {
+.divider {
+	border: none;
 	border-top: 1px solid transparentize($background--dark, 0.7);
 	margin: 1.5rem 2rem;
 
@@ -474,6 +475,9 @@ blockquote {
 
 // Pagination
 @import "pagination";
+
+// About page
+@import "about";
 
 // Education
 @import "education";

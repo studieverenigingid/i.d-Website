@@ -6,6 +6,10 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
+	include( 'inc/committee-post-type.php' );
+	include( 'inc/board-post-type.php' );
+	include( 'inc/board-custom-fields.php' );
+
 	include( 'inc/contact-custom-fields.php' );
 
 	include( 'inc/theme-settings.php');
@@ -67,5 +71,7 @@
 	@ini_set( 'upload_max_size' , '64M' );
 	@ini_set( 'post_max_size', '64M');
 	@ini_set( 'max_execution_time', '300' );
+
+
 
 ?>

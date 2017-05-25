@@ -1,0 +1,295 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: ABOUT PAGE
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	about.scss:
+	+ about page top
+	+ (board)
+	+ (committee)
+	+ honorary members
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	About page top
+\*-------------------------------------*/
+.about {
+
+	&__top {
+		padding: .1rem 5%;
+		margin: 0 0 5rem;
+		background: $accent;
+	}
+
+	&__title {
+		color: $background--light;
+		max-width: 30rem;
+	}
+
+	&__sub-title {
+		margin-top: .2em;
+		text-align: center;
+
+		&--light {
+			color: $background--light;
+		}
+	}
+
+	&__descr {
+		color: $background--light;
+		font-size: 1.3em;
+		max-width: 30rem;
+	}
+
+	&__thumb {
+		margin-bottom: -3rem;
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+	}
+
+	@media (min-width: $brk--phone) {
+		&__top {
+			padding: .1rem 8%;
+		}
+
+		&__thumb {
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
+			}
+		}
+
+		&__img {
+			width: 70%;
+			float: right;
+		}
+	}
+
+	@media (min-width: $brk--tablet) {
+		&__top {
+			padding: 4rem 10%;
+		}
+
+		&__descr,
+		&__title {
+			max-width: 36rem;
+		}
+
+		&__thumb {
+			margin-bottom: -7rem;
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Board
+\*-------------------------------------*/
+.board {
+	text-align: center;
+	margin: 6.5em 0 3rem;
+
+	@media (min-width: $brk--tablet) {
+		margin: 14% 0 10%;
+	}
+
+	&__indication {
+		margin: .5em;
+		font-family: $font--heavy;
+		opacity: .5;
+	}
+
+	&__img {
+		max-width: 100%;
+		width: 44rem;
+		height: auto;
+
+		@media (min-width: $brk--desktop) {
+			width: 60%;
+		}
+	}
+
+	&__description {
+		@extend .primary-content;
+		text-align: left;
+
+		p {
+			line-height: 1.6;
+		}
+	}
+
+	&--small {
+		border-top: .44em solid #ef686c;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Committees
+\*-------------------------------------*/
+.committees {
+	margin: 15% 0 15%;
+
+	@media (min-width: $brk--tablet) {
+		margin: 10% 0 10%;
+	}
+
+	&__grid {
+		@include flex-container();
+		justify-content: center;
+
+		@media (min-width: $brk--tablet) {
+			margin-top: 3rem;
+		}
+	}
+
+	&__all {
+		margin: 0 auto;
+		display: block;
+		width: 16rem;
+		max-width: 100%;
+		text-align: center;
+		font-family: $font--heavy;
+	}
+}
+
+
+
+$groups:
+	(trips, #93c01f),
+	(social, #e42620),
+	(skills, #941b80),
+	(education, #f29100),
+	(career, #0089b6);
+
+
+
+.comm-group {
+	word-wrap: break-word;
+	width: 10.5em;
+	padding: 1.5rem;
+
+	display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+
+	@media (min-width: 360px) {
+		margin: 0 1rem 2rem;
+	}
+
+	&__name {
+		margin: 0;
+		text-align: left;
+		display: inline;
+		color: $background--light;
+	}
+
+	@each $group, $color in $groups {
+		&--#{$group} {
+			background: $color;
+			border-top: .44em solid $color;
+		}
+	}
+}
+
+
+
+.committee {
+	margin: 1rem;
+	text-align: left;
+	word-wrap: break-word;
+	transition: all ease-out 100ms;
+	flex-grow: 1;
+	width: 10.5em;
+
+	@media (min-width: 360px) {
+		margin: 0 1.1rem 2rem;
+	}
+
+	&__thumb {
+		width: 100%;
+		padding-top: 66%;
+		background-position: center;
+		background-size: cover;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: $text;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__name {
+		margin: 1em 0 0;
+		font-size: 1.5rem;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Master communities
+\*-------------------------------------*/
+.master-coms {
+	margin: 15% 0 15%;
+
+	@media (min-width: $brk--tablet) {
+		margin: 10% 0 10%;
+	}
+
+	&__list {
+		margin-top: 2em;
+		@include flex-container();
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+
+
+.master-com {
+	width: 250px;
+
+	&__link {
+		text-decoration: none;
+		color: $accent;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__thumb {
+		max-width: 200px;
+		height: auto;
+	}
+
+	&__logo {
+		vertical-align: middle;
+	}
+}

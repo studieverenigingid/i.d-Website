@@ -55,7 +55,7 @@ if ($upcoming_loop->have_posts()) :
       <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
 
         </div>
-        <hr class="frontpage__divider">
+        <hr class="divider">
 
       <?php }
 
@@ -64,8 +64,6 @@ if ($upcoming_loop->have_posts()) :
 	endwhile;
 endif;
 wp_reset_postdata();
-
-
 
 // Create the loop with past events
 $past_loop = new WP_Query( array(
@@ -173,7 +171,7 @@ add_filter('posts_where', 'my_posts_where');
 
   <?php else: ?>
 
-  <hr class="frontpage__divider">
+  <hr class="divider">
 
 <?php
 endif;

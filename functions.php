@@ -8,6 +8,7 @@
 
 	include( 'inc/committee-post-type.php' );
 	include( 'inc/board-post-type.php' );
+	include( 'inc/board-custom-fields.php' );
 
 	include( 'inc/contact-custom-fields.php' );
 

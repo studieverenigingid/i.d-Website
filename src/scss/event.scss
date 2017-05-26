@@ -151,28 +151,6 @@
 		}
 	}
 
-	&__education {
-		position: relative;
-		max-width: 84rem;
-		margin: 0 auto;
-		background: $hex-education;
-
-		&:after {
-			position: absolute;
-			content: '';
-			z-index: -1;
-			top: 0;
-			left: -50vw;
-			right: -50vw;
-			bottom: 0;
-			background-color: $accent;
-		}
-
-		@media (min-width: 1500px) {
-			margin-bottom: 9%;
-		}
-	}
-
 	&__link {
 		text-decoration: none;
 	}
@@ -230,12 +208,6 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-		}
-
-		&--education {
-			&:before {
-				display: none;
-			}
 		}
 	}
 

@@ -1,4 +1,7 @@
-<?php global $img_folder; ?>
+<?php
+global $img_folder;
+global $header_class;
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
@@ -36,7 +39,7 @@
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant">
+		<header class="bies colorVibrant <?=$header_class?>">
 
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>

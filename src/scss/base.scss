@@ -176,6 +176,9 @@ blockquote {
 	border-radius: 50px;
 	color: white;
 	text-decoration: none;
+	border: none;
+	font-size: 1em;
+	font-family: $font--light;
 	@include button-background($accent);
 
 	&--light {

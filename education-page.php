@@ -2,6 +2,9 @@
 /*
 Template Name: Education Page
 */
+
+$header_class = 'education__header';
+
 get_header();
 ?>
 

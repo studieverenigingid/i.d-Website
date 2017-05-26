@@ -7,6 +7,10 @@
 \*-------------------------------------*/
 
 .education {
+  &__header {
+    background: $hex-education;
+  }
+
   &-hero {
     position: relative;
     background-color: $accent;

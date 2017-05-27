@@ -11,6 +11,7 @@
 	include( 'inc/board-custom-fields.php' );
 
 	include( 'inc/turnthepage-post-type.php' );
+	include( 'inc/turnthepage-custom-fields.php' );
 
 	include( 'inc/contact-custom-fields.php' );
 

@@ -509,6 +509,30 @@ $ajax-load-size: 44px;
 	}
 }
 
+.force-refresh-button {
+	display: none;
+	padding: 0;
+	border-radius: 50%;
+	font-size:1.5em;
+	line-height: 3rem;
+	height:3rem;
+	width:3rem;
+	text-align:center;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	background-color: $accent;
+	color: white;
+
+	&:focus, &:hover {
+		background-color: darken($accent, 15%);
+	}
+
+	@media (max-width: $brk--phone){
+		display: block;
+	}
+}
+
 
 
 

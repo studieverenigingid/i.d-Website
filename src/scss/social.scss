@@ -22,7 +22,7 @@
 	}
 }
 
-.social{
+.social {
 	&__wrapper {
 		display: block;
 		overflow: auto;
@@ -52,7 +52,7 @@
 			max-width: 60%;
 
 			@media (min-width: $brk--phone) {
-				max-width: 47%;
+				max-width: 46.4%;
 			}
 		}
 
@@ -66,23 +66,26 @@
 			}
 		}
 
-		&--flickr--landscape {
+		&--flickr {
 			@include aspect-ratio(3, 2);
-			width: 422px;
-			max-width: 50.5%;
 
-			@media (min-width: $brk--phone) {
-				max-width: 47%;
+			&--landscape{
+				width: 422px;
+				max-width: 50.5%;
+
+				@media (min-width: $brk--phone) {
+					max-width: 39%;
+				}
 			}
-		}
 
-		&--flickr--portrait {
-			@include aspect-ratio(2, 3);
-			width: 187px;
-			max-width: 22.5%;
+			&--portrait {
+				@include aspect-ratio(2, 3);
+				width: 187px;
+				max-width: 22.5%;
 
-			@media (min-width: $brk--phone) {
-				max-width: 47%;
+				@media (min-width: $brk--phone) {
+					max-width: 47%;
+				}
 			}
 		}
 	}

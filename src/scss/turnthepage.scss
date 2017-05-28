@@ -1,0 +1,109 @@
+/*-------------------------------------*\
+
+	Turn The Page
+  turnthepage.scss (included in base.scss):
+	+ Turn The Page archive
+  + Turn The Page small
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Turn The Page archive
+\*-------------------------------------*/
+.archive__title__parent {
+  background-color: $accent;
+  padding: 2rem .8em 2rem;
+}
+
+.archive__title--turnthepage {
+  display: table;
+  margin: 0 auto;
+	padding: 2rem .8em;
+	margin: 0 auto;
+	background: black;
+	color: $background--light;
+}
+
+.turnthepage {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Turn The Page small
+\*-------------------------------------*/
+.ttp-issue {
+	padding: $pad;
+  position: relative;
+
+	@media (min-width: 512px) {
+ 		min-width: 512px;
+ 		flex: 1;
+	}
+
+	&__thumb {
+		display: block;
+		max-width: 100%;
+		height: auto;
+    margin: 0 auto;
+    box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+
+    @media (min-width: $brk--phone) {
+      width: 70%;
+      max-width: 512px;
+  	}
+	}
+
+  &__meta {
+    margin-top: 1.2rem;
+
+    @media (min-width: 500px) {
+      position: absolute;
+      left: 1.2rem;
+      bottom: .5rem;
+      text-align: left;
+      width: 70%;
+      max-width: 450px;
+    }
+  }
+
+	&__title {
+    display: table;
+    padding: 1rem 1.4rem;
+    background-color: black;
+		a {
+			text-decoration: none;
+			color: white;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__number {
+    display: table;
+    padding: 1rem 1.4rem;
+    background-color: black;
+    color: white;
+	}
+
+  &__excerpt {
+    display: table;
+    color: white;
+    padding: 1rem 1.4rem;
+    background-color: black;
+  }
+
+  &:first-child {
+    flex-basis:100%;
+  }
+}

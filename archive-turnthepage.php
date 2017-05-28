@@ -2,9 +2,11 @@
 
 <main>
 
-	<h1 class="archive__title"><?php post_type_archive_title(); ?></h1>
+	<div class="archive__title__parent" style="background-color:<?php the_field("issue_background_color", $fp[0]->ID); ?>;">
+		<h1 class="archive__title--turnthepage"><?php post_type_archive_title(); ?></h1>
+	</div>
 
-	<div class="news">
+	<div class="turnthepage">
 
 	<?php
 		$loop = new WP_Query( $args );
@@ -19,7 +21,5 @@
 	</div>
 
 </main>
-
-<?php include 'inc/pagination.php'; ?>
 
 <?php get_footer(); ?>

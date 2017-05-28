@@ -6,11 +6,11 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header class="news-item__header">
+	<header class="ttp-issue__header" style="background-color:<?php the_field('issue_background_color');?>;">
 
-		<h1 class="news-item__title--large"><?php the_field('issue_number'); echo " | "; the_title(); ?></h1>
+		<h1 class="ttp-issue__title--large"><?php the_field('issue_number'); echo " | "; the_title(); ?></h1>
 
-		<div class="news-item__meta--large">
+		<div class="ttp-issue__meta--large">
 			<?php $parentscategory = "";
 				$has_cats = false;
 				foreach((get_the_category()) as $category) {
@@ -19,7 +19,7 @@
 						$cat_name = $category->name;
 						$parentscategory .= ' <a ' .
 							'href="' . $cat_link . '"' .
-							'class="news-item__category"' .
+							'class="ttp-issue__category"' .
 							'title="' . $cat_name . '">' .
 							$cat_name . '</a>, ';
 						$has_cats = true;
@@ -31,7 +31,7 @@
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail('post-thumbnail',
-				array( 'class' => 'news-item__thumb--large')
+				array( 'class' => 'ttp-issue__thumb--large')
 			); ?>
 		<?php endif; ?>
 

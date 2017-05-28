@@ -14,23 +14,74 @@
 /*-------------------------------------*\
 	Turn The Page archive
 \*-------------------------------------*/
-.archive__title__parent {
-  background-color: $accent;
-  padding: 2rem .8em 2rem;
-}
+.archive__title {
 
-.archive__title--turnthepage {
-  display: table;
-  margin: 0 auto;
-	padding: 2rem .8em;
-	margin: 0 auto;
-	background: black;
-	color: $background--light;
+  &__parent {
+    background-color: $accent;
+    padding: 2rem .8em 2rem;
+  }
+
+  &--turnthepage {
+    display: table;
+    margin: 0 auto;
+  	padding: 2rem .8em;
+  	margin: 0 auto;
+  	background: black;
+  	color: $background--light;
+  }
 }
 
 .turnthepage {
   display: flex;
   flex-wrap: wrap;
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Turn The Page single page
+\*-------------------------------------*/
+.ttp-issue {
+	&__header {
+		background: $accent;
+		text-align: center;
+		padding: .1rem;
+		font-size: 1.1em;
+		margin-bottom: 10%;
+	}
+
+	&__title--large {
+    background-color: black;
+    display: table;
+		color: $background--light;
+		margin: .8em auto .2em;
+    padding: 2rem .8em;
+	}
+
+	&__meta--large {
+		color: $background--light;
+    background-color: black;
+    display: table;
+    padding: .6rem .4em;
+		margin: .8em auto;
+	}
+
+	&__category {
+		color: white;
+		font-family: $font--heavy;
+	}
+
+	&__thumb--large {
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+		margin: 0 auto -10%;
+		max-width: 80%;
+		width: auto;
+		max-height: 70vh;
+		height: auto;
+		position: relative;
+	}
 }
 
 

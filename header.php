@@ -36,7 +36,8 @@
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant" <?php if(is_post_type_archive('turnthepage')) {?> style="background-color:<?php the_field('issue_background_color');?>"<?php
+		<header class="bies colorVibrant" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
+			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
 		} ?>>
 
 			<a href="<?php echo get_site_url(); ?>">

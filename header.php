@@ -5,7 +5,10 @@
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#55ccbb"><?php /* TODO:
+		<meta name="theme-color" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
+			?> content="<?php the_field('issue_background_color');?>"<?php
+		} else { echo 'content="#55ccbb"'; 
+		}?>><?php /* TODO:
 		replace with realfavicongenerator.net snippet */ ?>
 
 		<?php

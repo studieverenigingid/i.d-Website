@@ -44,9 +44,11 @@
     <?php
       if ( is_user_logged_in() ) {
         if( get_field('issuu_full_embed') ):
+					echo "<p>You're a member, you can read the full magazine!</p>";
           the_field('issuu_full_embed');
         endif;
       } else {
+				echo "<p>Note: This is a preview.</p>";
         the_field('issuu_preview_embed');
       }
     ?>

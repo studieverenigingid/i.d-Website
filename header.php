@@ -7,7 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
 			?> content="<?php the_field('issue_background_color');?>"<?php
-		} else { echo 'content="#55ccbb"'; 
+		} elseif (is_post_type_archive('board') || is_singular('board')) {
+			?> content="<?php the_field('board_color');?>"<?php
+		}else { echo 'content="#55ccbb"';
 		}?>><?php /* TODO:
 		replace with realfavicongenerator.net snippet */ ?>
 
@@ -41,6 +43,8 @@
 
 		<header class="bies colorVibrant" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
 			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
+		} elseif (is_post_type_archive('board') || is_singular('board')) {
+			?> style="background-color:<?php the_field('board_color');?>"<?php
 		} ?>>
 
 			<a href="<?php echo get_site_url(); ?>">

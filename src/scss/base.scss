@@ -267,7 +267,7 @@ blockquote {
 
 		&.opened {
 			width: 4.7rem;
-			color: $accent;
+			color: transparent;
 
 			&:before {
 				right: .9rem;

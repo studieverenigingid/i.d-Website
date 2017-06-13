@@ -16,10 +16,10 @@
 \*-------------------------------------*/
 .vacancies {
 	&--frontpage {
-		padding: 1rem;
 		background: $background--dark;
 		color: $background--light;
 		@include flex-container();
+		padding: 1rem;
 
 		@media (min-width: $brk--phone) {
 			padding: 2rem 2.5rem;

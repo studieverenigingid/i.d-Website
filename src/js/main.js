@@ -4,6 +4,7 @@ function onDocReady () {
 	var $ = jQuery;
 	menuToggler();
 	ajaxFeedbackForm();
+	hideUpdateFields();
 	fixVHAfterLoad();
   vibrantLoad();
 	socialFeed();
@@ -39,6 +40,22 @@ function ajaxFeedbackForm() {
 			}
          });
     })
+}
+
+function hideUpdateFields() {
+	var fields = $('.js-edu-hidable-fields'),
+		checkbox = $('.js-edu-checkbox'),
+		toggle = $('.js-edu-toggle');
+
+	fields.hide();
+
+	toggle.click(function() {
+		checkbox.click();
+	});
+
+	checkbox.change(function() {
+		fields.toggle();
+	});
 }
 
 function fixVHAfterLoad() {

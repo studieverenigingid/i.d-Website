@@ -393,6 +393,59 @@ blockquote {
 
 
 /*-------------------------------------*\
+	Ajax Loader
+\*-------------------------------------*/
+$ajax-load-size: 44px;
+
+.ajax-load {
+  display: flex;
+  flex-direction: column;
+  margin: 4em auto;
+	width: $ajax-load-size;
+}
+
+.ajax-load__strip {
+  flex-grow: 2;
+	width: $ajax-load-size;
+	height: 6px;
+  transform-origin: 0 0;
+	background-color: $background--dark;
+	margin-top: 6px;
+}
+
+@for $i from 1 through 3 {
+	.ajax-load__strip:nth-child(#{$i}){
+		animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
+	};
+}
+
+@keyframes ajax-load-slide {
+  0% {
+    transform: scaleX(0);
+  }
+  20% {
+    transform: scaleX(1);
+    transform-origin: 0 0;
+  }
+  60% {
+    transform: scaleX(1);
+    transform-origin: 100% 0;
+  }
+  80% {
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: 0 0;
+  }
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Footer
 \*-------------------------------------*/
 .pri-footer {
@@ -459,6 +512,30 @@ blockquote {
 	}
 }
 
+.force-refresh-button {
+	display: none;
+	padding: 0;
+	border-radius: 50%;
+	font-size:1.5em;
+	line-height: 3rem;
+	height:3rem;
+	width:3rem;
+	text-align:center;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	background-color: $accent;
+	color: white;
+
+	&:focus, &:hover {
+		background-color: darken($accent, 15%);
+	}
+
+	@media (max-width: $brk--phone){
+		display: block;
+	}
+}
+
 
 
 
@@ -475,6 +552,9 @@ blockquote {
 
 // Vacancies (vacatures)
 @import "vacancy";
+
+// Turn The Page
+@import "turnthepage";
 
 // Social
 @import "social";

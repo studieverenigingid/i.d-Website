@@ -73,6 +73,7 @@
 				$vimeoPosts[$i]['link'] = $link;
 				$vimeoPosts[$i]['date'] = $date;
 				$vimeoPosts[$i]['thumb'] = $largestPicture;
+				$vimeoPosts[$i]['title'] = $title;
 				$vimeoPosts[$i]['type'] = 'Vimeo';
 				$vimeoPosts[$i]['class'] = 'vimeo';
 				$vimeoPosts[$i]['icon'] = 'vimeo';
@@ -122,12 +123,14 @@
 				$image_url = $post['images']['standard_resolution']['url'];
 				$link = $post['link'];
 				$date = $post['created_time'];
+				$title = $post['title'];
 
 				$result[] = [
 					'type' => 'Flickr',
 					'class' => 'flickr flickr--'.($photoset['primary_photo_extras']['height_m'] > $photoset['primary_photo_extras']['width_m'] ? 'portrait' : 'landscape'),
 					'icon' => 'flickr',
 					'link' => 'https://www.flickr.com/photos/'.$username.'/albums/'.$photoset['id'],
+					'title' => $photoset['title']['_content'],
 					'date' => $photoset['date_create'],
 					'thumb' => $photoset['primary_photo_extras']['url_m']
 				];
@@ -148,6 +151,7 @@
 			foreach ($latestPosts as $post) {
 				$image_url = $post['thumb'];
 				$link = $post['link'];
+				$title = $post['title'];
 				$date = $post['date'];
 				$type = $post['type'];
 				$class = $post['class'];
@@ -157,7 +161,7 @@
 				--><div class="social__container <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__container--$1', $class);?>"
 							style="background-image:url('<?=$image_url?>');">
 							<div class="social__title <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__title--$1', $class);?>">
-								<i class="fa fa-<?=$icon?> social__ico"></i> <?=$type?>
+								<i class="fa fa-<?=$icon?> social__ico"></i> <?php if(isset($title) && !is_null($title)){echo $title;} else {echo $type;}?>
 							</div></div></a><!-- These closing tags have to be next to
 								eachother to prevent a space character with underline, same with
 								these comments

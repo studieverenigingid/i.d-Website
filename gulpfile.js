@@ -53,7 +53,7 @@ gulp.task('sass', function() {
 						this.emit('end');
 				}))
 				.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-				.pipe(prefix({browsers: ['last 2 version']}))
+				.pipe(prefix({browsers: ['last 4 version']}))
 				.pipe(rename('main.css'))
 				.pipe(gulp.dest(dest + 'css'));
 });

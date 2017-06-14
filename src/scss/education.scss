@@ -104,11 +104,15 @@
       transition: all .2s ease;
       background: $accent;
       box-sizing: border-box;
-			border: .7em solid $background--light;
+			border: .6em solid $background--light;
 			content: "";
       text-align: center;
 			border-radius: 1em;
       clear: both;
+
+      @media (min-width: $brk--tablet) {
+        border-width: .7em;
+      }
 		}
 
 		&:before {

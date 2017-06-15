@@ -6,6 +6,7 @@ Template Name: Education Page
 $header_class = 'education__header';
 
 get_header();
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
@@ -59,9 +60,20 @@ get_header();
 
         </div>
 
-				<button type="submit" class="button education__submit">
-          <?= esc_attr_x('Send input', 'feedback-form-button')?>
-        </button>
+
+        <div class="education__validate-and-send">
+
+          <input type="hidden" name="action" value="education_input">
+
+          <div class="g-recaptcha"
+            data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
+          </div>
+
+          <button type="submit" class="button education__submit">
+            <?= esc_attr_x('Send input', 'feedback-form-button')?>
+          </button>
+
+        </div>
 
 			</div>
 		</form>

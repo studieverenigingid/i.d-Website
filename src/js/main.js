@@ -6,7 +6,7 @@ function onDocReady () {
 	ajaxFeedbackForm();
 	hideUpdateFields();
 	fixVHAfterLoad();
-  vibrantLoad();
+	vibrantLoad();
 	socialFeed();
 }
 
@@ -23,23 +23,31 @@ function menuToggler () {
 }
 
 function ajaxFeedbackForm() {
-    $(document).on('submit' , 'form.education-feedback', function(e) {
-    	e.preventDefault();
-    	var form = $(this);
-    	form.addClass('education-feedback--sending');
-        $.ajax({
-            url: form.action,
-            type: 'post',
-            dataType: 'json',
-            data: form.serialize(),
-            success: function(data) {
-            	form.addClass('education-feedback--success');
-            },
+	$(document).on('submit' , 'form.education-feedback', function(e) {
+
+		e.preventDefault();
+
+		var form = $(this);
+		//form.addClass('education-feedback--sending');
+
+		var data = form.serialize();
+		data += '&submit=true';
+		console.log(data);
+
+		$.ajax({
+			url: wpjs_object.ajaxurl,
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			success: function(data) {
+				form.addClass('education-feedback--success');
+			},
 			error: function(data) {
-                form.addClass('education-feedback--failed');
+				form.addClass('education-feedback--failed');
 			}
-         });
-    })
+		 });
+
+	})
 }
 
 function hideUpdateFields() {
@@ -63,17 +71,17 @@ function fixVHAfterLoad() {
 }
 
 function vibrantLoad() {
-    var img = document.querySelector('.event--page__img');
+	var img = document.querySelector('.event--page__img');
 
 		console.log(img);
 
 		if (typeof(img) != 'undefined' && img != null) {
 			var vibrant = new Vibrant(img);
-	    var swatches = vibrant.swatches()
-	    for (var swatch in swatches)
-	    if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
+		var swatches = vibrant.swatches()
+		for (var swatch in swatches)
+		if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
 
-	    changeColorVibrant = document.getElementsByClassName('colorVibrant');
+		changeColorVibrant = document.getElementsByClassName('colorVibrant');
 
 			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
 

@@ -32,8 +32,7 @@ function ajaxFeedbackForm() {
 
 		var data = form.serialize();
 		data += '&submit=true';
-		console.log(data);
-
+		
 		$.ajax({
 			url: wpjs_object.ajaxurl,
 			type: 'POST',

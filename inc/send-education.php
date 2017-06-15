@@ -74,7 +74,6 @@
 
 		// get the request response body
 		$response_body = wp_remote_retrieve_body( $request );
-		error_log($response_body);
 
 		$result = json_decode( $response_body, true );
 

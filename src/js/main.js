@@ -22,27 +22,46 @@ function menuToggler () {
 
 }
 
+
+
+function formFails(form, data) {
+	form.addClass('education-feedback--failed');
+	var errorMessage = $('<div>');
+	errorMessage.addClass('education-feedback__message education-feedback__message--failed');
+	errorMessage.text(data['error']);
+	form.prepend(errorMessage);
+	form.removeClass('education-feedback--sending');
+}
+
+function formSucceeds(form, data) {
+	form.addClass('education-feedback--success');
+}
+
 function ajaxFeedbackForm() {
-	$(document).on('submit' , 'form.education-feedback', function(e) {
+	$(document).on('submit' , 'form.education-feedback__wrap', function(e) {
 
 		e.preventDefault();
 
 		var form = $(this);
-		//form.addClass('education-feedback--sending');
+		form.addClass('education-feedback--sending');
 
 		var data = form.serialize();
 		data += '&submit=true';
-		
+
 		$.ajax({
 			url: wpjs_object.ajaxurl,
 			type: 'POST',
 			dataType: 'json',
 			data: data,
 			success: function(data) {
-				form.addClass('education-feedback--success');
+				if (data['success'] === false) {
+					formFails(form, data);
+				} else {
+					formSucceeds(form, data);
+				}
 			},
 			error: function(data) {
-				form.addClass('education-feedback--failed');
+				formFails(form, data);
 			}
 		 });
 

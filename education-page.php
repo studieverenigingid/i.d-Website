@@ -15,16 +15,12 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	<h1 class="education__title">
     <?php the_title(); ?><span class="education__title--light">?</span>
   </h1>
-	<div class="">
-		<form action="#" class="education-feedback">
-			<div class="education-feedback__wrap">
+	<div class="education-feedback">
+    <div class="education-feedback__message education-feedback__message--success">
+      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?>
+    </div>
 
-				<div class="education-feedback__message education-feedback__message--success">
-					<?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?>
-				</div>
-				<div class="education-feedback__message education-feedback__message--failed">
-					<?= esc_attr_x('Your feedback wasn’t sent, something went wrong. Please try again!', 'feedback-form-message')?>
-				</div>
+		<form action="#" class="education-feedback__wrap">
 
         <label for="feedback" class="education__label">
           <?= esc_attr_x('What is it?', 'feedback-form-question')?>
@@ -75,7 +71,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
         </div>
 
-			</div>
 		</form>
 	</div>
 </main>

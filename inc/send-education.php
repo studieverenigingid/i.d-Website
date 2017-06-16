@@ -101,12 +101,12 @@
       if(!empty($input)) {
         $send_return = send_mail($input, $name, $email);
         if($send_return) {
-           $response['success'] = true;
-         } else {
-           $response['success'] = false;
-           $response['timestamp'] = date(DATE_ATOM);
-           $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. Does this keep happening? Send an email to web@roomfordiscussion.com.';
-         }
+          $response['success'] = true;
+        } else {
+          $response['success'] = false;
+          $response['timestamp'] = date(DATE_ATOM);
+          $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. Does this keep happening? Send an email to svid@tudelft.nl.';
+        }
       } else {
         $response['success'] = false;
 				$response['error'] = 'You have not entered any input, or something else went wrong. Please try again!';

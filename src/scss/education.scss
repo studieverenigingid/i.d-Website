@@ -178,13 +178,14 @@
         opacity: 0;
       }
     }
+
     &--failed {
       .education-feedback__message--success {
         opacity: 0;
       }
     }
 
-    &__message {
+    &__message--success {
       position: absolute;
       top: 10em;
       left: 2rem;
@@ -192,6 +193,13 @@
       color: white;
       text-align: center;
       transform: translateY(-50%);
+    }
+
+    &__message--failed {
+      padding: 1em;
+      margin: .5em 0;
+      background: #ca1414;
+      color: $background--light;
     }
   }
 

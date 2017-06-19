@@ -227,10 +227,12 @@
     &__item-wrap {
       position: relative;
       width: 33.3%;
+      margin-bottom: 4em;
+
       &:after {
         content: '';
         display: block;
-        padding-bottom: 100%;
+        padding-bottom: 120%;
       }
 
       @media (max-width: $brk--tablet) {
@@ -249,11 +251,10 @@
     &__item {
       position: absolute;
       top: 10%; left: 10%; bottom: 10%; right: 10%;
-      background: $background--gray center;
-      background-size: cover;
-      border-radius: 50%;
+      background: center;
+      background-size: contain;
+      background-repeat: no-repeat;
       overflow: hidden;
-      box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
 
       @media (max-width: $brk--tablet) {
       	top: 12%; left: 12%; bottom: 12%; right: 12%;
@@ -265,6 +266,13 @@
 
       @media (max-width: $brk--real-phone) {
         top: 6%; left: 6%; bottom: 6%; right: 6%;
+      }
+
+      &-title {
+        text-align: center;
+        position: absolute;
+        font-size: 1.6em;
+        top: 94%; left: 10%; bottom: 10%; right: 10%;
       }
     }
   }

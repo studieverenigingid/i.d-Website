@@ -76,22 +76,23 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 </main>
 
 
+
+<?php
+if( have_rows('feedback_step') ) { ?>
   <section class="education-process">
     <h2><?= esc_attr_x('Wat doen we met je feedback?', 'education-what-we-do-with-it')?></h2>
-
-    <div class="education-process__item-wrap">
-      <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_1" )['sizes']['medium'] ?>')">
+    <?php while( have_rows('feedback_step') ) {
+      the_row();
+      $img_url = get_sub_field('image')['sizes']['medium']; ?>
+      <div class="education-process__item-wrap">
+        <div class="education-process__item"
+          style="background-image: url('<?= $img_url ?>')">
+        </div>
+        <h3 class="education-process__item-title"><?= get_sub_field('sub_title') ?></h3>
       </div>
-    </div>
-    <div class="education-process__item-wrap">
-      <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_2" )['sizes']['medium'] ?>')">
-      </div>
-    </div>
-    <div class="education-process__item-wrap">
-      <div class="education-process__item" style="background-image: url('<?= get_field( "feedback_steps_3" )['sizes']['medium'] ?>')">
-      </div>
-    </div>
+	  <?php } ?>
   </section>
+<?php } ?>
 
 
   <section class="news education-news">

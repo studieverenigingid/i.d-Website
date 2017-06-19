@@ -13,6 +13,8 @@
 	include( 'inc/turnthepage-post-type.php' );
 	include( 'inc/turnthepage-custom-fields.php' );
 
+	include( 'inc/education-custom-fields.php' );
+
 	include( 'inc/contact-custom-fields.php' );
 
 	include( 'inc/theme-settings.php');

@@ -207,7 +207,7 @@ wp_reset_postdata();
 <!-- BLOG -->
 <!-- **** -->
 <section class="news">
-  <h2 class="section__title">Nieuws en blog</h2>
+  <h2 class="section__title">News and blog</h2>
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );

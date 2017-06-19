@@ -232,7 +232,7 @@
       &:after {
         content: '';
         display: block;
-        padding-bottom: 120%;
+        padding-bottom: 100%;
       }
 
       @media (max-width: $brk--tablet) {

@@ -95,14 +95,13 @@ if( have_rows('feedback_step') ) { ?>
 <?php } ?>
 
 
+<?php
+$args = array( 'post_type' => 'post', 'category_name' => 'education', 'posts_per_page' => 3 );
+$loop = new WP_Query( $args );
+if($loop->have_posts()) : ?>
   <section class="news education-news">
-
-    <h2><?= esc_attr_x('Wat deden we met jullie feedback?', 'education-what-we-did-with-it')?></h2>
-
-    <?php
-    $args = array( 'post_type' => 'post', 'category_name' => 'education', 'posts_per_page' => 3 );
-    $loop = new WP_Query( $args );
-    if(have_posts()) : while($loop->have_posts()) : $loop->the_post(); ?>
+    <h2><?= esc_attr_x('What have we done in the past?', 'education-what-we-did-with-it')?></h2>
+    <?php while($loop->have_posts()) : $loop->the_post(); ?>
 
       <article class="news-item">
         <?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('medium_large', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
@@ -120,17 +119,13 @@ if( have_rows('feedback_step') ) { ?>
         <?php the_excerpt(); ?>
       </article>
 
-      <?php
-    endwhile;
-    endif;
-
-    wp_reset_postdata();
-    ?>
-
+    <?php endwhile; ?>
   </section>
+<?php endif; wp_reset_postdata(); ?>
+
 
   <section class="education-about">
-    <h2><?= esc_attr_x('Wie zijn we?', 'education-who-are-we')?></h2>
+    <h2><?= esc_attr_x('Who are we?', 'education-who-are-we')?></h2>
     <img src="<?= get_field( "commity_photo" )['sizes']['large'] ?>" alt="<?= get_field( "commity_photo" )['url'] ?>">
     <div class="education-about__description">
       <?= get_field( "commity_description" ); ?>

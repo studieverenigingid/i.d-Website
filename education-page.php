@@ -6,30 +6,74 @@ Template Name: Education Page
 $header_class = 'education__header';
 
 get_header();
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-  <header class="event--page__header event--page__education">
-    <div class="event--page__short-info">
-      <h1 class="event--page__name"><?php the_title(); ?></h1>
-
-      <div class="event--page__thumb event--page__thumb--education">
-        <form action="#" class="education-feedback">
-          <div class="education-feedback__wrap">
-            <h2><?= esc_attr_x('Feedback', 'feedback-form-title')?></h2>
-            <div class="education-feedback__message education-feedback__message--success">
-              <?= esc_attr_x('Je feedback is verzonden, bedankt!', 'feedback-form-message')?>
-            </div>
-            <div class="education-feedback__message education-feedback__message--failed">
-              <?= esc_attr_x('Je feedback is niet verzonden, er ging iets fout!', 'feedback-form-message')?>
-            </div>
-            <textarea name="feedback" id="" cols="30" rows="15" placeholder="<?= esc_attr_x('Wat is je feedback?', 'feedback-form-placeholder')?>" required></textarea>
-            <button type="submit"><?= esc_attr_x('Stuur feedback', 'feedback-form-button')?></button>
-          </div>
-        </form>
-      </div>
+<main class="about__top education__header">
+	<p class="education__pre-title">Do you have something to say about</p>
+	<h1 class="education__title">
+    <?php the_title(); ?><span class="education__title--light">?</span>
+  </h1>
+	<div class="education-feedback">
+    <div class="education-feedback__message education-feedback__message--success">
+      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?>
     </div>
-  </header>
+
+		<form action="#" class="education-feedback__wrap">
+
+        <label for="feedback" class="education__label">
+          <?= esc_attr_x('What is it?', 'feedback-form-question')?>
+        </label>
+				<textarea name="feedback" id="" cols="30" rows="12"
+          placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder') ?>"
+          class="education__input-message"
+          required></textarea>
+
+        <div class="education__updater">
+          <p class="education__label education__label--right">
+            <?= esc_attr_x('Do you want to be updates about this input?', 'feedback-form')?>
+          </p>
+          <input type="checkbox" name="update" value="true"
+            class="js-edu-checkbox education__toggle">
+          <label for="update"
+            class="education__toggle-button js-edu-toggle"></label>
+        </div>
+
+        <div class="education__hideble-fields js-edu-hidable-fields">
+
+          <label for="feedback" class="education__label">
+            <?= esc_attr_x('What is your name?', 'feedback-form-question')?>
+          </label>
+  				<input name="name" type="text" class="education__input-short"
+            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder') ?>">
+
+          <label for="feedback" class="education__label">
+            <?= esc_attr_x('And your email address?', 'feedback-form-question')?>
+          </label>
+  				<input type="text" name="email" class="education__input-short"
+            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder') ?>">
+
+        </div>
+
+
+        <div class="education__validate-and-send">
+
+          <input type="hidden" name="action" value="education_input">
+
+          <div class="g-recaptcha"
+            data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
+          </div>
+
+          <button type="submit" class="button education__submit">
+            <?= esc_attr_x('Send input', 'feedback-form-button')?>
+          </button>
+
+        </div>
+
+		</form>
+	</div>
+</main>
 
 
   <section class="education-process">

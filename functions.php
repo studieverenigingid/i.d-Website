@@ -29,6 +29,8 @@
 	add_action( 'init', 'modify_jquery' );
 	add_action( 'wp_ajax_nopriv_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
+	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
+	add_action( 'wp_ajax_education_input', 'education_input' );
 
 
 	function custom_theme_setup() {
@@ -75,6 +77,10 @@
 		wp_die();
 	}
 
+	function education_input() {
+		include 'inc/send-education.php';
+		wp_die();
+	}
 
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
 	$img_folder = get_bloginfo('template_directory') . '/static/img/';

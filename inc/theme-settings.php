@@ -91,6 +91,33 @@
 			'id_flickrSettings_section'
 		);
 
+		// Registering education input section and fields
+
+		register_setting( 'educationInputSettings', 'id_settings' );
+
+		add_settings_section(
+			'id_educationInputSettings_section',
+			__( 'Education input receivers', 'wordpress' ),
+			'id_educationInputSettings_section_callback',
+			'educationInputSettings'
+		);
+
+		add_settings_field(
+			'id_email_addresses_field',
+			__( 'Education input receiver email adresses', 'wordpress' ),
+			'id_education_input_email_addresses_render',
+			'educationInputSettings',
+			'id_educationInputSettings_section'
+		);
+
+		add_settings_field(
+			'id_recaptcha_secret_field',
+			__( 'reCaptcha secret', 'wordpress' ),
+			'id_recaptcha_secret_render',
+			'educationInputSettings',
+			'id_educationInputSettings_section'
+		);
+
 	}
 
 	// Vimeo form rendering
@@ -190,6 +217,34 @@
 
 	}
 
+	// Education input form rendering
+
+	function id_education_input_email_addresses_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='email' name='id_settings[id_email_addresses_field]' value='<?php echo $options['id_email_addresses_field']; ?>'>
+		<?php
+
+	}
+
+	function id_recaptcha_secret_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='text' name='id_settings[id_recaptcha_secret_field]' value='<?php echo $options['id_recaptcha_secret_field']; ?>'>
+		<?php
+
+	}
+
+	// Education input section callback
+
+	function id_educationInputSettings_section_callback(  ) {
+
+		echo __( 'Register the email addresses the education input should be sent to from the form. Enter multiple email addresses separated with a comma. Enter the reCaptcha secret, too (reCaptcha is what keeps the spam away).', 'wordpress' );
+
+	}
+
 	// i.d-Website settings page
 
 	function id_options_page() {
@@ -200,6 +255,8 @@
 			<h2>i.d-Website Settings</h2>
 
 			<?php
+			submit_button();
+
 			settings_fields( 'vimeoSettings' );
 			do_settings_sections( 'vimeoSettings' );
 
@@ -208,6 +265,10 @@
 
 			settings_fields( 'flickrSettings' );
 			do_settings_sections( 'flickrSettings' );
+
+			settings_fields( 'educationInputSettings' );
+			do_settings_sections( 'educationInputSettings' );
+
 			submit_button();
 			?>
 

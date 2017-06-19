@@ -4,8 +4,9 @@ function onDocReady () {
 	var $ = jQuery;
 	menuToggler();
 	ajaxFeedbackForm();
+	hideUpdateFields();
 	fixVHAfterLoad();
-  vibrantLoad();
+	vibrantLoad();
 	socialFeed();
 }
 
@@ -21,24 +22,66 @@ function menuToggler () {
 
 }
 
+
+
+function formFails(form, data) {
+	form.addClass('education-feedback--failed');
+	var errorMessage = $('<div>');
+	errorMessage.addClass('education-feedback__message education-feedback__message--failed');
+	errorMessage.text(data['error']);
+	form.prepend(errorMessage);
+	form.removeClass('education-feedback--sending');
+}
+
+function formSucceeds(form, data) {
+	form.addClass('education-feedback--success');
+}
+
 function ajaxFeedbackForm() {
-    $(document).on('submit' , 'form.education-feedback', function(e) {
-    	e.preventDefault();
-    	var form = $(this);
-    	form.addClass('education-feedback--sending');
-        $.ajax({
-            url: form.action,
-            type: 'post',
-            dataType: 'json',
-            data: form.serialize(),
-            success: function(data) {
-            	form.addClass('education-feedback--success');
-            },
+	$(document).on('submit' , 'form.education-feedback__wrap', function(e) {
+
+		e.preventDefault();
+
+		var form = $(this);
+		form.addClass('education-feedback--sending');
+
+		var data = form.serialize();
+		data += '&submit=true';
+
+		$.ajax({
+			url: wpjs_object.ajaxurl,
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			success: function(data) {
+				if (data['success'] === false) {
+					formFails(form, data);
+				} else {
+					formSucceeds(form, data);
+				}
+			},
 			error: function(data) {
-                form.addClass('education-feedback--failed');
+				formFails(form, data);
 			}
-         });
-    })
+		 });
+
+	})
+}
+
+function hideUpdateFields() {
+	var fields = $('.js-edu-hidable-fields'),
+		checkbox = $('.js-edu-checkbox'),
+		toggle = $('.js-edu-toggle');
+
+	fields.hide();
+
+	toggle.click(function() {
+		checkbox.click();
+	});
+
+	checkbox.change(function() {
+		fields.toggle();
+	});
 }
 
 function fixVHAfterLoad() {
@@ -46,17 +89,17 @@ function fixVHAfterLoad() {
 }
 
 function vibrantLoad() {
-    var img = document.querySelector('.event--page__img');
+	var img = document.querySelector('.event--page__img');
 
 		console.log(img);
 
 		if (typeof(img) != 'undefined' && img != null) {
 			var vibrant = new Vibrant(img);
-	    var swatches = vibrant.swatches()
-	    for (var swatch in swatches)
-	    if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
+		var swatches = vibrant.swatches()
+		for (var swatch in swatches)
+		if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
 
-	    changeColorVibrant = document.getElementsByClassName('colorVibrant');
+		changeColorVibrant = document.getElementsByClassName('colorVibrant');
 
 			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
 

@@ -80,7 +80,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 <?php
 if( have_rows('feedback_step') ) { ?>
   <section class="education-process">
-    <h2><?= esc_attr_x('Wat doen we met je feedback?', 'education-what-we-do-with-it')?></h2>
+    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it')?></h2>
     <?php while( have_rows('feedback_step') ) {
       the_row();
       $img_url = get_sub_field('image')['sizes']['medium']; ?>

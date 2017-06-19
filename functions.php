@@ -39,6 +39,7 @@
 
 	/* Add thumbnail size */
 	add_image_size( 'thumb--vacancy', 860, 500, array( 'center', 'center' ) );
+	add_image_size( 'thumb--news', 500, 350, array( 'center', 'center' ) );
 
 	/* Replace Wordpress’s version of jQuery with Google API version, since most
 		 browsers will have it in their cache. */

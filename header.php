@@ -32,6 +32,19 @@ global $header_class;
 			endif;
 		?>
 
+		<link rel="canonical" href="https://studieverenigingid.nl/" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+		<meta property="og:url" content="https://studieverenigingid.nl/" />
+		<meta property="og:site_name" content="Study association i.d" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
+		<meta name="twitter:site" content="@svidtweet" />
+		<meta name="twitter:creator" content="@svidtweet" />
+		<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/studieverenigingid.nl\/","name":"Study association i.d","potentialAction":{"@type":"SearchAction","target":"https:\/\/studieverenigingid.nl\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+		<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/studieverenigingid.nl\/","sameAs":["https:\/\/www.facebook.com\/studieverenigingi.d\/","https:\/\/www.instagram.com\/studieverenigingid\/","https:\/\/twitter.com\/svidtweet"],"@id":"#organization","name":"Study association i.d","logo":"https:\/\/studieverenigingid.nl\/wp-content\/uploads\/2017\/06\/Logo-Studievereniging-i.d-EN-Duotoon.png"}</script>
+
 		<?php wp_enqueue_style('fontawesome',
 		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('main',

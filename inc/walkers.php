@@ -11,7 +11,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 	 * @param	array $args		Additional strings.
 	 * @return void
 	 */
-	public function start_el( &$output, $item, $depth, $args )
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 )
 	{
 		$output		 .= '<li class="sitemap__item">';
 		$attributes	= '';
@@ -19,7 +19,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 		! empty ( $item->url )
 			and $attributes .= ' href="' . esc_attr( $item->url ) .'"';
 
-		$attributes .= ' class="sitemap__link"';
+		$attributes .= ' class="sitemap__link pri-footer__link"';
 
 		$attributes	= trim( $attributes );
 		$title			 = apply_filters( 'the_title', $item->title, $item->ID );
@@ -45,7 +45,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function start_lvl( &$output )
+	public function start_lvl( &$output, $depth = 0, $args = array() )
 	{
 		$output .= '<ul class="sitemap__sub-menu">';
 	}
@@ -56,7 +56,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	public function end_lvl( &$output )
+	public function end_lvl( &$output, $depth = 0, $args = array() )
 	{
 		$output .= '</ul>';
 	}
@@ -67,7 +67,7 @@ class Walker_Sitemap extends Walker_Nav_Menu
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @return void
 	 */
-	function end_el( &$output )
+	function end_el( &$output, $item, $depth = 0, $args = array() )
 	{
 		$output .= '</li>';
 	}

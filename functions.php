@@ -6,6 +6,17 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
+	include( 'inc/committee-post-type.php' );
+	include( 'inc/board-post-type.php' );
+	include( 'inc/board-custom-fields.php' );
+
+	include( 'inc/turnthepage-post-type.php' );
+	include( 'inc/turnthepage-custom-fields.php' );
+
+	include( 'inc/education-custom-fields.php' );
+
+	include( 'inc/contact-custom-fields.php' );
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );
@@ -18,6 +29,10 @@
 
 	add_action( 'after_setup_theme', 'custom_theme_setup' );
 	add_action( 'init', 'modify_jquery' );
+	add_action( 'wp_ajax_nopriv_social_feed_ajax_request', 'social_feed_ajax_request' );
+	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
+	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
+	add_action( 'wp_ajax_education_input', 'education_input' );
 
 
 	function custom_theme_setup() {
@@ -28,6 +43,7 @@
 
 	/* Add thumbnail size */
 	add_image_size( 'thumb--vacancy', 860, 500, array( 'center', 'center' ) );
+	add_image_size( 'thumb--news', 500, 350, array( 'center', 'center' ) );
 
 	/* Replace Wordpress’s version of jQuery with Google API version, since most
 		 browsers will have it in their cache. */
@@ -57,7 +73,26 @@
 	}
 	add_filter( "the_excerpt", "add_class_to_excerpt" );
 
+	function social_feed_ajax_request() {
+	// do what you want with the variables passed through here
+		include 'inc/social-feed.php';
+		wp_die();
+	}
+
+	function education_input() {
+		include 'inc/send-education.php';
+		wp_die();
+	}
+
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
 	$img_folder = get_bloginfo('template_directory') . '/static/img/';
+
+	/* Change max upload size for every installation where this theme is
+		 installed */
+	@ini_set( 'upload_max_size' , '64M' );
+	@ini_set( 'post_max_size', '64M');
+	@ini_set( 'max_execution_time', '300' );
+
+
 
 ?>

@@ -1,34 +1,51 @@
-<article class="vacancy--small">
+<article class="vacancy vacancy--archive">
 
 	<?php
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail('large',
-				array( 'class' => 'vacancy__img')
-			);
-		}
-	?>
+		if ( has_post_thumbnail() ) { ?>
+		<div class="vacancy__thumb">
+			<?php
+				the_post_thumbnail('thumb',
+					array( 'class' => 'vacancy__logo')
+				);
+			?>
+		</div>
+	<?php } ?>
 
-	<div>
+	<div class="vacancy__text">
 
 		<?php
-			$categories = get_the_category();
-			if ( !empty($categories) ) {
-		    echo '<h3>' . esc_html( $categories[0]->name ) . '</h3>';
-			}
+			$company = get_field('company');
 		?>
-
-		<p class="vacancy--small__title">
-			<?php the_title(); ?>
+		<p class="vacancy__intro">
+			<span class="vacancy__company"><?=$company?></span> is looking for a
 		</p>
 
-		<?php
-			$file = get_field('vacancy_attachment');
-			if( $file ): ?>
-				<a target="_blank" class="button"
-					href="<?php echo $file['url']; ?>">
-					<i class="fa fa-file-text-o"></i> Attachment
-				</a>
-		<?php endif; ?>
+		<h3 class="vacancy__title">
+			<a href="<?php the_permalink(); ?>" class="vacancy__link">
+				<?php the_title(); ?>
+			</a>
+		</h3>
+
+		<p class="vacancy__details">
+			<?php
+				$location = get_field('location');
+				if ( !empty($location) ) { ?>
+					<span class="vacancy__tag  vacancy__location">
+			    	<i class="fa fa-map-marker"></i> <?=$location?>
+					</span>
+			<?php	} ?>
+
+			&bull;
+
+			<?php
+				$categories = get_the_category();
+				if ( !empty($categories) ) {
+					$category = esc_html( $categories[0]->name ); ?>
+					<span class="vacancy__tag  vacancy__type">
+			    	<?=$category?>
+					</span>
+			<?php	} ?>
+		</p>
 
 	</div>
 

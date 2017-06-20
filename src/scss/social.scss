@@ -1,36 +1,15 @@
 @mixin aspect-ratio($width, $height) {
 	position: relative;
+	display: inline-block;
+	background-size: cover;
+	background-position: center center;
+
 	&:before {
 		display: block;
 		content: "";
 		width: 100%;
 		padding-top: ($height / $width) * 100%;
 	}
-	display: inline-block;
-	background-size: cover;
-	background-position: center center;
-	margin-bottom: 35px;
-}
-
-.social__wrapper {
-	display: block;
-	overflow: auto;
-	white-space: nowrap;
-	margin-bottom: 30px; 
-}
-
-.social__container--vimeo {
-	@include aspect-ratio(16, 9);
-	width: 500px;
-	margin-left: 35px;
-	max-width: 47%;	
-}
-
-.social__container--insta {
-	@include aspect-ratio(1, 1);
-	width: 281px;
-	margin-left:35px;
-	max-width: 26%;
 }
 
 @mixin social-background($color) {
@@ -43,17 +22,102 @@
 	}
 }
 
-.social__title {
-	display: inline-block;
-	position: absolute;
-	left: -15px;
-	bottom: -25px;
-	padding: 15px;
-	font-family: $font--light;
+.social {
+	&__wrapper {
+		display: block;
+		overflow: auto;
+		white-space: nowrap;
 
-	@each $socialnetwork, $color in $social {
-		&--#{$socialnetwork} {
-			@include social-background($color);
+		@media (min-width: $brk--phone) {
+			margin-bottom: 1.5em;
 		}
+	}
+
+	&__link:last-of-type {
+		@media (min-width: $brk--phone) {
+			margin-right: 3em;
+		}
+	}
+
+
+	&__container {
+		@media (min-width: $brk--phone) {
+			margin-left: 1.6em;
+			margin-bottom: 1.5em;
+		}
+
+		&--vimeo {
+			@include aspect-ratio(16, 9);
+			width: 500px;
+			max-width: 60%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 46.4%;
+			}
+		}
+
+		&--insta {
+			@include aspect-ratio(1, 1);
+			width: 281px;
+			max-width: 33.7%;
+
+			@media (min-width: $brk--phone) {
+				max-width: 26%;
+			}
+		}
+
+		&--flickr {
+			@include aspect-ratio(3, 2);
+
+			&--landscape{
+				width: 422px;
+				max-width: 50.5%;
+
+				@media (min-width: $brk--phone) {
+					max-width: 39%;
+				}
+			}
+
+			&--portrait {
+				@include aspect-ratio(2, 3);
+				width: 187px;
+				max-width: 22.5%;
+
+				@media (min-width: $brk--phone) {
+					max-width: 47%;
+				}
+			}
+		}
+	}
+
+	&__title {
+		display: inline-block;
+		position: absolute;
+		padding: .6em;
+		font-family: $font--light;
+		color: white;
+		bottom: 0;
+		font-size: .8em;
+		width: 2.15em;
+		color: transparent;
+
+		@media (min-width: $brk--phone) {
+			font-size: 1em;
+			padding: .8em;
+			bottom: -1.5em;
+			left: -1em;
+			width: auto;
+			color: white;
+		}
+
+		@each $socialnetwork, $color in $social {
+			&--#{$socialnetwork} {
+				@include button-background($color);
+			}
+		}
+	}
+
+	&__ico {
+		color: white;
 	}
 }

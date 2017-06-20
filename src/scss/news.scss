@@ -19,6 +19,47 @@
 \*-------------------------------------*/
 .news {
 	@include flex-container();
+	padding: 0 1.5*$pad;
+
+	@media (min-width: $brk--phone) {
+	}
+
+	&__section-title {
+		margin-left: 0;
+		margin-right: 0;
+
+		@media (min-width: $brk--phone) {
+			flex-basis: 40%;
+			margin-left: 1.5 * $pad;
+			margin-right: 1.5 * $pad;
+		}
+	}
+
+	&__archive-link {
+		flex: 0 0 100%;
+		font-size: 1.2em;
+		margin-bottom: 2em;
+
+		a {
+			color: #000;
+			text-decoration: none;
+
+			&:focus, &:hover {
+				text-decoration: underline;
+			}
+		}
+
+		@media (min-width: $brk--phone) {
+			margin-left: 1.5 * $pad;
+			margin-right: 1.5 * $pad;
+			flex-basis: 40%;
+			text-align: right;
+			vertical-align: bottom;
+			height: 1em;
+			margin-top: 3.5em;
+			margin-bottom: .5em;
+		}
+	}
 }
 
 
@@ -29,11 +70,15 @@
 	News item
 \*-------------------------------------*/
 .news-item {
-	padding: $pad;
+	max-width: 600px;
 
 	@media (min-width: 512px) {
  		min-width: 344px;
  		flex: 1;
+	}
+
+	@media (min-width: $brk--phone) {
+		padding: $pad * 1.5;
 	}
 
 	@media (min-width: 1415px) {
@@ -97,6 +142,11 @@
 	&__meta--large {
 		color: $background--light;
 		margin: 1.4em;
+	}
+
+	&__category {
+		color: white;
+		font-family: $font--heavy;
 	}
 
 	&__thumb--large {

@@ -11,14 +11,22 @@
 		<h1 class="news-item__title--large"><?php the_title(); ?></h1>
 
 		<div class="news-item__meta--large">
-			<?php $parentscategory ="";
+			<?php $parentscategory = "";
+				$has_cats = false;
 				foreach((get_the_category()) as $category) {
 					if ($category->category_parent == 0) {
-						$parentscategory .= ' <a href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
+						$cat_link = get_category_link($category->cat_ID);
+						$cat_name = $category->name;
+						$parentscategory .= ' <a ' .
+							'href="' . $cat_link . '"' .
+							'class="news-item__category"' .
+							'title="' . $cat_name . '">' .
+							$cat_name . '</a>, ';
+						$has_cats = true;
 					}
 				}
-				echo substr($parentscategory,0,-2); ?>
- 			| <?php echo get_the_date(); ?>
+				if ($has_cats) echo substr($parentscategory,0,-2) . ' | '; ?>
+ 			<?php echo get_the_date(); ?>
 		</div>
 
 		<?php if ( has_post_thumbnail() ) : ?>

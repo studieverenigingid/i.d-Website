@@ -1,15 +1,25 @@
-<?php global $img_folder; ?>
+<?php
+global $img_folder;
+global $header_class;
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="#000000"><?php /* TODO:
-		replace with realfavicongenerator.net snippet */ ?>
+		<meta name="theme-color" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
+			?> content="<?php the_field('issue_background_color');?>"<?php
+		} elseif (is_post_type_archive('board') || is_singular('board')) {
+			?> content="<?php the_field('board_color');?>"<?php
+		}else { echo 'content="#55ccbb"';
+		}?>>
 
-		<!-- Temporariy Icon Font -->
-		<script src="https://use.fontawesome.com/2682b15f5d.js"></script>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55ccbb">
 
 		<?php
 			if ( ! function_exists( '_wp_render_title_tag' ) ) :
@@ -22,19 +32,29 @@
 			endif;
 		?>
 
-		<?php wp_enqueue_style('main',
-			get_template_directory_uri() . '/static/css/main.css') ?>
+		<?php wp_enqueue_style('fontawesome',
+		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+		wp_enqueue_style('main',
+			get_template_directory_uri() . '/static/css/main.css'); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
-			array('jquery'), '0.1', true ); ?>
+			array('jquery'), '0.1', true );
+			wp_localize_script( 'scripts', 'wpjs_object',
+			array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		?>
 
 		<?php wp_head(); ?>
 
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies">
+		<header class="bies colorVibrant <?=$header_class?>"
+			<?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
+			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
+			} elseif (is_post_type_archive('board') || is_singular('board')) {
+			?> style="background-color:<?php the_field('board_color');?>"<?php } ?>
+		>
 
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>
@@ -50,10 +70,10 @@
 				menu
 			</div>
 
-		</header>
+			<?php wp_nav_menu( array(
+				'theme_location' => 'primary-menu',
+				'container' => 'nav',
+				'container_class' => 'primary-menu',
+				'menu_class' => 'primary-menu__list' ) ); ?>
 
-		<?php wp_nav_menu( array(
-			'theme_location' => 'primary-menu',
-			'container' => 'nav',
-			'container_class' => 'primary-menu',
-			'menu_class' => 'primary-menu__list' ) ); ?>
+		</header>

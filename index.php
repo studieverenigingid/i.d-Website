@@ -1,37 +1,24 @@
-<?php
-	get_header();
-?>
+<?php get_header(); ?>
 
-<section class="news">
-	<h1>Nieuws en blog</h1>
+<main>
 
-	<?php
-		if(have_posts()) : while(have_posts()) : the_post();
-	?>
+	<h1 class="archive__title"><?php echo apply_filters( 'the_title', get_the_title( get_option( 'page_for_posts' ) ) ); ?></h1>
 
-	<article class="news-item">
-		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('post-thumbnail', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
-		<h2 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<h4 class="news-item__meta">
-			<?php $parentscategory ="";
-				foreach((get_the_category()) as $category) {
-					if ($category->category_parent == 0) {
-						$parentscategory .= ' <a href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
-					}
-				}
-				echo substr($parentscategory,0,-2); ?>
- 		| <?php echo get_the_date(); ?>
-		</h4>
-		<?php the_excerpt(); ?>
-		</article>
+	<div class="news">
 
 	<?php
-		endwhile;
-		endif;
+		if(have_posts()) : while(have_posts()) :
+			the_post();
+			include 'inc/small-news-item.php';
+		endwhile; endif;
+
+		wp_reset_postdata();
 	?>
 
-</section>
+	</div>
 
-<?php
-	get_footer();
-?>
+</main>
+
+<?php include 'inc/pagination.php'; ?>
+
+<?php get_footer(); ?>

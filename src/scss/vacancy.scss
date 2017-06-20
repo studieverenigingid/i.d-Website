@@ -101,7 +101,7 @@
 	&__header {
 		text-align: center;
 		background: $accent;
-		padding: 1rem 0;
+		padding: 1rem;
 
 		@media (min-width: $brk--phone) {
 			padding: .1rem 0 2rem;
@@ -130,6 +130,7 @@
 		margin: 1rem 0 2rem;
 		display: inline-block;
 		border-radius: .3rem;
+		max-width: 90%;
 	}
 
 	&__logo {

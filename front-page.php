@@ -207,7 +207,12 @@ wp_reset_postdata();
 <!-- BLOG -->
 <!-- **** -->
 <section class="news">
-  <h2 class="section__title">News and blog</h2>
+  <h2 class="section__title news__section-title">News and blog</h2>
+  <h3 class="news__archive-link">
+    <a href="<?php echo get_post_type_archive_link('post'); ?>">
+      <?php echo esc_attr_x('All news items and blog posts'); ?> →
+    </a>
+  </h3>
 	<?php
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
 		$loop = new WP_Query( $args );

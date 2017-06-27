@@ -12,7 +12,9 @@ global $header_class;
 			?> content="<?php the_field('issue_background_color');?>"<?php
 		} elseif (is_post_type_archive('board') || is_singular('board')) {
 			?> content="<?php the_field('board_color');?>"<?php
-		}else { echo 'content="#55ccbb"';
+		} elseif (is_page_template('education-page.php')) {
+				echo 'content="#f18918"';
+		} else { echo 'content="#55ccbb"';
 		}?>>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

@@ -52,6 +52,10 @@
 						class="button button--vimeo">
 						<i class="fa fa-vimeo"></i> Vimeo
 					</a>
+					<a href="https://medium.com/turnthepage"
+						class="button button--medium">
+						<i class="fa fa-medium"></i> Medium
+					</a>
 				</div>
 			</div>
 

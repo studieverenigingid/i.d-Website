@@ -58,6 +58,7 @@ $background--dark: #11417e;
 $background--gray: #222;
 $text: #222;
 $hex-education: #F18918;
+$hex-kafee: #6dadb6;
 
 $social:
 	(insta, #e1306c),
@@ -562,6 +563,9 @@ $ajax-load-size: 44px;
 
 // Contact
 @import "contact";
+
+// i.d-Kafee
+@import "kafee";
 
 // Pagination
 @import "pagination";

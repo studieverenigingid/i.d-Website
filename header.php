@@ -53,7 +53,9 @@ global $header_class;
 			<?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
 			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
 			} elseif (is_post_type_archive('board') || is_singular('board')) {
-			?> style="background-color:<?php the_field('board_color');?>"<?php } ?>
+			?> style="background-color:<?php the_field('board_color');?>"<?php
+		} elseif (is_page_template('page-kafee.php')) {
+			?> style="background-color:#6dadb6;?>"<?php } ?>
 		>
 
 			<a href="<?php echo get_site_url(); ?>">

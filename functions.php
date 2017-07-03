@@ -17,6 +17,8 @@
 
 	include( 'inc/contact-custom-fields.php' );
 
+	include( 'inc/kafee-custom-fields.php' );	
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );

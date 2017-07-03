@@ -141,6 +141,11 @@
 		padding: 3em;
 		width: 90%;
 		max-width: 50rem;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
 	}
 
 	&__blocktitle {

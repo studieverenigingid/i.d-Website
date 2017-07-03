@@ -141,24 +141,9 @@
 		padding: 3em;
 		width: 90%;
 		max-width: 50rem;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
 	}
 
 	&__block {
-		flex-basis: 33%;
-		flex-grow: 1;
-
-		@media (max-width: $brk--desktop) {
-			flex-basis:50%;
-		}
-
-		@media (max-width: $brk--tablet) {
-			flex-basis:100%;
-		}
-	}
-
 	&__blocktitle {
 		flex: 0 100%;
 		margin: 0px;

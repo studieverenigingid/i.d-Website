@@ -12,9 +12,7 @@ global $header_class;
 			?> content="<?php the_field('issue_background_color');?>"<?php
 		} elseif (is_post_type_archive('board') || is_singular('board')) {
 			?> content="<?php the_field('board_color');?>"<?php
-		} elseif (is_page_template('education-page.php')) {
-				echo 'content="#f18918"';
-		} else { echo 'content="#55ccbb"';
+		}else { echo 'content="#55ccbb"';
 		}?>>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -33,19 +31,6 @@ global $header_class;
 			add_action( 'wp_head', 'spi_render_title' );
 			endif;
 		?>
-
-		<link rel="canonical" href="https://studieverenigingid.nl/" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-		<meta property="og:url" content="https://studieverenigingid.nl/" />
-		<meta property="og:site_name" content="Study association i.d" />
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-		<meta name="twitter:site" content="@svidtweet" />
-		<meta name="twitter:creator" content="@svidtweet" />
-		<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/studieverenigingid.nl\/","name":"Study association i.d","potentialAction":{"@type":"SearchAction","target":"https:\/\/studieverenigingid.nl\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
-		<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/studieverenigingid.nl\/","sameAs":["https:\/\/www.facebook.com\/studieverenigingi.d\/","https:\/\/www.instagram.com\/studieverenigingid\/","https:\/\/twitter.com\/svidtweet"],"@id":"#organization","name":"Study association i.d","logo":"https:\/\/studieverenigingid.nl\/wp-content\/uploads\/2017\/06\/Logo-Studievereniging-i.d-EN-Duotoon.png"}</script>
 
 		<?php wp_enqueue_style('fontawesome',
 		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -68,7 +53,9 @@ global $header_class;
 			<?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
 			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
 			} elseif (is_post_type_archive('board') || is_singular('board')) {
-			?> style="background-color:<?php the_field('board_color');?>"<?php } ?>
+			?> style="background-color:<?php the_field('board_color');?>"<?php
+		} elseif (is_page_template('page-kafee.php')) {
+			?> style="background-color:#6dadb6;?>"<?php } ?>
 		>
 
 			<a href="<?php echo get_site_url(); ?>">

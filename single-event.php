@@ -19,8 +19,11 @@
 				$end = new DateTime(get_field('end_datetime'));
 				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
-				$month = $start->format('F');
-				$day   = $start->format('jS');
+				$start_month = $start->format('F');
+				$start_day   = $start->format('jS');
+
+				$end_month = $end->format('F');
+				$end_day   = $end->format('jS');
 
 				$start_time = $start->format('H:i');
 				$end_time   = $end->format('H:i');
@@ -29,8 +32,12 @@
 			?>
 			<div class="event--page__datetime">
 				<?php
-					echo $month . ' ' . $day . ', ';
-					echo $start_time . ' – ' . $end_time;
+					echo $start_month . ' ' . $start_day . ', '. $start_time . ' – ';
+					if ($start_day != $end_day){
+						echo $end_month . ' ' . $end_day . ', ' . $end_time;
+					} else {
+						echo $end_time;
+					}
 					echo ($location_name) ? ' @ ' . $location_name : '';
 				?>
 			</div>

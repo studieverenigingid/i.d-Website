@@ -17,7 +17,7 @@
 
 	include( 'inc/contact-custom-fields.php' );
 
-	include( 'inc/kafee-custom-fields.php' );	
+	include( 'inc/kafee-custom-fields.php' );
 
 	include( 'inc/theme-settings.php');
 
@@ -57,6 +57,19 @@
 				false, '3.1.1', true);
 			wp_enqueue_script('jquery');
 		}
+	}
+
+	// Echo page color (used in theme-color meta and header)
+	function theme_color(){
+		if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
+			echo the_field('issue_background_color');
+		} elseif (is_post_type_archive('board') || is_singular('board')) {
+			echo the_field('board_color');
+		} elseif (is_page_template('page-kafee.php')) {
+			echo "#6dadb6";
+		} elseif (is_page_template('education-page.php')) {
+			echo "#F18918";
+		} else { echo "#55ccbb"; }
 	}
 
 	// Replaces the excerpt "Read More" text by a link

@@ -60,7 +60,7 @@
 	}
 
 	// Echo page color (used in theme-color meta and header)
-	function theme_color(){
+	function theme_color($default){
 		if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
 			echo the_field('issue_background_color');
 		} elseif (is_post_type_archive('board') || is_singular('board')) {
@@ -69,6 +69,8 @@
 			echo "#6dadb6";
 		} elseif (is_page_template('education-page.php')) {
 			echo "#F18918";
+		} elseif ($default == true){
+			echo "#55ccbb";
 		}
 	}
 

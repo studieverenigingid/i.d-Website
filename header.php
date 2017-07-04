@@ -44,7 +44,7 @@ global $header_class;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant <?=$header_class?>" style="background-color:<?php theme_color();?>">
+		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color();?>">
 
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>

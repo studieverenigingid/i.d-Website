@@ -69,7 +69,7 @@
 			echo "#6dadb6";
 		} elseif (is_page_template('education-page.php')) {
 			echo "#F18918";
-		} else { echo "#55ccbb"; }
+		}
 	}
 
 	// Replaces the excerpt "Read More" text by a link

@@ -226,53 +226,40 @@
 
     &__item-wrap {
       position: relative;
-      width: 33.3%;
+      width: 100%;
       margin-bottom: 4em;
 
-      &:after {
-        content: '';
-        display: block;
-        padding-bottom: 100%;
-      }
-
-      @media (max-width: $brk--tablet) {
-        width: 50%;
-      }
-
-      @media (max-width: $brk--phone) {
+      @media (min-width: 400px) {
         width: 70%;
       }
 
-      @media (max-width: $brk--real-phone) {
-        width: 90%;
+      @media (min-width: $brk--real-phone) {
+        width: 50%;
+        padding: 0 2.5%;
+      }
+
+      @media (min-width: $brk--tablet) {
+        width: 33.3%;
+        margin: 2em 0;
       }
     }
 
     &__item {
-      position: absolute;
-      top: 10%; left: 10%; bottom: 10%; right: 10%;
+      width: 100%;
+      padding-top: 100%;
       background: center;
       background-size: contain;
       background-repeat: no-repeat;
-      overflow: hidden;
 
-      @media (max-width: $brk--tablet) {
-      	top: 12%; left: 12%; bottom: 12%; right: 12%;
-      }
-
-      @media (max-width: $brk--phone) {
-      	top: 8%; left: 8%; bottom: 8%; right: 8%;
-      }
-
-      @media (max-width: $brk--real-phone) {
-        top: 6%; left: 6%; bottom: 6%; right: 6%;
+      @media (min-width: $brk--phone) {
+        width: 70%;
+        padding-top: 70%;
+        margin: auto;
       }
 
       &-title {
         text-align: center;
-        position: absolute;
         font-size: 1.6em;
-        top: 94%; left: 10%; bottom: 10%; right: 10%;
       }
     }
   }

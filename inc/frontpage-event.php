@@ -36,7 +36,7 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-			<div class="event--page__thumb colorVibrantGradient">
+			<div class="event--page__thumb event--frontpage__thumb colorVibrantGradient">
 				<?php
 				the_post_thumbnail(
 					'large',

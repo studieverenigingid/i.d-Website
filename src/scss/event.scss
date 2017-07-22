@@ -26,7 +26,7 @@
 .events--small {
 	margin: 1rem;
 
-	display: flex;
+	display: inline-flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 
@@ -254,6 +254,18 @@
 
 		&__content {
 			padding-top: 6rem;
+		}
+	}
+}
+
+.event--frontpage {
+	&__thumb {
+		max-height: 60vh;
+		overflow: hidden;
+		margin-bottom: 1rem;
+
+		@media (min-width: $brk--phone) {
+			margin-bottom: 3rem;
 		}
 	}
 }

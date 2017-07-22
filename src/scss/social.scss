@@ -107,12 +107,25 @@
 			bottom: -1.5em;
 			left: -1em;
 			width: auto;
+			max-width: 100%;
 			color: white;
+			overflow: hidden;
 		}
 
 		@each $socialnetwork, $color in $social {
 			&--#{$socialnetwork} {
 				@include button-background($color);
+			}
+
+			&--#{$socialnetwork}:after {
+				content: "";
+		    display: block;
+		    background: linear-gradient(90deg, transparent, $color);
+		    width: 0.8em;
+		    height: 100%;
+		    position: absolute;
+		    right: 0;
+		    top: 0;
 			}
 		}
 	}

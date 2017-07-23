@@ -32,7 +32,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
         <div class="education__updater">
           <p class="education__label education__label--right">
-            <?= esc_attr_x('Do you want to be updates about this input?', 'feedback-form')?>
+            <?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form')?>
           </p>
           <input type="checkbox" name="update" value="true"
             class="js-edu-checkbox education__toggle">

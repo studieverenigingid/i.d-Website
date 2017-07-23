@@ -41,52 +41,27 @@ get_header(); ?>
 
 </header>
 
-<section class="contact--page__container">
-	<h2 class="contact--page__blocktitle">I want to stalk you on social media</h2>
-	<div class="contact--page__block">
-		<a href="https://www.instagram.com/studieverenigingid/"
-			class="button button--insta">
-			<i class="fa fa-instagram"></i> Instagram
-		</a>
-		<a href="https://www.facebook.com/studieverenigingi.d/"
-			class="button button--facebook">
-			<i class="fa fa-facebook"></i> Facebook
-		</a>
-		<a href="https://www.flickr.com/photos/svid/"
-			class="button button--flickr">
-			<i class="fa fa-flickr"></i> Flickr
-		</a>
-		<a href="https://vimeo.com/studieverenigingid"
-			class="button button--vimeo">
-			<i class="fa fa-vimeo"></i> Vimeo
-		</a>
-	</div>
-</section>
+<?php
 
-<section class="contact--page__container">
-	<h2 class="contact--page__blocktitle">Opening Hours</h2>
-	<div class="contact--page__block">
-		<p>Study association i.d is opened on:</p>
-		<ul>
-			<li>Monday: 9:00 - 17:00</li>
-			<li>Tuesday: 9:00 - 17:00</li>
-			<li>Wednesday: 12:30 - 17:00</li>
-			<li>Thursday: 9:00 - 17:00</li>
-			<li>Friday: 9:00 - 17:00</li>
-		</ul>
-	</div>
-</section>
+if( have_rows('contact_page_block') ):
 
-<section class="contact--page__container">
-	<h2 class="contact--page__blocktitle">Other information</h2>
-	<div class="contact--page__block">
-		<ul>
-			<li>KVK: Haaglanden V 40397069</li>
-			<li>BTW: NL 8058.24.352 B01</li>
-			<li>IBAN: NL 08 RABO 0319423239</li>
-			<li>RABONL2U</li>
-		</ul>
-	</div>
-</section>
+ 	// loop through the rows of data
+    while ( have_rows('contact_page_block') ) : the_row(); ?>
+			<section class="contact--page__container">
+				<h2 class="contact--page__blocktitle">
+					<?php the_sub_field('contact_block_title'); ?>
+				</h2>
+				<p>
+					<?php the_sub_field('contact_block_content'); ?>
+				</p>
+			</section>
+
+    <?php endwhile;
+
+else :
+	echo "no content found";
+endif;
+
+?>
 
 <?php get_footer(); ?>

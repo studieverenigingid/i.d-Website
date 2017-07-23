@@ -8,12 +8,7 @@ global $header_class;
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" <?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
-			?> content="<?php the_field('issue_background_color');?>"<?php
-		} elseif (is_post_type_archive('board') || is_singular('board')) {
-			?> content="<?php the_field('board_color');?>"<?php
-		}else { echo 'content="#55ccbb"';
-		}?>>
+		<meta name="theme-color" content="<?php theme_color(true); ?>">
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,14 +44,7 @@ global $header_class;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant <?=$header_class?>"
-			<?php if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
-			?> style="background-color:<?php the_field('issue_background_color');?>"<?php
-			} elseif (is_post_type_archive('board') || is_singular('board')) {
-			?> style="background-color:<?php the_field('board_color');?>"<?php
-		} elseif (is_page_template('page-kafee.php')) {
-			?> style="background-color:#6dadb6;?>"<?php } ?>
-		>
+		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color();?>">
 
 			<a href="<?php echo get_site_url(); ?>">
 				<picture>

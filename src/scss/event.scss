@@ -26,7 +26,7 @@
 .events--small {
 	margin: 1rem;
 
-	display: flex;
+	display: inline-flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 
@@ -126,24 +126,7 @@
 .event--page {
 	&__header {
 		background: $accent;
-		padding: .1rem 0 4rem;
-		margin-bottom: 34%;
-
-		@media (min-width: 550px) {
-			margin-bottom: 30%;
-		}
-
-		@media (min-width: $brk--phone) {
-			margin-bottom: 11%;
-		}
-
-		@media (min-width: $brk--tablet) {
-			margin-bottom: 13%;
-		}
-
-		@media (min-width: 1500px) {
-			margin-bottom: 19%;
-		}
+		padding: .1rem 0 2.5rem;
 
 		&--no-thumb {
 			margin-bottom: 1rem;
@@ -177,13 +160,17 @@
 	}
 
 	&__name {
-		font-size: 3em;
+		font-size: 2em;
 		margin: 0;
 		color: $background--light;
 		text-align: left;
 		position: relative;
 		z-index: 2;
 		word-wrap: break-word;
+
+		@media (min-width: $brk--phone) {
+			font-size: 3em;
+		}
 	}
 
 	&__datetime {
@@ -196,9 +183,13 @@
 	&__thumb {
 		width: 160%;
 		max-width: 75vw;
-		margin: 5% -25% 2rem 15%;
+		margin: 5% -25% 3rem 100%;
 		float: right;
 		position: relative;
+
+		@media (min-width: $brk--tablet) {
+			margin-bottom: 6rem;
+		}
 
 		&:before {
 			display: block;
@@ -234,11 +225,11 @@
 
 	@media (min-width: $brk--phone) {
 		&__short-info {
-			width: 50%;
+			width: 55%;
 		}
 
 		&__thumb {
-			margin-right: -90%;
+			margin-right: -60%;
 			margin-top: -15%;
 			width: 120%;
 		}
@@ -246,7 +237,7 @@
 
 	@media (min-width: $brk--tablet) {
 		&__short-info {
-			width: 44%;
+			width: 46%;
 			margin: 3em 0 10% 14%;
 			padding: 3em;
 
@@ -257,12 +248,24 @@
 
 		&__thumb {
 			margin-top: -20%;
-			margin-right: -110%;
-			width: 160%;
+			margin-right: -90%;
+			width: 130%;
 		}
 
 		&__content {
 			padding-top: 6rem;
+		}
+	}
+}
+
+.event--frontpage {
+	&__thumb {
+		max-height: 60vh;
+		overflow: hidden;
+		margin-bottom: 1rem;
+
+		@media (min-width: $brk--phone) {
+			margin-bottom: 3rem;
 		}
 	}
 }

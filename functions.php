@@ -69,7 +69,7 @@
 			echo "#6dadb6";
 		} elseif (is_page_template('education-page.php')) {
 			echo "#F18918";
-		} elseif ($default == true){
+		} elseif ($default){
 			echo "#55ccbb";
 		}
 	}

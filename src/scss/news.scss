@@ -93,6 +93,7 @@
 		display: block;
 		width: 100%;
 		height: auto;
+		margin-bottom: 1.5em;
 	}
 
 	&__link {
@@ -102,6 +103,10 @@
 		&:hover {
 			text-decoration: underline;
 		}
+	}
+
+	&__title {
+		margin-top: 0;
 	}
 
 	&__meta {

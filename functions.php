@@ -109,8 +109,9 @@
 	// Custom Login Functions
 	function custom_login_page() {
 		$login_page = home_url( '/login' ); // new login page
+		$exists = get_page_by_path( '/login' );
 		global $pagenow;
-		if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' || $pagenow == get_home_url(null, 'user') ) {
+		if( $pagenow == "wp-login.php" && $exists && $_SERVER['REQUEST_METHOD'] == 'GET' || $pagenow == get_home_url(null, 'user') ) {
 			wp_redirect($login_page);
 			exit;
 		}
@@ -122,13 +123,17 @@
 
 	function login_failed() {
 		$login_page = home_url('/login');
-		wp_redirect($login_page . "?login=failed");
-		exit;
+		$exists = get_page_by_path( '/login' );
+		if($exists) {
+			wp_redirect($login_page . "?login=failed");
+			exit;
+		}
 	}
 
 	function verify_username_password($user, $username, $password ) {
 		$login_page = home_url('/login');
-		if(empty($username) || empty($password)) {
+		$exists = get_page_by_path( '/login' );
+		if($exists && empty($username) || $exists && empty($password)) {
 			wp_redirect( $login_page . "?login=empty");
 			exit;
 		}
@@ -137,8 +142,11 @@
 
 	function logout_page() {
 		$login_page = home_url('/login');
-		wp_redirect($login_page . "?login=false");
-		exit;
+		$exists = get_page_by_path( '/login' );
+		if($exists) {
+			wp_redirect($login_page . "?login=false");
+			exit;
+		}
 	}
 
 	function add_login_logout_register_menu( $items, $args ) {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: User Profile Page
+ * Template Name: Login Page
  */
 	get_header();
 ?>

@@ -93,6 +93,13 @@ function hideUpdateFields() {
 
 	checkbox.change(function() {
 		fields.toggle();
+		fields.children('input').each(function() {
+			if ($(this).attr('required')) {
+		        $(this).removeAttr('required');
+		    } else {
+		        $(this).attr('required', true);
+		    }
+		});
 	});
 }
 

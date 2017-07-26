@@ -210,7 +210,7 @@ wp_reset_postdata();
   <h2 class="section__title news__section-title">News and blog</h2>
   <h3 class="news__archive-link">
     <a href="<?php echo get_post_type_archive_link('post'); ?>">
-      <?php echo esc_attr_x('All news items and blog posts'); ?> →
+      <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage'); ?> →
     </a>
   </h3>
 	<?php

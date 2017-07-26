@@ -22,8 +22,6 @@ function menuToggler () {
 
 }
 
-
-
 function formFails(form, data) {
 	form.addClass('education-feedback--failed');
 	var errorMessage = $('<div>');
@@ -86,6 +84,15 @@ function hideUpdateFields() {
 
 function fixVHAfterLoad() {
 	$('.fix-me').height($('.fix-me').height());
+}
+
+function rememberLoginToggle() {
+		var checkbox = $('.js-login-checkbox'),
+		toggle = $('.js-login-toggle');
+
+		toggle.click(function() {
+			checkbox.click();
+		});
 }
 
 function vibrantLoad() {

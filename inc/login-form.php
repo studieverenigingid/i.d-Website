@@ -15,8 +15,8 @@
 
   <div class="login__remember">
     <p class="login__label login__label--right">Remember Me</p>
-    <input name="rememberme" type="checkbox" class="login__toggle js-edu-checkbox" id="rememberme" value="forever" checked="checked") />
-    <label for="rememberme" class="login__toggle-button js-edu-checkbox"></label>
+    <input name="rememberme" type="checkbox" class="login__toggle js-login-checkbox" id="rememberme" value="forever" checked="checked") />
+    <label for="rememberme" class="login__toggle-button js-login-toggle"></label>
   </div>
 
   <p class="login-submit">

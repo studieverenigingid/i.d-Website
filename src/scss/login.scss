@@ -73,7 +73,7 @@
   &__toggle-button {
 		outline: 0;
 		display: block;
-		width: 3.4em;
+		width: 3.25em;
 		height: 2em;
 		position: relative;
 		cursor: pointer;
@@ -99,14 +99,14 @@
       transition: all .2s ease;
       background: $accent;
       box-sizing: border-box;
-			border: .6em solid $background--light;
+			border: .62em solid $background--light;
 			content: "";
       text-align: center;
 			border-radius: 1em;
       clear: both;
 
       @media (min-width: $brk--tablet) {
-        border-width: .7em;
+        border-width: .8em;
       }
 		}
 
@@ -118,12 +118,12 @@
   &__toggle {
     display: none;
 
-    &:checked + .education__toggle-button {
+    &:checked + .login__toggle-button {
       background: transparentize($background--light, .5);
 
       &:after {
         left: 50%;
-        border-width: .4em;
+        border-width: .3em;
       }
 
       &:before {

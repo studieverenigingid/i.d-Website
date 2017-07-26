@@ -35,15 +35,12 @@
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
-<<<<<<< HEAD
 	add_action( 'set_current_user', 'cc_hide_admin_bar' );
-=======
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
 	}
 	add_action( 'wp_login_failed', 'login_failed' );
 	add_action( 'wp_logout', 'logout_page' );
->>>>>>> feature/user-page
 
 
 	function custom_theme_setup() {
@@ -110,14 +107,12 @@
 		wp_die();
 	}
 
-<<<<<<< HEAD
 	function cc_hide_admin_bar() {
 	  if (!current_user_can('edit_posts')) {
 	    show_admin_bar(false);
 	  }
 	}
 
-=======
 	// Custom Login Functions
 	function custom_login_page() {
 		$login_page = home_url( '/login' ); // new login page
@@ -176,7 +171,6 @@
 	}
 	add_filter( 'wp_nav_menu_items', 'add_login_logout_register_menu', 199, 2 );
 
->>>>>>> feature/user-page
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
 	$img_folder = get_bloginfo('template_directory') . '/static/img/';
 

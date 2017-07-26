@@ -68,6 +68,18 @@ function ajaxFeedbackForm() {
 	})
 }
 
+function resetForm() {
+	$('.education-feedback__wrap').removeClass('education-feedback--success');
+	$('.education__input-message').val('');
+	grecaptcha.reset();
+}
+
+function resetFormLink() {
+	let resetLink = $('js-reset-link');
+
+	resetLink.click(resetForm);
+}
+
 function hideUpdateFields() {
 	var fields = $('.js-edu-hidable-fields'),
 		checkbox = $('.js-edu-checkbox'),

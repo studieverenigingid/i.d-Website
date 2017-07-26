@@ -35,6 +35,7 @@
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
+	add_action( 'set_current_user', 'cc_hide_admin_bar' );
 
 
 	function custom_theme_setup() {
@@ -99,6 +100,12 @@
 	function education_input() {
 		include 'inc/send-education.php';
 		wp_die();
+	}
+
+	function cc_hide_admin_bar() {
+	  if (!current_user_can('edit_posts')) {
+	    show_admin_bar(false);
+	  }
 	}
 
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */

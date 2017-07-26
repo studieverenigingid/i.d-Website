@@ -38,6 +38,8 @@
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
 	}
+	add_action( 'wp_login_failed', 'login_failed' );
+	add_action( 'wp_logout', 'logout_page' );
 
 
 	function custom_theme_setup() {
@@ -104,13 +106,64 @@
 		wp_die();
 	}
 
+	// Custom Login Functions
 	function custom_login_page() {
-		$new_login_page_url = home_url( '/login/' ); // new login page
+		$login_page = home_url( '/login' ); // new login page
 		global $pagenow;
 		if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' || $pagenow == get_home_url(null, 'user') ) {
-			wp_redirect($new_login_page_url);
+			wp_redirect($login_page);
 			exit;
 		}
+	}
+
+	function custom_login_form() { ?>
+		<form name="loginform" id="loginform" class="login__wrap" method="post" action="<?=site_url('wp-login.php','login_post') ?>">
+	        <div class="form-group">
+							<label for="log" class="login__label">
+								<?= esc_attr_x('Username or Email Address', 'Username value on login page')?>
+							</label>
+	            <input type="text" name="log" class="login__input" placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder') ?>" id="login-name">
+	        </div>
+
+					<div class="form-group">
+							<label for="pwd" class="login__label">
+								<?= esc_attr_x('Password', 'Password value on login page')?>
+							</label>
+	            <input type="password" name="pwd" class="login__input" placeholder="<?= esc_attr_x('password', 'feedback-form-placeholder') ?>" id="login-pass">
+	        </div>
+
+					<div class="login__remember">
+						<p class="login__label login__label--right">Remember Me</p>
+						<input name="rememberme" type="checkbox" class="login__toggle js-edu-checkbox" id="rememberme" value="forever" checked="checked") />
+						<label for="rememberme" class="login__toggle-button js-edu-checkbox"></label>
+					</div>
+
+					<p class="login-submit">
+						<input type="submit" name="wp-submit" id="wp_submit" class="button button--white" value="Log In" />
+						<input type="hidden" name="redirect_to" value="<?=esc_url(home_url())?>" />
+					</p>
+		</form>
+		<?php }
+
+	function login_failed() {
+		$login_page  = home_url( '/login' );
+		wp_redirect( $login_page . '?login=failed' );
+		exit;
+	}
+
+	function verify_username_password( $user, $username, $password ) {
+		$login_page  = home_url( '/login' );
+		if( $username == "" || $password == "" ) {
+			wp_redirect( $login_page . "?login=empty" );
+			exit;
+		}
+	}
+	add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+	function logout_page() {
+		$login_page = home_url('/login');
+		wp_redirect($login_page . "?login=false");
+		exit;
 	}
 
 	function add_login_logout_register_menu( $items, $args ) {

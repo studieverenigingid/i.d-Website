@@ -193,6 +193,18 @@ blockquote {
 		}
 	}
 
+	&--white {
+		background: none;
+		border: 1px solid white;
+		color: white;
+
+		&:hover,
+		&:focus {
+			color: $accent;
+			background: white;
+		}
+	}
+
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
 			@include button-background($color);
@@ -574,3 +586,6 @@ $ajax-load-size: 44px;
 
 // Education
 @import "education";
+
+// Login
+@import "login";

@@ -5,21 +5,18 @@
  */
 	get_header();
 ?>
+  <main class="about__top login">
+		<h1 class="login__title">
+	    <?php the_title(); ?>
+	  </h1>
 
-	<main class="primary-content news--page__content">
-
-    <main class="primary-content">
-
-      <?php
-
-      $args = array(
-        'redirect' => home_url(null, 'user'),
-        'value_remember' => true
-      );
-
-      wp_login_form($args); ?>
-
-  	</main>
+		<div class="login__form">
+			<div class="login__form__message login__form__message--success">
+				<?= esc_attr_x('You were succesfully logged in, awesome!', 'login-form-message')?>
+			</div>
+			
+			<?php custom_login_form(); ?>
+		</div>
 
 	</main>
 

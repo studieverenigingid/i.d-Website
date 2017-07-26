@@ -8,6 +8,7 @@ function onDocReady () {
 	fixVHAfterLoad();
 	vibrantLoad();
 	socialFeed();
+	resetFormLink();
 }
 
 function menuToggler () {
@@ -75,9 +76,11 @@ function resetForm() {
 }
 
 function resetFormLink() {
-	let resetLink = $('js-reset-link');
+	let resetLink = $('.js-reset-link');
 
-	resetLink.click(resetForm);
+	resetLink.click(function(e) {
+		resetForm();
+	});
 }
 
 function hideUpdateFields() {

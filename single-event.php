@@ -118,7 +118,8 @@
 						$file_name = $file['name'];
 					}
 				?>
-					<a class="event__file" href="<?=$file['url']?>" target="_blank">
+					<a class="event__file" target="_blank"
+						href="/download/?id=<?=$file['id']?>">
 						<h3 class="event__file-name">
 							<i class="fa fa-file-text-o"></i>
 							<?=$file_name?>

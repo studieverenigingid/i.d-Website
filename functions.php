@@ -35,6 +35,9 @@
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
+	if(!is_user_logged_in()){
+	 add_action('init','custom_login_page');
+	}
 
 
 	function custom_theme_setup() {
@@ -100,6 +103,30 @@
 		include 'inc/send-education.php';
 		wp_die();
 	}
+
+	function custom_login_page() {
+		$new_login_page_url = home_url( '/login/' ); // new login page
+		global $pagenow;
+		if( $pagenow == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET' || $pagenow == get_home_url(null, 'user') ) {
+			wp_redirect($new_login_page_url);
+			exit;
+		}
+	}
+
+	function add_login_logout_register_menu( $items, $args ) {
+		if ( $args->theme_location != 'primary-menu' ) {
+			return $items;
+		}
+
+		if ( is_user_logged_in() ) {
+			$items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile' ) . '</a></li>';
+			$items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out' ) . '</a></li>';
+		} else {
+			$items .= '<li class="menu-item"><a href="' . wp_login_url() . '">' . __( 'Log In' ) . '</a></li>';
+		}
+		return $items;
+	}
+	add_filter( 'wp_nav_menu_items', 'add_login_logout_register_menu', 199, 2 );
 
 	/* Create a variable for the image folder, so you don’t have to PHP it every time, which would make your code significantly more ugly. */
 	$img_folder = get_bloginfo('template_directory') . '/static/img/';

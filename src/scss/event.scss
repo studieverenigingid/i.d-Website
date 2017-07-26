@@ -275,6 +275,10 @@
 		@extend .primary-content;
 		padding-top: 1rem;
 		border-top: 1px solid transparentize($background--dark, 0.7);
+
+		&--unauth {
+			text-align: center;
+		}
 	}
 
 	&__file {

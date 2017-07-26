@@ -85,13 +85,25 @@
 
 		<?php the_content(); ?>
 
+		<?php
+			// Files
+			// Check if user is logged in; if not, tell them to log in
+			if ( !is_user_logged_in() ): ?>
+				<section class="event__files event__files--unauth">
+					<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
+					<h3><?php echo esc_attr_x('To see the files, you have to log in.', 'only show files when logged in on event page'); ?></h3>
+					<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="button">
+						Login
+					</a>
+				</section>
+
+			</main>
+		<?php else:
+			// check if there are files
+			if ( have_rows('file_list') ): ?>
+
 	</main>
 
-	<?php
-		// Files
-		// check if there are files
-		if ( have_rows('file_list') ):
-	?>
 		<section class="event__files">
 			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
 			<?php
@@ -114,7 +126,7 @@
 					</a>
 			<?php endwhile;?>
 		</section>
-	<?php endif; ?>
+	<?php endif; endif; ?>
 
 
 

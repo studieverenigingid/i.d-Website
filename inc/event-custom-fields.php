@@ -190,4 +190,41 @@ acf_add_local_field_group(array (
 	'description' => '',
 ));
 
+
+
+
+
+// Protect these files
+function event_file_upload_prefilter( $errors, $file, $field ) {
+
+  // only allow admin
+  if( !current_user_can('manage_options') ) {
+    // this returns value to the wp uploader UI
+    // if you remove the ! you can see the returned values
+    $errors[] = 'test prefilter';
+    $errors[] = print_r($_FILES,true);
+    $errors[] = $_FILES['async-upload']['name'] ;
+
+  }
+  //this filter changes directory just for item being uploaded
+  add_filter('upload_dir', 'event_files_upload_dir');
+
+  // return
+  return $errors;
+
+}
+add_filter(
+	'acf/upload_prefilter/name=file',
+	'event_file_upload_prefilter'
+);
+
+function event_files_upload_dir( $param ) {
+  $mydir = '/event_files';
+
+  $param['path'] = $param['basedir'] . $mydir;
+  $param['url'] = $param['baseurl'] . $mydir;
+
+	return $param;
+}
+
 endif;

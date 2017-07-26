@@ -8,6 +8,7 @@ function onDocReady () {
 	fixVHAfterLoad();
 	vibrantLoad();
 	socialFeed();
+	resetFormLink();
 }
 
 function menuToggler () {
@@ -68,6 +69,20 @@ function ajaxFeedbackForm() {
 	})
 }
 
+function resetForm() {
+	$('.education-feedback__wrap').removeClass('education-feedback--success');
+	$('.education__input-message').val('');
+	grecaptcha.reset();
+}
+
+function resetFormLink() {
+	let resetLink = $('.js-reset-link');
+
+	resetLink.click(function(e) {
+		resetForm();
+	});
+}
+
 function hideUpdateFields() {
 	var fields = $('.js-edu-hidable-fields'),
 		checkbox = $('.js-edu-checkbox'),
@@ -81,6 +96,13 @@ function hideUpdateFields() {
 
 	checkbox.change(function() {
 		fields.toggle();
+		fields.children('input').each(function() {
+			if ($(this).attr('required')) {
+		        $(this).removeAttr('required');
+		    } else {
+		        $(this).attr('required', true);
+		    }
+		});
 	});
 }
 

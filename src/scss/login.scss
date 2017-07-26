@@ -140,26 +140,22 @@
     position: relative;
 
     &--success {
-      .education-feedback__message--failed {
-        opacity: 0;
-      }
-    }
-
-    &--failed {
-      .education-feedback__message--success {
-        opacity: 0;
-      }
-    }
-
-    &__message--success {
+      border: 2px solid white;
+      padding: 1em;
+      margin: .5em 0;
+      background: none;
       color: white;
     }
 
-    &__message--failed {
+    &--failed {
       padding: 1em;
       margin: .5em 0;
       background: #ca1414;
       color: $background--light;
+    }
+
+    &__message--success {
+      color: white;
     }
   }
 }

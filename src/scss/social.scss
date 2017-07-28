@@ -27,10 +27,6 @@
 		display: block;
 		overflow: auto;
 		white-space: nowrap;
-
-		@media (min-width: $brk--phone) {
-			margin-bottom: 1.5em;
-		}
 	}
 
 	&__link:last-of-type {
@@ -41,11 +37,6 @@
 
 
 	&__container {
-		@media (min-width: $brk--phone) {
-			margin-left: 1.6em;
-			margin-bottom: 1.5em;
-		}
-
 		&--vimeo {
 			@include aspect-ratio(16, 9);
 			width: 500px;
@@ -104,8 +95,6 @@
 		@media (min-width: $brk--phone) {
 			font-size: 1em;
 			padding: .8em;
-			bottom: -1.5em;
-			left: -1em;
 			width: auto;
 			max-width: 100%;
 			color: white;

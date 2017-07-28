@@ -87,6 +87,8 @@
 
 		<?php
 			// Files
+			// Check if there are files
+			if ( have_rows('file_list') ):
 			// Check if user is logged in; if not, tell them to log in
 			if ( !is_user_logged_in() ): ?>
 				<section class="event__files event__files--unauth">
@@ -98,11 +100,7 @@
 				</section>
 
 			</main>
-		<?php else:
-			// check if there are files
-			if ( have_rows('file_list') ): ?>
-
-	</main>
+		<?php else: ?>
 
 		<section class="event__files">
 			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
@@ -127,7 +125,9 @@
 					</a>
 			<?php endwhile;?>
 		</section>
-	<?php endif; endif; ?>
+	<?php endif; else: ?>
+		</main>
+	<?php endif; ?>
 
 
 

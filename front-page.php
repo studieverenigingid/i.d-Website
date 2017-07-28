@@ -189,7 +189,7 @@ wp_reset_postdata();
 <!-- SOCIAL -->
 <!-- ****** -->
 <section class="social">
-	<h2 class="section__title">Social Media</h2>
+	<h2 class="section__title section__title--social">Social Media</h2>
 	<div class="social__wrapper">
     <div class="ajax-load">
       <div class="ajax-load__strip"></div>

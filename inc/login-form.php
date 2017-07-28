@@ -21,5 +21,6 @@
 
   <p class="login-submit">
     <input type="submit" name="wp-submit" id="wp_submit" class="button button--white" value="Log In" />
+    <input type="hidden" name="redirect_to" value="<?=home_url()?>" />
   </p>
 </form>

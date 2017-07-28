@@ -44,7 +44,7 @@ function connectToVimeo($options) {
 	if (file_exists($Vimeo_API_uri)): // Check if the API is present
 		require $Vimeo_API_uri; // If so, include it
 	else:
-		error_log('Vimeo API not found');
+		error_log('Vimeo API lib not found');
 		return false;
 	endif;
 
@@ -81,7 +81,9 @@ function createVimeoArray($options) {
 
 	$videos = connectToVimeo($options);
 	if (!$videos) {
-		return false;
+		// If there are no videos (or API was not found) return an empty array
+		// latestPosts() can still handle this, but wil render 0 instead of 3 posts
+		return array();
 	}
 
 
@@ -137,7 +139,8 @@ function createInstaArray($options) {
 	$data = request($url);
 
 	if (!$data) {
-		return false;
+		// If the request fails, return an empty array
+		return array();
 	}
 
 	$posts = json_decode($data, true);
@@ -187,7 +190,8 @@ function createFlickrArray($options) {
 	$data = request($url);
 
 	if (!$data) {
-		return false;
+		// If the request fails, return an empty array
+		return array();
 	}
 
 	$photosets = json_decode($data, true)['photosets']['photoset'];

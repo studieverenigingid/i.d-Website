@@ -3,6 +3,14 @@
 		// Wordpress options
 		$options = get_option('id_settings');
 
+
+
+		/**
+		 * Request an url.
+		 *
+		 * @param	string $url	The url to get
+		 * @return string $result The result from the url OR bool $result FALSE
+		 */
 		function request($url){
 			$ch = curl_init();
 
@@ -17,8 +25,18 @@
 			return $result;
 		}
 
+
+
+
+
 		// Vimeo API
 
+		/**
+		 * Connect to Vimeo.
+		 *
+		 * @param	array $options	The Wordpress option array with api data
+		 * @return array $videos	List of the last three videos of the Vimeo account
+		 */
 		function connectToVimeo($options) {
 
 			// include autoload.php from the vimeo php library
@@ -53,6 +71,12 @@
 			return $videos;
 		}
 
+		/**
+		 * Get Vimeo videos and put them in a usable array.
+		 *
+		 * @param	array $options	The Wordpress option array with api data
+		 * @return array $videoPosts	The usable array
+		 */
 		function createVimeoArray($options) {
 			$videos = connectToVimeo($options);
 			$vimeoPosts = array();
@@ -83,8 +107,18 @@
 			 return($vimeoPosts);
 		}
 
+
+
+
+
 		// Instagram
 
+		/**
+		 * Get the latest Instagram posts.
+		 *
+		 * @param	array $options	The Wordpress option array with api data
+		 * @return array $instaPosts	List of the last Instagram posts
+		 */
 		function createInstaArray($options) {
 			$instagram_access_token = $options['id_instagram_access_token_field'];
 			$url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='.$instagram_access_token.'&count=3';
@@ -108,8 +142,18 @@
 			return($instaPosts);
 		}
 
+
+
+
+
 		// Flickr
 
+		/**
+		 * Get the latest Flickr posts.
+		 *
+		 * @param	array $options	The Wordpress option array with api data
+		 * @return array $result	List of the last Flickr posts
+		 */
 		function createFlickrArray($options) {
 			$api_key = $options['id_flickr_api_key_field'];
 			$user_id = "35506884@N07";
@@ -139,6 +183,15 @@
 			return($result);
 		}
 
+
+
+
+
+		/**
+		 * Render all lists
+		 *
+		 * @return void
+		 */
 		function latestPosts(){
 			$latestPosts = call_user_func_array(array_merge_recursive, func_get_args());
 
@@ -167,6 +220,10 @@
 								these comments
 			--><?php }
 		}
+
+
+
+		// Excecute all functions
 
 		$vimeoPosts = createVimeoArray($options);
 		$instaPosts = createInstaArray($options);

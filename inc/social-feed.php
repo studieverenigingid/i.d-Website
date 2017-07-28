@@ -78,7 +78,13 @@
 		 * @return array $videoPosts	The usable array
 		 */
 		function createVimeoArray($options) {
+
 			$videos = connectToVimeo($options);
+			if (!$videos) {
+				return false;
+			}
+
+
 			$vimeoPosts = array();
 			$i = 0;
 
@@ -104,7 +110,7 @@
 				$i++;
 			 }
 
-			 return($vimeoPosts);
+			 return $vimeoPosts;
 		}
 
 
@@ -120,12 +126,23 @@
 		 * @return array $instaPosts	List of the last Instagram posts
 		 */
 		function createInstaArray($options) {
-			$instagram_access_token = $options['id_instagram_access_token_field'];
-			$url = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='.$instagram_access_token.'&count=3';
-			$instagramInfo = request($url);
-			$posts = json_decode($instagramInfo, true);
-			$i = 0;
 
+			$instagram_access_token = $options['id_instagram_access_token_field'];
+
+			$url = 'https://api.instagram.com/v1/' .
+				'users/self/media/recent/' .
+				'?access_token=' . $instagram_access_token .
+				'&count=3';
+
+			$data = request($url);
+
+			if (!$data) {
+				return false;
+			}
+
+			$posts = json_decode($data, true);
+
+			$i = 0;
 			foreach ($posts['data'] as $post) {
 				$image_url = $post['images']['standard_resolution']['url'];
 				$link = $post['link'];
@@ -139,7 +156,8 @@
 				$instaPosts[$i]['icon'] = 'instagram';
 				$i++;
 			}
-			return($instaPosts);
+
+			return $instaPosts;
 		}
 
 
@@ -159,28 +177,51 @@
 			$user_id = "35506884@N07";
 			$username = "svid";
 
-			$data = request('https://api.flickr.com/services/rest/?method=flickr.photosets.getList&format=json&nojsoncallback=1&api_key='.$api_key.'&user_id='.$user_id.'&page=1&per_page=3&primary_photo_extras=url_m');
-			// TODO: Handle errors?
+			$url = 'https://api.flickr.com/services/rest/' .
+				'?method=flickr.photosets.getList' .
+				'&format=json&nojsoncallback=1' .
+				'&api_key=' . $api_key .
+				'&user_id=' . $user_id .
+				'&page=1&per_page=3&primary_photo_extras=url_m';
+
+			$data = request($url);
+
+			if (!$data) {
+				return false;
+			}
+
 			$photosets = json_decode($data, true)['photosets']['photoset'];
 
 			foreach ($photosets as $photoset) {
-				$image_url = $post['images']['standard_resolution']['url'];
-				$link = $post['link'];
-				$date = $post['created_time'];
-				$title = $post['title'];
+				// $image_url = $post['images']['standard_resolution']['url'];
+				// $link = $post['link'];
+				// $date = $post['created_time'];
+				// $title = $post['title'];
+				$primary_extras = $photoset['primary_photo_extras'];
+
+				if ($primary_extras['height_m'] > $primary_extras['width_m']):
+					$orientation = 'portrait';
+				else:
+					$orientation = 'landscape';
+				endif;
+
+				$link = 'https://www.flickr.com/photos/' .
+					$username .
+					'/albums/' .
+					$photoset['id'];
 
 				$result[] = [
 					'type' => 'Flickr',
-					'class' => 'flickr flickr--'.($photoset['primary_photo_extras']['height_m'] > $photoset['primary_photo_extras']['width_m'] ? 'portrait' : 'landscape'),
+					'class' => 'flickr flickr--' . $orientation,
 					'icon' => 'flickr',
-					'link' => 'https://www.flickr.com/photos/'.$username.'/albums/'.$photoset['id'],
+					'link' => $link,
 					'title' => $photoset['title']['_content'],
 					'date' => $photoset['date_create'],
 					'thumb' => $photoset['primary_photo_extras']['url_m']
 				];
 			}
 
-			return($result);
+			return $result;
 		}
 
 
@@ -192,14 +233,25 @@
 		 *
 		 * @return void
 		 */
-		function latestPosts(){
+		function latestPosts() {
+
 			$latestPosts = call_user_func_array(array_merge_recursive, func_get_args());
 
+			// Sort collected posts based on date (newest -> oldest)
 			function sortFunction($a, $b){
 				return $b['date'] - $a['date'];
 			}
-
 			$sortedPosts = usort($latestPosts, 'sortFunction');
+
+			// replace a string with $prefix--<string> where right before it
+			// is either the start or a whitespace i.e. multiple string seperated
+			// with whitespaces will all become classes
+			function prefix_classes($prefix, $class) {
+				return preg_replace(
+					'/(?<=^|\\s)(\\S*)/um',
+					"$prefix--$1",
+					$class);
+			}
 
 			foreach ($latestPosts as $post) {
 				$image_url = $post['thumb'];
@@ -208,17 +260,22 @@
 				$date = $post['date'];
 				$type = $post['type'];
 				$class = $post['class'];
-				$icon = $post['icon']; ?><!--
+				$icon = $post['icon'];
 
-				--><a class="social__link" href="<?=$link?>" target="_blank"><!--
-				--><div class="social__container <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__container--$1', $class);?>"
-							style="background-image:url('<?=$image_url?>');">
-							<div class="social__title <?=preg_replace('/(?<=^|\\s)(\\S*)/um', 'social__title--$1', $class);?>">
-								<i class="fa fa-<?=$icon?> social__ico"></i> <?php if(isset($title) && !is_null($title)){echo $title;} else {echo $type;}?>
-							</div></div></a><!-- These closing tags have to be next to
-								eachother to prevent a space character with underline, same with
-								these comments
-			--><?php }
+				echo "<a class='social__link' href='$link' target='_blank'>";
+				echo "<div class='social__container " .
+					prefix_classes('social__container', $class) . "' " .
+					"style='background-image: url(\"$image_url\");'>";
+				echo "<div class='social__title " .
+					prefix_classes('social__title', $class) . "'>";
+				echo "<i class='fa fa-$icon social__ico'></i> ";
+				if (isset($title) && !is_null($title)) {
+					echo $title;
+				} else {
+					echo $type;
+				}
+				echo "</div></div></a>";
+			}
 		}
 
 

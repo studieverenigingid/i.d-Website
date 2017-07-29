@@ -31,6 +31,7 @@
 
 	&__link {
 		font-size: 0; // remove spaces between posts
+		vertical-align: text-bottom; // removes weird space at bottom
 
 		&:last-of-type {
 			@media (min-width: $brk--phone) {
@@ -85,6 +86,19 @@
 				}
 			}
 		}
+
+		&--more {
+			@extend .social__container--insta;
+			font-family: $font--heavy;
+			margin: 0 2em;
+			box-shadow: 0 0 0 2em $accent;
+			background: $accent;
+
+			@media (min-width: $brk--phone) {
+				margin-right: 4em;
+				box-shadow: 1em 0 0 3em $accent;
+			}
+		}
 	}
 
 	&__title {
@@ -127,5 +141,18 @@
 
 	&__ico {
 		color: white;
+	}
+
+	&__more-button {
+		position: absolute;
+		top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+		cursor: pointer;
+
+		@media (min-width: $brk--phone) {
+			font-size: 1.4rem;
+		}
 	}
 }

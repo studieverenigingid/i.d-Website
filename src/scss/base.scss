@@ -426,21 +426,33 @@ $ajax-load-size: 44px;
   flex-direction: column;
   margin: 4em auto;
 	width: $ajax-load-size;
-}
 
-.ajax-load__strip {
-  flex-grow: 2;
-	width: $ajax-load-size;
-	height: 6px;
-  transform-origin: 0 0;
-	background-color: $background--dark;
-	margin-top: 6px;
-}
+	&--in-box {
+		position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    margin: 0;
+	}
 
-@for $i from 1 through 3 {
-	.ajax-load__strip:nth-child(#{$i}){
-		animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
-	};
+	&__strip {
+	  flex-grow: 2;
+		width: $ajax-load-size;
+		height: 6px;
+	  transform-origin: 0 0;
+		background-color: $background--dark;
+		margin-top: 6px;
+
+		&--white {
+			background: white;
+		}
+
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}){
+				animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
+			};
+		}
+	}
 }
 
 @keyframes ajax-load-slide {

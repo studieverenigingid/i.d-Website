@@ -1,6 +1,39 @@
 // define variables to store where we are in the social post list
 var lastInsta,
-	offset = 1;
+	offset = 1,
+	socialLoader,
+	waitingForAutoLoad = false;
+
+
+
+$(document).on('click', '.social__more-button', function() {
+	// replace the button with a spinner/loader...
+	$(this).parent().html(socialLoaderEl.clone());
+	// ...and start the loading
+	socialFeed();
+});
+
+$('.social__wrapper').scroll(function() {
+	let wrapper = $(this),
+		autoMore = $('.js-social-auto-more');
+
+	// if the social feed contains the auto loader (which appears after the
+	// more button is clicked)...
+	if ( $.contains( wrapper[0], autoMore[0] ) ) {
+
+		// ...check if we’re already seeing the auto loader (which means we are
+		// so far right we want to load the next posts) AND if we are actually
+		// waiting for a new auto load
+		if ( autoMore.position().left < $(window).width() &&
+			waitingForAutoLoad ) {
+			// we are going to start an auto load, so until that is completed,
+			// we are not waiting for a new one, so make that false...
+			waitingForAutoLoad = false;
+			// ...and start the auto loading now
+			socialFeed();
+		}
+	}
+});
 
 
 
@@ -28,8 +61,17 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 		socialPost = template[0].content,
 		socialWrapper = $('.social__wrapper');
 
-	// remove the spinner
-	socialWrapper.html('');
+	// remove the spinner and put it in a var to reuse
+	if (offset === 1) {
+		socialLoader = socialWrapper.children('.ajax-load');
+		socialLoaderEl = socialLoader.clone();
+		socialLoaderEl.addClass('ajax-load--in-box')
+			.children().addClass('ajax-load__strip--white');
+		socialLoader.remove();
+	}
+
+	// remove the more link/loader
+	socialWrapper.children('.social__link--more').remove();
 
 	// cycle through the posts we got from the api
 	data['posts'].forEach( function(post) {
@@ -53,6 +95,32 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 		socialWrapper.append(socialPostLink);
 
 	});
+
+	if (offset === 1) {
+
+		// add the load more button at the end of the feed
+		let socialMoreTemplate = $('#js-more-social')[0].content,
+			socialMoreButton = $(socialMoreTemplate.children).clone();
+		socialWrapper.append(socialMoreButton);
+
+	} else {
+
+		// get the end of feed template
+		let socialMoreTemplate = $('#js-more-social')[0].content,
+			socialMoreLoader = $(socialMoreTemplate.children).clone();
+
+		// change the button to a loader
+		socialMoreLoader.addClass('js-social-auto-more')
+			.children('.social__container').html(socialLoaderEl.clone());
+
+		// put it at the and of the feed
+		socialWrapper.append(socialMoreLoader);
+
+		// we finished an auto load and appened the elements, so now we can wait
+		// for the auto loader to show up again
+		waitingForAutoLoad = true;
+
+	}
 
 	// update the location in the social post list
 	lastInsta = data['insta_id'];

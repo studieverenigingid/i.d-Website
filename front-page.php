@@ -211,6 +211,16 @@ wp_reset_postdata();
     </a>
   </template>
 
+  <template id="js-more-social">
+    <a class="social__link social__link--more">
+  		<div class="social__container social__container--more">
+        <div class="social__more-button button button--white">
+          <?php echo esc_attr_x('More posts', 'frontpage social feed'); ?>
+        </div>
+      </div>
+    </a>
+  </template>
+
 </section>
 
 

@@ -74,7 +74,7 @@ function resetForm() {
 }
 
 function resetFormLink() {
-	let resetLink = $('.js-reset-link');
+	var resetLink = $('.js-reset-link');
 
 	resetLink.click(function(e) {
 		resetForm();

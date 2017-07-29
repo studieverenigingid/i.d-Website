@@ -14,7 +14,7 @@ $(document).on('click', '.social__more-button', function() {
 });
 
 $('.social__wrapper').scroll(function() {
-	let wrapper = $(this),
+	var wrapper = $(this),
 		autoMore = $('.js-social-auto-more');
 
 	// if the social feed contains the auto loader (which appears after the
@@ -57,7 +57,7 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	}
 
 	// get the template for the posts and the wrapper to put them in
-	let template = $('#js-social-post'),
+	var template = $('#js-social-post'),
 		socialPost = template[0].content,
 		socialWrapper = $('.social__wrapper');
 
@@ -77,7 +77,7 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	data['posts'].forEach( function(post) {
 
 		// make a copy of the post template to fill for this post
-		let socialPostLink = $(socialPost.children).clone();
+		var socialPostLink = $(socialPost.children).clone();
 
 		// add the right data to the copied post template
 		socialPostLink.attr('href', post['link'])
@@ -99,14 +99,14 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	if (offset === 1) {
 
 		// add the load more button at the end of the feed
-		let socialMoreTemplate = $('#js-more-social')[0].content,
+		var socialMoreTemplate = $('#js-more-social')[0].content,
 			socialMoreButton = $(socialMoreTemplate.children).clone();
 		socialWrapper.append(socialMoreButton);
 
 	} else {
 
 		// get the end of feed template
-		let socialMoreTemplate = $('#js-more-social')[0].content,
+		var socialMoreTemplate = $('#js-more-social')[0].content,
 			socialMoreLoader = $(socialMoreTemplate.children).clone();
 
 		// change the button to a loader

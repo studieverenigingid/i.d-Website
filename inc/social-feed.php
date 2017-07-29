@@ -169,6 +169,7 @@ function createInstaArray($options, $last_insta) {
 		$instaPosts[$i]['thumb'] = $image_url;
 		$instaPosts[$i]['id'] = $insta_id;
 		$instaPosts[$i]['type'] = 'Instagram';
+		$instaPosts[$i]['title'] = 'Instagram';
 		$instaPosts[$i]['class'] = 'insta';
 		$instaPosts[$i]['icon'] = 'instagram';
 		$i++;
@@ -272,34 +273,35 @@ function latestPosts() {
 			$class);
 	}
 
-	foreach ($latestPosts as $post) {
-		$image_url = $post['thumb'];
-		$link = $post['link'];
-		$date = $post['date'];
-		$class = $post['class'];
-		$icon = $post['icon'];
+	$response = array(
+		'offset' => $offset + 1,
+		'posts' => array(),
+		'success' => true,
+	);
 
-		$title = $post['title'];
-		if (!isset($title) || is_null($title)) {
-			$title = $post['type'];
-		}
+	foreach ($latestPosts as $key => $post) {
 
-		// Give the element the id of the insta post, so we can later get posts
-		// older than this one, based on id
+		$post['container_classes'] = prefix_classes(
+			'social__container',
+			$post['class']
+		);
+
+		$post['title_classes'] = prefix_classes(
+			'social__title',
+			$post['class']
+		);
+
+		$response['posts'][$key] = $post;
+
+		// Add the id of the last insta post to the response, so we can later get
+		// posts older than this one, based on id
 		if ($post['type'] == 'Instagram') {
-			$data_id = 'data-insta-id="' . $post['id'] . '"';
+			$response['insta_id'] = $post['id'];
 		}
 
-		echo "<a class='social__link' href='$link' target='_blank' $data_id>";
-		echo "<div class='social__container " .
-			prefix_classes('social__container', $class) . "' " .
-			"style='background-image: url(\"$image_url\");'>";
-		echo "<div class='social__title " .
-			prefix_classes('social__title', $class) . "'>";
-		echo "<i class='fa fa-$icon social__ico'></i> ";
-		echo $title;
-		echo "</div></div></a>";
 	}
+
+	wp_send_json($response);
 }
 
 

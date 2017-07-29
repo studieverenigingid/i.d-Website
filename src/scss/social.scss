@@ -29,14 +29,20 @@
 		white-space: nowrap;
 	}
 
-	&__link:last-of-type {
-		@media (min-width: $brk--phone) {
-			margin-right: 3em;
+	&__link {
+		font-size: 0; // remove spaces between posts
+
+		&:last-of-type {
+			@media (min-width: $brk--phone) {
+				margin-right: 3em;
+			}
 		}
 	}
 
 
 	&__container {
+		font-size: 1.2rem; // undo the font-size 0 of the __link
+
 		&--vimeo {
 			@include aspect-ratio(16, 9);
 			width: 500px;

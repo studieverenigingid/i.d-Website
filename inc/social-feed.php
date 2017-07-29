@@ -8,6 +8,9 @@ $offset = $_GET['offset'];
 if (!isset($offset)) $offset = 1;
 $last_insta = $_GET['last_insta'];
 
+// Setting the relevent transient key
+$transient_key = 'social_feed_page_' . $offset;
+
 
 
 /**
@@ -284,6 +287,8 @@ function latestPosts($offset, $latestPosts) {
 		'offset' => $offset + 1,
 		'posts' => array(),
 		'success' => true,
+		'cache_time' => time(),
+		'post_amount' => 0,
 	);
 
 	foreach ($latestPosts as $key => $post) {
@@ -306,16 +311,40 @@ function latestPosts($offset, $latestPosts) {
 			$response['insta_id'] = $post['id'];
 		}
 
+		$response['post_amount']++;
+
 	}
 
-	wp_send_json($response);
+	return $response;
+
 }
 
 
+$cached_response = get_transient($transient_key);
 
-// Excecute all functions
+// Check if we have a cached response
+if ($cached_response === false) {
+	// if not, excecute all functions, put it in response and store it
+	$vimeoPosts = createVimeoArray($options, $offset);
+	$instaPosts = createInstaArray($options, $last_insta);
+	$flickrPhotosets = createFlickrArray($options, $offset);
+	$response = latestPosts(
+		$offset,
+		array($instaPosts, $vimeoPosts, $flickrPhotosets)
+	);
 
-$vimeoPosts = createVimeoArray($options, $offset);
-$instaPosts = createInstaArray($options, $last_insta);
-$flickrPhotosets = createFlickrArray($options, $offset);
-latestPosts( $offset, array($instaPosts, $vimeoPosts, $flickrPhotosets) );
+	if (WP_DEBUG) {
+		$lifespan = 30;
+	} else {
+		$lifespan = HOUR_IN_SECONDS;
+	}
+
+	set_transient($transient_key, $response, $lifespan);
+} else {
+	$response = $cached_response;
+}
+
+// Add the age of the cache to the response
+$response['cache_age'] = (time() - $response['cache_time']) . ' seconds';
+// Send back the response, whether it’s cached or not
+wp_send_json($response);

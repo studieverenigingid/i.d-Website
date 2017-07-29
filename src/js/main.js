@@ -148,6 +148,7 @@ function socialFeed(){
 	}).done(function(data){
 		$('.social__wrapper').html(data);
 	}).fail(function(errorThrown){
-		console.log('Joe kan de Social feed niet vinden, joe.');
+		// The server/connection failed us, so remove the social section
+		$('.social').remove();
 	});
 }

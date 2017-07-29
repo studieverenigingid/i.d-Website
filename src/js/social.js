@@ -132,6 +132,7 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 
 // send a GET request to get the list of social posts and handle the response
 function socialFeed() {
+	if (!$.contains( $('body')[0], $('.social')[0] )) return;
 	$.ajax({
 		type: "GET",
 		url: wpjs_object.ajaxurl,

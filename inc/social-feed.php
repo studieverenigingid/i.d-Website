@@ -275,11 +275,14 @@ function latestPosts() {
 	foreach ($latestPosts as $post) {
 		$image_url = $post['thumb'];
 		$link = $post['link'];
-		$title = $post['title'];
 		$date = $post['date'];
-		$type = $post['type'];
 		$class = $post['class'];
 		$icon = $post['icon'];
+
+		$title = $post['title'];
+		if (!isset($title) || is_null($title)) {
+			$title = $post['type'];
+		}
 
 		// Give the element the id of the insta post, so we can later get posts
 		// older than this one, based on id
@@ -294,11 +297,7 @@ function latestPosts() {
 		echo "<div class='social__title " .
 			prefix_classes('social__title', $class) . "'>";
 		echo "<i class='fa fa-$icon social__ico'></i> ";
-		if (isset($title) && !is_null($title)) {
-			echo $title;
-		} else {
-			echo $type;
-		}
+		echo $title;
 		echo "</div></div></a>";
 	}
 }

@@ -40,6 +40,7 @@ function request($url){
  * Connect to Vimeo.
  *
  * @param	array $options	The Wordpress option array with api data
+ * @param	int $offset	The offset/page we’re on of the feed
  * @return array $videos	List of the last three videos of the Vimeo account
  */
 function connectToVimeo($options, $offset) {
@@ -83,6 +84,7 @@ function connectToVimeo($options, $offset) {
  * Get Vimeo videos and put them in a usable array.
  *
  * @param	array $options	The Wordpress option array with api data
+ * @param	int $offset	The offset/page we’re on of the feed
  * @return array $videoPosts	The usable array
  */
 function createVimeoArray($options, $offset) {
@@ -133,6 +135,7 @@ function createVimeoArray($options, $offset) {
  * Get the latest Instagram posts.
  *
  * @param	array $options	The Wordpress option array with api data
+ * @param	string $last_insta	The id of the last loaded Instagram post
  * @return array $instaPosts	List of the last Instagram posts
  */
 function createInstaArray($options, $last_insta) {
@@ -188,6 +191,7 @@ function createInstaArray($options, $last_insta) {
  * Get the latest Flickr posts.
  *
  * @param	array $options	The Wordpress option array with api data
+ * @param	int $offset	The offset/page we’re on of the feed
  * @return array $result	List of the last Flickr posts
  */
 function createFlickrArray($options, $offset) {
@@ -251,11 +255,14 @@ function createFlickrArray($options, $offset) {
 /**
  * Render all lists
  *
+ * @param	int $offset	The offset/page we’re on of the feed
+ * @param	array $latestPosts	List of the arrays we get from the respective
+ *		social network request functions
  * @return void
  */
-function latestPosts() {
+function latestPosts($offset, $latestPosts) {
 
-	$latestPosts = call_user_func_array(array_merge_recursive, func_get_args());
+	$latestPosts = call_user_func_array(array_merge_recursive, $latestPosts);
 
 	// Sort collected posts based on date (newest -> oldest)
 	function sortFunction($a, $b){
@@ -311,4 +318,4 @@ function latestPosts() {
 $vimeoPosts = createVimeoArray($options, $offset);
 $instaPosts = createInstaArray($options, $last_insta);
 $flickrPhotosets = createFlickrArray($options, $offset);
-latestPosts($instaPosts, $vimeoPosts, $flickrPhotosets);
+latestPosts( $offset, array($instaPosts, $vimeoPosts, $flickrPhotosets) );

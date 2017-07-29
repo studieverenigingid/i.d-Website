@@ -3,6 +3,11 @@
 // Wordpress options
 $options = get_option('id_settings');
 
+// GET Parameters
+$offset = $_GET['offset'];
+if (!isset($offset)) $offset = 1;
+$last_insta = $_GET['last_insta'];
+
 
 
 /**
@@ -37,7 +42,7 @@ function request($url){
  * @param	array $options	The Wordpress option array with api data
  * @return array $videos	List of the last three videos of the Vimeo account
  */
-function connectToVimeo($options) {
+function connectToVimeo($options, $offset) {
 
 	// include autoload.php from the vimeo php library
 	$Vimeo_API_uri = get_template_directory() . "/inc/API/vimeo/autoload.php";
@@ -66,7 +71,10 @@ function connectToVimeo($options) {
 	$lib->setToken($token['body']['access_token']);
 
 	// request all of a user's videos, 3 per page
-	$videos = $lib->request("/users/$userId/videos", ['per_page' => 3]);
+	$videos = $lib->request(
+		"/users/$userId/videos",
+		['per_page' => 3, 'page' => $offset]
+	);
 
 	return $videos;
 }
@@ -77,9 +85,9 @@ function connectToVimeo($options) {
  * @param	array $options	The Wordpress option array with api data
  * @return array $videoPosts	The usable array
  */
-function createVimeoArray($options) {
+function createVimeoArray($options, $offset) {
 
-	$videos = connectToVimeo($options);
+	$videos = connectToVimeo($options, $offset);
 	if (!$videos) {
 		// If there are no videos (or API was not found) return an empty array
 		// latestPosts() can still handle this, but wil render 0 instead of 3 posts
@@ -127,7 +135,7 @@ function createVimeoArray($options) {
  * @param	array $options	The Wordpress option array with api data
  * @return array $instaPosts	List of the last Instagram posts
  */
-function createInstaArray($options) {
+function createInstaArray($options, $last_insta) {
 
 	$instagram_access_token = $options['id_instagram_access_token_field'];
 
@@ -135,6 +143,10 @@ function createInstaArray($options) {
 		'users/self/media/recent/' .
 		'?access_token=' . $instagram_access_token .
 		'&count=3';
+
+	// Get posts from before the oldest Instagram post which was already loaded
+	if (isset($last_insta)) $url .= '&max_id=' . $last_insta;
+
 
 	$data = request($url);
 
@@ -150,10 +162,12 @@ function createInstaArray($options) {
 		$image_url = $post['images']['standard_resolution']['url'];
 		$link = $post['link'];
 		$date = $post['created_time'];
+		$insta_id = $post['id'];
 
 		$instaPosts[$i]['link'] = $link;
 		$instaPosts[$i]['date'] = $date;
 		$instaPosts[$i]['thumb'] = $image_url;
+		$instaPosts[$i]['id'] = $insta_id;
 		$instaPosts[$i]['type'] = 'Instagram';
 		$instaPosts[$i]['class'] = 'insta';
 		$instaPosts[$i]['icon'] = 'instagram';
@@ -175,7 +189,7 @@ function createInstaArray($options) {
  * @param	array $options	The Wordpress option array with api data
  * @return array $result	List of the last Flickr posts
  */
-function createFlickrArray($options) {
+function createFlickrArray($options, $offset) {
 	$api_key = $options['id_flickr_api_key_field'];
 	$user_id = "35506884@N07";
 	$username = "svid";
@@ -185,7 +199,8 @@ function createFlickrArray($options) {
 		'&format=json&nojsoncallback=1' .
 		'&api_key=' . $api_key .
 		'&user_id=' . $user_id .
-		'&page=1&per_page=3&primary_photo_extras=url_m';
+		'&page=' . $offset .
+		'&per_page=3&primary_photo_extras=url_m';
 
 	$data = request($url);
 
@@ -266,7 +281,13 @@ function latestPosts() {
 		$class = $post['class'];
 		$icon = $post['icon'];
 
-		echo "<a class='social__link' href='$link' target='_blank'>";
+		// Give the element the id of the insta post, so we can later get posts
+		// older than this one, based on id
+		if ($post['type'] == 'Instagram') {
+			$data_id = 'data-insta-id="' . $post['id'] . '"';
+		}
+
+		echo "<a class='social__link' href='$link' target='_blank' $data_id>";
 		echo "<div class='social__container " .
 			prefix_classes('social__container', $class) . "' " .
 			"style='background-image: url(\"$image_url\");'>";
@@ -286,7 +307,7 @@ function latestPosts() {
 
 // Excecute all functions
 
-$vimeoPosts = createVimeoArray($options);
-$instaPosts = createInstaArray($options);
-$flickrPhotosets = createFlickrArray($options);
+$vimeoPosts = createVimeoArray($options, $offset);
+$instaPosts = createInstaArray($options, $last_insta);
+$flickrPhotosets = createFlickrArray($options, $offset);
 latestPosts($instaPosts, $vimeoPosts, $flickrPhotosets);

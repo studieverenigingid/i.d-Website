@@ -144,12 +144,10 @@ function socialFeed(){
 		url: wpjs_object.ajaxurl,
 		data: {
 			action: 'social_feed_ajax_request'
-		},
-		success:function(data){
-			$('.social__wrapper').html(data);
-		},
-		error: function(errorThrown){
-			console.log('Joe kan de Social feed niet vinden, joe.');
 		}
+	}).done(function(data){
+		$('.social__wrapper').html(data);
+	}).fail(function(errorThrown){
+		console.log('Joe kan de Social feed niet vinden, joe.');
 	});
 }

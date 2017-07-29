@@ -5,7 +5,6 @@ function onDocReady () {
 	menuToggler();
 	fixVHAfterLoad();
 	vibrantLoad();
-	templatePolyfill(document);
 
 	// formhandling.js
 	ajaxFeedbackForm();
@@ -66,7 +65,7 @@ function vibrantLoad() {
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is
 // nice) https://jsfiddle.net/brianblakely/h3EmY/
-function templatePolyfill(d) {
+(function templatePolyfill(d) {
 	if('content' in d.createElement('template')) {
 		return false;
 	}
@@ -90,4 +89,23 @@ function templatePolyfill(d) {
 
 		elPlate.content = docContent;
 	}
-}
+})(document);
+
+// Polyfill from MDN for the .children property
+(function(constructor) {
+    if (constructor &&
+        constructor.prototype &&
+        constructor.prototype.children == null) {
+        Object.defineProperty(constructor.prototype, 'children', {
+            get: function() {
+                var i = 0, node, nodes = this.childNodes, children = [];
+                while (node = nodes[i++]) {
+                    if (node.nodeType === 1) {
+                        children.push(node);
+                    }
+                }
+                return children;
+            }
+        });
+    }
+})(window.Node || window.Element);

@@ -7,7 +7,6 @@ function onDocReady () {
 	hideUpdateFields();
 	fixVHAfterLoad();
 	vibrantLoad();
-	socialFeed();
 	resetFormLink();
 
 	// social.js

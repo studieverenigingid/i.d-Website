@@ -11,6 +11,7 @@ function formFails(form, data) {
 function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
 	form.addClass('education-feedback--success');
+	form.removeClass('education-feedback--sending');
 }
 
 function ajaxFeedbackForm() {

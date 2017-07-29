@@ -9,6 +9,9 @@ function onDocReady () {
 	vibrantLoad();
 	socialFeed();
 	resetFormLink();
+
+	// social.js
+	socialFeed();
 }
 
 function menuToggler () {
@@ -136,19 +139,4 @@ function vibrantLoad() {
 			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
 			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
 		}
-}
-
-function socialFeed(){
-	$.ajax({
-		type: "GET",
-		url: wpjs_object.ajaxurl,
-		data: {
-			action: 'social_feed_ajax_request'
-		}
-	}).done(function(data){
-		$('.social__wrapper').html(data);
-	}).fail(function(errorThrown){
-		// The server/connection failed us, so remove the social section
-		$('.social').remove();
-	});
 }

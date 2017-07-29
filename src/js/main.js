@@ -120,22 +120,33 @@ function rememberLoginToggle() {
 function vibrantLoad() {
 	var img = document.querySelector('.event--page__img');
 
-		console.log(img);
+	if (typeof(img) != 'undefined' && img != null) {
+		// Use vibrant to get the swatches
+		var vibrant = new Vibrant(img),
+			swatches = vibrant.swatches(),
+			DarkVibrantHex = swatches['DarkVibrant'].getHex();
 
-		if (typeof(img) != 'undefined' && img != null) {
-			var vibrant = new Vibrant(img);
-		var swatches = vibrant.swatches()
-		for (var swatch in swatches)
-		if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
+		// Remove the current meta tag
+		$('meta[name=theme-color]').remove();
+		// Create a new meta tag, add the picked color to it and place in head
+		var metaTag = $('<meta name="theme-color" content="' + DarkVibrantHex + '">');
+		$('head').append(metaTag);
 
-		changeColorVibrant = document.getElementsByClassName('colorVibrant');
-
-			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
-
-			$('meta[name=theme-color]').remove();
-			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
-			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
-		}
+		// Create the style tag with gradient and background color CSS lines
+		var styles = "<style> \
+			.colorVibrantGradient:before { \
+				background-image: linear-gradient( \
+					to bottom right," +
+					DarkVibrantHex + ", \
+					transparent 50% \
+				); \
+			} .colorVibrant { \
+				background: " + DarkVibrantHex + "; \
+			} \
+		</style>";
+		// And add that to the head, too
+		$('head').append(styles);
+	}
 }
 
 function socialFeed(){

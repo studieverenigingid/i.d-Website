@@ -1,0 +1,94 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: USER
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	user.scss:
+	+ User page top
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	User page top
+\*-------------------------------------*/
+.user {
+  &__top, &__mid {
+		padding: .1rem 5%;
+		margin: 0;
+	}
+
+  &__top {
+    background: $accent;
+  }
+
+  &__info {
+    color: white;
+    margin-left: 0px;
+
+    &__edit, &__save, &__cancel {
+      &.hidden {
+        display: none;
+      }
+    }
+
+    &__editable {
+      display: inline-block;
+    }
+
+    [contenteditable="true"]:empty:not(:focus):before {
+        content: attr(data-placeholder);
+        font-family:$font--light;
+        font-style: italic;
+        color: $background--dark;
+    }
+
+    [contenteditable="true"]:active,
+    [contenteditable="true"]:focus {
+        border:none;
+        outline:none;
+    }
+
+    [contenteditable="true"] {
+        color: white;
+        border-bottom: dashed 2px white !important;
+    }
+
+    [contenteditable="true"].invalid {
+      color: #DD1144;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+
+
+
+
+  @media (min-width: $brk--phone) {
+		&__top, &__mid {
+			padding: .1rem 8%;
+		}
+  }
+
+  @media (min-width: $brk--tablet) {
+		&__top, &__mid {
+			padding: 4rem 10%;
+		}
+  }
+}

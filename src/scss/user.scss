@@ -29,25 +29,42 @@
     background: $accent;
   }
 
+  &__group {
+    display: flex;
+  }
+
   &__info {
     color: white;
-    margin-left: 0px;
+    margin: 1rem 0.4rem 0.4rem 0px;
+    display: inline-block;
 
-    &__edit, &__save, &__cancel {
+    &__edit, &__save, &__cancel, &__label {
       &.hidden {
         display: none;
       }
     }
 
-    &__editable {
-      display: inline-block;
+    &__label {
+      font-size: .8em;
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 0.25rem;
     }
 
-    [contenteditable="true"]:empty:not(:focus):before {
+    &--name {
+      color: white;
+      margin: 0;
+    }
+
+    &__editable {
+      display: block;
+      
+      &:empty:not(:focus):before {
         content: attr(data-placeholder);
         font-family:$font--light;
         font-style: italic;
-        color: $background--dark;
+        color: darken($accent, 20%);
+      }
     }
 
     [contenteditable="true"]:active,
@@ -58,7 +75,8 @@
 
     [contenteditable="true"] {
         color: white;
-        border-bottom: dashed 2px white !important;
+        border-bottom: dashed 1px white !important;
+        text-decoration: none !important;
     }
 
     [contenteditable="true"].invalid {

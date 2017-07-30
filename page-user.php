@@ -23,19 +23,68 @@
   ?>
 
 	<main class="user__top">
-    <h2 class="user__info">
-      <span class="user__info__editable" data-placeholder="first name"><?=$first_name?></span> <span class="user__info__editable" data-placeholder="last name"><?=$last_name?></span>
-    </h2>
-    <p class="user__info"><span class="user__info__editable" data-placeholder="email"><?=$email?></span></p>
-    <p class="user__info"><span class="user__info__editable" data-placeholder="00-00-0000"><?=$birthdate?> </span> (<?=$age?> years old)</p>
-    <p class="user__info"><span class="user__info__editable" data-placeholder="phone"><?=$phone?></span></p>
-    <p class="user__info">
-      <span class="user__info__editable" data-placeholder="street name"><?=$address_street?></span> <span class="user__info__editable" data-placeholder="address Number"><?=$address_number?></span>
-    </p>
-    <p class="user__info"><span class="user__info__editable" data-placeholder="zip code"><?=$zipcode?></span>,
-      <span class="user__info__editable" data-placeholder="Zipcode"><?=$country?></span>
-    </p>
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">First name</label>
+          <h2 class="user__info--name"><div class="user__info__editable" data-placeholder="empty"><?=$first_name?></div></h2>
+        </div>
+
+        <div class="user__info">
+          <label class="user__info__label hidden">Last name</label>
+          <h2 class="user__info--name"><div class="user__info__editable" data-placeholder="empty"><?=$last_name?></div></h2>
+        </div>
+      </div>
+
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">E-mail address</label>
+          <a href="mailto:<?=$email?>" class="user__info__editable" data-placeholder="empty"><?=$email?></a>
+        </div>
+      </div>
+
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">Birthdate</label>
+          <div class="user__info__editable" data-placeholder="empty"><?=$birthdate?></div>
+        </div>
+        <div class="user__info">
+          (<?=$age?> years old)
+        </div>
+      </div>
+
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">Phone</label>
+          <a href="tel:<?=$phone?>" class="user__info__editable" data-placeholder="empty"><?=$phone?></a>
+        </div>
+      </div>
+
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">Street</label>
+          <div class="user__info__editable" data-placeholder="empty"><?=$address_street?></div>
+        </div>
+
+        <div class="user__info">
+          <label class="user__info__label hidden">Number</label>
+          <div class="user__info__editable" data-placeholder="empty"><?=$address_number?></div>
+        </div>
+      </div>
+
+
+      <div class="user__info__group">
+        <div class="user__info">
+          <label class="user__info__label hidden">Zip code</label>
+          <div class="user__info__editable" data-placeholder="empty"><?=$zipcode?></div>
+        </div>
+
+        <div class="user__info">
+          <label class="user__info__label hidden">Country</label>
+          <div class="user__info__editable" data-placeholder="empty"><?=$country?></div>
+        </div>
+      </div>
 	</main>
+
   <div class="user__mid">
     <button href="#" class="button user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> Edit</button>
     <button href="#" class="button user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> Save</button>

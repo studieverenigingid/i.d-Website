@@ -114,7 +114,7 @@ function userInfoEdit() {
 	        var $this = $(this);
 	        $this.data('before', $this.text());
 	    });
-	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
+	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel, .user__info__label').toggleClass('hidden');
 	});
 
 	$('.user__info__edit--save, .user__info__edit--cancel').on('click', function () {
@@ -132,7 +132,7 @@ function userInfoEdit() {
 	    }
 
 	    $('.user__info__editable').attr('contenteditable', false);
-	    $('.user__info__edit').toggleClass('hidden');
+	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel, .user__info__label').toggleClass('hidden');
 	});
 
 	function validation(regex, $el) {

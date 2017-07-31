@@ -165,9 +165,12 @@ blockquote {
 @mixin button-background($color) {
 	background: $color;
 
-	&:hover,
-	&:focus {
+	&:hover {
 		background: darken($color, 10%);
+	}
+
+	&:focus {
+		background: darken($color, 15%);
 	}
 }
 
@@ -182,6 +185,10 @@ blockquote {
 	font-size: 1em;
 	font-family: $font--light;
 	@include button-background($accent);
+
+	&:hover, &:focus {
+		outline: none;
+	}
 
 	&--light {
 		background: none;

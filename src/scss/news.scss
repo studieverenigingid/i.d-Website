@@ -136,6 +136,10 @@
 		padding: .1rem;
 		font-size: 1.1em;
 		margin-bottom: 10%;
+
+		&--no-thumb {
+			margin-bottom: 0;
+		}
 	}
 
 	&__title--large {

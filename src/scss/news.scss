@@ -76,9 +76,6 @@
 	@media (min-width: 512px) {
  		min-width: 344px;
  		flex: 1;
-	}
-
-	@media (min-width: $brk--phone) {
 		padding: $pad * 1.5;
 	}
 

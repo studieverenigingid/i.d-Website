@@ -4,6 +4,10 @@ function toggleFilter() {
 		filterValue = filter.val(),
 		target = '.' + filterValue;
 
+	filter.parent().toggleClass('off');
+
+
+
 	// If the filter concerns a property which could have multiple values
 	if (filterGroup.attr('data-multiple') === 'true') {
 		$(target).each(function() {

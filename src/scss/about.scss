@@ -245,6 +245,18 @@ $groups:
 
 
 
+.committees__tag {
+	@each $group, $color in $groups {
+		&--#{$group} {
+			background: $color;
+		}
+	}
+}
+
+
+
+
+
 /*-------------------------------------*\
 	Master communities
 \*-------------------------------------*/

@@ -14,6 +14,9 @@ function onDocReady () {
 
 	// social.js
 	socialFeed();
+
+	// filters.js
+	registerFilters();
 }
 
 function menuToggler () {

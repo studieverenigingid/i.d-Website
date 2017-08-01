@@ -12,8 +12,9 @@
       $person = Lassie::getPerson();
       $first_name = $person->first_name;
       $last_name = $person->last_name;
+      $student_number = $person->external_id;
       $email = $person->email_primary;
-      $birthdate = date('Y/m/j',strtotime($person->birthdate));
+      $birthdate = date('F jS, Y',strtotime($person->birthdate));
       $age = date_diff(date_create($person->birthdate), date_create('now'))->y;
       $phone = $person->phone_mobile;
       $address_street = $person->address_street;
@@ -22,73 +23,54 @@
       $country = $person->address_country;
   ?>
 
+
+
 	<main class="user__top">
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">First name</label>
-          <h2 class="user__info--name"><div class="user__info__editable" data-placeholder="empty"><?=$first_name?></div></h2>
-        </div>
+    <form action="#" class="user__info">
+      <div class="user__info__column user__info__column--left">
+        <label for="first_name" class="user__info__label">First name</label>
+        <input name="first_name" class="user__info__input user__info__input--name user__info__input--editable" type="text" placeholder="First name" value="<?=$first_name?>" readonly>
 
-        <div class="user__info">
-          <label class="user__info__label hidden">Last name</label>
-          <h2 class="user__info--name"><div class="user__info__editable" data-placeholder="empty"><?=$last_name?></div></h2>
-        </div>
+        <label for="last_name" class="user__info__label">Last name</label>
+        <input name="last_name" class="user__info__input user__info__input--name user__info__input--editable" type="text" placeholder="Last name" value="<?=$last_name?>" readonly>
+
+        <label for="student_number" class="user__info__label">Student number</label>
+        <div name="student_number" class="user__info__input" readonly><?=$student_number?></div>
       </div>
 
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">E-mail address</label>
-          <a href="mailto:<?=$email?>" class="user__info__editable" data-placeholder="empty"><?=$email?></a>
-        </div>
+      <div class="user__info__column user__info__column--right">
+        <label for="email" class="user__info__label">E-mail address</label>
+        <input name="email" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email?>" readonly>
+
+        <label for="birthdate" class="user__info__label">Birthdate</label>
+        <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>
+
+        <label for="phone" class="user__info__label">Phone number</label>
+        <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="Phone number" value="<?=$phone?>" readonly>
+
+        <label for="address_street" class="user__info__label">Streetname</label>
+        <input name="address_street" class="user__info__input user__info__input--editable" type="text" placeholder="Streetname" value="<?=$address_street?>" readonly>
+
+        <label for="address_number" class="user__info__label">Number</label>
+        <input name="address_number" class="user__info__input user__info__input--editable" type="text" placeholder="Number" value="<?=$address_number?>" readonly>
+
+        <label for="zipcode" class="user__info__label">Zipcode</label>
+        <input name="zipcode" class="user__info__input user__info__input--editable" type="text" placeholder="Zipcode" value="<?=$zipcode?>" readonly>
+
+        <label for="country" class="user__info__label">Country</label>
+        <input name="country" class="user__info__input user__info__input--editable" type="text" placeholder="Country" value="<?=$country?>" readonly>
       </div>
 
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">Birthdate</label>
-          <div class="user__info__editable" data-placeholder="empty"><?=$birthdate?></div>
-        </div>
-        <div class="user__info">
-          (<?=$age?> years old)
-        </div>
+      <div class="user__info__column user__info__column--bottom">
+        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> Edit</button>
+        <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> Save</button>
+        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> Cancel</button>
       </div>
-
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">Phone</label>
-          <a href="tel:<?=$phone?>" class="user__info__editable" data-placeholder="empty"><?=$phone?></a>
-        </div>
-      </div>
-
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">Street</label>
-          <div class="user__info__editable" data-placeholder="empty"><?=$address_street?></div>
-        </div>
-
-        <div class="user__info">
-          <label class="user__info__label hidden">Number</label>
-          <div class="user__info__editable" data-placeholder="empty"><?=$address_number?></div>
-        </div>
-      </div>
-
-
-      <div class="user__info__group">
-        <div class="user__info">
-          <label class="user__info__label hidden">Zip code</label>
-          <div class="user__info__editable" data-placeholder="empty"><?=$zipcode?></div>
-        </div>
-
-        <div class="user__info">
-          <label class="user__info__label hidden">Country</label>
-          <div class="user__info__editable" data-placeholder="empty"><?=$country?></div>
-        </div>
-      </div>
+    </form>
 	</main>
 
   <div class="user__mid">
-    <button href="#" class="button user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> Edit</button>
-    <button href="#" class="button user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> Save</button>
-    <button href="#" class="button user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> Cancel</button>
+
   </div>
 
 <?php

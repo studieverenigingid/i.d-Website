@@ -106,44 +106,52 @@ function hideUpdateFields() {
 }
 
 function userInfoEdit() {
-	var regDate = "^[0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4}$";
-	var regMail = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
 	$('.user__info__edit--edit').on('click', function () {
-	    $('.user__info__editable').attr('contenteditable', true).each(function () {
+	    $('.user__info__input--editable').attr('readonly', false).each(function () {
 	        var $this = $(this);
-	        $this.data('before', $this.text());
+	        $this.attr('data-before', $this.val());
 	    });
-	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel, .user__info__label').toggleClass('hidden');
+	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
 	});
 
-	$('.user__info__edit--save, .user__info__edit--cancel').on('click', function () {
-	    if ($(this).is('.user__info__edit--save')) {
-	        if (!validation(regDate, $('.user__info__date')) | !validation(regMail, $('.user__info__mail'))) {
-	            return;
-	        }
-	    }
+  $('.user__info__edit--save').on('click', function () {
+  	formReadonly();
+  });
 
-	    if ($(this).is('.user__info__edit--cancel')) {
-	        $('.user__info__editable').each(function () {
-	            var $this = $(this);
-	            $this.text($this.data('before')).removeClass('invalid');
-	        });
-	    }
+  $('.user__info__edit--cancel').on('click', function () {
+      $('.user__info__input--editable').each(function () {
+          var $this = $(this);
+          $this.val($this.attr('data-before')).removeClass('invalid');
+      });
 
-	    $('.user__info__editable').attr('contenteditable', false);
-	    $('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel, .user__info__label').toggleClass('hidden');
-	});
+			formReadonly();
+  });
 
-	function validation(regex, $el) {
-	    if ($el.text() != '' && !new RegExp(regex, 'gi').test($el.text())) {
-	        $el.addClass('invalid');
-	        return false;
-	    } else {
-	        $el.removeClass('invalid');
-	        return true;
-	    }
+	function formReadonly() {
+		$('.user__info__input--editable').attr('readonly', true);
+		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
 	}
+
+	$(document).on('submit' , 'form.user__info', function(e) {
+
+		e.preventDefault();
+
+		var form = $(this);
+
+		var data = form.serialize();
+		data += '&submit=true&action=user_update';
+
+		$.ajax({
+			url: wpjs_object.ajaxurl,
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+		}).done(function(data) {
+			console.log(data);
+		});
+
+	})
 }
 
 function fixVHAfterLoad() {

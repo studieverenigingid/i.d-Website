@@ -1,0 +1,42 @@
+/*-------------------------------------*\
+
+	Filters for posts archive & search
+	filters.scss (included in base.scss):
+	+ filter group
+	+ filter tag
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Filter group
+\*-------------------------------------*/
+.filters {
+	@include flex-container();
+	border-bottom: 1px solid #eee;
+	justify-content: center;
+
+	&__label {
+		align-self: center;
+		margin: 1rem;
+	}
+
+	&__group {
+		display: flex;
+		justify-content: flex-start;
+		max-width: 100%;
+		flex-wrap: wrap;
+		margin: .5rem;
+	}
+
+	&__tag {
+		margin: .5rem;
+		padding: .5em;
+		color: white;
+		display: block;
+		line-height: 1;
+	}
+}

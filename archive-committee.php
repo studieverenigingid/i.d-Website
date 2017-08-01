@@ -10,7 +10,8 @@
 		if(have_posts()) : while(have_posts()) :
 			the_post();
 			$groups = get_the_terms($post, 'committee-group');
-			$group_class = 'comm-group--'.$groups[0]->slug;
+			$group_class = 'comm-group';
+			if ($groups) $group_class .= ' comm-group--' . $groups[0]->slug;
 			include 'inc/small-committee.php';
 		endwhile; endif;
 

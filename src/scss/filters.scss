@@ -24,6 +24,11 @@
 		margin: 1rem;
 	}
 
+	&__master-switch {
+		cursor: pointer;
+		color: $accent;
+	}
+
 	&__group {
 		display: flex;
 		justify-content: flex-start;

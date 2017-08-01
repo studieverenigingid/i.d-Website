@@ -9,8 +9,10 @@
 	<div class="filters">
 		<div class="filters__label">
 			Filter by group:
+			<span class="filters__master-switch" data-for="comm-group">[none]</span>
 		</div>
-		<div class="filters__group" data-for="comm-group--" data-multiple="true">
+		<div class="filters__group" id="comm-group"
+			data-for="comm-group--" data-multiple="true">
 			<?php
 				$group_options = get_terms('committee-group');
 				foreach ($group_options as $key => $group_opt):

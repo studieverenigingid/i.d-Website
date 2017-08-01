@@ -37,7 +37,26 @@ function toggleFilter() {
 	$(target).toggle();
 }
 
+function masterToggle() {
+	var masterOn = true,
+		masterFor = '#' + $(this).attr('data-for');
+	if ($(this).text() === '[all]') masterOn = false;
+
+	$(masterFor).find('input').each(function() {
+		if ($(this)[0].checked === masterOn) {
+			$(this).click();
+		}
+	});
+
+	if (masterOn) {
+		$(this).text('[all]');
+	} else {
+		$(this).text('[none]');
+	}
+}
+
 function registerFilters() {
 	// Add an event listener to any filter group
 	$('.filters__group').on('change', 'input', toggleFilter);
+	$('.filters__master-switch').click(masterToggle);
 }

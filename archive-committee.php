@@ -2,7 +2,7 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo esc_attr_x('Our committees'); ?></h1>
+	<h1 class="archive__title"><?php echo esc_attr_x('Our committees', 'archive title'); ?></h1>
 
 	<div class="committees__grid">
 

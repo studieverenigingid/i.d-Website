@@ -13,12 +13,15 @@
 		<div class="news-item__meta--large">
 			<?php
 				$groups = get_the_terms($post, 'committee-group');
-				$group_link = get_term_link($groups[0]->term_id);
-				$group_name = $groups[0]->name;
+				if ($groups) {
+					foreach ($groups as $key => $group) {
+						$grp_link = get_term_link($group->term_id);
+						$grp_name = $group->name;
+						echo "<a href='$grp_link' class='news-item__category'>$grp_name</a>";
+						if ($key+1 < count($groups)) echo ', ';
+					}
+				}
 			?>
-			<a href="<?=$group_link?>" class="news-item__category">
-				<?=$group_name?>
-			</a>
 		</div>
 
 		<?php if ( has_post_thumbnail() ) : ?>

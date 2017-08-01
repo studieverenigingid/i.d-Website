@@ -38,5 +38,9 @@
 		color: white;
 		display: block;
 		line-height: 1;
+
+		&.off {
+			background: #999;
+		}
 	}
 }

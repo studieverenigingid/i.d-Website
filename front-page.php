@@ -189,7 +189,9 @@ wp_reset_postdata();
 <!-- SOCIAL -->
 <!-- ****** -->
 <section class="social">
-	<h2 class="section__title">Social Media</h2>
+
+	<h2 class="section__title section__title--social">Social Media</h2>
+
 	<div class="social__wrapper">
     <div class="ajax-load">
       <div class="ajax-load__strip"></div>
@@ -197,6 +199,28 @@ wp_reset_postdata();
       <div class="ajax-load__strip"></div>
     </div>
 	</div>
+
+  <template id="js-social-post">
+    <a class="social__link" target="_blank">
+  		<div class="social__container">
+  		  <div class="social__title">
+  		    <i class="social__ico fa"></i>
+          <span class="social__text"></span>
+  		  </div>
+      </div>
+    </a>
+  </template>
+
+  <template id="js-more-social">
+    <a class="social__link social__link--more">
+  		<div class="social__container social__container--more">
+        <div class="social__more-button button button--white">
+          <?php echo esc_attr_x('More posts', 'frontpage social feed'); ?>
+        </div>
+      </div>
+    </a>
+  </template>
+
 </section>
 
 

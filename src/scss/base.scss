@@ -153,6 +153,16 @@ blockquote {
 	flex: 0 0 100%;
 	margin-left: 20px;
 	margin-right: 20px;
+
+	&--social {
+		margin-left: 30px;
+		margin-right: 30px;
+
+		@media (min-width: $brk--phone) {
+			margin-left: 60px;
+			margin-right: 60px;
+		}
+	}
 }
 
 
@@ -423,21 +433,33 @@ $ajax-load-size: 44px;
   flex-direction: column;
   margin: 4em auto;
 	width: $ajax-load-size;
-}
 
-.ajax-load__strip {
-  flex-grow: 2;
-	width: $ajax-load-size;
-	height: 6px;
-  transform-origin: 0 0;
-	background-color: $background--dark;
-	margin-top: 6px;
-}
+	&--in-box {
+		position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    margin: 0;
+	}
 
-@for $i from 1 through 3 {
-	.ajax-load__strip:nth-child(#{$i}){
-		animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
-	};
+	&__strip {
+	  flex-grow: 2;
+		width: $ajax-load-size;
+		height: 6px;
+	  transform-origin: 0 0;
+		background-color: $background--dark;
+		margin-top: 6px;
+
+		&--white {
+			background: white;
+		}
+
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}){
+				animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
+			};
+		}
+	}
 }
 
 @keyframes ajax-load-slide {
@@ -555,6 +577,10 @@ $ajax-load-size: 44px;
 	@media (max-width: $brk--phone){
 		display: block;
 	}
+}
+
+template {
+	display: none !important;
 }
 
 

@@ -36,15 +36,13 @@ function userInfoEdit() {
 		xhr.open('POST', '/', true);
 		xhr.send(formData);
 
-		/*
 		$.ajax({
 			url: wpjs_object.ajaxurl,
 			type: 'POST',
-			dataType: 'json',
-			data: data,
-		}).done(function(data) {
-			console.log(data);
-		}); */
-
+			dataType: 'JSON',
+			data: formData,
+			processData: false,
+			contentType: false
+		});
 	})
 }

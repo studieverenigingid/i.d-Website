@@ -30,11 +30,13 @@ function userInfoEdit() {
 
 		e.preventDefault();
 
-		var form = $(this);
+		var formData = new FormData($(this)[0]);
 
-		var data = form.serialize();
-		data += '&submit=true&action=user_update';
+		var xhr = new XMLHttpRequest;
+		xhr.open('POST', '/', true);
+		xhr.send(formData);
 
+		/*
 		$.ajax({
 			url: wpjs_object.ajaxurl,
 			type: 'POST',
@@ -42,7 +44,7 @@ function userInfoEdit() {
 			data: data,
 		}).done(function(data) {
 			console.log(data);
-		});
+		}); */
 
 	})
 }

@@ -32,10 +32,6 @@ function userInfoEdit() {
 
 		var formData = new FormData($(this)[0]);
 
-		var xhr = new XMLHttpRequest;
-		xhr.open('POST', '/', true);
-		xhr.send(formData);
-
 		$.ajax({
 			url: wpjs_object.ajaxurl,
 			type: 'POST',

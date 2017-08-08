@@ -61,6 +61,8 @@
         <input name="country" class="user__info__input user__info__input--editable" type="text" placeholder="Country" value="<?=$country?>" readonly>
       </div>
 
+      <input type="hidden" name="action" value="user_update">
+
       <div class="user__info__column user__info__column--bottom">
         <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> Edit</button>
         <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> Save</button>

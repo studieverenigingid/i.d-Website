@@ -106,7 +106,7 @@
 	}
 
 	function user_update() {
-		include 'inc/send-user-update.php';
+		include 'inc/user-update.php';
 		wp_die();
 	}
 

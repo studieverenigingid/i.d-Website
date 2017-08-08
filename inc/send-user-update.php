@@ -1,23 +1,27 @@
 <?php
-  $first_name = $_POST["first_name"];
-  $last_name = $_POST["last_name"];
-  $email = $_POST["email"];
-  $phone = $_POST["phone"];
-  $addres_street = $_POST["addres_street"];
-  $addres_number = $_POST["addres_number"];
-  $zipcode = $_POST["zipcode"];
-  $country = $_POST["country"];
+$response = array();
 
-  // Update the 'first_name'-field of the logged in person
-  $update = Lassie::updatePerson(array(
-    'first_name' => $first_name
-  ));
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$addres_street = $_POST['addres_street'];
+$addres_number = $_POST['addres_number'];
+$zipcode = $_POST['zipcode'];
+$country = $_POST['country'];
 
-  // Check if the update was successful
-  if($update->status == true){
-      $response = "User info updated!";
-  } else{
-      $response = "Something went wrong. Error: ".$update->error;
-  };
+// Update the 'first_name'-field of the logged in person
+$update = Lassie::updatePerson(array(
+  'first_name' => $first_name
+));
 
-  wp_send_json($response);
+// Check if the update was successful
+if ($update->status == true) {
+  $response['success'] = true;
+  $response['message'] = 'User info updated!';
+} else {
+  $response['success'] = false;
+  $response['message'] = 'Something went wrong. Error: '.$update->error;
+}
+
+wp_send_json($response);

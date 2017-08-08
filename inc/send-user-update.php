@@ -12,11 +12,15 @@
   $update = Lassie::updatePerson(array(
     'first_name' => 'nilla'
   ));
-   
+
+  $response = "bonjour";
+
   // Check if the update was successful
   if($update->status == true){
-      echo "User info updated!";
+      $response = "User info updated!";
   } else{
-      echo "Something went wrong. Error: ".$update->error;
+      $response = "Something went wrong. Error: ".$update->error;
   };
+
+  wp_send_json($response);
 ?>

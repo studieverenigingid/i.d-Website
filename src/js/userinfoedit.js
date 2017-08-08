@@ -26,6 +26,16 @@ function userInfoEdit() {
 		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
 	}
 
+	function formDone(response) {
+		form.addClass('user__info--succes');
+		console.log(response);
+	}
+
+	function formFail(response) {
+		form.addClass('user__info--failed');
+		console.log(response);
+	}
+
 	$(document).on('submit' , 'form.user__info', function(e) {
 
 		e.preventDefault();
@@ -39,6 +49,10 @@ function userInfoEdit() {
 			data: formData,
 			processData: false,
 			contentType: false
-		});
+		}).done(
+			formDone(response)
+		).fail(
+			formFail(response)
+		);
 	})
 }

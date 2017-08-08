@@ -10,10 +10,8 @@
 
   // Update the 'first_name'-field of the logged in person
   $update = Lassie::updatePerson(array(
-    'first_name' => 'nilla'
+    'first_name' => $first_name
   ));
-
-  $response = "bonjour";
 
   // Check if the update was successful
   if($update->status == true){
@@ -23,4 +21,3 @@
   };
 
   wp_send_json($response);
-?>

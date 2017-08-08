@@ -27,12 +27,10 @@ function userInfoEdit() {
 	}
 
 	function formDone(response) {
-		form.addClass('user__info--succes');
 		console.log(response);
 	}
 
 	function formFail(response) {
-		form.addClass('user__info--failed');
 		console.log(response);
 	}
 
@@ -50,9 +48,9 @@ function userInfoEdit() {
 			processData: false,
 			contentType: false
 		}).done(
-			formDone(response)
+			formDone()
 		).fail(
-			formFail(response)
+			formFail()
 		);
 	})
 }

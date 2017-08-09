@@ -322,6 +322,10 @@ blockquote {
 /*-------------------------------------*\
 	Menu
 \*-------------------------------------*/
+#wpadminbar {
+	position: absolute;
+}
+
 .primary-menu {
 	font-family: $font--light;
 	position: absolute;

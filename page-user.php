@@ -13,7 +13,8 @@
       $first_name = $person->first_name;
       $last_name = $person->last_name;
       $student_number = $person->external_id;
-      $email = $person->email_primary;
+      $email_primary = $person->email_primary;
+      $email_secondary = $person->email_secondary;
       $birthdate = date('F jS, Y',strtotime($person->birthdate));
       $age = date_diff(date_create($person->birthdate), date_create('now'))->y;
       $phone = $person->phone_mobile;
@@ -39,8 +40,11 @@
       </div>
 
       <div class="user__info__column user__info__column--right">
-        <label for="email" class="user__info__label">E-mail address</label>
-        <input name="email" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email?>" readonly>
+        <label for="email" class="user__info__label">Primary e-mail address</label>
+        <input name="email_primary" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email_primary?>" readonly>
+
+        <label for="email" class="user__info__label">Secondary e-mail address</label>
+        <input name="email_secondary" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email_secondary?>" readonly>
 
         <label for="birthdate" class="user__info__label">Birthdate</label>
         <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>

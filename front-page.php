@@ -60,7 +60,6 @@ if ($upcoming_loop->have_posts()) :
       <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
 
         </div>
-        <hr class="divider">
 
       <?php }
 

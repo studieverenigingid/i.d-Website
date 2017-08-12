@@ -48,3 +48,12 @@ function event_deactivate() {
 
 register_activation_hook( __FILE__, 'event_activate' );
 register_deactivation_hook( __FILE__, 'event_deactivate' );
+
+function order_events_by_start_date( $query ) {
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'event' ) ) {
+		$query->set( 'meta_key', 'start_datetime' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	}
+}
+add_action( 'pre_get_posts', 'order_events_by_start_date' );

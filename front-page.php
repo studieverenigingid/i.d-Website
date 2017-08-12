@@ -47,7 +47,11 @@ if ($upcoming_loop->have_posts()) :
 	      <div class="events--small">
 		      <div class="event--small">
 		        <h2 class="events--small__series-title">Upcoming events</h2>
-		        <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
+		        <h3 class="events--small__series-link">
+              <a href="<?php echo get_post_type_archive_link('event'); ?>">
+                <?php echo esc_attr_x( 'All events', 'frontpage list' ); ?>
+              </a>
+            </h3>
 		      </div>
 	    <?php } ?>
 

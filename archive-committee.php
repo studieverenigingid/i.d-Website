@@ -20,8 +20,8 @@
 			<label class="filters__tag committees__tag--<?=$group_opt->slug?>"
 				for="<?=$group_opt->slug?>">
 				<input type="checkbox" name="committee-group" checked
-					value="<?=$group_opt->slug?>" id="<?=$group_opt->slug?>">
-				<?=$group_opt->name?>
+					value="<?=$group_opt->slug?>" id="<?=$group_opt->slug?>"
+					><?=$group_opt->name?>
 			</label>
 			<?php endforeach; ?>
 		</div>

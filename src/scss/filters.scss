@@ -39,13 +39,21 @@
 
 	&__tag {
 		margin: .5rem;
-		padding: .5em;
+		padding: .5em .6em .47em;
 		color: white;
 		display: block;
 		line-height: 1;
+		border-radius: .2em;
 
 		&.off {
-			background: #999;
+			color: #555;
+			background: #eee;
+		}
+
+		input {
+			visibility: hidden;
+			width: 0;
+			margin: 0;
 		}
 	}
 }

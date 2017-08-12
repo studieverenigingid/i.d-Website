@@ -70,3 +70,17 @@ function set_posts_per_page_for_committees( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'set_posts_per_page_for_committees' );
+
+
+
+// Order committees on their archive page alphabetically
+function sort_committees_alphabetically( $orderby ) {
+	global $wpdb;
+
+	if ( is_archive() && get_query_var('post_type') == 'committee' ) {
+		return "$wpdb->posts.post_title ASC";
+	}
+
+	return $orderby;
+}
+add_filter( 'posts_orderby' , 'sort_committees_alphabetically' );

@@ -4,7 +4,7 @@
 
 	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
 
-	<div class="events--small">
+	<div class="events">
 		<?php
 			$current_date = new DateTime();
 			$current_date->setTimezone( new DateTimeZone('Europe/Amsterdam') );

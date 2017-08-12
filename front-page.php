@@ -65,46 +65,9 @@ if ($upcoming_loop->have_posts()) :
 	endwhile;
 endif;
 wp_reset_postdata();
-
-// Create the loop with past events
-$past_loop = new WP_Query( array(
-  'post_type' => 'event',
-  'posts_per_page' => 3,
-  'meta_query' => array(
-	array(
-	  'key'     => 'start_datetime',
-	  'compare' => '<',
-	  'value'   => $today,
-	  'type'    => 'DATE'
-	),
-  ),
-  'orderby' => 'start_datetime',
-  'order' => 'DESC',
-) );
-
-// Cycle through the upcoming event loop
-if ($past_loop->have_posts()) : ?>
-
-  <div class="events--small">
-
-		<div class="event--small event--small--end">
-		  <h2 class="events--small__series-title">Past events</h2>
-		  <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
-		</div>
-
-  	<?php
-  		while($past_loop->have_posts()) {
-  		  $past_loop->the_post();
-  			include( 'inc/small-event.php' );
-      }
-    ?>
-  </div>
-
-<?php endif; ?>
+?>
 
 </section>
-
-<?php wp_reset_postdata(); ?>
 
 
 

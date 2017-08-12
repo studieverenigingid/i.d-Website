@@ -47,6 +47,10 @@
 			color: $text;
 		}
 	}
+
+	&-one-row {
+		justify-content: space-between;
+	}
 }
 
 
@@ -54,22 +58,19 @@
 .event--small {
 	position: relative;
 	margin: 0 1rem 2rem;
+	width: 100%;
 
-	flex-basis: 20rem;
-	flex-grow: 1;
-	width: 14rem;
+	@media (min-width: 600px) {
+		width: 44%;
+	}
 
 	@media (min-width: $brk--desktop) {
 		margin: .5rem 1.5rem;
-	}
-
-	@media (min-width: 1000px) {
-		flex-basis: 12.6rem;
+		width: 20.6%;
 	}
 
 	@media (min-width: 1440px) {
-		max-width: 20rem;
-		flex-basis: 15rem;
+		width: 21.4%;
 	}
 
 	&--end {

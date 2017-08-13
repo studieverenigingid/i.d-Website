@@ -144,7 +144,7 @@
 		background: $accent;
 		padding: .1rem 0 2.5rem;
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: 1rem;
 			padding-bottom: .1rem;
 		}
@@ -161,7 +161,7 @@
 		border: .7em solid $background--light;
 		text-decoration: none;
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: -4em;
 			background: $accent;
 		}
@@ -259,7 +259,7 @@
 			margin: 3em 0 4% 14%;
 			padding: 3em;
 
-			&--no-thumb {
+			&--short-header {
 				margin-bottom: -6rem;
 			}
 		}

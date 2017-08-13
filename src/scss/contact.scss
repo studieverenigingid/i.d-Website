@@ -42,7 +42,7 @@
 			margin-bottom: -4em;
 		}
 
-		&--short-header {
+		&--no-thumb {
 			margin-bottom: 1rem;
 			padding-bottom: .1rem;
 		}
@@ -59,7 +59,7 @@
 		border: .7em solid $background--light;
 		text-decoration: none;
 
-		&--short-header {
+		&--no-thumb {
 			margin-bottom: -4em;
 			background: $accent;
 		}
@@ -196,7 +196,7 @@
 			margin: 3em 0 10% 14%;
 			padding: 3em;
 
-			&--short-header {
+			&--no-thumb {
 				margin-bottom: -6rem;
 			}
 		}

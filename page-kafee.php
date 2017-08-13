@@ -7,10 +7,10 @@
 get_header(); ?>
 
 <header class="kafee--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>">
+	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--no-thumb'; ?>">
 
 	<div class="kafee--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>">
+		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--no-thumb'; ?>">
 
 		<h1 class="kafee--page__name"><?php the_title(); ?></h1>
 

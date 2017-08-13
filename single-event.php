@@ -5,9 +5,10 @@
 
 
 	<header class="event--page__header colorVibrant
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>">
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--no-thumb'; ?>">
 
-		<div class="event--page__short-info event--page__short-info--short-header colorVibrant">
+		<div class="event--page__short-info
+			<?php if ( !has_post_thumbnail() ) echo 'event--page__short-info--no-thumb'; ?>">
 
 			<h1 class="event--page__name"><?php the_title(); ?></h1>
 

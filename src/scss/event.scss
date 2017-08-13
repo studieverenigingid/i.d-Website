@@ -183,9 +183,9 @@
 	}
 
 	&__thumb {
-		width: 160%;
-		max-width: 75vw;
-		margin: 5% -25% 3rem 100%;
+		width: 120%;
+		max-width: 60vw;
+		margin: 0 -24% 3rem 100%;
 		float: right;
 		position: relative;
 
@@ -221,7 +221,9 @@
 		}
 
 		&__thumb {
-			width: 130%;
+			width: 100%;
+			margin-right: -50%;
+			margin-top: -5em;
 		}
 	}
 
@@ -231,16 +233,16 @@
 		}
 
 		&__thumb {
-			margin-right: -60%;
-			margin-top: -15%;
-			width: 120%;
+			margin-right: -78%;
+			margin-top: -10em;
+			width: 100%;
 		}
 	}
 
 	@media (min-width: $brk--tablet) {
 		&__short-info {
 			width: 46%;
-			margin: 3em 0 10% 14%;
+			margin: 3em 0 4% 14%;
 			padding: 3em;
 
 			&--short-header {
@@ -249,9 +251,10 @@
 		}
 
 		&__thumb {
-			margin-top: -20%;
+			margin-top: -12em;
 			margin-right: -90%;
-			width: 130%;
+			width: 100%;
+			max-width: 44vw;
 		}
 
 		&__content {
@@ -265,9 +268,24 @@
 		max-height: 60vh;
 		overflow: hidden;
 		margin-bottom: 1rem;
+		max-width: 75vw;
+		width: 160%;
+		margin: 5% -25% 1rem 100%;
+
+		@media (min-width: 550px) {
+			width: 130%;
+		}
 
 		@media (min-width: $brk--phone) {
 			margin-bottom: 3rem;
+			margin-right: -60%;
+			margin-top: -15%;
+			width: 120%;
+		}
+
+		@media (min-width: $brk--tablet) {
+			width: 130%;
+			margin-top: -24%;
 		}
 	}
 }

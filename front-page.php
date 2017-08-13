@@ -7,7 +7,7 @@
 <!-- ****** -->
 <!-- EVENTS -->
 <!-- ****** -->
-<section class="events">
+<section class="events--frontpage">
 
 <?php
 

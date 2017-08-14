@@ -160,6 +160,7 @@
 		padding: 2em;
 		border: .7em solid $background--light;
 		text-decoration: none;
+		text-shadow: 0 .05rem .1rem transparentize(black, .7);
 
 		&--short-header {
 			margin-bottom: -4em;

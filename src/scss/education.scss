@@ -201,6 +201,10 @@
       background: #ca1414;
       color: $background--light;
     }
+
+    &__link {
+      color: white;
+    }
   }
 
   &-process, &-news {

@@ -3,11 +3,20 @@ jQuery(document).ready(onDocReady);
 function onDocReady () {
 	var $ = jQuery;
 	menuToggler();
-	ajaxFeedbackForm();
-	hideUpdateFields();
+	menuSticky();
 	fixVHAfterLoad();
 	vibrantLoad();
+
+	// formhandling.js
+	ajaxFeedbackForm();
+	hideUpdateFields();
+	resetFormLink();
+
+	// social.js
 	socialFeed();
+
+	// filters.js
+	registerFilters();
 }
 
 function menuToggler () {
@@ -22,66 +31,23 @@ function menuToggler () {
 
 }
 
+function menuSticky() {
+	var primaryMenu = $('.primary-menu');
+	var biesImage = $('.bies__image');
+	var posFromTop = primaryMenu.offset().top
 
+	$(window).scroll(function() {
+		var scroll = $(window).scrollTop();
 
-function formFails(form, data) {
-	form.addClass('education-feedback--failed');
-	var errorMessage = $('<div>');
-	errorMessage.addClass('education-feedback__message education-feedback__message--failed');
-	errorMessage.text(data['error']);
-	form.prepend(errorMessage);
-	form.removeClass('education-feedback--sending');
-}
-
-function formSucceeds(form, data) {
-	form.addClass('education-feedback--success');
-}
-
-function ajaxFeedbackForm() {
-	$(document).on('submit' , 'form.education-feedback__wrap', function(e) {
-
-		e.preventDefault();
-
-		var form = $(this);
-		form.addClass('education-feedback--sending');
-
-		var data = form.serialize();
-		data += '&submit=true';
-
-		$.ajax({
-			url: wpjs_object.ajaxurl,
-			type: 'POST',
-			dataType: 'json',
-			data: data,
-			success: function(data) {
-				if (data['success'] === false) {
-					formFails(form, data);
-				} else {
-					formSucceeds(form, data);
-				}
-			},
-			error: function(data) {
-				formFails(form, data);
-			}
-		 });
-
-	})
-}
-
-function hideUpdateFields() {
-	var fields = $('.js-edu-hidable-fields'),
-		checkbox = $('.js-edu-checkbox'),
-		toggle = $('.js-edu-toggle');
-
-	fields.hide();
-
-	toggle.click(function() {
-		checkbox.click();
+		if (scroll > posFromTop) {
+	    primaryMenu.addClass("primary-menu--sticky");
+			biesImage.addClass("bies__image--sticky");
+	  } else {
+			primaryMenu.removeClass("primary-menu--sticky");
+			biesImage.removeClass("bies__image--sticky");
+	  }
 	});
 
-	checkbox.change(function() {
-		fields.toggle();
-	});
 }
 
 function fixVHAfterLoad() {
@@ -91,36 +57,78 @@ function fixVHAfterLoad() {
 function vibrantLoad() {
 	var img = document.querySelector('.event--page__img');
 
-		console.log(img);
+	if (typeof(img) != 'undefined' && img != null) {
+		// Use vibrant to get the swatches
+		var vibrant = new Vibrant(img),
+			swatches = vibrant.swatches(),
+			DarkVibrantHex = swatches['DarkVibrant'].getHex();
 
-		if (typeof(img) != 'undefined' && img != null) {
-			var vibrant = new Vibrant(img);
-		var swatches = vibrant.swatches()
-		for (var swatch in swatches)
-		if (swatches.hasOwnProperty(swatch) && swatches[swatch]);
+		// Remove the current meta tag
+		$('meta[name=theme-color]').remove();
+		// Create a new meta tag, add the picked color to it and place in head
+		var metaTag = $('<meta name="theme-color" content="' + DarkVibrantHex + '">');
+		$('head').append(metaTag);
 
-		changeColorVibrant = document.getElementsByClassName('colorVibrant');
-
-			var DarkVibrantHex = swatches['DarkVibrant'].getHex()
-
-			$('meta[name=theme-color]').remove();
-			$('head').append('<meta name="theme-color" content="'+DarkVibrantHex+'">');
-			$('head').append('<style>.colorVibrantGradient:before{background-image: linear-gradient(to bottom right, '+DarkVibrantHex+', transparent 50%);} .colorVibrant{background:'+DarkVibrantHex+';}</style>');
-		}
+		// Create the style tag with gradient and background color CSS lines
+		var styles = "<style> \
+			.colorVibrantGradient:before { \
+				background-image: linear-gradient( \
+					to bottom right," +
+					DarkVibrantHex + ", \
+					transparent 50% \
+				); \
+			} .colorVibrant { \
+				background: " + DarkVibrantHex + "; \
+			} \
+		</style>";
+		// And add that to the head, too
+		$('head').append(styles);
+	}
 }
 
-function socialFeed(){
-	$.ajax({
-		type: "GET",
-		url: wpjs_object.ajaxurl,
-		data: {
-			action: 'social_feed_ajax_request'
-		},
-		success:function(data){
-			$('.social__wrapper').html(data);
-		},
-		error: function(errorThrown){
-			console.log('Joe kan de Social feed niet vinden, joe.');
+// Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is
+// nice) https://jsfiddle.net/brianblakely/h3EmY/
+(function templatePolyfill(d) {
+	if('content' in d.createElement('template')) {
+		return false;
+	}
+
+	var qPlates = d.getElementsByTagName('template'),
+		plateLen = qPlates.length,
+		elPlate,
+		qContent,
+		contentLen,
+		docContent;
+
+	for(var x=0; x<plateLen; ++x) {
+		elPlate = qPlates[x];
+		qContent = elPlate.childNodes;
+		contentLen = qContent.length;
+		docContent = d.createDocumentFragment();
+
+		while(qContent[0]) {
+			docContent.appendChild(qContent[0]);
 		}
-	});
-}
+
+		elPlate.content = docContent;
+	}
+})(document);
+
+// Polyfill from MDN for the .children property
+(function(constructor) {
+    if (constructor &&
+        constructor.prototype &&
+        constructor.prototype.children == null) {
+        Object.defineProperty(constructor.prototype, 'children', {
+            get: function() {
+                var i = 0, node, nodes = this.childNodes, children = [];
+                while (node = nodes[i++]) {
+                    if (node.nodeType === 1) {
+                        children.push(node);
+                    }
+                }
+                return children;
+            }
+        });
+    }
+})(window.Node || window.Element);

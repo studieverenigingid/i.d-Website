@@ -17,7 +17,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
   </h1>
 	<div class="education-feedback">
     <div class="education-feedback__message education-feedback__message--success">
-      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?>
+      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?><br>
+			<a href="#reset" class="education-feedback__link js-reset-link">I have even more feedback.</a>
     </div>
 
 		<form action="#" class="education-feedback__wrap">

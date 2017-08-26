@@ -42,7 +42,7 @@
 			margin-bottom: -4em;
 		}
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: 1rem;
 			padding-bottom: .1rem;
 		}
@@ -59,7 +59,7 @@
 		border: .7em solid $background--light;
 		text-decoration: none;
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: -4em;
 			background: $hex-kafee;
 		}
@@ -185,7 +185,7 @@
 			margin: 3em 0 10% 14%;
 			padding: 3em;
 
-			&--no-thumb {
+			&--short-header {
 				margin-bottom: -6rem;
 			}
 		}

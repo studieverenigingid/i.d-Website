@@ -153,6 +153,16 @@ blockquote {
 	flex: 0 0 100%;
 	margin-left: 20px;
 	margin-right: 20px;
+
+	&--social {
+		margin-left: 30px;
+		margin-right: 30px;
+
+		@media (min-width: $brk--phone) {
+			margin-left: 60px;
+			margin-right: 60px;
+		}
+	}
 }
 
 
@@ -194,6 +204,18 @@ blockquote {
 		}
 	}
 
+	&--white {
+		background: none;
+		border: 1px solid white;
+		color: white;
+
+		&:hover,
+		&:focus {
+			color: $accent;
+			background: white;
+		}
+	}
+
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
 			@include button-background($color);
@@ -220,6 +242,15 @@ blockquote {
 		height: 60px;
 		position: relative;
 		z-index: 11;
+		display: block;
+
+		@media (min-width: $brk--phone) {
+			background: transparentize($background--gray, 0.4);
+
+			&--sticky {
+				margin-bottom: 45px;
+			}
+		}
 
 		@media (min-width: 1218px) {
 			width: 100%;
@@ -291,6 +322,10 @@ blockquote {
 /*-------------------------------------*\
 	Menu
 \*-------------------------------------*/
+#wpadminbar {
+	position: absolute;
+}
+
 .primary-menu {
 	font-family: $font--light;
 	position: absolute;
@@ -306,6 +341,16 @@ blockquote {
 	max-height: 80vh;
 	overflow-y: auto;
 
+	.current-menu-item {
+		font-family: $font--heavy;
+	}
+
+	&__list {
+		margin: 0;
+		padding: 1rem 0;
+		list-style: none;
+	}
+
 	@media (max-width: $brk--phone + 1) {
 		&.opened {
 			transform: translateX(0px);
@@ -313,21 +358,28 @@ blockquote {
 	}
 
 	@media (min-width: $brk--phone) {
-		width: 220px;
-		transform: translateX(170px);
-		top: 20vh;
+		width: 100%;
 		padding-top: 0;
-		position: fixed;
+		position: static;
+		transform: translateX(0px);
+		background: transparentize($background--gray, 0.4);
 
-		&:hover {
-			transform: translateX(0px);
+		&__list {
+			padding: 0.4rem 0 0.4rem 0.6rem;
 		}
-	}
 
-	&__list {
-		margin: 0;
-		padding: 1rem 0;
-		list-style: none;
+		.menu-item {
+			display: inline-block;
+			font-size: .9em;
+
+			a {
+				padding: .4rem .8rem;
+			}
+		}
+
+		&--sticky {
+			position: fixed;
+		}
 	}
 }
 
@@ -404,21 +456,33 @@ $ajax-load-size: 44px;
   flex-direction: column;
   margin: 4em auto;
 	width: $ajax-load-size;
-}
 
-.ajax-load__strip {
-  flex-grow: 2;
-	width: $ajax-load-size;
-	height: 6px;
-  transform-origin: 0 0;
-	background-color: $background--dark;
-	margin-top: 6px;
-}
+	&--in-box {
+		position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    margin: 0;
+	}
 
-@for $i from 1 through 3 {
-	.ajax-load__strip:nth-child(#{$i}){
-		animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
-	};
+	&__strip {
+	  flex-grow: 2;
+		width: $ajax-load-size;
+		height: 6px;
+	  transform-origin: 0 0;
+		background-color: $background--dark;
+		margin-top: 6px;
+
+		&--white {
+			background: white;
+		}
+
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}){
+				animation: ajax-load-slide $transition--cubic 1.2s infinite (#{$i*0.1s});
+			};
+		}
+	}
 }
 
 @keyframes ajax-load-slide {
@@ -538,6 +602,10 @@ $ajax-load-size: 44px;
 	}
 }
 
+template {
+	display: none !important;
+}
+
 
 
 
@@ -575,3 +643,9 @@ $ajax-load-size: 44px;
 
 // Education
 @import "education";
+
+// Login
+@import "login";
+
+// Filters
+@import "filters";

@@ -47,6 +47,10 @@
 		margin: .5em 1rem;
 
 		@media (min-width: $brk--phone) {
+			margin: 1rem;
+		}
+
+		@media (min-width: $brk--tablet) {
 			margin: 1rem 1.5rem;
 		}
 
@@ -84,6 +88,10 @@
 
 	@media (min-width: 1024px) {
 		margin: 1rem 1.5rem;
+	}
+
+	&--full-width {
+		width: 100%;
 	}
 
 	&--frontpage {

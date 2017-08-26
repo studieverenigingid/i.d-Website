@@ -23,7 +23,7 @@
 /*-------------------------------------*\
 	Small event
 \*-------------------------------------*/
-.events--small {
+.events {
 	margin: 1rem;
 
 	display: inline-flex;
@@ -31,24 +31,42 @@
 	flex-wrap: wrap;
 
 	@media (min-width: $brk--phone) {
-		margin: 1rem 2.5rem;
+		padding: 1rem 2.5rem;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 88em;
+		display: flex;
 	}
 
 	&__series-title {
 		margin: .2em 0;
+		width: 100%;
 	}
 
 	&__series-link {
-		margin: .2em 0;
+		margin: .6em 0 0;
 
 		a {
-			color: #000;
-			text-decoration: none;
-
-			&:focus, &:hover {
-				text-decoration: underline;
-			}
+			color: $text;
 		}
+	}
+
+	&__archive-title {
+		width: 100%;
+		margin: 1em 2rem;
+
+		@media (min-width: $brk--desktop) {
+			margin: 1em 2.2%;
+		}
+
+		@media (min-width: 1440px) {
+			margin: 1em 1.8%;
+		}
+	}
+
+	&-one-row {
+		justify-content: space-between;
+		max-width: 100%;
 	}
 }
 
@@ -57,22 +75,20 @@
 .event--small {
 	position: relative;
 	margin: 0 1rem 2rem;
+	width: 100%;
 
-	flex-basis: 20rem;
-	flex-grow: 1;
-	width: 14rem;
-
-	@media (min-width: $brk--desktop) {
-		margin: .5rem 1.5rem;
+	@media (min-width: 600px) {
+		width: 44%;
 	}
 
-	@media (min-width: 1000px) {
-		flex-basis: 12.6rem;
+	@media (min-width: $brk--desktop) {
+		margin: .5rem 2.2%;
+		width: 20.6%;
 	}
 
 	@media (min-width: 1440px) {
-		max-width: 20rem;
-		flex-basis: 15rem;
+		width: 21.4%;
+		margin: .5rem 1.8%;
 	}
 
 	&--end {
@@ -128,7 +144,7 @@
 		background: $accent;
 		padding: .1rem 0 2.5rem;
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: 1rem;
 			padding-bottom: .1rem;
 		}
@@ -144,8 +160,9 @@
 		padding: 2em;
 		border: .7em solid $background--light;
 		text-decoration: none;
+		text-shadow: 0 .05rem .1rem transparentize(black, .7);
 
-		&--no-thumb {
+		&--short-header {
 			margin-bottom: -4em;
 			background: $accent;
 		}
@@ -181,9 +198,9 @@
 	}
 
 	&__thumb {
-		width: 160%;
-		max-width: 75vw;
-		margin: 5% -25% 3rem 100%;
+		width: 120%;
+		max-width: 60vw;
+		margin: 0 -24% 3rem 100%;
 		float: right;
 		position: relative;
 
@@ -219,7 +236,9 @@
 		}
 
 		&__thumb {
-			width: 130%;
+			width: 100%;
+			margin-right: -50%;
+			margin-top: -5em;
 		}
 	}
 
@@ -229,27 +248,28 @@
 		}
 
 		&__thumb {
-			margin-right: -60%;
-			margin-top: -15%;
-			width: 120%;
+			margin-right: -78%;
+			margin-top: -10em;
+			width: 100%;
 		}
 	}
 
 	@media (min-width: $brk--tablet) {
 		&__short-info {
 			width: 46%;
-			margin: 3em 0 10% 14%;
+			margin: 3em 0 4% 14%;
 			padding: 3em;
 
-			&--no-thumb {
+			&--short-header {
 				margin-bottom: -6rem;
 			}
 		}
 
 		&__thumb {
-			margin-top: -20%;
+			margin-top: -12em;
 			margin-right: -90%;
-			width: 130%;
+			width: 100%;
+			max-width: 44vw;
 		}
 
 		&__content {
@@ -263,9 +283,24 @@
 		max-height: 60vh;
 		overflow: hidden;
 		margin-bottom: 1rem;
+		max-width: 75vw;
+		width: 160%;
+		margin: 5% -25% 1rem 100%;
+
+		@media (min-width: 550px) {
+			width: 130%;
+		}
 
 		@media (min-width: $brk--phone) {
 			margin-bottom: 3rem;
+			margin-right: -90%;
+			margin-top: -15%;
+			width: 120%;
+		}
+
+		@media (min-width: $brk--tablet) {
+			width: 130%;
+			margin-top: -24%;
 		}
 	}
 }
@@ -275,6 +310,10 @@
 		@extend .primary-content;
 		padding-top: 1rem;
 		border-top: 1px solid transparentize($background--dark, 0.7);
+
+		&--unauth {
+			text-align: center;
+		}
 	}
 
 	&__file {

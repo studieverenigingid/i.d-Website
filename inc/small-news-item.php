@@ -1,6 +1,8 @@
 <article class="news-item">
-	<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('thumb--news', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
-	<h3 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	<a class="news-item__link" href="<?php the_permalink(); ?>">
+		<?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('thumb--news', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
+		<h3 class="news-item__title"><?php the_title(); ?></h3>
+	</a>
 	<div class="news-item__meta">
 		<?php $parentscategory = "";
 			$has_cats = false;

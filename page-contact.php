@@ -7,10 +7,10 @@
 get_header(); ?>
 
 <header class="contact--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--no-thumb'; ?>">
+	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>">
 
 	<div class="contact--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'contact--page__short-info--no-thumb'; ?>">
+		<?php if ( !has_post_thumbnail() ) echo 'contact--page__short-info--short-header'; ?>">
 
 		<h1 class="contact--page__name"><?php the_title(); ?></h1>
 

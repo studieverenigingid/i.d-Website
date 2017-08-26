@@ -10,9 +10,6 @@ $country = $_POST['country'];
 
 // Update the 'first_name'-field of the logged in person
 $update = Lassie::updatePerson(array(
-  'first_name' => $first_name,
-  'last_name' => $last_name,
-  'email_primary' => $email_primary,
   'email_secondary' => $email_secondary,
   'phone' => $phone,
   'address_street' => $address_street,

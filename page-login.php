@@ -13,16 +13,20 @@
 		<div class="login__form">
 			<div class="login__form__message">
 			<?php
-				$login = $_GET['login'];
+				if (isset($_GET['login'])) {
+					$login = $_GET['login'];
 
-				if ( $login === "failed" ) {
-				  echo '<h4 class="login__form--failed">Invalid username and/or password.</h4>';
-				} elseif ( $login === "empty" ) {
-				  echo '<h4 class="login__form--failed">Username and/or Password is empty.</h4>';
-				} elseif ( $login === "false" ) {
-				  echo '<h4 class="login__form--success">You are logged out.</h4>';
+					if ( $login === "failed" ) {
+					  echo '<h4 class="login__form--failed">Invalid username and/or password.</h4>';
+					} elseif ( $login === "empty" ) {
+					  echo '<h4 class="login__form--failed">Username and/or Password is empty.</h4>';
+					} elseif ( $login === "false" ) {
+					  echo '<h4 class="login__form--success">You are logged out.</h4>';
+					}
 				}
-			 ?>
+			?>
+			</div>
+
 			</div>
 
 			<?php custom_login_form(); ?>

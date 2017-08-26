@@ -92,7 +92,8 @@
     		)
 			);
 
-			$group_class = 'comm-group--'.$group->slug;
+			$group_class = $group->slug;
+			$group_class_styling = 'comm-group comm-group--' . $group->slug;
 			$group_name = $group->name;
 
 			$loop = new WP_Query( $args );

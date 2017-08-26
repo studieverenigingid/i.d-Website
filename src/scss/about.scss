@@ -186,18 +186,8 @@ $groups:
 
 
 .comm-group {
-	word-wrap: break-word;
-	width: 10.5em;
-	padding: 1.5rem;
-
-	display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  text-align: center;
-
-	@media (min-width: 360px) {
-		margin: 0 1rem 2rem;
-	}
+	background: $accent;
+	border-top: .44em solid $accent;
 
 	&__name {
 		margin: 0;
@@ -209,7 +199,7 @@ $groups:
 	@each $group, $color in $groups {
 		&--#{$group} {
 			background: $color;
-			border-top: .44em solid $color;
+			border-color: $color;
 		}
 	}
 }
@@ -248,6 +238,18 @@ $groups:
 	&__name {
 		margin: 1em 0 0;
 		font-size: 1.5rem;
+	}
+}
+
+
+
+
+
+.committees__tag {
+	@each $group, $color in $groups {
+		&--#{$group} {
+			background: $color;
+		}
 	}
 }
 

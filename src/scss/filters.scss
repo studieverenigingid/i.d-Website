@@ -1,0 +1,74 @@
+/*-------------------------------------*\
+
+	Filters for posts archive & search
+	filters.scss (included in base.scss):
+	+ filter group
+	+ filter tag
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Filter group
+\*-------------------------------------*/
+.filters {
+	@include flex-container();
+	border-bottom: 1px solid #eee;
+	justify-content: center;
+
+	&__label {
+		align-self: center;
+		margin: 1rem;
+	}
+
+	&__master-switch {
+		cursor: pointer;
+		color: $accent;
+	}
+
+	&__group {
+		display: flex;
+		justify-content: flex-start;
+		max-width: 100%;
+		flex-wrap: wrap;
+		margin: .5rem;
+	}
+
+	&__tag {
+		margin: .5rem;
+		padding: .5em .6em .47em;
+		color: white;
+		display: block;
+		line-height: 1;
+		border-radius: .2em;
+		cursor: pointer;
+		position: relative;
+
+		&.off {
+			color: #555;
+			background: #eee;
+		}
+
+		input {
+			visibility: hidden;
+			width: 0;
+			margin: 0;
+		}
+
+		&:hover:after {
+			content: "";
+			display: block;
+			pointer-events: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: transparentize(black, 0.9);
+			border-radius: .2em;
+		}
+	}
+}

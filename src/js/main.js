@@ -3,6 +3,7 @@ jQuery(document).ready(onDocReady);
 function onDocReady () {
 	var $ = jQuery;
 	menuToggler();
+	menuSticky();
 	fixVHAfterLoad();
 	vibrantLoad();
 
@@ -16,6 +17,9 @@ function onDocReady () {
 
 	// social.js
 	socialFeed();
+
+	// filters.js
+	registerFilters();
 }
 
 function menuToggler () {
@@ -26,6 +30,25 @@ function menuToggler () {
 	menuToggle.click(function () {
 		menu.toggleClass('opened');
 		menuToggle.toggleClass('opened');
+	});
+
+}
+
+function menuSticky() {
+	var primaryMenu = $('.primary-menu');
+	var biesImage = $('.bies__image');
+	var posFromTop = primaryMenu.offset().top
+
+	$(window).scroll(function() {
+		var scroll = $(window).scrollTop();
+
+		if (scroll > posFromTop) {
+	    primaryMenu.addClass("primary-menu--sticky");
+			biesImage.addClass("bies__image--sticky");
+	  } else {
+			primaryMenu.removeClass("primary-menu--sticky");
+			biesImage.removeClass("bies__image--sticky");
+	  }
 	});
 
 }

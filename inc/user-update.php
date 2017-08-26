@@ -2,8 +2,8 @@
 $response = array();
 
 $phone = $_POST['phone'];
-$addres_street = $_POST['addres_street'];
-$addres_number = $_POST['addres_number'];
+$address_street = $_POST['address_street'];
+$address_number = $_POST['address_number'];
 $zipcode = $_POST['zipcode'];
 $country = $_POST['country'];
 

@@ -7,7 +7,7 @@
 <!-- ****** -->
 <!-- EVENTS -->
 <!-- ****** -->
-<section class="events">
+<section class="events--frontpage">
 
 <?php
 
@@ -44,10 +44,16 @@ if ($upcoming_loop->have_posts()) :
 
       // If it is the first small one, open the container and show title
       if($upcoming_no === 1) { ?>
-	      <div class="events--small">
+	      <div class="events events-one-row">
 		      <div class="event--small">
-		        <h2 class="events--small__series-title">Upcoming events</h2>
-		        <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
+		        <h2 class="events__series-title">
+              <?php echo esc_attr_x( 'Upcoming events', 'frontpage list title' ); ?>
+            </h2>
+		        <h3 class="events__series-link">
+              <a href="<?php echo get_post_type_archive_link('event'); ?>">
+                <?php echo esc_attr_x( 'All events', 'frontpage list' ); ?>
+              </a>
+            </h3>
 		      </div>
 	    <?php } ?>
 
@@ -56,7 +62,6 @@ if ($upcoming_loop->have_posts()) :
       <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
 
         </div>
-        <hr class="divider">
 
       <?php }
 
@@ -65,46 +70,9 @@ if ($upcoming_loop->have_posts()) :
 	endwhile;
 endif;
 wp_reset_postdata();
-
-// Create the loop with past events
-$past_loop = new WP_Query( array(
-  'post_type' => 'event',
-  'posts_per_page' => 3,
-  'meta_query' => array(
-	array(
-	  'key'     => 'start_datetime',
-	  'compare' => '<',
-	  'value'   => $today,
-	  'type'    => 'DATE'
-	),
-  ),
-  'orderby' => 'start_datetime',
-  'order' => 'DESC',
-) );
-
-// Cycle through the upcoming event loop
-if ($past_loop->have_posts()) : ?>
-
-  <div class="events--small">
-
-		<div class="event--small event--small--end">
-		  <h2 class="events--small__series-title">Past events</h2>
-		  <h3 class="events--small__series-link"><a href="<?php echo get_post_type_archive_link('event'); ?>">All events</a></h3>
-		</div>
-
-  	<?php
-  		while($past_loop->have_posts()) {
-  		  $past_loop->the_post();
-  			include( 'inc/small-event.php' );
-      }
-    ?>
-  </div>
-
-<?php endif; ?>
+?>
 
 </section>
-
-<?php wp_reset_postdata(); ?>
 
 
 

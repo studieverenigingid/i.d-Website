@@ -1,7 +1,6 @@
 <?php
 $response = array();
 
-$email_secondary = $_POST['email_secondary'];
 $phone = $_POST['phone'];
 $addres_street = $_POST['addres_street'];
 $addres_number = $_POST['addres_number'];
@@ -10,7 +9,6 @@ $country = $_POST['country'];
 
 // Update the 'first_name'-field of the logged in person
 $update = Lassie::updatePerson(array(
-  'email_secondary' => $email_secondary,
   'phone' => $phone,
   'address_street' => $address_street,
   'address_number' => $address_number,

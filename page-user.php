@@ -30,10 +30,10 @@
     <form action="#" class="user__info">
       <div class="user__info__column user__info__column--left">
         <label for="first_name" class="user__info__label">First name</label>
-        <input name="first_name" class="user__info__input user__info__input--name user__info__input--editable" type="text" placeholder="First name" value="<?=$first_name?>" readonly>
+        <div name="first_name" class="user__info__input user__info__input--name" readonly><?=$first_name?></div>
 
         <label for="last_name" class="user__info__label">Last name</label>
-        <input name="last_name" class="user__info__input user__info__input--name user__info__input--editable" type="text" placeholder="Last name" value="<?=$last_name?>" readonly>
+        <div name="last_name" class="user__info__input user__info__input--name" readonly><?=$last_name?></div>
 
         <label for="student_number" class="user__info__label">Student number</label>
         <div name="student_number" class="user__info__input" readonly><?=$student_number?></div>
@@ -41,7 +41,7 @@
 
       <div class="user__info__column user__info__column--right">
         <label for="email" class="user__info__label">Primary e-mail address</label>
-        <input name="email_primary" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email_primary?>" readonly>
+        <div name="email_primary" class="user__info__input" readonly><?=$email_primary?></div>
 
         <label for="email" class="user__info__label">Secondary e-mail address</label>
         <input name="email_secondary" class="user__info__input user__info__input--editable" type="email" placeholder="E-mail address" value="<?=$email_secondary?>" readonly>

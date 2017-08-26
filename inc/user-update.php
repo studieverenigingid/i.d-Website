@@ -1,9 +1,6 @@
 <?php
 $response = array();
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email_primary = $_POST['email_primary'];
 $email_secondary = $_POST['email_secondary'];
 $phone = $_POST['phone'];
 $addres_street = $_POST['addres_street'];

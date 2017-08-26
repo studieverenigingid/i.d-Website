@@ -27,6 +27,8 @@
 			?>
 			</div>
 
+			<div class="login__form--info">
+				Don’t you have an account yet? Go to <a href="https://id.lassie.cloud/auth/create_user">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.
 			</div>
 
 			<?php custom_login_form(); ?>

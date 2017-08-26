@@ -1,0 +1,135 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: USER
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	user.scss:
+	+ User page top
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	User page top
+\*-------------------------------------*/
+.user {
+  &__top, &__mid {
+		padding: .1rem 5%;
+		margin: 0;
+	}
+
+  &__top {
+    background: $accent;
+  }
+
+  &__info {
+    color: white;
+    margin: 1rem 0.4rem 0.4rem 0px;
+    display: flex;
+    flex-flow: wrap row;
+
+    &__column {
+      padding: 0 2rem;
+      min-width: 15em;
+      width: 1px;
+      flex-grow: 1;
+
+      &--right {
+        flex-grow: 2;
+      }
+
+      &--bottom {
+        flex-basis: 100%;
+      }
+    }
+
+    &__edit,
+    &__save,
+    &__cancel,
+    &__label {
+      &.hidden {
+        display: none;
+      }
+    }
+
+    &__label {
+      font-size: .8em;
+      opacity: 0.8;
+      display: block;
+    }
+
+    &__input {
+      color: white;
+      background: $accent;
+      border:none;
+      outline:none;
+      font-family: $font--light;
+      font-size: 1em;
+      margin: .25rem 0 1rem 0;
+
+      &--name {
+        color: white;
+        font-family: $font--heavy;
+        font-size: 2.4em;
+      }
+
+      &--editable {
+        width: 100%;
+      }
+
+      &:not([readonly]) {
+        border-bottom: dashed 1px white !important;
+        text-decoration: none !important;
+
+        &.invalid {
+          color: #DD1144;
+        }
+      }
+
+      &::placeholder {
+        color: darken($accent, 20%);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &--succes {
+      background: green;
+    }
+
+    &--failed {
+      background: red;
+    }
+  }
+
+
+
+
+
+
+  @media (min-width: $brk--phone) {
+		&__top, &__mid {
+			padding: .1rem 8%;
+		}
+  }
+
+  @media (min-width: $brk--tablet) {
+		&__top, &__mid {
+			padding: 4rem 10%;
+		}
+  }
+}

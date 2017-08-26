@@ -44,6 +44,8 @@
 		display: block;
 		line-height: 1;
 		border-radius: .2em;
+		cursor: pointer;
+		position: relative;
 
 		&.off {
 			color: #555;
@@ -54,6 +56,19 @@
 			visibility: hidden;
 			width: 0;
 			margin: 0;
+		}
+
+		&:hover:after {
+			content: "";
+			display: block;
+			pointer-events: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: transparentize(black, 0.9);
+			border-radius: .2em;
 		}
 	}
 }

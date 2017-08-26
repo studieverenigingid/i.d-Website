@@ -27,14 +27,17 @@ global $header_class;
 			endif;
 		?>
 
+		<?php $theme_info = wp_get_theme(); ?>
+
 		<?php wp_enqueue_style('fontawesome',
 		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('main',
-			get_template_directory_uri() . '/static/css/main.css'); ?>
+			get_template_directory_uri() . '/static/css/main.css',
+			array(), $theme_info->version ); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
-			array('jquery'), '0.1', true );
+			array('jquery'), $theme_info->version, true );
 			wp_localize_script( 'scripts', 'wpjs_object',
 			array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		?>

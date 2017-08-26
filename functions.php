@@ -37,6 +37,7 @@
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
+	add_action( 'wp_ajax_user_update', 'user_update');
 	add_action( 'set_current_user', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
@@ -101,6 +102,11 @@
 	function social_feed_ajax_request() {
 	// do what you want with the variables passed through here
 		include 'inc/social-feed.php';
+		wp_die();
+	}
+
+	function user_update() {
+		include 'inc/user-update.php';
 		wp_die();
 	}
 

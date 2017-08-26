@@ -12,6 +12,9 @@ function onDocReady () {
 	hideUpdateFields();
 	resetFormLink();
 
+	// userinfoedit.js
+	userInfoEdit();
+
 	// social.js
 	socialFeed();
 

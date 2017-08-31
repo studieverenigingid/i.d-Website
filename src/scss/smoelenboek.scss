@@ -1,0 +1,46 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: SMOELENBOEK
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	smoelenboek.scss:
+	+ Smoelenboek Searchbar
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Smoelenboek Searchbar
+\*-------------------------------------*/
+.person-search {
+  background: $accent;
+  padding: 2rem;
+
+  &__searchbar {
+    font-family: $font--heavy;
+    background: $accent;
+    color: white;
+    border: none;
+    border-bottom: white dashed 2px;
+    outline: none;
+
+    &::placeholder {
+      color: white;
+    }
+
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    width: 85%;
+    max-width: 960px;
+    padding: .4rem;
+    margin: 0 auto;
+  }
+}

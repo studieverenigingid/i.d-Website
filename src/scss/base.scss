@@ -333,67 +333,6 @@ blockquote {
 	position: absolute;
 }
 
-.primary-menu {
-	font-family: $font--light;
-	position: absolute;
-	right: 0;
-	top: 0;
-	background: $background--gray;
-	color: white;
-	width: 100%;
-	transform: translateX(100%);
-	transition: transform 200ms $transition--cubic;
-	z-index: 10;
-	padding-top: 3rem;
-	max-height: 80vh;
-	overflow-y: auto;
-
-	.current-menu-item {
-		font-family: $font--heavy;
-	}
-
-	&__list {
-		margin: 0;
-		padding: 1rem 0;
-		list-style: none;
-	}
-
-	&__list, &__language-switch {
-		display: inline-block;
-	}
-
-	@media (max-width: $brk--phone + 1) {
-		&.opened {
-			transform: translateX(0px);
-		}
-	}
-
-	@media (min-width: $brk--phone) {
-		width: 100%;
-		padding-top: 0;
-		position: static;
-		transform: translateX(0px);
-		background: transparentize($background--gray, 0.4);
-
-		&__list {
-			padding: 0.4rem 0 0.4rem 0.6rem;
-		}
-
-		.menu-item {
-			display: inline-block;
-			font-size: .9em;
-
-			a {
-				padding: .4rem .8rem;
-			}
-		}
-
-		&--sticky {
-			position: fixed;
-		}
-	}
-}
-
 .menu-item { // This deviates from our naming style guide because of Wordpress
 	a {
 		text-decoration: none;
@@ -403,6 +342,100 @@ blockquote {
 
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+}
+
+.primary-menu {
+	width: 100%;
+	font-family: $font--light;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: $background--gray;
+	color: white;
+	transform: translateX(100%);
+	transition: transform 200ms $transition--cubic;
+	z-index: 10;
+	padding-top: 3rem;
+	max-height: 80vh;
+	overflow-y: auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	.current-menu-item {
+		font-family: $font--heavy;
+	}
+
+	.menu-item {
+		&--language-switch {
+			a {
+				text-transform: uppercase;
+				padding: 1rem 0;
+				display: inline-block;
+			}
+		}
+	}
+
+	&__list, &__language-switch {
+		margin: 0;
+		padding: 1rem 0;
+		list-style: none;
+	}
+
+	@media (max-width: $brk--phone + 1) {
+		&__list {
+			flex-basis: 100%;
+		}
+
+		&__language-switch {
+			display: flex;
+		}
+
+		&.opened {
+			transform: translateX(0px);
+		}
+	}
+
+	@media (min-width: $brk--phone) {
+		padding-top: 0;
+		position: static;
+		transform: translateX(0px);
+		background: transparentize($background--gray, 0.4);
+
+		&__list, &__language-switch {
+			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+		}
+
+		&__language-switch {
+			&__context {
+				display: none;
+			}
+
+			&:hover &__context {
+				display: inline-block;
+			}
+		}
+
+		.menu-item {
+			display: inline-block;
+			font-size: .9em;
+
+			a {
+				padding: .4rem .8rem;
+			}
+
+			&--language-switch {
+				a {
+					padding: .4rem 0;
+					display: inline-block;
+				}
+			}
+		}
+
+		&--sticky {
+			position: fixed;
 		}
 	}
 }

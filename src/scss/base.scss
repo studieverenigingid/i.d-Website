@@ -391,6 +391,10 @@ blockquote {
 
 		&__language-switch {
 			display: flex;
+
+			&__context {
+				padding: .8rem 0 .8rem 1.4rem;
+			}
 		}
 
 		&.opened {

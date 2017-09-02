@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Template Name: about page
+ */
+
+get_header(); ?>
 
 
 

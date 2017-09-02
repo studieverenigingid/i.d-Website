@@ -1,5 +1,6 @@
 <?php
   function custom_language_switcher(){
+    if(function_exists('icl_object_id')){
       $languages = icl_get_languages('skip_missing=0&orderby=code');
       if(!empty($languages)){
           echo '<ul class="primary-menu__language-switch">';
@@ -16,4 +17,5 @@
           }
           echo '</ul>';
       }
+    }
   }

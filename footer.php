@@ -12,7 +12,7 @@
 					</picture>
 				</a>
 				<p class="pri-footer__contact">
-					<strong class="pri-footer__name"><?php esc_attr_x('Study association i.d', 'Company Name', 'svid-theme-domain');?></strong><br>
+					<strong class="pri-footer__name"><?php echo esc_attr_x('Study association i.d', 'Company Name', 'svid-theme-domain');?></strong><br>
 					Landbergstraat 15<br>
 					2628 CE Delft<br>
 					Netherlands<br>

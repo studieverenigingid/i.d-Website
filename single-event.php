@@ -110,16 +110,12 @@
 
 		<?php else: ?>
 
-			</main>
+		</main>
 
-			<section class="event__files">
-				<h2 class="event__section-title">
-					<?php echo esc_attr_x('Files', 'title above file list'); ?>
-				</h2>
-
-				<?php
 		<section class="event__files">
-			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?></h2>
+			<h2 class="event__section-title">
+				<?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?>
+			</h2>
 			<?php
 				// loop through the files
 				while ( have_rows('file_list') ) :

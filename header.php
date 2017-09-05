@@ -63,10 +63,13 @@ global $header_class;
 				menu
 			</div>
 
-			<?php wp_nav_menu( array(
-				'theme_location' => 'primary-menu',
-				'container' => 'nav',
-				'container_class' => 'primary-menu',
-				'menu_class' => 'primary-menu__list' ) ); ?>
+			<nav class="primary-menu">
+				<?php wp_nav_menu( array(
+					'theme_location' => 'primary-menu',
+					'container' => false,
+					'menu_class' => 'primary-menu__list' ) ); ?>
+
+					<?php custom_language_switcher(); ?>
+			</nav>
 
 		</header>

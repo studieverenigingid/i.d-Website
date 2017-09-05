@@ -3,7 +3,7 @@
 <main>
 
 	<h1 class="archive__title">
-		<?php echo esc_attr_x('Our committees', 'archive title'); ?>
+		<?php echo esc_attr_x('Our committees', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
 	<div class="filters">

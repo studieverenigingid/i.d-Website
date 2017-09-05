@@ -28,45 +28,45 @@
 	<main class="user__top">
     <form action="#" class="user__info">
       <div class="user__info__column user__info__column--left">
-        <label for="first_name" class="user__info__label">First name</label>
+        <label for="first_name" class="user__info__label"><?php echo esc_attr_x('First name', 'User page first name label', 'svid-theme-domain');?></label>
         <div name="first_name" class="user__info__input user__info__input--name" readonly><?=$first_name?></div>
 
-        <label for="last_name" class="user__info__label">Last name</label>
+        <label for="last_name" class="user__info__label"><?php echo esc_attr_x('Last name', 'User page last name label', 'svid-theme-domain');?></label>
         <div name="last_name" class="user__info__input user__info__input--name" readonly><?=$last_name?></div>
 
-        <label for="student_number" class="user__info__label">Student number</label>
+        <label for="student_number" class="user__info__label"><?php echo esc_attr_x('Student number', 'User page student number label', 'svid-theme-domain');?></label>
         <div name="student_number" class="user__info__input" readonly><?=$student_number?></div>
       </div>
 
       <div class="user__info__column user__info__column--right">
-        <label for="email" class="user__info__label">E-mail address</label>
+        <label for="email" class="user__info__label"><?php echo esc_attr_x('E-Mail address', 'User page E-Mail label', 'svid-theme-domain');?></label>
         <div name="email_primary" class="user__info__input" readonly><?=$email_primary?></div>
 
-        <label for="birthdate" class="user__info__label">Birthdate</label>
+        <label for="birthdate" class="user__info__label"><?php echo esc_attr_x('Birthdate', 'User page birthdate label', 'svid-theme-domain');?></label>
         <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>
 
-        <label for="phone" class="user__info__label">Phone number</label>
+        <label for="phone" class="user__info__label"><?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?></label>
         <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="Phone number" value="<?=$phone?>" readonly>
 
-        <label for="address_street" class="user__info__label">Streetname</label>
+        <label for="address_street" class="user__info__label"><?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?></label>
         <input name="address_street" class="user__info__input user__info__input--editable" type="text" placeholder="Streetname" value="<?=$address_street?>" readonly>
 
-        <label for="address_number" class="user__info__label">Number</label>
+        <label for="address_number" class="user__info__label"><?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?></label>
         <input name="address_number" class="user__info__input user__info__input--editable" type="text" placeholder="Number" value="<?=$address_number?>" readonly>
 
-        <label for="zipcode" class="user__info__label">Zipcode</label>
+        <label for="zipcode" class="user__info__label"><?php echo esc_attr_x('Zipcode', 'User page zipcode label', 'svid-theme-domain');?></label>
         <input name="zipcode" class="user__info__input user__info__input--editable" type="text" placeholder="Zipcode" value="<?=$zipcode?>" readonly>
 
-        <label for="country" class="user__info__label">Country</label>
+        <label for="country" class="user__info__label"><?php echo esc_attr_x('Country', 'User page country label', 'svid-theme-domain');?></label>
         <input name="country" class="user__info__input user__info__input--editable" type="text" placeholder="Country" value="<?=$country?>" readonly>
       </div>
 
       <input type="hidden" name="action" value="user_update">
 
       <div class="user__info__column user__info__column--bottom">
-        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> Edit</button>
-        <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> Save</button>
-        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> Cancel</button>
+        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>
+        <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> <?php echo esc_attr_x('Save', 'User page save button label', 'svid-theme-domain');?></button>
+        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> <?php echo esc_attr_x('Cancel', 'User page cancel button label', 'svid-theme-domain');?></button>
       </div>
     </form>
 	</main>

@@ -17,23 +17,23 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
   </h1>
 	<div class="education-feedback">
     <div class="education-feedback__message education-feedback__message--success">
-      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message')?><br>
+      <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message', 'svid-theme-domain')?><br>
 			<a href="#reset" class="education-feedback__link js-reset-link">I have even more feedback.</a>
     </div>
 
 		<form action="#" class="education-feedback__wrap">
 
         <label for="feedback" class="education__label">
-          <?= esc_attr_x('What is it?', 'feedback-form-question')?>
+          <?= esc_attr_x('What is it?', 'feedback-form-question', 'svid-theme-domain')?>
         </label>
 				<textarea name="feedback" id="" cols="30" rows="12"
-          placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder') ?>"
+          placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
           class="education__input-message"
           required></textarea>
 
         <div class="education__updater">
           <p class="education__label education__label--right">
-            <?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form')?>
+            <?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form', 'svid-theme-domain')?>
           </p>
           <input type="checkbox" name="update" value="true"
             class="js-edu-checkbox education__toggle">
@@ -44,16 +44,16 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
         <div class="education__hideble-fields js-edu-hidable-fields">
 
           <label for="feedback" class="education__label">
-            <?= esc_attr_x('What is your name?', 'feedback-form-question')?>
+            <?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input name="name" type="text" class="education__input-short"
-            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder') ?>">
+            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
 
           <label for="feedback" class="education__label">
-            <?= esc_attr_x('And your email address?', 'feedback-form-question')?>
+            <?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input type="text" name="email" class="education__input-short"
-            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder') ?>">
+            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
 
         </div>
 
@@ -67,7 +67,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
           </div>
 
           <button type="submit" class="button education__submit">
-            <?= esc_attr_x('Send input', 'feedback-form-button')?>
+            <?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
           </button>
 
         </div>
@@ -81,7 +81,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 <?php
 if( have_rows('feedback_step') ) { ?>
   <section class="education-process">
-    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it')?></h2>
+    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
     <?php while( have_rows('feedback_step') ) {
       the_row();
       $img_url = get_sub_field('image')['sizes']['medium']; ?>
@@ -101,7 +101,7 @@ $args = array( 'post_type' => 'post', 'category_name' => 'education', 'posts_per
 $loop = new WP_Query( $args );
 if($loop->have_posts()) : ?>
   <section class="news education-news">
-    <h2><?= esc_attr_x('What have we done in the past?', 'education-what-we-did-with-it')?></h2>
+    <h2><?= esc_attr_x('What have we done in the past?', 'education-what-we-did-with-it', 'svid-theme-domain')?></h2>
     <?php while($loop->have_posts()) : $loop->the_post(); ?>
 
       <article class="news-item">
@@ -126,7 +126,7 @@ if($loop->have_posts()) : ?>
 
 
   <section class="education-about">
-    <h2><?= esc_attr_x('Who are we?', 'education-who-are-we')?></h2>
+    <h2><?= esc_attr_x('Who are we?', 'education-who-are-we', 'svid-theme-domain')?></h2>
     <img src="<?= get_field( "commity_photo" )['sizes']['large'] ?>" alt="<?= get_field( "commity_photo" )['url'] ?>">
     <div class="education-about__description">
       <?= get_field( "commity_description" ); ?>

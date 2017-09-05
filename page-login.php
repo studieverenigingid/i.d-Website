@@ -29,9 +29,11 @@
 			</div>
 
 			<div class="login__form--info">
-				<?php esc_attr_x(
-					'Don’t you have an account yet? Go to <a href="https://id.lassie.cloud/auth/create_user">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.',
-					'Create Lassie account message', 'svid-theme-domain');?>
+				<?php echo sprintf(
+				    __('Don’t you have an account yet? Go to <a href="%s" target="blank">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.', 'create account', 'svid-theme-domain' ),
+				    esc_url( 'https://id.lassie.cloud/auth/create_user' )
+				);
+				?>
 			</div>
 
 			<?php custom_login_form(); ?>

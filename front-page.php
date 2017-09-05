@@ -121,7 +121,7 @@ add_filter('posts_where', 'my_posts_where');
 	<section class="vacancies vacancies--frontpage">
 
 	<h2 class="vacancies__title vacancies__title--frontpage">
-	  <?php esc_attr_x('Looking for a job?', 'vacancy title', 'svid-theme-domain'); ?>
+	  <?php echo esc_attr_x('Looking for a job?', 'vacancy title', 'svid-theme-domain'); ?>
 	</h2>
 
 	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
@@ -133,7 +133,7 @@ add_filter('posts_where', 'my_posts_where');
 	<div class="vacancy vacancy--full-width">
 		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
 		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-		<?php esc_attr_x('All vacancies.', 'All vacancy link text', 'svid-theme-domain'); ?>
+		<?php echo esc_attr_x('All vacancies.', 'All vacancy link text', 'svid-theme-domain'); ?>
 	  </a>
 	</div>
 
@@ -199,7 +199,7 @@ wp_reset_postdata();
 <!-- BLOG -->
 <!-- **** -->
 <section class="news">
-  <h2 class="section__title news__section-title"><?php esc_attr_x('News and blog', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
+  <h2 class="section__title news__section-title"><?php echo esc_attr_x('News and blog', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
   <h3 class="news__archive-link">
     <a href="<?php echo get_post_type_archive_link('post'); ?>">
       <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage', 'svid-theme-domain'); ?> →

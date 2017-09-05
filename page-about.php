@@ -34,7 +34,7 @@ get_header(); ?>
 			$loop->the_post();?>
 
 		<p class="board__indication">
-			<?php echo esc_attr_x('The current board', 'shows above the board title'); ?>
+			<?php echo esc_attr_x('The current board', 'shows above the board title', 'svid-theme-domain'); ?>
 		</p>
 		<h2 class="about__sub-title">
 			<?php the_title(); ?>

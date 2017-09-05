@@ -2,12 +2,12 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
+	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title', 'svid-theme-domain'); ?></h1>
 
 	<div class="events">
 
 		<h2 class="events__archive-title" style="order: -100;">
-			<?php echo esc_attr_x( 'Upcoming events', 'archive' ); ?>
+			<?php echo esc_attr_x( 'Upcoming events', 'archive', 'svid-theme-domain'); ?>
 		</h2>
 
 		<?php
@@ -26,7 +26,7 @@
 					$first_past = false;
 			?>
 				<h2 class="events__archive-title">
-					<?php echo esc_attr_x( 'Past events', 'archive' ); ?>
+					<?php echo esc_attr_x( 'Past events', 'archive', 'svid-theme-domain'); ?>
 				</h2>
 			<?php endif; ?>
 

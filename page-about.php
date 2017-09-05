@@ -34,7 +34,7 @@ get_header(); ?>
 			$loop->the_post();?>
 
 		<p class="board__indication">
-			<?php echo esc_attr_x('The current board', 'shows above the board title', 'svid-theme-domain'); ?>
+			<?php echo esc_attr_x('The current board', 'Current board title', 'svid-theme-domain'); ?>
 		</p>
 		<h2 class="about__sub-title">
 			<?php the_title(); ?>
@@ -116,7 +116,7 @@ get_header(); ?>
 
 	<a class="button committees__all"
 		href="<?php echo get_post_type_archive_link( 'committee' ); ?>">
-		<?php echo esc_attr_x('View all committess', 'View all committees button text', 'svid-theme-domain'); ?>
+		<?php echo esc_attr_x('View all committees', 'View all committees button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>

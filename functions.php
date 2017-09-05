@@ -52,6 +52,7 @@
 		add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
 		add_theme_support( 'html5' ); // Make the search form input type="search"
 		add_theme_support( 'title-tag' ); // Fix the document title tag
+		load_theme_textdomain( 'svid-theme-domain', get_template_directory() . '/languages' );
 	}
 
 	/* Add thumbnail size */

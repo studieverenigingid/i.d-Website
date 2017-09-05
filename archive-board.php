@@ -2,7 +2,7 @@
 
 <main>
 
-	<h1 class="archive__title" style="background-color:<?php the_field("board_color", $fp[0]->ID); ?>;"><?php echo esc_attr_x('Our boards', 'archive title'); ?></h1>
+	<h1 class="archive__title" style="background-color:<?php the_field("board_color", $fp[0]->ID); ?>;"><?php echo esc_attr_x('Our boards', 'archive title', 'svid-theme-domain'); ?></h1>
 
 	<div class="committees__grid">
 

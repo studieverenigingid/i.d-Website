@@ -47,11 +47,11 @@ if ($upcoming_loop->have_posts()) :
 	      <div class="events events-one-row">
 		      <div class="event--small">
 		        <h2 class="events__series-title">
-              <?php echo esc_attr_x( 'Upcoming events', 'frontpage list title' ); ?>
+              <?php echo esc_attr_x( 'Upcoming events', 'frontpage list title', 'svid-theme-domain'); ?>
             </h2>
 		        <h3 class="events__series-link">
               <a href="<?php echo get_post_type_archive_link('event'); ?>">
-                <?php echo esc_attr_x( 'All events', 'frontpage list' ); ?>
+                <?php echo esc_attr_x( 'All events', 'frontpage list', 'svid-theme-domain'); ?>
               </a>
             </h3>
 		      </div>
@@ -121,7 +121,7 @@ add_filter('posts_where', 'my_posts_where');
 	<section class="vacancies vacancies--frontpage">
 
 	<h2 class="vacancies__title vacancies__title--frontpage">
-	  Looking for a job?
+	  <?php esc_attr_x('Looking for a job?', 'vacancy title', 'svid-theme-domain'); ?>
 	</h2>
 
 	<?php while($vacancy_loop->have_posts()) : $vacancy_loop->the_post(); ?>
@@ -133,7 +133,7 @@ add_filter('posts_where', 'my_posts_where');
 	<div class="vacancy vacancy--full-width">
 		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
 		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
-		All vacancies
+		<?php esc_attr_x('All vacancies.', 'All vacancy link text', 'svid-theme-domain'); ?>
 	  </a>
 	</div>
 
@@ -183,7 +183,7 @@ wp_reset_postdata();
     <a class="social__link social__link--more">
   		<div class="social__container social__container--more">
         <div class="social__more-button button button--white">
-          <?php echo esc_attr_x('More posts', 'frontpage social feed'); ?>
+          <?php echo esc_attr_x('More posts', 'frontpage social feed', 'svid-theme-domain'); ?>
         </div>
       </div>
     </a>
@@ -202,7 +202,7 @@ wp_reset_postdata();
   <h2 class="section__title news__section-title">News and blog</h2>
   <h3 class="news__archive-link">
     <a href="<?php echo get_post_type_archive_link('post'); ?>">
-      <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage'); ?> →
+      <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage', 'svid-theme-domain'); ?> →
     </a>
   </h3>
 	<?php

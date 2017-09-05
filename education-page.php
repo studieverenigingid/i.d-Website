@@ -11,14 +11,14 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 
 <main class="about__top education__header">
-	<p class="education__pre-title">Do you have something to say about</p>
+	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
 	<h1 class="education__title">
     <?php the_title(); ?><span class="education__title--light">?</span>
   </h1>
 	<div class="education-feedback">
     <div class="education-feedback__message education-feedback__message--success">
       <?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message', 'svid-theme-domain')?><br>
-			<a href="#reset" class="education-feedback__link js-reset-link">I have even more feedback.</a>
+			<a href="#reset" class="education-feedback__link js-reset-link"><?php echo esc_attr_x('I have even more feedback.', 'More feedback label text', 'svid-theme-domain');?></a>
     </div>
 
 		<form action="#" class="education-feedback__wrap">

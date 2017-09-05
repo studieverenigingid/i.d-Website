@@ -34,7 +34,7 @@ get_header(); ?>
 			$loop->the_post();?>
 
 		<p class="board__indication">
-			<?php echo esc_attr_x('The current board', 'shows above the board title'); ?>
+			<?php echo esc_attr_x('The current board', 'Current board title', 'svid-theme-domain'); ?>
 		</p>
 		<h2 class="about__sub-title">
 			<?php the_title(); ?>
@@ -59,7 +59,7 @@ get_header(); ?>
 
 	<a class="button committees__all"
 		href="<?php echo get_post_type_archive_link( 'board' ); ?>">
-		View previous boards
+		<?php echo esc_attr_x('View previous boards', 'View previous boards button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>
@@ -72,7 +72,7 @@ get_header(); ?>
 
 <section class="committees">
 
-	<h2 class="about__sub-title">Some of our committees</h2>
+	<h2 class="about__sub-title"><?php echo esc_attr_x('Some of our committees', 'Our committees title', 'svid-theme-domain'); ?></h2>
 
 	<div class="committees__grid">
 	<?php
@@ -116,7 +116,7 @@ get_header(); ?>
 
 	<a class="button committees__all"
 		href="<?php echo get_post_type_archive_link( 'committee' ); ?>">
-		View all committees
+		<?php echo esc_attr_x('View all committees', 'View all committees button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>
@@ -128,7 +128,7 @@ get_header(); ?>
 
 
 <section class="master-coms">
-	<h2 class="about__sub-title">Our master communities</h2>
+	<h2 class="about__sub-title"><?php echo esc_attr_x('Our master communities', 'Our master communities title', 'svid-theme-domain'); ?></h2>
 	<div class="master-coms__list">
 		<?php
 			$args = array(

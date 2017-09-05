@@ -25,6 +25,8 @@
 
 	include( 'inc/custom-menu-functions.php');
 
+	include( 'inc/custom-language-switcher.php' );
+
 	register_nav_menus( array(
 		'primary-menu' => 'Primary Menu',
 		'sitemap' => 'Footer Sitemap'
@@ -50,6 +52,7 @@
 		add_theme_support( 'post-thumbnails' ); // Allow posts to have thumbnails
 		add_theme_support( 'html5' ); // Make the search form input type="search"
 		add_theme_support( 'title-tag' ); // Fix the document title tag
+		load_theme_textdomain( 'svid-theme-domain', get_template_directory() . '/languages' );
 	}
 
 	/* Add thumbnail size */
@@ -86,7 +89,7 @@
 	// Replaces the excerpt "Read More" text by a link
 	function new_excerpt_more($more) {
 		global $post;
-		$more_text = esc_attr_x('Read on', 'Read more link at (news) excerpt');
+		$more_text = esc_attr_x('Read on', 'Read more link at (news) excerpt', 'svid-theme-domain');
 		$more_link = '... <a class="moretag" href="%s">%s</a>';
 		$more_link = sprintf($more_link, get_permalink($post->ID), $more_text);
 		return $more_link;

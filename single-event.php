@@ -90,6 +90,16 @@
 			if ( have_rows('file_list') ):
 			// Check if user is logged in; if not, tell them to log in
 			if ( !is_user_logged_in() ): ?>
+<<<<<<< HEAD
+=======
+				<section class="event__files event__files--unauth">
+					<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?></h2>
+					<h3><?php echo esc_attr_x('To see the files, you have to log in.', 'only show files when logged in on event page', 'svid-theme-domain'); ?></h3>
+					<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="button">
+						Login
+					</a>
+				</section>
+>>>>>>> feature/multi-language
 
 			</main>
 
@@ -103,6 +113,7 @@
 
 		<?php else: ?>
 
+<<<<<<< HEAD
 			</main>
 
 			<section class="event__files">
@@ -111,6 +122,11 @@
 				</h2>
 
 				<?php
+=======
+		<section class="event__files">
+			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?></h2>
+			<?php
+>>>>>>> feature/multi-language
 				// loop through the files
 				while ( have_rows('file_list') ) :
 					the_row();

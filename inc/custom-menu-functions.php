@@ -42,11 +42,7 @@ function logout_page() {
   }
 }
 
-function add_login_logout_register_menu( $items, $args ) {
-  if ( $args->theme_location != 'primary-menu' ) {
-    return $items;
-  }
-
+function custom_menu_items( $items, $args ) {
   if ( is_user_logged_in() ) {
     $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile' ) . '</a></li>';
     $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out' ) . '</a></li>';
@@ -55,5 +51,6 @@ function add_login_logout_register_menu( $items, $args ) {
   }
   return $items;
 }
-add_filter( 'wp_nav_menu_items', 'add_login_logout_register_menu', 199, 2 );
+add_filter( 'wp_nav_menu_items', 'custom_menu_items', 199, 2 );
+
 ?>

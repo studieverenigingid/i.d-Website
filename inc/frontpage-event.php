@@ -2,7 +2,7 @@
 	<a href="<?php the_permalink(); ?>" class="event--page__link">
 		<div class="event--page__short-info">
 
-			<span class="event--page__indication">Up next</span>
+			<span class="event--page__indication"><?php esc_attr_x('Up next', 'frontpage up next title', 'svid-theme-domain');?></span>
 			<h2 class="event--page__name"><?php the_title(); ?></h2>
 
 			<?php

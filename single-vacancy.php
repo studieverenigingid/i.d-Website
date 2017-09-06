@@ -20,7 +20,7 @@
 			$company = get_field('company');
 		?>
 		<p class="vacancy__intro  vacancy__intro--large">
-			<span class="vacancy__company"><?=$company?></span> is looking for a
+			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
 		<h1 class="vacancy__title  vacancy__title--large"><?php the_title(); ?></h1>
@@ -56,7 +56,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> Download this description
+						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -65,7 +65,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> Apply directly
+					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>
@@ -77,7 +77,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> Download this description
+						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -85,7 +85,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> Apply directly
+					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>

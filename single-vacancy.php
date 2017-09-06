@@ -28,16 +28,19 @@
 		<p class="vacancy__details  vacancy__details--large">
 			<?php
 				$location = get_field('location');
+				$categories = get_the_category();
+
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
 			    	<i class="fa fa-map-marker"></i> <?=$location?>
 					</span>
 			<?php	} ?>
 
-			&bull;
+			<?php if ( !empty($location) && !empty($categories) ): ?>
+				&bull;
+			<?php endif; ?>
 
 			<?php
-				$categories = get_the_category();
 				if ( !empty($categories) ) {
 					$category = esc_html( $categories[0]->name ); ?>
 					<span class="vacancy__tag  vacancy__type">

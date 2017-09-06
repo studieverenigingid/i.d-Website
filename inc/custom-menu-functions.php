@@ -43,6 +43,7 @@ function logout_page() {
 }
 
 function custom_menu_items( $items, $args ) {
+  if ( $args->theme_location === 'sitemap' ) return $items;
   if ( is_user_logged_in() ) {
     $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile' ) . '</a></li>';
     $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out' ) . '</a></li>';

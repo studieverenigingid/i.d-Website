@@ -15,7 +15,7 @@
 					<strong class="pri-footer__name"><?php echo esc_attr_x('Study association i.d', 'Company Name', 'svid-theme-domain');?></strong><br>
 					Landbergstraat 15<br>
 					2628 CE Delft<br>
-					Netherlands<br>
+					<?php echo esc_attr_x('Netherlands', 'Netherlands in footer', 'svid-theme-domain');?><br>
 					<a class="pri-footer__link"
 						href="tel:0031152783012">+31 (0) 15 278 3012</a><br>
 					<a class="pri-footer__link"

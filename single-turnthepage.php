@@ -40,15 +40,15 @@
 	<main class="primary-content news--page__content">
 		<?php the_content(); ?>
 
-    <h2>Read Online</h2>
+    <h2><?php echo esc_attr_x('Read Online', 'Read TTP online title', 'svid-theme-domain');?></h2>
     <?php
       if ( is_user_logged_in() ) {
         if( get_field('issuu_full_embed') ):
-					echo "<p>You're a member, you can read the full magazine!</p>";
+					echo "<p>".esc_attr_x('You\'re a member, you can read the full magazine!', 'Read full TTP text', 'svid-theme-domain')."</p>";
           the_field('issuu_full_embed');
         endif;
       } else {
-				echo "<p>Note: This is a preview.</p>";
+				echo "<p>".esc_attr_x('Note: this is a preview', 'Read preview TTP text', 'svid-theme-domain')."</p>";
         the_field('issuu_preview_embed');
       }
     ?>

@@ -65,12 +65,12 @@
 
 			$buttons['fb'] = [
 				'url' => get_field('facebook_url'),
-				'text' => 'Facebook event'
+				'text' => esc_attr_x('Facebook event', 'Facebook event link text', 'svid-theme-domain')
 			];
 
 			$buttons['tickets'] = [
 				'url' => get_field('ticket_url'),
-				'text' => 'Get your tickets'
+				'text' => esc_attr_x('Get your tickets', 'Ticket link text', 'svid-theme-domain')
 			];
 
 			foreach ($buttons as $key => $butt) {

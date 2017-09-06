@@ -46,19 +46,19 @@
         <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>
 
         <label for="phone" class="user__info__label"><?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?></label>
-        <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="Phone number" value="<?=$phone?>" readonly>
+        <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
 
         <label for="address_street" class="user__info__label"><?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?></label>
-        <input name="address_street" class="user__info__input user__info__input--editable" type="text" placeholder="Streetname" value="<?=$address_street?>" readonly>
+        <input name="address_street" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?>" value="<?=$address_street?>" readonly>
 
         <label for="address_number" class="user__info__label"><?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?></label>
-        <input name="address_number" class="user__info__input user__info__input--editable" type="text" placeholder="Number" value="<?=$address_number?>" readonly>
+        <input name="address_number" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?>" value="<?=$address_number?>" readonly>
 
         <label for="zipcode" class="user__info__label"><?php echo esc_attr_x('Zipcode', 'User page zipcode label', 'svid-theme-domain');?></label>
-        <input name="zipcode" class="user__info__input user__info__input--editable" type="text" placeholder="Zipcode" value="<?=$zipcode?>" readonly>
+        <input name="zipcode" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Zipcode', 'User page zipcode label', 'svid-theme-domain');?>" value="<?=$zipcode?>" readonly>
 
         <label for="country" class="user__info__label"><?php echo esc_attr_x('Country', 'User page country label', 'svid-theme-domain');?></label>
-        <input name="country" class="user__info__input user__info__input--editable" type="text" placeholder="Country" value="<?=$country?>" readonly>
+        <input name="country" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Country', 'User page country label', 'svid-theme-domain');?>" value="<?=$country?>" readonly>
       </div>
 
       <input type="hidden" name="action" value="user_update">

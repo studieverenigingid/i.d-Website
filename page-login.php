@@ -39,6 +39,16 @@
 			<?php custom_login_form(); ?>
 		</div>
 
+		<div class="login__alternative">
+			<hr class="divider divider--light login__divider">
+			<span class="login__divider-text">or</span>
+			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"
+				class="login__netid button button--white">
+				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
+				<span class="login__netid-name">NetID</span>
+			</a>
+		</div>
+
 	</main>
 
 <?php

@@ -22,6 +22,7 @@
 .login {
   background: $accent;
   margin-bottom: 0;
+  position: relative;
 
   &__title {
     color: white;
@@ -174,6 +175,69 @@
 
     &__message--success {
       color: white;
+    }
+  }
+
+  &__alternative {
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+
+    @media (min-width: $brk--desktop) {
+      position: absolute;
+      top: 10.6em;
+      left: 10%;
+      transform: translate(36rem, 0);
+      padding-left: 4rem;
+      margin: 0;
+    }
+  }
+
+  &__divider {
+    @media (min-width: $brk--desktop) {
+      border-width: 0 0 0 1px;
+      height: 16rem;
+      width: 0;
+      margin: 0;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+    }
+  }
+
+  &__divider-text {
+    text-align: center;
+    color: $background--light;
+    margin: -2.2em auto 1em;
+    display: block;
+    width: 2em;
+    background: $accent;
+
+    @media (min-width: $brk--phone) {
+      margin-top: -3.2em;
+    }
+
+    @media (min-width: $brk--tablet) {
+      margin-top: -3em;
+    }
+
+    @media (min-width: $brk--desktop) {
+      margin-top: 7.5rem;
+      margin-left: -4.1em;
+      position: absolute;
+      padding-bottom: .2em;
+    }
+  }
+
+  &__netid {
+    &:hover {
+      background: #00a6d6;
+      color: white;
+    }
+
+    &-name {
+      font-family: $font--heavy;
     }
   }
 }

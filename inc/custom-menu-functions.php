@@ -1,10 +1,23 @@
 <?php
-// Custom Login Functions
-function custom_login_page() {
+/**
+  * Login page url
+  * @return (bool|string) $login_page; false if page doesn’t exist, otherwise
+  * its url
+  */
+function login_page_url() {
   $login_page = home_url( '/login' ); // new login page
   $exists = get_page_by_path( '/login' );
+  if ($exists) return $login_page;
+  return false;
+}
+
+// Custom Login Functions
+function custom_login_page() {
+  $login_page = login_page_url();
   global $pagenow;
-  if( $pagenow == "wp-login.php" && $exists && $_SERVER['REQUEST_METHOD'] == 'GET' || $pagenow == get_home_url(null, 'user') ) {
+  if( $pagenow == "wp-login.php" && $login_page
+    && $_SERVER['REQUEST_METHOD'] == 'GET'
+    || $pagenow == get_home_url(null, 'user') ) {
     wp_redirect($login_page);
     exit;
   }
@@ -15,28 +28,25 @@ function custom_login_form() {
 }
 
 function login_failed() {
-  $login_page = home_url('/login');
-  $exists = get_page_by_path( '/login' );
-  if($exists) {
+  $login_page = login_page_url();
+  if($login_page) {
     wp_redirect($login_page . "?login=failed");
     exit;
   }
 }
 
 function verify_username_password($user, $username, $password ) {
-  $login_page = home_url('/login');
-  $exists = get_page_by_path( '/login' );
-  if($exists && empty($username) || $exists && empty($password)) {
-    wp_redirect( $login_page . "?login=empty");
-    exit;
+  $login_page = login_page_url();
+    if($login_page && empty($username) || $login_page && empty($password)) {
+      wp_redirect( $login_page . "?login=empty");
+      exit;
   }
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 function logout_page() {
-  $login_page = home_url('/login');
-  $exists = get_page_by_path( '/login' );
-  if($exists) {
+  $login_page = login_page_url();
+  if($login_page) {
     wp_redirect($login_page . "?login=false");
     exit;
   }

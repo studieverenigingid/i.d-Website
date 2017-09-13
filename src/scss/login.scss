@@ -86,6 +86,10 @@
     flex-grow: 0;
     margin-left: 1em;
 
+    @media (min-width: $brk--tablet) {
+      height: 1.9em;
+    }
+
 		&:after,
     &:before {
 			position: relative;

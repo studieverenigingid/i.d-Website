@@ -18,6 +18,7 @@ function custom_login_page() {
   if( $pagenow == "wp-login.php" && $login_page
     && $_SERVER['REQUEST_METHOD'] == 'GET'
     || $pagenow == get_home_url(null, 'user') ) {
+    if ( array_key_exists('use_sso', $_GET) && $_GET['use_sso'] == 'true' ) return;
     wp_redirect($login_page);
     exit;
   }
@@ -37,9 +38,11 @@ function login_failed() {
 
 function verify_username_password($user, $username, $password ) {
   $login_page = login_page_url();
+  if ( !array_key_exists('use_sso', $_GET) || $_GET['use_sso'] !== 'true' ) {
     if($login_page && empty($username) || $login_page && empty($password)) {
       wp_redirect( $login_page . "?login=empty");
       exit;
+    }
   }
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);

@@ -133,6 +133,33 @@
 	@ini_set( 'post_max_size', '64M');
 	@ini_set( 'max_execution_time', '300' );
 
+	/* Prevent some exploits and block username enum by
+	 * - disabling XML-RPC
+	 * - blocking unauthorized access to the JSON API
+	 * - removing author archives
+	 */
+	add_filter( 'xmlrpc_enabled', '__return_false' );
+	add_filter( 'rest_authentication_errors', function( $result ) {
+    if ( ! empty( $result ) ) {
+        return $result;
+    }
+    if ( ! is_user_logged_in() ) {
+        return new WP_Error( 'rest_not_logged_in', 'You are not currently logged in.', array( 'status' => 401 ) );
+    }
+    return $result;
+	});
+	function disable_author_archives() {
+		if (is_author()) {
+			global $wp_query;
+			$wp_query->set_404();
+			status_header(404);
+		} else {
+			redirect_canonical();
+		}
+	}
+	remove_filter('template_redirect', 'redirect_canonical');
+	add_action('template_redirect', 'disable_author_archives');
+
 
 
 ?>

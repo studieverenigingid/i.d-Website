@@ -3,9 +3,9 @@
 /**
  * Template Name: User Profile Page
  */
-  if (!is_user_logged_in()) {
-    header('Location: '. get_home_url(null, 'login'));
-  } else {
+if (!is_user_logged_in()) {
+  header('Location: '. get_home_url(null, 'login'));
+} else {
 	get_header();
 ?>
   <?php
@@ -75,11 +75,7 @@
     </form>
 	</main>
 
-  <div class="user__mid">
-
-  </div>
-
 <?php
 	get_footer();
-  }
+}
 ?>

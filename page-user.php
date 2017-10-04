@@ -37,15 +37,15 @@ if (!is_user_logged_in()) {
 
         <label for="student_number" class="user__info__label"><?php echo esc_attr_x('Student number', 'User page student number label', 'svid-theme-domain');?></label>
         <div name="student_number" class="user__info__input" readonly><?=$student_number?></div>
-      </div>
 
-      <div class="user__info__column user__info__column--right">
         <label for="email" class="user__info__label"><?php echo esc_attr_x('E-Mail address', 'User page E-Mail label', 'svid-theme-domain');?></label>
         <div name="email_primary" class="user__info__input" readonly><?=$email_primary?></div>
 
         <label for="birthdate" class="user__info__label"><?php echo esc_attr_x('Birthdate', 'User page birthdate label', 'svid-theme-domain');?></label>
         <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>
+      </div>
 
+      <div class="user__info__column user__info__column--right">
         <label for="phone" class="user__info__label"><?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?></label>
         <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
 
@@ -63,15 +63,15 @@ if (!is_user_logged_in()) {
 
         <label for="address_country" class="user__info__label"><?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?></label>
         <input name="address_country" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?>" value="<?=$address_country?>" readonly>
+
+        <div class="user__info__column--bottom">
+          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>
+          <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> <?php echo esc_attr_x('Save', 'User page save button label', 'svid-theme-domain');?></button>
+          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> <?php echo esc_attr_x('Cancel', 'User page cancel button label', 'svid-theme-domain');?></button>
+        </div>
       </div>
 
       <input type="hidden" name="action" value="user_update">
-
-      <div class="user__info__column user__info__column--bottom">
-        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>
-        <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> <?php echo esc_attr_x('Save', 'User page save button label', 'svid-theme-domain');?></button>
-        <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> <?php echo esc_attr_x('Cancel', 'User page cancel button label', 'svid-theme-domain');?></button>
-      </div>
     </form>
 	</main>
 

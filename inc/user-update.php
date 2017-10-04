@@ -21,10 +21,10 @@ $update = Lassie::updatePerson(array(
 // Check if the update was successful
 if ($update->status == true) {
   $response['success'] = true;
-  $response['message'] = 'User info updated!';
+  $response['message'] = esc_attr_x('You’ve updated your information!', 'Feedback message user page form', 'svid-theme-domain');
 } else {
   $response['success'] = false;
-  $response['message'] = 'Something went wrong. Error: '.$update->error;
+  $response['message'] = esc_attr_x('Something went wrong :( The error: ', 'Feedback message user page form', 'svid-theme-domain') . $update->error;
 }
 
 wp_send_json($response);

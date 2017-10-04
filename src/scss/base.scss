@@ -566,6 +566,40 @@ $ajax-load-size: 44px;
 
 
 /*-------------------------------------*\
+	Notifications
+\*-------------------------------------*/
+.notification {
+	padding: 1em;
+	margin: .5em 0;
+
+	&--success {
+		border: 2px solid white;
+		background: transparentize(black, 0.9);
+		color: white;
+	}
+
+	&--failed {
+		background: #ca1414;
+		color: $background--light;
+	}
+
+	&--info {
+		border: 2px solid white;
+		background: transparentize(black, 0.9);
+		color: white;
+
+		a {
+			color: white;
+			font-family: $font--heavy;
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Footer
 \*-------------------------------------*/
 .pri-footer {

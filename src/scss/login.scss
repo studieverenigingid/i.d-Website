@@ -144,38 +144,6 @@
   &__form {
     max-width: 32rem;
     position: relative;
-
-    &--success {
-      border: 2px solid white;
-      padding: 1em;
-      margin: .5em 0;
-      background: transparentize(black, 0.9);
-      color: white;
-    }
-
-    &--failed {
-      padding: 1em;
-      margin: .5em 0;
-      background: #ca1414;
-      color: $background--light;
-    }
-
-    &--info {
-      border: 2px solid white;
-      padding: 1em;
-      margin: .5em 0;
-      background: transparentize(black, 0.9);
-      color: white;
-
-      a {
-        color: white;
-        font-family: $font--heavy;
-      }
-    }
-
-    &__message--success {
-      color: white;
-    }
   }
 
   &__alternative {

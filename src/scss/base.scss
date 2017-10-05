@@ -492,9 +492,42 @@ blockquote {
 	background: $accent;
 	padding: 10%;
 	color: $background--light;
+	position: relative;
+
+	@media (min-width: $brk--tablet) {
+		padding: 10% 15%;
+	}
+
+	@media (min-width: $brk--desktop) {
+		padding: 10% 20%;
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		padding: 10% 30%;
+	}
+
+	&__image {
+		max-width: 50%;
+		height: auto;
+		width: 300px;
+		margin: 0 auto 2rem;
+		display: block;
+
+		@media (min-width: $brk--phone) {
+			float: right;
+			margin: 0 2rem;
+		}
+	}
 
 	&__title {
 		color: $background--light;
+		font-size: 1.6rem;
+		opacity: .75;
+	}
+
+	&__sub-title {
+		color: $background--light;
+		margin: .5em 0;
 	}
 }
 
@@ -619,6 +652,25 @@ $ajax-load-size: 44px;
 		color: $background--light;
 		margin: .8em 0 .6em;
 		font-size: 1.5em;
+	}
+
+	&__sub-heading {
+		color: $background--light;
+		margin: 1rem 0 .6em;
+		font-size: .9em;
+	}
+
+	&__paragraph {
+		&--small {
+			font-size: .8em;
+		}
+	}
+
+	&__divider {
+		border-width: 0 0 1px;
+		border-color: transparentize($background--light, 0.5);
+		width: 2rem;
+		margin: 1.8rem 0;
 	}
 }
 

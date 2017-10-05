@@ -51,9 +51,7 @@ if( have_rows('contact_page_block') ):
 				<h2 class="contact--page__blocktitle">
 					<?php the_sub_field('contact_block_title'); ?>
 				</h2>
-				<p>
-					<?php the_sub_field('contact_block_content'); ?>
-				</p>
+				<?php the_sub_field('contact_block_content'); ?>
 			</section>
 
     <?php endwhile;

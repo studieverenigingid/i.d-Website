@@ -24,7 +24,7 @@
 
 				<p class="pri-footer__paragraph pri-footer__paragraph--small">
 					<?php echo sprintf (
-						__('Do you want to become a member or end your membership? Please visit <a href="%s" class="pri-footer__link">our contact page</a> for more information.', 'footer membership description', 'svid-theme-domain'),
+						__('Do you want to become a member or end your membership? Please visit <a href="%s" class="pri-footer__link">our contact page</a> for more information.', 'svid-theme-domain'),
 						home_url( '/contact/' ) ); ?>
 				</p>
 			</div>

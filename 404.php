@@ -17,7 +17,7 @@
 		<?php echo esc_attr_x('we have no i.d where that page went', 'sub-title 404.php', 'svid-theme-domain'); ?>
 	</h2>
 	<p>
-		<?php echo esc_attr_x('It seems this page does not exist. Try the menu or the sitemap below.', 'svid-theme-domain'); ?>
+		<?php echo esc_attr_x('It seems this page does not exist. Try the menu or the sitemap below.', '404.php action suggestion', 'svid-theme-domain'); ?>
 	</p>
 </main>
 

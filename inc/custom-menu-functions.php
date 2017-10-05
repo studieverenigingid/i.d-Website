@@ -58,10 +58,10 @@ function logout_page() {
 function custom_menu_items( $items, $args ) {
   if ( $args->theme_location === 'sitemap' ) return $items;
   if ( is_user_logged_in() ) {
-    $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile' ) . '</a></li>';
-    $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out' ) . '</a></li>';
+    $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile', 'svid-theme-domain' ) . '</a></li>';
+    $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out', 'svid-theme-domain' ) . '</a></li>';
   } else {
-    $items .= '<li class="menu-item"><a href="' . wp_login_url() . '">' . __( 'Log In' ) . '</a></li>';
+    $items .= '<li class="menu-item"><a href="' . wp_login_url() . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
   }
   return $items;
 }

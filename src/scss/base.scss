@@ -492,9 +492,42 @@ blockquote {
 	background: $accent;
 	padding: 10%;
 	color: $background--light;
+	position: relative;
+
+	@media (min-width: $brk--tablet) {
+		padding: 10% 15%;
+	}
+
+	@media (min-width: $brk--desktop) {
+		padding: 10% 20%;
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		padding: 10% 30%;
+	}
+
+	&__image {
+		max-width: 50%;
+		height: auto;
+		width: 300px;
+		margin: 0 auto 2rem;
+		display: block;
+
+		@media (min-width: $brk--phone) {
+			float: right;
+			margin: 0 2rem;
+		}
+	}
 
 	&__title {
 		color: $background--light;
+		font-size: 1.6rem;
+		opacity: .75;
+	}
+
+	&__sub-title {
+		color: $background--light;
+		margin: .5em 0;
 	}
 }
 

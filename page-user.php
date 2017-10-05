@@ -9,19 +9,19 @@ if (!is_user_logged_in()) {
 	get_header();
 ?>
   <?php
-      $person = Lassie::getPerson();
-      $first_name = $person->first_name;
-      $last_name = $person->last_name;
-      $student_number = $person->external_id;
-      $email_primary = $person->email_primary;
-      $birthdate = date('F jS, Y',strtotime($person->birthdate));
-      $age = date_diff(date_create($person->birthdate), date_create('now'))->y;
-      $phone = $person->phone_mobile;
-      $address_street = $person->address_street;
-      $address_number = $person->address_number;
-      $address_zip = $person->address_zip;
-      $address_city = $person->address_city;
-      $address_country = $person->address_country;
+    $person = Lassie::getPerson();
+    $first_name = $person->first_name;
+    $last_name = $person->last_name;
+    $student_number = $person->external_id;
+    $email_primary = $person->email_primary;
+    $birthdate = date('F jS, Y',strtotime($person->birthdate));
+    $age = date_diff(date_create($person->birthdate), date_create('now'))->y;
+    $phone = $person->phone_mobile;
+    $address_street = $person->address_street;
+    $address_number = $person->address_number;
+    $address_zip = $person->address_zip;
+    $address_city = $person->address_city;
+    $address_country = $person->address_country;
   ?>
 
 

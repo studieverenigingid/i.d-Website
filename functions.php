@@ -34,7 +34,7 @@
 
 
 	add_action( 'after_setup_theme', 'custom_theme_setup' );
-	add_action( 'init', 'modify_jquery' );
+	add_action( 'wp_enqueue_scripts', 'modify_jquery' );
 	add_action( 'wp_ajax_nopriv_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );

@@ -264,60 +264,6 @@ blockquote {
 			height: auto;
 		}
 	}
-
-	&__menu-toggle {
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 3.1rem;
-		width: 3.1rem;
-		line-height: 3.1rem;
-		text-align: left;
-		color: white;
-		font-size: .9rem;
-		z-index: 11;
-		cursor: pointer;
-		transition: width 200ms ease-out;
-		overflow: hidden;
-
-		@media (min-width: $brk--phone) {
-			display: none;
-		}
-
-		&:before,
-		&:after {
-			display: block;
-			content: "";
-			width: 1.2rem;
-			height: 4px;
-			box-shadow: 0 9px 0 0 white;
-			background: white;
-			position: absolute;
-			right: -.9rem;
-			top: 14px;
-			transition: right 200ms ease-out,
-				color 200ms ease-out;
-		}
-
-		&:after {
-			top: 23px;
-			right: -.2rem;
-			width: .8rem;
-		}
-
-		&.opened {
-			width: 4.7rem;
-			color: transparent;
-
-			&:before {
-				right: .9rem;
-			}
-
-			&:after {
-				right: .5rem;
-			}
-		}
-	}
 }
 // Amen
 
@@ -331,6 +277,59 @@ blockquote {
 \*-------------------------------------*/
 #wpadminbar {
 	position: absolute;
+}
+
+.menu-toggle {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	height: 3.1rem;
+	width: 100%;
+	padding-left: 1rem;
+	line-height: 3.1rem;
+	text-align: left;
+	color: white;
+	font-size: .9rem;
+	z-index: 11;
+	cursor: pointer;
+	transition: width 200ms ease-out;
+	overflow: hidden;
+	background: transparentize($background--gray, 0.4);
+
+	@media (min-width: $brk--phone) {
+		display: none;
+	}
+
+	&:before,
+	&:after {
+		display: block;
+		content: "";
+		width: 1.2rem;
+		height: 4px;
+		box-shadow: 0 9px 0 0 white;
+		background: white;
+		position: absolute;
+		right: -.9rem;
+		top: 14px;
+		transition: right 200ms ease-out,
+			color 200ms ease-out;
+	}
+
+	&:after {
+		top: 23px;
+		right: -.2rem;
+		width: .8rem;
+	}
+
+	&.opened {
+		&:before {
+			right: .9rem;
+		}
+
+		&:after {
+			right: .5rem;
+		}
+	}
 }
 
 .menu-item { // This deviates from our naming style guide because of Wordpress
@@ -349,7 +348,7 @@ blockquote {
 .primary-menu {
 	width: 100%;
 	font-family: $font--light;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 	background: $background--gray;
@@ -358,7 +357,8 @@ blockquote {
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
 	padding-top: 3rem;
-	max-height: 80vh;
+	max-height: 100vh;
+	padding-bottom: 3.1rem;
 	overflow-y: auto;
 	display: flex;
 	flex-flow: row wrap;
@@ -378,7 +378,8 @@ blockquote {
 		}
 	}
 
-	&__list, &__language-switch {
+	&__list,
+	&__language-switch {
 		margin: 0;
 		padding: 1rem 0;
 		list-style: none;
@@ -387,6 +388,7 @@ blockquote {
 	@media (max-width: $brk--phone + 1) {
 		&__list {
 			flex-basis: 100%;
+			height: 100%;
 		}
 
 		&__language-switch {
@@ -403,7 +405,7 @@ blockquote {
 	}
 
 	@media (min-width: $brk--phone) {
-		padding-top: 0;
+		padding: 0;
 		position: static;
 		transform: translateX(0px);
 		background: transparentize($background--gray, 0.4);
@@ -464,12 +466,18 @@ blockquote {
 }
 
 .divider {
-	border: none;
-	border-top: 1px solid transparentize($background--dark, 0.7);
+	border-width: 0;
+	border-style: solid;
+	border-color:  transparentize($background--dark, 0.7);
+	border-top-width: 1px;
 	margin: 1.5rem 2rem;
 
 	@media (min-width: $brk--phone) {
 		margin: 1.5rem 2.5rem 2.5rem;
+	}
+
+	&--light {
+		border-color: transparentize($background--light, 0.3);
 	}
 }
 

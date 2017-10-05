@@ -3,7 +3,7 @@
 /**
  * Template Name: Login Page
  */
- 
+
 	get_header();
 ?>
   <main class="about__top login">
@@ -38,6 +38,24 @@
 
 			<?php custom_login_form(); ?>
 		</div>
+
+		<?php
+		/**
+		 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
+		 * the moment.)
+		 */
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
+		<div class="login__alternative">
+			<hr class="divider divider--light login__divider">
+			<span class="login__divider-text">or</span>
+			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"
+				class="login__netid button button--white">
+				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
+				<span class="login__netid-name">NetID</span>
+			</a>
+		</div>
+		<?php } ?>
 
 	</main>
 

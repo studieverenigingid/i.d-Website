@@ -59,10 +59,6 @@ global $header_class;
 				</picture>
 			</a>
 
-			<div class="js-menu-toggle bies__menu-toggle">
-				menu
-			</div>
-
 			<nav class="primary-menu">
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary-menu',
@@ -73,3 +69,7 @@ global $header_class;
 			</nav>
 
 		</header>
+
+		<div class="js-menu-toggle menu-toggle">
+			menu
+		</div>

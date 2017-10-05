@@ -653,6 +653,25 @@ $ajax-load-size: 44px;
 		margin: .8em 0 .6em;
 		font-size: 1.5em;
 	}
+
+	&__sub-heading {
+		color: $background--light;
+		margin: 1rem 0 .6em;
+		font-size: .9em;
+	}
+
+	&__paragraph {
+		&--small {
+			font-size: .8em;
+		}
+	}
+
+	&__divider {
+		border-width: 0 0 1px;
+		border-color: transparentize($background--light, 0.5);
+		width: 2rem;
+		margin: 1.8rem 0;
+	}
 }
 
 

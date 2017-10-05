@@ -109,14 +109,11 @@
 		color: white;
 		bottom: 0;
 		font-size: .8em;
-		width: 2.15em;
-		color: transparent;
+		max-width: 100%;
 
 		@media (min-width: $brk--phone) {
 			font-size: 1em;
 			padding: .8em;
-			width: auto;
-			max-width: 100%;
 			color: white;
 			overflow: hidden;
 		}

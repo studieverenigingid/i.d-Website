@@ -49,7 +49,11 @@ global $header_class;
 
 		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color(false);?>">
 
-			<a href="<?php echo get_site_url(); ?>">
+			<?php
+			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+			?>
+
+			<a href="<?php echo $wpml_home_url; ?>">
 				<picture>
 					<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
 					<img class="bies__image" alt="Study association i.d"

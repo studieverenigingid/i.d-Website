@@ -9,7 +9,6 @@
 	<div class="turnthepage">
 
 	<?php
-		$loop = new WP_Query( $args );
 		if(have_posts()) : while(have_posts()) :
 			the_post();
 			include 'inc/small-turnthepage.php';

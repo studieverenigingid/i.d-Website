@@ -5,7 +5,8 @@
 
 
 	<header class="event--page__header colorVibrant
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>">
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>"
+		style="background-color: <?php theme_color(false); ?>;">
 
 		<div class="event--page__short-info event--page__short-info--short-header colorVibrant">
 

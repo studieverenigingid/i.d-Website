@@ -102,6 +102,10 @@
 				!is_archive() &&
 				!is_home()) {
 			echo get_field('page_color');
+		} elseif (is_page_template('page-kafee.php')) {
+			echo "#6dadb6";
+		} elseif (is_page_template('education-page.php')) {
+			echo "#F18918";
 		} elseif ($default){
 			echo "#55ccbb";
 		}

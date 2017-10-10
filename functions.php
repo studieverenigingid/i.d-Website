@@ -74,7 +74,9 @@
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {
 		$page_color = get_field('page_color');
-		if (is_front_page()) {
+		if (date('W') === '44') {
+			echo '#ef686c';
+		} elseif (is_front_page()) {
 			$today = date('Ymd');
 			$upcoming_loop = new WP_Query( array(
 			  'post_type' => 'event',

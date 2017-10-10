@@ -11,7 +11,8 @@ get_header(); ?>
 	style="background-color: <?php theme_color(false); ?>;">
 
 	<div class="kafee--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>">
+		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>"
+		style="background-color: <?php theme_color(false); ?>;">
 
 		<h1 class="kafee--page__name"><?php the_title(); ?></h1>
 

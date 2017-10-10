@@ -9,7 +9,8 @@ get_header(); ?>
 
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-<main class="about__top">
+<main class="about__top"
+	style="background-color: <?php theme_color(false); ?>;">
 	<h1 class="about__title"><?php the_title(); ?></h1>
 	<p class="about__descr"><?php echo get_the_content(); ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>

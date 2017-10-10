@@ -100,11 +100,13 @@ function event_image_color($post_id) {
 
 	$colors = $get_colors->Get_Color(
 		$thumbnail_url, // image url
-		10, 1, 1, 30 // 6 colors, reduce brightness, reduce gradients, delta of 24
+		3, 1, 1, 150 // 3 colors, reduce brightness, reduce gradients, delta of 150
 	);
 
 	end($colors);
 	$new_color = '#' . key($colors);
+
+	if (mt_rand(0,44) === 44) $new_color = '#ef686c';
 
 	update_field('page_color', $new_color, $post_id);
 

@@ -47,19 +47,17 @@ function verify_username_password($user, $username, $password ) {
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
-function logout_page() {
-  $login_page = login_page_url();
-  if($login_page) {
-    wp_redirect($login_page . "?login=false");
-    exit;
-  }
-}
 
 function custom_menu_items( $items, $args ) {
   if ( $args->theme_location === 'sitemap' ) return $items;
   if ( is_user_logged_in() ) {
     $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile', 'svid-theme-domain' ) . '</a></li>';
-    $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out', 'svid-theme-domain' ) . '</a></li>';
+    if (login_page_url()) {
+      $logout_url = wp_logout_url( get_home_url(null, 'login/?login=false') );
+    } else {
+      $logout_url = wp_logout_url();
+    }
+    $items .= '<li class="menu-item"><a href="' . $logout_url . '">' . __( 'Log Out', 'svid-theme-domain' ) . '</a></li>';
   } else {
     $items .= '<li class="menu-item"><a href="' . login_page_url() . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
   }

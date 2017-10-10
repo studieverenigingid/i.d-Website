@@ -2,7 +2,10 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title', 'svid-theme-domain'); ?></h1>
+	<h1 class="archive__title"
+		style="background-color: <?php theme_color(false); ?>;">
+		<?php echo esc_attr_x( 'Events', 'archive title', 'svid-theme-domain'); ?>
+	</h1>
 
 	<div class="events">
 

@@ -3,14 +3,12 @@
 Template Name: Education Page
 */
 
-$header_class = 'education__header';
-
 get_header();
 wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main class="about__top education__header">
+<main class="about__top" style="background-color: <?php theme_color(false); ?>">
 	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
 	<h1 class="education__title">
     <?php the_title(); ?><span class="education__title--light">?</span>
@@ -28,6 +26,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
         </label>
 				<textarea name="feedback" id="" cols="30" rows="12"
           placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+          style="background-color: <?php theme_color(false); ?>"
           class="education__input-message"
           required></textarea>
 
@@ -47,13 +46,15 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
             <?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input name="name" type="text" class="education__input-short"
-            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
+            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						style="background-color: <?php theme_color(false); ?>">
 
           <label for="feedback" class="education__label">
             <?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input type="text" name="email" class="education__input-short"
-            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
+            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						style="background-color: <?php theme_color(false); ?>">
 
         </div>
 

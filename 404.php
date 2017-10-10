@@ -2,7 +2,8 @@
 	get_header();
 ?>
 
-<main class="not-found">
+<main class="not-found"
+	style="background-color: <?php theme_color(false); ?>;">
 	<picture>
 		<source srcset="<?=$img_folder?>404.svg" type="image/svg+xml">
 		<img class="not-found__image" alt="?"
@@ -24,3 +25,7 @@
 <?php
 	get_footer();
 ?>
+
+<script type="text/javascript">
+	notFound(jQuery);
+</script>

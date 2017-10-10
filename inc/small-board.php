@@ -3,7 +3,7 @@
 	<a class="committee__link"
 		href="<?php the_permalink(); ?>">
 		<div class="committee__thumb"
-			style="background-image: url(<?=the_post_thumbnail_url('thumb')?>);
+			style="background-image: url(<?=the_post_thumbnail_url('thumb--news')?>);
 				background-color: <?php the_field('board_color'); ?>;">
 		</div>
 		<h4 class="committee__name"><?php the_title(); ?></h4>

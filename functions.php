@@ -1,5 +1,7 @@
 <?php
 
+	include( 'inc/color-custom-fields.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 
@@ -8,7 +10,6 @@
 
 	include( 'inc/committee-post-type.php' );
 	include( 'inc/board-post-type.php' );
-	include( 'inc/board-custom-fields.php' );
 
 	include( 'inc/turnthepage-post-type.php' );
 	include( 'inc/turnthepage-custom-fields.php' );

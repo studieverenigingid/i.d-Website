@@ -88,21 +88,6 @@
   			'max' => '',
   			'step' => 1,
   		),
-  		array (
-  			'key' => 'field_5929e7f03b5f1',
-  			'label' => 'Issue Background Color',
-  			'name' => 'issue_background_color',
-  			'type' => 'color_picker',
-  			'instructions' => 'Set the background color for this issue',
-  			'required' => 1,
-  			'conditional_logic' => 0,
-  			'wrapper' => array (
-  				'width' => '',
-  				'class' => '',
-  				'id' => '',
-  			),
-  			'default_value' => '#ef686c',
-  		),
   	),
   	'location' => array (
   		array (

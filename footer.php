@@ -2,7 +2,10 @@
 		<footer class="pri-footer">
 
 			<div class="pri-footer__association pri-footer__col">
-				<a href="<?php echo get_site_url(); ?>">
+				<?php
+				$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+				?>
+				<a href="<?php echo $wpml_home_url; ?>">
 					<picture>
 						<source srcset="<?=$img_folder?>logo.svg" type="image/svg+xml">
 						<img class="pri-footer__logo" alt="Study association i.d"

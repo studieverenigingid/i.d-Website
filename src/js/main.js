@@ -56,6 +56,20 @@ function fixVHAfterLoad() {
 	$('.fix-me').height($('.fix-me').height());
 }
 
+function notFound($) {
+	setTimeout(function() {
+		$('.bies, .not-found').css('background-color', '#ef686c');
+		$('h1').html($('h1').text().replace('404', '4<span style="font-size: 0.44rem">0</span>4'));
+		setInterval(function() {
+			$('<div>44</div>').appendTo('.not-found')
+				.offset({
+					top: Math.floor(Math.random() * (444 * 2)),
+					left: Math.floor(Math.random() * (444 * 2))
+				});
+		}, 44 * 22);
+	}, 44 * 444);
+}
+
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is
 // nice) https://jsfiddle.net/brianblakely/h3EmY/
 (function templatePolyfill(d) {

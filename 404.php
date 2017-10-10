@@ -25,3 +25,7 @@
 <?php
 	get_footer();
 ?>
+
+<script type="text/javascript">
+	notFound(jQuery);
+</script>

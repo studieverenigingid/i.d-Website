@@ -42,7 +42,7 @@ get_header(); ?>
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="board__thumb">
-				<?php the_post_thumbnail('large',
+				<?php the_post_thumbnail('post-thumbnail',
 					array( 'class' => 'board__img')
 				); ?>
 			</div>

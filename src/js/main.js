@@ -58,13 +58,14 @@ function fixVHAfterLoad() {
 
 function notFound($) {
 	setTimeout(function() {
+		var container = $('.not-found');
 		$('.bies, .not-found').css('background-color', '#ef686c');
 		$('h1').html($('h1').text().replace('404', '4<span style="font-size: 0.44rem">0</span>4'));
 		setInterval(function() {
 			$('<div>44</div>').appendTo('.not-found')
 				.offset({
-					top: Math.floor(Math.random() * (444 * 2)),
-					left: Math.floor(Math.random() * (444 * 2))
+					top: Math.floor(Math.random() * container.height()),
+					left: Math.floor(Math.random() * container.width())
 				});
 		}, 44 * 22);
 	}, 44 * 444);

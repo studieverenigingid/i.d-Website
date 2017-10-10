@@ -8,7 +8,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main class="about__top" style="background-color: <?php echo theme_color(false); ?>">
+<main class="about__top" style="background-color: <?php theme_color(false); ?>">
 	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
 	<h1 class="education__title">
     <?php the_title(); ?><span class="education__title--light">?</span>

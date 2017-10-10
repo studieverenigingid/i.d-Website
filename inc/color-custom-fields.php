@@ -12,7 +12,7 @@ acf_add_local_field_group(array (
 			'name' => 'page_color',
 			'type' => 'color_picker',
 			'value' => NULL,
-			'instructions' => 'Pick the colour for the background of the header of the page.',
+			'instructions' => 'Pick the colour for the background of the header of the page. If this is an event and you don’t select one, it will be automagically deduced from the post thumbnail by the i.d-Website algorithm (SINGULARITY IS IMMINENT).',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array (

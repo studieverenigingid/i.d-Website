@@ -2,7 +2,8 @@
 
 <main>
 
-	<h1 class="archive__title">
+	<h1 class="archive__title"
+		style="background-color: <?php theme_color(false); ?>;">
 		<?php echo esc_attr_x('Our committees', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 

@@ -1,6 +1,5 @@
 <?php
 global $img_folder;
-global $header_class;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,7 +46,7 @@ global $header_class;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color(false);?>">
+		<header class="bies" style="background:<?php theme_color(false);?>">
 
 			<?php
 			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );

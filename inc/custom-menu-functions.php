@@ -61,7 +61,7 @@ function custom_menu_items( $items, $args ) {
     $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile', 'svid-theme-domain' ) . '</a></li>';
     $items .= '<li class="menu-item"><a href="' . wp_logout_url() . '">' . __( 'Log Out', 'svid-theme-domain' ) . '</a></li>';
   } else {
-    $items .= '<li class="menu-item"><a href="' . wp_login_url() . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
+    $items .= '<li class="menu-item"><a href="' . login_page_url() . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
   }
   return $items;
 }

@@ -74,7 +74,30 @@
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {
 		$page_color = get_field('page_color');
-		if ($page_color !== '#55ccbb' &&
+		if (is_front_page()) {
+			$today = date('Ymd');
+			$upcoming_loop = new WP_Query( array(
+			  'post_type' => 'event',
+			  'posts_per_page' => 1,
+			  'meta_query' => array(
+				array(
+				  'key'     => 'start_datetime',
+				  'compare' => '>=',
+				  'value'   => $today,
+				  'type'    => 'DATE'
+				),
+			  ),
+			  'orderby' => 'start_datetime',
+			  'order' => 'ASC',
+			) );
+			if ($upcoming_loop->have_posts()) :
+			  $upcoming_no = 0;
+			  while($upcoming_loop->have_posts()) :
+			    $upcoming_loop->the_post();
+					echo get_field('page_color');
+				endwhile;
+			endif;
+		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&
 				!is_archive() &&
 				!is_home()) {

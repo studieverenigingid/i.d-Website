@@ -1,8 +1,15 @@
+<?php
+	$fp = get_posts("post_type=board&numberposts=1");
+?>
+
 <?php get_header(); ?>
 
 <main>
 
-	<h1 class="archive__title" style="background-color:<?php the_field("page_color", $fp[0]->ID); ?>;"><?php echo esc_attr_x('Our boards', 'archive title', 'svid-theme-domain'); ?></h1>
+	<h1 class="archive__title"
+		style="background-color:<?php the_field("page_color", $fp[0]->ID); ?>;">
+		<?php echo esc_attr_x('Our boards', 'archive title', 'svid-theme-domain'); ?>
+	</h1>
 
 	<div class="committees__grid">
 

@@ -99,6 +99,12 @@
 					echo get_field('page_color');
 				endwhile;
 			endif;
+		} elseif (is_post_type_archive('turnthepage')) {
+			$fp = get_posts("post_type=turnthepage&numberposts=1");
+			echo get_field("page_color", $fp[0]->ID);
+		} elseif(is_post_type_archive('board')) {
+			$fp = get_posts("post_type=board&numberposts=1");
+			echo get_field("page_color", $fp[0]->ID);
 		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&
 				!is_archive() &&

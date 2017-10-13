@@ -6,7 +6,8 @@
 
 	get_header();
 ?>
-  <main class="about__top login">
+  <main class="about__top login"
+		style="background-color: <?php theme_color(false); ?>;">
 		<h1 class="login__title">
 	    <?php the_title(); ?>
 	  </h1>
@@ -30,7 +31,7 @@
 
 			<div class="notification notification--info">
 				<?php echo sprintf(
-				    __('Don’t you have an account yet? Go to <a href="%s" target="blank">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.', 'create account', 'svid-theme-domain' ),
+				    __('Don’t you have an account yet? Go to <a href="%s" target="blank">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.', 'svid-theme-domain' ),
 				    esc_url( 'https://id.lassie.cloud/auth/create_user' )
 				);
 				?>

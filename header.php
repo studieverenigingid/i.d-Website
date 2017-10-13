@@ -1,6 +1,5 @@
 <?php
 global $img_folder;
-global $header_class;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,9 +46,13 @@ global $header_class;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color(false);?>">
+		<header class="bies" style="background:<?php theme_color(false);?>">
 
-			<a href="<?php echo get_site_url(); ?>">
+			<?php
+			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+			?>
+
+			<a href="<?php echo $wpml_home_url; ?>">
 				<picture>
 					<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
 					<img class="bies__image" alt="Study association i.d"
@@ -58,10 +61,6 @@ global $header_class;
 						src="<?=$img_folder?>bies.png">
 				</picture>
 			</a>
-
-			<div class="js-menu-toggle bies__menu-toggle">
-				menu
-			</div>
 
 			<nav class="primary-menu">
 				<?php wp_nav_menu( array(
@@ -73,3 +72,7 @@ global $header_class;
 			</nav>
 
 		</header>
+
+		<div class="js-menu-toggle menu-toggle">
+			menu
+		</div>

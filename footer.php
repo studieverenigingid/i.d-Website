@@ -2,7 +2,10 @@
 		<footer class="pri-footer">
 
 			<div class="pri-footer__association pri-footer__col">
-				<a href="<?php echo get_site_url(); ?>">
+				<?php
+				$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+				?>
+				<a href="<?php echo $wpml_home_url; ?>">
 					<picture>
 						<source srcset="<?=$img_folder?>logo.svg" type="image/svg+xml">
 						<img class="pri-footer__logo" alt="Study association i.d"
@@ -11,7 +14,7 @@
 							src="<?=$img_folder?>logo.png">
 					</picture>
 				</a>
-				<p class="pri-footer__contact">
+				<p class="pri-footer__paragraph">
 					<strong class="pri-footer__name"><?php echo esc_attr_x('Study association i.d', 'Company Name', 'svid-theme-domain');?></strong><br>
 					Landbergstraat 15<br>
 					2628 CE Delft<br>
@@ -20,6 +23,12 @@
 						href="tel:0031152783012">+31 (0) 15 278 3012</a><br>
 					<a class="pri-footer__link"
 						href="mailto:svid@tudelft.nl">svid@tudelft.nl</a><br>
+				</p>
+
+				<p class="pri-footer__paragraph pri-footer__paragraph--small">
+					<?php echo sprintf (
+						__('Do you want to become a member or end your membership? Please visit <a href="%s" class="pri-footer__link">our contact page</a> for more information.', 'svid-theme-domain'),
+						home_url( '/contact/' ) ); ?>
 				</p>
 			</div>
 
@@ -33,7 +42,7 @@
 					'walker' => new Walker_Sitemap() ) ); ?>
 			</div>
 
-			<div class="pri-footer__contact pri-footer__col">
+			<div class="pri-footer__paragraph pri-footer__col">
 				<h2 class="pri-footer__heading">Social media</h2>
 				<div>
 					<a href="https://www.instagram.com/studieverenigingid/"
@@ -60,11 +69,13 @@
 			</div>
 
 		</footer>
-		<?php
-		if (current_user_can('administrator')) {?>
-			<a href="javascript:location.reload(true);"><div class="force-refresh-button"><i class="fa fa-refresh" aria-hidden="true"></i></div></a>
-		<?php }
-		?>
+		<?php if (current_user_can('administrator')) { ?>
+			<a href="javascript:location.reload(true);">
+				<div class="force-refresh-button">
+					<i class="fa fa-refresh" aria-hidden="true"></i>
+				</div>
+			</a>
+		<?php } ?>
 
 		<?php wp_footer(); ?>
 

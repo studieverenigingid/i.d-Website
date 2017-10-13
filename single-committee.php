@@ -6,7 +6,8 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header class="news-item__header">
+	<header class="news-item__header"
+		style="background-color: <?php theme_color(false); ?>;">
 
 		<h1 class="news-item__title--large"><?php the_title(); ?></h1>
 

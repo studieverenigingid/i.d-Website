@@ -1,5 +1,7 @@
 <?php
 
+	include( 'inc/color-custom-fields.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 
@@ -8,7 +10,6 @@
 
 	include( 'inc/committee-post-type.php' );
 	include( 'inc/board-post-type.php' );
-	include( 'inc/board-custom-fields.php' );
 
 	include( 'inc/turnthepage-post-type.php' );
 	include( 'inc/turnthepage-custom-fields.php' );
@@ -45,7 +46,6 @@
 	 add_action('init','custom_login_page');
 	}
 	add_action( 'wp_login_failed', 'login_failed' );
-	add_action( 'wp_logout', 'logout_page' );
 
 
 	function custom_theme_setup() {
@@ -72,11 +72,44 @@
 	}
 
 	// Echo page color (used in theme-color meta and header)
-	function theme_color($default){
-		if(is_post_type_archive('turnthepage') || is_singular('turnthepage')) {
-			echo the_field('issue_background_color');
-		} elseif (is_post_type_archive('board') || is_singular('board')) {
-			echo the_field('board_color');
+	function theme_color($default) {
+		$page_color = get_field('page_color');
+		if (date('W') === '44') {
+			echo '#ef686c';
+		} elseif (is_front_page()) {
+			$today = date('Ymd');
+			$upcoming_loop = new WP_Query( array(
+			  'post_type' => 'event',
+			  'posts_per_page' => 1,
+			  'meta_query' => array(
+				array(
+				  'key'     => 'start_datetime',
+				  'compare' => '>=',
+				  'value'   => $today,
+				  'type'    => 'DATE'
+				),
+			  ),
+			  'orderby' => 'start_datetime',
+			  'order' => 'ASC',
+			) );
+			if ($upcoming_loop->have_posts()) :
+			  $upcoming_no = 0;
+			  while($upcoming_loop->have_posts()) :
+			    $upcoming_loop->the_post();
+					echo get_field('page_color');
+				endwhile;
+			endif;
+		} elseif (is_post_type_archive('turnthepage')) {
+			$fp = get_posts("post_type=turnthepage&numberposts=1");
+			echo get_field("page_color", $fp[0]->ID);
+		} elseif(is_post_type_archive('board')) {
+			$fp = get_posts("post_type=board&numberposts=1");
+			echo get_field("page_color", $fp[0]->ID);
+		} elseif ($page_color !== '#55ccbb' &&
+				$page_color !== '' &&
+				!is_archive() &&
+				!is_home()) {
+			echo get_field('page_color');
 		} elseif (is_page_template('page-kafee.php')) {
 			echo "#6dadb6";
 		} elseif (is_page_template('education-page.php')) {

@@ -38,9 +38,6 @@ function userInfoEdit() {
 		$('.user__info__column--right').prepend('<h4 class="notification notification--failed">' + response['message'] + '</h4>');
 
 		$('.user__info').removeClass('user__info--working');
-
-		console.log(error);
-		console.log(error === 'net::ERR_INTERNET_DISCONNECTED');
 	}
 
 	$(document).on('submit' , 'form.user__info', function(e) {

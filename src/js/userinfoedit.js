@@ -20,6 +20,7 @@ function userInfoEdit() {
 	function formReadonly() {
 		$('.user__info__input--editable').attr('readonly', true);
 		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
+		$('.user__info').removeClass('user__info--working');
 	}
 
 	function formDone(response, status, error) {
@@ -35,6 +36,9 @@ function userInfoEdit() {
 
 	function formFail(response, status, error) {
 		$('.user__info__column--right').prepend('<h4 class="notification notification--failed">' + response['message'] + '</h4>');
+
+		$('.user__info').removeClass('user__info--working');
+
 		console.log(error);
 		console.log(error === 'net::ERR_INTERNET_DISCONNECTED');
 	}
@@ -44,6 +48,7 @@ function userInfoEdit() {
 		e.preventDefault();
 
 		$('.notification').remove();
+		$(this).addClass('user__info--working');
 
 		var formData = new FormData($(this)[0]);
 
@@ -57,5 +62,5 @@ function userInfoEdit() {
 		})
 		.done(formDone)
 		.fail(formFail);
-	})
+	});
 }

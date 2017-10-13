@@ -35,6 +35,10 @@
     display: flex;
     flex-flow: wrap row;
 
+    &--working {
+      opacity: 0.7;
+    }
+
     &__column {
       padding: 0 2rem;
       min-width: 15em;

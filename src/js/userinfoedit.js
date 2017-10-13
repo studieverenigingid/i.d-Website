@@ -1,63 +1,116 @@
+var notification = '<h4 class="notification"></h4>',
+	working;
+
 function userInfoEdit() {
 
-	$('.user__info__edit--edit').on('click', function () {
-		$('.user__info__input--editable').attr('readonly', false).each(function () {
-			var $this = $(this);
-			$this.attr('data-before', $this.val());
-		});
-		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
-	});
+	/*-------------------------------------*\
+		Visual form actions
+	\*-------------------------------------*/
 
-	$('.user__info__edit--cancel').on('click', function () {
+	// Switch between the edit button and the save + cancel buttons
+	function toggleFormButtons() {
+		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel')
+			.toggleClass('hidden');
+	}
+
+	// Make the form editable
+	function formEditable() {
+		toggleFormButtons();
+		$('.user__info__input--editable')
+			.attr('readonly', false)
+			.each(function () {
+				var $this = $(this);
+				$this.attr('data-before', $this.val());
+			});
+	}
+
+	// Cancel the form editing
+	function formCanceled() {
 		$('.user__info__input--editable').each(function () {
 			var $this = $(this);
 			$this.val($this.attr('data-before')).removeClass('invalid');
 		});
 
 		formReadonly();
-	});
-
-	function formReadonly() {
-		$('.user__info__input--editable').attr('readonly', true);
-		$('.user__info__edit--edit, .user__info__edit--save, .user__info__edit--cancel').toggleClass('hidden');
-		$('.user__info').removeClass('user__info--working');
 	}
 
+	// Make the form read only
+	function formReadonly() {
+		$('.user__info')
+			.removeClass('user__info--working')
+			.find('.user__info__input--editable')
+				.attr('readonly', true);
+		toggleFormButtons();
+	}
+
+	// Apply defined functions to events (a.k.a. make the buttons work)
+	$('.user__info__edit--edit').on('click', formEditable);
+	$('.user__info__edit--cancel').on('click', formCanceled);
+
+
+
+
+
+	/*-------------------------------------*\
+		Form communication with the back-end
+	\*-------------------------------------*/
+
 	function formDone(response, status, error) {
+		// Throw the response to the fail function if we got no success
 		if (!response['success']) {
 			formFail(response, status, error);
 			return;
 		}
-
-		formReadonly();
-
-		$('.user__info__column--right').prepend('<h4 class="notification notification--success">' + response['message'] + '</h4>');
+		// Otherwise revert the form to read only and tell it’s done
+		if (working === 'user__info') formReadonly();
+		$(notification)
+			.addClass('notification--success')
+			.text(response['message'])
+			.prependTo('.' + working);
 	}
 
 	function formFail(response, status, error) {
-		$('.user__info__column--right').prepend('<h4 class="notification notification--failed">' + response['message'] + '</h4>');
-
-		$('.user__info').removeClass('user__info--working');
+		// Tell the user something failed
+		if (response['message'] !== undefined) {
+			userError = response['message'];
+		} else if (response.readyState === 4) {
+			userError = 'There has been an error, please try again later or send this to someone at Study association i.d: ' + error;
+		} else if (response.readyState === 0) {
+			userError = 'There has been a network error, are you still connected to the internet?';
+		} else {
+			userError = 'There has been an error we don’t even understand :/';
+		}
+		$(notification)
+			.addClass('notification--failed')
+			.text(userError)
+			.prependTo('.' + working);
+		$('.' + working).removeClass('user__info--working');
 	}
 
-	$(document).on('submit' , 'form.user__info', function(e) {
+	function listenToForm(formClass) {
+		$(document).on('submit' , 'form.' + formClass, function(e) {
 
-		e.preventDefault();
+			e.preventDefault();
 
-		$('.notification').remove();
-		$(this).addClass('user__info--working');
+			$('.notification').remove();
+			$(this).addClass(formClass + '--working');
+			working = formClass;
 
-		var formData = new FormData($(this)[0]);
+			var formData = new FormData($(this)[0]);
 
-		$.ajax({
-			url: wpjs_object.ajaxurl,
-			type: 'POST',
-			dataType: 'JSON',
-			data: formData,
-			processData: false,
-			contentType: false
-		})
-		.done(formDone)
-		.fail(formFail);
-	});
+			$.ajax({
+				url: wpjs_object.ajaxurl,
+				type: 'POST',
+				dataType: 'JSON',
+				data: formData,
+				processData: false,
+				contentType: false
+			})
+			.done(formDone)
+			.fail(formFail);
+		});
+	}
+
+	listenToForm('user__info');
+
 }

@@ -72,8 +72,8 @@
     &__input {
       color: white;
       background: $accent;
-      border:none;
-      outline:none;
+      border: none;
+      outline: none;
       font-family: $font--light;
       font-size: 1em;
       margin: .25rem 0 1rem 0;
@@ -117,6 +117,11 @@
 
     &--failed {
       background: red;
+    }
+
+    .notification {
+      min-width: 70%;
+      margin: 0 2rem 1.5em;
     }
   }
 

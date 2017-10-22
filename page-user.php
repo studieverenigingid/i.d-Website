@@ -81,6 +81,37 @@ if (!is_user_logged_in()) {
     </form>
 	</main>
 
+  <section class="user__mid">
+    <h2 class="user__heading">
+      <?php echo esc_attr_e('Password change', 'svid-theme-domain'); ?>
+    </h2>
+
+    <form class="user__password" action="#" method="post">
+
+      <label for="current_password" class="user__info__label">
+        <?php echo esc_attr_e('Current password', 'svid-theme-domain');?>
+      </label>
+      <input name="current_password" type="password"
+        class="user__info__input user__info__input--editable user__info__input--on-light"
+        placeholder="password">
+
+      <label for="new_password" class="user__info__label">
+        <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
+      </label>
+      <input name="new_password" type="password"
+        class="user__info__input user__info__input--editable user__info__input--on-light"
+        placeholder="password">
+
+      <button href="#" type="submit"
+        class="button user__info__edit user__info__edit--change-password">
+        <i class="fa fa-lock"></i>
+        <?php echo esc_attr_e('Save new password', 'svid-theme-domain');?>
+      </button>
+
+      <input type="hidden" name="action" value="user_password">
+    </form>
+  </section>
+
 <?php
 	get_footer();
 }

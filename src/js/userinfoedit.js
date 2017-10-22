@@ -112,5 +112,6 @@ function userInfoEdit() {
 	}
 
 	listenToForm('user__info');
+	listenToForm('user__password');
 
 }

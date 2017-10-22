@@ -97,6 +97,12 @@
         }
       }
 
+      &--on-light:not([readonly]) {
+        color: $text;
+        background: $background--light;
+        border-bottom: dashed 1px #aaa !important;
+      }
+
       &::placeholder {
         color: rgba(0,0,0,0.6);
       }
@@ -122,6 +128,23 @@
     .notification {
       min-width: 70%;
       margin: 0 2rem 1.5em;
+    }
+  }
+
+
+
+  &__heading {
+    margin: .5em 2rem;
+    color: $accent;
+  }
+
+  &__password {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    max-width: 30rem;
+
+    &--working {
+      opacity: 0.7;
     }
   }
 

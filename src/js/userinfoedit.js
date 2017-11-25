@@ -61,12 +61,23 @@ function userInfoEdit() {
 			formFail(response, status, error);
 			return;
 		}
-		// Otherwise revert the form to read only and tell it’s done
-		if (working === 'user__info') formReadonly();
-		$(notification)
+
+		// Otherwise tell it’s done...
+		var noti = $(notification)
 			.addClass('notification--success')
 			.text(response['message'])
 			.prependTo('.' + working);
+
+		// ...and revert the form to read only or empty the password fields
+		if (working === 'user__info') {
+			formReadonly();
+		} else if (working === 'user__password') {
+			$('.' + working).children('input').each(function() {
+				$(this).val('');
+			});
+			// the password notification needs to be darker due to the light background
+			noti.addClass('notification--success--dark');
+		}
 	}
 
 	function formFail(response, status, error) {

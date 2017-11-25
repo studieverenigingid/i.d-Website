@@ -54,6 +54,10 @@
       }
     }
 
+    &__edit {
+      cursor: pointer;
+    }
+
     &__edit,
     &__save,
     &__cancel,

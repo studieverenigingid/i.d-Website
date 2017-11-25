@@ -138,6 +138,12 @@
     color: $accent;
   }
 
+  &__instructions {
+    margin: .5em 2rem 1.5rem;
+    max-width: 40rem;
+    color: #555;
+  }
+
   &__password {
     padding: 0 2rem;
     margin-bottom: 2rem;

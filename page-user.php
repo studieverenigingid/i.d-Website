@@ -86,6 +86,8 @@ if (!is_user_logged_in()) {
       <?php echo esc_attr_e('Password change', 'svid-theme-domain'); ?>
     </h2>
 
+    <p class="user__instructions">You can change your password here by entering your current password and a new one. Please note both should contain at least 8 characters.</p>
+
     <form class="user__password" action="#" method="post">
 
       <label for="current_password" class="user__info__label">
@@ -93,14 +95,14 @@ if (!is_user_logged_in()) {
       </label>
       <input name="current_password" type="password"
         class="user__info__input user__info__input--editable user__info__input--on-light"
-        placeholder="password">
+        placeholder="password" minlength="8">
 
       <label for="new_password" class="user__info__label">
         <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
       </label>
       <input name="new_password" type="password"
         class="user__info__input user__info__input--editable user__info__input--on-light"
-        placeholder="password">
+        placeholder="password" minlength="8">
 
       <button href="#" type="submit"
         class="button user__info__edit user__info__edit--change-password">

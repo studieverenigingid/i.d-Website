@@ -56,6 +56,8 @@ function userInfoEdit() {
 	\*-------------------------------------*/
 
 	function formDone(response, status, error) {
+		$('.' + working).removeClass(working + '--working');
+
 		// Throw the response to the fail function if we got no success
 		if (!response['success']) {
 			formFail(response, status, error);
@@ -95,7 +97,6 @@ function userInfoEdit() {
 			.addClass('notification--failed')
 			.text(userError)
 			.prependTo('.' + working);
-		$('.' + working).removeClass('user__info--working');
 	}
 
 	function listenToForm(formClass) {

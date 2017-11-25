@@ -11,6 +11,7 @@
       <?= esc_attr_x('Password', 'Password value on login page', 'svid-theme-domain')?>
     </label>
     <input type="password" name="pwd" class="login__input" placeholder="<?= esc_attr_x('password', 'feedback-form-placeholder', 'svid-theme-domain') ?>" id="login-pass">
+    <?php password_show_hide(); ?>
   </div>
 
   <div class="login__remember">

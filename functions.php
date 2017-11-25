@@ -201,4 +201,12 @@
 
 
 
+	/* Create function for the password show/hide button since it’s always the same */
+	function password_show_hide() {
+		$hide_text = esc_attr('Hide', 'svid-theme-domain');
+		$show_text = esc_attr('Show', 'svid-theme-domain');
+		echo "<div class='show-password show-password--show' data-other='$hide_text'>$show_text</div>";
+	}
+
+
 ?>

@@ -137,6 +137,22 @@
 
 
 
+  &__extra-edit {
+    opacity: .8;
+    margin-top: 2em;
+    position: relative;
+
+    &:before {
+      display: block;
+      content: "";
+      width: 2rem;
+      height: 1px;
+      background: $background--light;
+      position: absolute;
+      top: -1rem;
+    }
+  }
+
   &__heading {
     margin: .5em 2rem;
     color: $accent;

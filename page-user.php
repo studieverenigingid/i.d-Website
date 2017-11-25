@@ -49,6 +49,13 @@ if (!is_user_logged_in()) {
 
         <label for="birthdate" class="user__info__label"><?php echo esc_attr_x('Birthdate', 'User page birthdate label', 'svid-theme-domain');?></label>
         <div name="birthdate" class="user__info__input" readonly><?=$birthdate?> (<?=$age?> years old)</div>
+
+        <p class="user__extra-edit">
+          <?php echo sprintf(
+  				    __('Do you want to change any of the information above? Please <a href="%s">send our secretary an e-mail</a>.', 'svid-theme-domain' ),
+  				    esc_url( 'mailto:secretaris-svid@tudelft.nl' )
+  				); ?>
+        </p>
       </div>
 
       <div class="user__info__column user__info__column--right">

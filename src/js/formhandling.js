@@ -99,3 +99,23 @@ function rememberLoginToggle() {
 		checkbox.click();
 	});
 }
+
+function showHidePassword() {
+	$('.show-password').click(function() {
+		var toggle = $(this),
+			field = toggle.prev('input'),
+			current = toggle.text();
+			other = toggle.attr('data-other');
+
+		if (toggle.hasClass('show-password--show')) {
+			field.attr('type', 'text');
+		} else {
+			field.attr('type', 'password');
+		}
+
+		toggle.attr('data-other', current);
+		toggle.text(other);
+		toggle.toggleClass('show-password--show');
+		toggle.toggleClass('show-password--hide');
+	});
+}

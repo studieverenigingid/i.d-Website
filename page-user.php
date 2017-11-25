@@ -96,6 +96,10 @@ if (!is_user_logged_in()) {
       <input name="current_password" type="password"
         class="user__info__input user__info__input--editable user__info__input--on-light"
         placeholder="password" minlength="8">
+      <div class="show-password show-password--show"
+        data-other="<?php echo esc_attr_e('Hide', 'svid-theme-domain');?>">
+        <?php echo esc_attr_e('Show', 'svid-theme-domain');?>
+      </div>
 
       <label for="new_password" class="user__info__label">
         <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
@@ -103,6 +107,10 @@ if (!is_user_logged_in()) {
       <input name="new_password" type="password"
         class="user__info__input user__info__input--editable user__info__input--on-light"
         placeholder="password" minlength="8">
+      <div class="show-password show-password--show"
+        data-other="<?php echo esc_attr_e('Hide', 'svid-theme-domain');?>">
+        <?php echo esc_attr_e('Show', 'svid-theme-domain');?>
+      </div>
 
       <button href="#" type="submit"
         class="button user__info__edit user__info__edit--change-password">

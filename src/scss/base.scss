@@ -230,6 +230,17 @@ blockquote {
 	}
 }
 
+.show-password {
+	font-size: .75em;
+	float: right;
+	margin: -3em 0 0;
+	padding: .2em .3em;
+	background: transparentize(black, 0.9);
+	border-radius: .2em;
+	cursor: pointer;
+	position: relative;
+}
+
 
 
 

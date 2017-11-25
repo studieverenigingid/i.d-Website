@@ -57,6 +57,10 @@
 
     &__edit {
       cursor: pointer;
+
+      &--change-password {
+        margin-top: 1.5rem;
+      }
     }
 
     &__edit,
@@ -154,15 +158,21 @@
     }
   }
 
+
+
+  &__mid {
+    background: darken($accent, 18%);
+  }
+
   &__heading {
     margin: .5em 2rem;
-    color: $accent;
+    color: $background--light;
   }
 
   &__instructions {
     margin: .5em 2rem 1.5rem;
     max-width: 40rem;
-    color: #555;
+    color: $background--light;
   }
 
   &__password {

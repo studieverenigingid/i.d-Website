@@ -77,8 +77,6 @@ function userInfoEdit() {
 			$('.' + working).children('input').each(function() {
 				$(this).val('');
 			});
-			// the password notification needs to be darker due to the light background
-			noti.addClass('notification--success--dark');
 		}
 	}
 

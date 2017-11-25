@@ -612,6 +612,10 @@ $ajax-load-size: 44px;
 		border: 2px solid white;
 		background: transparentize(black, 0.9);
 		color: white;
+
+		&--dark {
+			background: transparentize(black, 0.3);
+		}
 	}
 
 	&--failed {

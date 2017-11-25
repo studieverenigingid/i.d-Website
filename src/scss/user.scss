@@ -20,7 +20,8 @@
 	User page top
 \*-------------------------------------*/
 .user {
-  &__top, &__mid {
+  &__top,
+  &__mid {
 		padding: .1rem 5%;
 		margin: 0;
 	}
@@ -180,13 +181,15 @@
 
 
   @media (min-width: $brk--phone) {
-		&__top, &__mid {
+		&__top,
+    &__mid {
 			padding: .1rem 8%;
 		}
   }
 
   @media (min-width: $brk--tablet) {
-		&__top, &__mid {
+		&__top,
+    &__mid {
 			padding: 4rem 10%;
 		}
   }

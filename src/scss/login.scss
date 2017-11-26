@@ -43,6 +43,11 @@
     }
   }
 
+  &__label-supplement {
+    opacity: .7;
+    font-family: $font--light;
+  }
+
   &__input {
     position: relative;
     width: 100%;
@@ -177,6 +182,7 @@
       transform: translate(36rem, 0);
       padding-left: 4rem;
       margin: 0;
+      right: 36rem + 4;
     }
   }
 
@@ -236,5 +242,10 @@
     &-name {
       font-family: $font--heavy;
     }
+  }
+
+  &__information {
+    text-align: left;
+    color: white;
   }
 }

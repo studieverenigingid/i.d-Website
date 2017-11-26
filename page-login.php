@@ -55,7 +55,7 @@
 		<div class="login__reg-text">
 			<?php echo sprintf(
 					__('Don’t you have an account yet? <a href="%s" class="login__reg-link">Register here!</a>', 'svid-theme-domain' ),
-					esc_url( 'https://id.lassie.cloud/auth/create_user' )
+					esc_url( home_url('create_account') )
 			);
 			?>
 		</div>

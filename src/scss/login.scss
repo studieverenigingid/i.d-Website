@@ -160,19 +160,6 @@
       color: $background--light;
     }
 
-    &--info {
-      border: 2px solid white;
-      padding: 1em;
-      margin: .5em 0;
-      background: transparentize(black, 0.9);
-      color: white;
-
-      a {
-        color: white;
-        font-family: $font--heavy;
-      }
-    }
-
     &__message--success {
       color: white;
     }
@@ -228,6 +215,16 @@
       position: absolute;
       padding-bottom: .2em;
     }
+  }
+
+  &__reg-text,
+  &__reg-link {
+    color: $background--light;
+  }
+
+  &__reg-text {
+    margin-top: 2.2rem;
+    text-align: center;
   }
 
   &__netid {

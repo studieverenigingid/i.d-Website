@@ -39,7 +39,7 @@
 		 */
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
-		<div class="login__alternative">
+		<div class="login__right-column">
 			<hr class="divider divider--light login__divider">
 			<span class="login__divider-text">or</span>
 			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"

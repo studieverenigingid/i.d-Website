@@ -4,7 +4,8 @@
  * Template Name: Account Creation Page
  */
 
-	get_header();
+get_header();
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
   <main class="about__top login login--create-account"
 		style="background-color: <?php theme_color(false); ?>;">
@@ -53,6 +54,15 @@
 					<input type="password" name="user_password" class="login__input"
 						id="account-pwd"
 						placeholder="<?=esc_attr_e('password', 'svid-theme-domain')?>">
+				</div>
+
+				<div class="form-group">
+					<label for="g-recaptcha" class="login__label">
+			      <?= esc_attr_x('Verification of humanness', 'Recaptcha label for account creation', 'svid-theme-domain')?>
+			    </label>
+					<div class="g-recaptcha"
+						data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
+					</div>
 				</div>
 
 				<p class="form-group">

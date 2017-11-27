@@ -77,6 +77,45 @@ if (!$success_status) {
 	send_failure($error_message, 422);
 }
 
+
+
+/**
+* Create the account.
+* @param $username string  The username (email)
+* @param $password string  The password (plaintext)
+* @return $result_arr array|bool
+*/
+function createAccount($username, $password) {
+	$result_arr = Lassie::getPersonAuthApi()->post('person_create_login', array(
+		'username' => $username,
+		'password' => $password
+	));
+
+	return $result_arr;
+}
+
+
+
+// Create the account
+$create = createAccount($_POST['user_email'], $_POST['user_password']);
+
+
+
+// Create failure if the Lassie method wasn’t successful
+if (!$create->status === true) {
+  $success_status = false;
+  $error_message = esc_attr_x('Something went wrong! The error: ', 'Feedback message password change form', 'svid-theme-domain') . $create->error;
+}
+
+
+
+// If some verification failed, send the failure...
+if (!$success_status) {
+	send_failure($error_message, 422);
+}
+
+
+
 // ...else, send the success through either JSON or a redirect
 if (wp_doing_ajax()) {
 

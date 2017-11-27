@@ -7,11 +7,11 @@
 				?>
 				<a href="<?php echo $wpml_home_url; ?>">
 					<picture>
-						<source srcset="<?=$img_folder?>logo.svg" type="image/svg+xml">
+						<source srcset="<?=$img_folder?>logo-<?=constant('ICL_LANGUAGE_CODE')?>.svg" type="image/svg+xml">
 						<img class="pri-footer__logo" alt="Study association i.d"
-							srcset="<?=$img_folder?>logo.png 1x,
-								<?=$img_folder?>logo@2x.png 2x"
-							src="<?=$img_folder?>logo.png">
+							srcset="<?=$img_folder?>logo-<?=constant('ICL_LANGUAGE_CODE')?>.png 1x,
+								<?=$img_folder?>logo-<?=constant('ICL_LANGUAGE_CODE')?>@2x.png 2x"
+							src="<?=$img_folder?>logo-<?=constant('ICL_LANGUAGE_CODE')?>.png">
 					</picture>
 				</a>
 				<p class="pri-footer__paragraph">

@@ -121,6 +121,42 @@
 		}
 	}
 
+
+
+	/**
+	 * Send a GET request to verify CAPTCHA challenge
+	 *
+	 * @return bool
+	 */
+	function captcha_verification() {
+
+		$response = isset( $_POST['g-recaptcha-response'] ) ? esc_attr( $_POST['g-recaptcha-response'] ) : '';
+
+		$remote_ip = $_SERVER["REMOTE_ADDR"];
+
+		$options = get_option('id_settings');
+		$secret = $options['id_recaptcha_secret_field'];
+
+		// make a GET request to the Google reCAPTCHA Server
+		$request = wp_remote_get(
+			'https://www.google.com/recaptcha/api/siteverify?' .
+			'response=' . $response .
+			'&remoteip=' . $remote_ip .
+			'&secret=' . $secret
+		);
+
+		// get the request response body
+		$response_body = wp_remote_retrieve_body( $request );
+
+		$result = json_decode( $response_body, true );
+
+		return $result['success'];
+	}
+
+
+
+
+
 	// Replaces the excerpt "Read More" text by a link
 	function new_excerpt_more($more) {
 		global $post;

@@ -102,7 +102,7 @@ $create = createAccount($_POST['user_email'], $_POST['user_password']);
 
 
 // Create failure if the Lassie method wasn’t successful
-if (!$create->status === true) {
+if (isset($create->error) || $create == false) {
   $success_status = false;
   $error_message = esc_attr_x('Something went wrong! The error: ', 'Feedback message password change form', 'svid-theme-domain') . $create->error;
 }

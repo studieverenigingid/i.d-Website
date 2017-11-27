@@ -10,6 +10,7 @@ function onDocReady () {
 	ajaxFeedbackForm();
 	hideUpdateFields();
 	resetFormLink();
+	createAccountForm();
 
 	// userinfoedit.js
 	userInfoEdit();

@@ -31,7 +31,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 			}
 			?>
 
-			<form class="login__wrap" action="<?=esc_url( admin_url('admin-post.php') ) ?>" method="post">
+			<form class="login__wrap" method="post" id="create_account_form"
+        action="<?=esc_url( admin_url('admin-post.php') ) ?>">
 
 				<div class="form-group">
 					<label for="account-email" class="login__label">
@@ -70,8 +71,10 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 					<input type="hidden" name="action" value="user_create_account">
 					<?php wp_nonce_field( $action = 'user_create_account' ); ?>
 
-			    <input type="submit" name="wp-submit" id="wp_submit"
-						class="button button--white" value="Create account">
+			    <button type="submit" name="wp-submit" id="wp_submit"
+						class="button button--white">
+            <?= esc_attr_x('Create account', 'Button value create account form', 'svid-theme-domain')?>
+          </button>
 			  </p>
 
 			</form>

@@ -25,7 +25,7 @@ function send_failure($error_message, $status_code) {
 	if (wp_doing_ajax()) {
 
 		$response = array(
-			'error' => $error_message,
+			'message' => $error_message,
 		);
 		wp_send_json_error($response, $status_code);
 
@@ -109,7 +109,7 @@ if (!$create->status === true) {
 
 
 
-// If some verification failed, send the failure...
+// If the creation failed, send the failure
 if (!$success_status) {
 	send_failure($error_message, 422);
 }

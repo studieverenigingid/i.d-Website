@@ -183,7 +183,6 @@
 
   &__right-column {
     margin-top: 1em;
-    text-align: center;
     margin-bottom: 1em;
 
     @media (min-width: $brk--desktop) {
@@ -240,8 +239,7 @@
   }
 
   &__reg-text {
-    margin-top: 2.2rem;
-    text-align: center;
+    margin-bottom: 2.2rem;
   }
 
   &__netid {

@@ -100,7 +100,7 @@ if (!is_user_logged_in()) {
       <label for="current_password" class="login__label">
         <?php echo esc_attr_e('Current password', 'svid-theme-domain');?>
       </label>
-      <input name="current_password" type="password"
+      <input name="current_password" id="current_password" type="password"
         class="login__input"
         placeholder="password" minlength="8">
       <?php password_show_hide(); ?>
@@ -108,7 +108,7 @@ if (!is_user_logged_in()) {
       <label for="new_password" class="login__label">
         <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
       </label>
-      <input name="new_password" type="password"
+      <input name="new_password" id="new_password" type="password"
         class="login__input"
         placeholder="password" minlength="8">
       <?php password_show_hide(); ?>

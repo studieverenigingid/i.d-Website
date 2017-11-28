@@ -14,6 +14,12 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	    <?php the_title(); ?>
 	  </h1>
 
+    <?php if (is_user_logged_in()): ?>
+		<h4 class="notification notification--failed">
+			<?php echo esc_attr_e('It appears you are already logged in. Use the menu to see a whole new world! ✨', 'svid-theme-domain'); ?>
+		</h4></main>
+		<?php else: ?>
+
 		<div class="login__form">
 
 			<?php
@@ -96,5 +102,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	</main>
 
 <?php
+  endif;
 	get_footer();
 ?>

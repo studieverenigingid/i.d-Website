@@ -19,17 +19,17 @@
 					$login = $_GET['login'];
 
 					if ( $login === "failed" ) {
-					  echo '<h4 class="login__form--failed">'.esc_attr_x('Invalid username and/or password.', 'Invalid username and/or password error', 'svid-theme-domain').'</h4>';
+					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Invalid username and/or password.', 'Invalid username and/or password error', 'svid-theme-domain').'</h4>';
 					} elseif ( $login === "empty" ) {
-					  echo '<h4 class="login__form--failed">'.esc_attr_x('Username and/or password is empty.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
+					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Username and/or password is empty.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
 					} elseif ( $login === "false" ) {
-					  echo '<h4 class="login__form--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</h4>';
+					  echo '<h4 class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</h4>';
 					}
 				}
 			?>
 			</div>
 
-			<div class="login__form--info">
+			<div class="notification notification--info">
 				<?php echo sprintf(
 				    __('Don’t you have an account yet? Go to <a href="%s" target="blank">Lassie</a> (our new member administration) and create an account using your email address which is known to us. You can return here after that to login.', 'svid-theme-domain' ),
 				    esc_url( 'https://id.lassie.cloud/auth/create_user' )

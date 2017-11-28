@@ -41,6 +41,7 @@
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
 	add_action( 'wp_ajax_user_update', 'user_update');
+	add_action( 'wp_ajax_user_password', 'user_password');
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
@@ -146,6 +147,11 @@
 		wp_die();
 	}
 
+	function user_password() {
+		include 'inc/user-password.php';
+		wp_die();
+	}
+
 	function education_input() {
 		include 'inc/send-education.php';
 		wp_die();
@@ -193,6 +199,14 @@
 	remove_filter('template_redirect', 'redirect_canonical');
 	add_action('template_redirect', 'disable_author_archives');
 
+
+
+	/* Create function for the password show/hide button since it’s always the same */
+	function password_show_hide() {
+		$hide_text = esc_attr('Hide', 'svid-theme-domain');
+		$show_text = esc_attr('Show', 'svid-theme-domain');
+		echo "<div class='show-password show-password--show' data-other='$hide_text'>$show_text</div>";
+	}
 
 
 ?>

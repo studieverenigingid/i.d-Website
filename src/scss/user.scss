@@ -20,7 +20,8 @@
 	User page top
 \*-------------------------------------*/
 .user {
-  &__top, &__mid {
+  &__top,
+  &__mid {
 		padding: .1rem 5%;
 		margin: 0;
 	}
@@ -35,6 +36,10 @@
     display: flex;
     flex-flow: wrap row;
 
+    &--working {
+      opacity: 0.7;
+    }
+
     &__column {
       padding: 0 2rem;
       min-width: 15em;
@@ -47,6 +52,14 @@
 
       &--bottom {
         flex-basis: 100%;
+      }
+    }
+
+    &__edit {
+      cursor: pointer;
+
+      &--change-password {
+        margin-top: 1.5rem;
       }
     }
 
@@ -68,8 +81,8 @@
     &__input {
       color: white;
       background: $accent;
-      border:none;
-      outline:none;
+      border: none;
+      outline: none;
       font-family: $font--light;
       font-size: 1em;
       margin: .25rem 0 1rem 0;
@@ -93,8 +106,14 @@
         }
       }
 
+      &--on-light:not([readonly]) {
+        color: $text;
+        background: $background--light;
+        border-bottom: dashed 1px #aaa !important;
+      }
+
       &::placeholder {
-        color: rgba(0,0,0,0.6);
+        color: rgba(0,0,0,0.3);
       }
     }
 
@@ -114,6 +133,56 @@
     &--failed {
       background: red;
     }
+
+    .notification {
+      min-width: 70%;
+      margin: 0 2rem 1.5em;
+    }
+  }
+
+
+
+  &__extra-edit {
+    opacity: .8;
+    margin-top: 2em;
+    position: relative;
+
+    &:before {
+      display: block;
+      content: "";
+      width: 2rem;
+      height: 1px;
+      background: $background--light;
+      position: absolute;
+      top: -1rem;
+    }
+  }
+
+
+
+  &__mid {
+    background: darken($accent, 18%);
+  }
+
+  &__heading {
+    margin: .5em 2rem;
+    color: $background--light;
+  }
+
+  &__instructions {
+    margin: .5em 2rem 1.5rem;
+    max-width: 40rem;
+    color: $background--light;
+  }
+
+  &__password {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    max-width: 30rem;
+
+    &--working {
+      opacity: 0.7;
+    }
   }
 
 
@@ -122,13 +191,15 @@
 
 
   @media (min-width: $brk--phone) {
-		&__top, &__mid {
+		&__top,
+    &__mid {
 			padding: .1rem 8%;
 		}
   }
 
   @media (min-width: $brk--tablet) {
-		&__top, &__mid {
+		&__top,
+    &__mid {
 			padding: 4rem 10%;
 		}
   }

@@ -60,7 +60,7 @@ if (!is_user_logged_in()) {
 
       <div class="user__info__column user__info__column--right">
         <label for="phone" class="user__info__label"><?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?></label>
-        <input name="phone" class="user__info__input user__info__input--editable" id="phone" type="phone_mobile" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
+        <input name="phone" class="user__info__input user__info__input--editable" id="phone" type="tel" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
 
         <label for="address_street" class="user__info__label"><?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?></label>
         <input name="address_street" class="user__info__input user__info__input--editable" id="address_street" type="text" placeholder="<?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?>" value="<?=$address_street?>" readonly>

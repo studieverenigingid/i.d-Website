@@ -52,7 +52,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
           <label for="feedback" class="education__label">
             <?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
-  				<input type="text" name="email" class="education__input-short"
+  				<input type="email" name="email" class="education__input-short"
             placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 						style="background-color: <?php theme_color(false); ?>">
 

@@ -60,22 +60,22 @@ if (!is_user_logged_in()) {
 
       <div class="user__info__column user__info__column--right">
         <label for="phone" class="user__info__label"><?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?></label>
-        <input name="phone" class="user__info__input user__info__input--editable" type="phone_mobile" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
+        <input name="phone" class="user__info__input user__info__input--editable" id="phone" type="phone_mobile" placeholder="<?php echo esc_attr_x('Phone number', 'User page phone number label', 'svid-theme-domain');?>" value="<?=$phone?>" readonly>
 
         <label for="address_street" class="user__info__label"><?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?></label>
-        <input name="address_street" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?>" value="<?=$address_street?>" readonly>
+        <input name="address_street" class="user__info__input user__info__input--editable" id="address_street" type="text" placeholder="<?php echo esc_attr_x('Streetname', 'User page streetname label', 'svid-theme-domain');?>" value="<?=$address_street?>" readonly>
 
         <label for="address_number" class="user__info__label"><?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?></label>
-        <input name="address_number" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?>" value="<?=$address_number?>" readonly>
+        <input name="address_number" class="user__info__input user__info__input--editable" id="address_number" type="text" placeholder="<?php echo esc_attr_x('House number', 'User page house number label', 'svid-theme-domain');?>" value="<?=$address_number?>" readonly>
 
         <label for="address_zip" class="user__info__label"><?php echo esc_attr_x('Zipcode', 'User page address_zip label', 'svid-theme-domain');?></label>
-        <input name="address_zip" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Zipcode', 'User page address_zip label', 'svid-theme-domain');?>" value="<?=$address_zip?>" readonly>
+        <input name="address_zip" class="user__info__input user__info__input--editable" id="address_zip" type="text" placeholder="<?php echo esc_attr_x('Zipcode', 'User page address_zip label', 'svid-theme-domain');?>" value="<?=$address_zip?>" readonly>
 
         <label for="address_city" class="user__info__label"><?php echo esc_attr_x('City', 'User page address_city label', 'svid-theme-domain');?></label>
-        <input name="address_city" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('City', 'User page address_city label', 'svid-theme-domain');?>" value="<?=$address_city?>" readonly>
+        <input name="address_city" class="user__info__input user__info__input--editable" id="address_city" type="text" placeholder="<?php echo esc_attr_x('City', 'User page address_city label', 'svid-theme-domain');?>" value="<?=$address_city?>" readonly>
 
         <label for="address_country" class="user__info__label"><?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?></label>
-        <input name="address_country" class="user__info__input user__info__input--editable" type="text" placeholder="<?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?>" value="<?=$address_country?>" readonly>
+        <input name="address_country" class="user__info__input user__info__input--editable" id="address_country" type="text" placeholder="<?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?>" value="<?=$address_country?>" readonly>
 
         <div class="user__info__column--bottom">
           <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>

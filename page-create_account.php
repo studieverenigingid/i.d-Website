@@ -55,6 +55,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 					<input type="password" name="user_password" class="login__input"
 						id="account-pwd"
 						placeholder="<?=esc_attr_e('password', 'svid-theme-domain')?>">
+          <?php password_show_hide(); ?>
 				</div>
 
 				<div class="form-group">

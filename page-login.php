@@ -37,7 +37,7 @@
 			<span class="login__divider-text">or</span>
 			<div class="login__reg-text">
 				<?php echo sprintf(
-						__('Don’t you have an account yet? <a href="%s" class="login__reg-link">Register here!</a>', 'svid-theme-domain' ),
+						__('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
 						esc_url( home_url('create_account') )
 				);
 				?>

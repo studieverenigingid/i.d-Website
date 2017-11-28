@@ -11,6 +11,7 @@ function onDocReady () {
 	hideUpdateFields();
 	resetFormLink();
 	showHidePassword();
+	createAccountForm();
 
 	// userinfoedit.js
 	userInfoEdit();

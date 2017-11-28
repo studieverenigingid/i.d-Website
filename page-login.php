@@ -40,23 +40,31 @@
 			<?php custom_login_form(); ?>
 		</div>
 
-		<?php
-		/**
-		 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
-		 * the moment.)
-		 */
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-		if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
-		<div class="login__alternative">
+		<div class="login__right-column">
 			<hr class="divider divider--light login__divider">
 			<span class="login__divider-text">or</span>
+			<div class="login__reg-text">
+				<?php echo sprintf(
+						__('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
+						esc_url( home_url('create_account') )
+				);
+				?>
+			</div>
+			<?php
+			/**
+			 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
+			 * the moment.)
+			 */
+			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
 			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"
 				class="login__netid button button--white">
 				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
 				<span class="login__netid-name">NetID</span>
 			</a>
-		</div>
 		<?php } ?>
+		</div>
+
 
 	</main>
 

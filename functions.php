@@ -42,6 +42,8 @@
 	add_action( 'wp_ajax_education_input', 'education_input' );
 	add_action( 'wp_ajax_user_update', 'user_update');
 	add_action( 'wp_ajax_user_password', 'user_password');
+	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
+	add_action( 'wp_ajax_nopriv_user_create_account', 'user_create_account' );
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
@@ -120,6 +122,42 @@
 		}
 	}
 
+
+
+	/**
+	 * Send a GET request to verify CAPTCHA challenge
+	 *
+	 * @return bool
+	 */
+	function captcha_verification() {
+
+		$response = isset( $_POST['g-recaptcha-response'] ) ? esc_attr( $_POST['g-recaptcha-response'] ) : '';
+
+		$remote_ip = $_SERVER["REMOTE_ADDR"];
+
+		$options = get_option('id_settings');
+		$secret = $options['id_recaptcha_secret_field'];
+
+		// make a GET request to the Google reCAPTCHA Server
+		$request = wp_remote_get(
+			'https://www.google.com/recaptcha/api/siteverify?' .
+			'response=' . $response .
+			'&remoteip=' . $remote_ip .
+			'&secret=' . $secret
+		);
+
+		// get the request response body
+		$response_body = wp_remote_retrieve_body( $request );
+
+		$result = json_decode( $response_body, true );
+
+		return $result['success'];
+	}
+
+
+
+
+
 	// Replaces the excerpt "Read More" text by a link
 	function new_excerpt_more($more) {
 		global $post;
@@ -149,7 +187,10 @@
 
 	function user_password() {
 		include 'inc/user-password.php';
-		wp_die();
+	}
+
+	function user_create_account() {
+		include 'inc/user-create-account.php';
 	}
 
 	function education_input() {

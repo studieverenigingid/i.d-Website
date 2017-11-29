@@ -108,7 +108,7 @@ if (!is_user_logged_in()) {
       <label for="new_password" class="login__label">
         <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
         <span class="login__label-supplement">
-          <?= esc_attr_e('(think of a strong 8+ character password!)', 'svid-theme-domain')?>
+          <?= esc_attr_e('(8 characters or more)', 'svid-theme-domain')?>
         </span>
       </label>
       <input name="new_password" id="new_password" type="password"

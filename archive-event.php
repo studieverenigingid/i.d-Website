@@ -9,10 +9,6 @@
 
 	<div class="events">
 
-		<h2 class="events__archive-title" style="order: -100;">
-			<?php echo esc_attr_x( 'Upcoming events', 'archive', 'svid-theme-domain'); ?>
-		</h2>
-
 		<?php
 			$current_date = new DateTime();
 			$current_date->setTimezone( new DateTimeZone('Europe/Amsterdam') );
@@ -25,6 +21,13 @@
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
 				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+				if ($start >= $current_date && $first_past && $post_no === 0):
+			?>
+				<h2 class="events__archive-title" style="order: -100;">
+					<?php echo esc_attr_x( 'Upcoming events', 'archive', 'svid-theme-domain'); ?>
+				</h2>
+			<?php
+				endif;
 				if ($start < $current_date && $first_past):
 					$first_past = false;
 			?>

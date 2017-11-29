@@ -93,7 +93,9 @@ if (!is_user_logged_in()) {
       <?php echo esc_attr_e('Password change', 'svid-theme-domain'); ?>
     </h2>
 
-    <p class="user__instructions">You can change your password here by entering your current password and a new one. Both passwords should contain at least 8 characters.</p>
+    <p class="user__instructions">
+      <?php echo esc_attr_e('You can change your password here by entering your current password and a new one.', 'svid-theme-domain'); ?>
+    </p>
 
     <form class="user__password" action="#" method="post">
 
@@ -101,16 +103,19 @@ if (!is_user_logged_in()) {
         <?php echo esc_attr_e('Current password', 'svid-theme-domain');?>
       </label>
       <input name="current_password" id="current_password" type="password"
-        class="login__input"
-        placeholder="password" minlength="8">
+        class="login__input" minlength="8" required autocomplete="current-password"
+        placeholder="<?=esc_attr_e('password', 'svid-theme-domain')?>">
       <?php password_show_hide(); ?>
 
       <label for="new_password" class="login__label">
         <?php echo esc_attr_e('New password', 'svid-theme-domain');?>
+        <span class="login__label-supplement">
+          <?= esc_attr_e('(8 characters or more)', 'svid-theme-domain')?>
+        </span>
       </label>
       <input name="new_password" id="new_password" type="password"
-        class="login__input"
-        placeholder="password" minlength="8">
+        class="login__input" minlength="8" required autocomplete="new-password"
+        placeholder="<?=esc_attr_e('password', 'svid-theme-domain')?>">
       <?php password_show_hide(); ?>
 
       <button href="#" type="submit"

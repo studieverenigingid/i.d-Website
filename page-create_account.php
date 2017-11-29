@@ -47,7 +47,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 							<?= esc_attr_e('(as we know it)', 'svid-theme-domain')?>
 						</span>
 			    </label>
-					<input type="email" name="user_email" class="login__input" id="account-email"
+					<input type="email" name="user_email" class="login__input"
+            id="account-email" required
 						placeholder="<?=esc_attr_e('john@doe.com', 'svid-theme-domain')?>">
 				</div>
 
@@ -59,7 +60,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 						</span>
 			    </label>
 					<input type="password" name="user_password" class="login__input"
-						id="account-pwd"
+						id="account-pwd" minlength="8" required autocomplete="new-password"
 						placeholder="<?=esc_attr_e('password', 'svid-theme-domain')?>">
           <?php password_show_hide(); ?>
 				</div>

@@ -93,7 +93,9 @@ if (!is_user_logged_in()) {
       <?php echo esc_attr_e('Password change', 'svid-theme-domain'); ?>
     </h2>
 
-    <p class="user__instructions">You can change your password here by entering your current password and a new one.</p>
+    <p class="user__instructions">
+      <?php echo esc_attr_e('You can change your password here by entering your current password and a new one.', 'svid-theme-domain'); ?>
+    </p>
 
     <form class="user__password" action="#" method="post">
 

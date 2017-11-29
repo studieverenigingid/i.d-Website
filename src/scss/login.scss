@@ -28,6 +28,17 @@
     color: white;
   }
 
+  &__wrap {
+    &--working {
+      opacity: 0.5;
+
+      button {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
   &__label {
     margin: 1em 0 .5em;
     display: block;
@@ -41,6 +52,11 @@
       width: 10em;
       margin: 0;
     }
+  }
+
+  &__label-supplement {
+    opacity: .7;
+    font-family: $font--light;
   }
 
   &__input {
@@ -112,7 +128,7 @@
       clear: both;
 
       @media (min-width: $brk--tablet) {
-        border-width: .8em;
+        border-width: .63em;
       }
 		}
 
@@ -160,27 +176,13 @@
       color: $background--light;
     }
 
-    &--info {
-      border: 2px solid white;
-      padding: 1em;
-      margin: .5em 0;
-      background: transparentize(black, 0.9);
-      color: white;
-
-      a {
-        color: white;
-        font-family: $font--heavy;
-      }
-    }
-
     &__message--success {
       color: white;
     }
   }
 
-  &__alternative {
+  &__right-column {
     margin-top: 1em;
-    text-align: center;
     margin-bottom: 1em;
 
     @media (min-width: $brk--desktop) {
@@ -190,6 +192,7 @@
       transform: translate(36rem, 0);
       padding-left: 4rem;
       margin: 0;
+      right: 36rem + 4;
     }
   }
 
@@ -230,6 +233,15 @@
     }
   }
 
+  &__reg-text,
+  &__reg-link {
+    color: $background--light;
+  }
+
+  &__reg-text {
+    margin-bottom: 2.2rem;
+  }
+
   &__netid {
     &:hover {
       background: #00a6d6;
@@ -239,5 +251,11 @@
     &-name {
       font-family: $font--heavy;
     }
+  }
+
+  &__information {
+    text-align: left;
+    color: white;
+    max-width: 36rem;
   }
 }

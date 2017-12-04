@@ -29,11 +29,13 @@
 				$start_time = $start->format('H:i');
 				$end_time   = $end->format('H:i');
 
+				$year = $start->format('Y');
+
 				$location_name = get_field('location_name');
 			?>
 			<div class="event--page__datetime">
 				<?php
-					echo $start_month . ' ' . $start_day . ', '. $start_time . ' – ';
+					echo $start_month . ' ' . $start_day . ', ' . $year . ', ' . $start_time . ' – ';
 					if ($start_day != $end_day){
 						echo $end_month . ' ' . $end_day . ', ' . $end_time;
 					} else {

@@ -28,6 +28,8 @@
 
 	include( 'inc/custom-language-switcher.php' );
 
+	include( 'inc/samltud-helper.php' );
+
 	register_nav_menus( array(
 		'primary-menu' => 'Primary Menu',
 		'sitemap' => 'Footer Sitemap'

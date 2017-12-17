@@ -20,6 +20,7 @@ class SAMLTUD_Helper {
    */
 	public function save_netid( $user_login, $user ) {
 		$netid = $this->getUsername($user);
+		if ( !$netid ) return;
 		if ( !$this->has_netid($user->ID) ) {
 			add_user_meta( $user->ID, 'svid_netid', $netid);
 		}

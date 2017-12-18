@@ -56,13 +56,14 @@ get_header();
 			 * the moment.)
 			 */
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
+			if ( is_plugin_active( 'samltud/samltud.php' ) ) {
+        if ( $SAML_Client->settings->get_enabled() ) { ?>
 			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"
 				class="login__netid button button--white">
 				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
 				<span class="login__netid-name">NetID</span>
 			</a>
-		<?php } ?>
+		<?php } } ?>
 		</div>
 
 

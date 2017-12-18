@@ -26,8 +26,10 @@ get_header();
 
 					if ( $login === "failed" ) {
 					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Invalid username and/or password.', 'Invalid username and/or password error', 'svid-theme-domain').'</h4>';
-					} elseif ( $login === "empty" ) {
+          } elseif ( $login === "empty" ) {
 					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Username and/or password is empty.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
+          } elseif ( $login === "unknown_netid" ) {
+					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Your NetID is not connected to an account on this website. Please try logging in with your username and password; this functionality should work afterwards. If you do not have a password, please register. If those actions do not help, please verify with us that your NetID is known to us.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
 					} elseif ( $login === "false" ) {
 					  echo '<h4 class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</h4>';
 					}
@@ -54,13 +56,14 @@ get_header();
 			 * the moment.)
 			 */
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if ( is_plugin_active( 'samltud/samltud.php' ) ) { ?>
+			if ( is_plugin_active( 'samltud/samltud.php' ) ) {
+        if ( $SAML_Client->settings->get_enabled() ) { ?>
 			<a href="<?php echo site_url('wp-login.php?use_sso=true'); ?>"
 				class="login__netid button button--white">
 				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
 				<span class="login__netid-name">NetID</span>
 			</a>
-		<?php } ?>
+		<?php } } ?>
 		</div>
 
 

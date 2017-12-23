@@ -105,21 +105,7 @@ if($loop->have_posts()) : ?>
     <h2><?= esc_attr_x('What have we done in the past?', 'education-what-we-did-with-it', 'svid-theme-domain')?></h2>
     <?php while($loop->have_posts()) : $loop->the_post(); ?>
 
-      <article class="news-item">
-        <?php if ( has_post_thumbnail() ) : ?><?php the_post_thumbnail('medium_large', array( 'class' => 'news-item__thumb')); ?><?php endif; ?>
-        <h3 class="news-item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-        <h4 class="news-item__meta">
-          <?php $parentscategory ="";
-          foreach((get_the_category()) as $category) {
-            if ($category->category_parent == 0) {
-              $parentscategory .= ' <a href="' . get_category_link($category->cat_ID) . '" title="' . $category->name . '">' . $category->name . '</a>, ';
-            }
-          }
-          echo substr($parentscategory,0,-2); ?>
-          | <?php echo get_the_date(); ?>
-        </h4>
-        <?php the_excerpt(); ?>
-      </article>
+		<?php include('inc/small-news-item.php') ?>
 
     <?php endwhile; ?>
   </section>

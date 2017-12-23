@@ -17,7 +17,7 @@
 			$company = get_field('company');
 		?>
 		<p class="vacancy__intro">
-			<span class="vacancy__company"><?=$company?></span> is looking for a
+			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
 		<h3 class="vacancy__title">
@@ -29,16 +29,19 @@
 		<p class="vacancy__details">
 			<?php
 				$location = get_field('location');
+				$categories = get_the_category();
+
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
 			    	<i class="fa fa-map-marker"></i> <?=$location?>
 					</span>
 			<?php	} ?>
 
-			&bull;
+			<?php if ( !empty($location) && !empty($categories) ): ?>
+				&bull;
+			<?php endif; ?>
 
 			<?php
-				$categories = get_the_category();
 				if ( !empty($categories) ) {
 					$category = esc_html( $categories[0]->name ); ?>
 					<span class="vacancy__tag  vacancy__type">

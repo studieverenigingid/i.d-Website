@@ -6,7 +6,7 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header class="vacancy__header">
+	<header class="vacancy__header" style="background-color: <?php theme_color(true); ?>;">
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="vacancy__logo-box">
@@ -20,7 +20,7 @@
 			$company = get_field('company');
 		?>
 		<p class="vacancy__intro  vacancy__intro--large">
-			<span class="vacancy__company"><?=$company?></span> is looking for a
+			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
 		<h1 class="vacancy__title  vacancy__title--large"><?php the_title(); ?></h1>
@@ -28,16 +28,19 @@
 		<p class="vacancy__details  vacancy__details--large">
 			<?php
 				$location = get_field('location');
+				$categories = get_the_category();
+
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
 			    	<i class="fa fa-map-marker"></i> <?=$location?>
 					</span>
 			<?php	} ?>
 
-			&bull;
+			<?php if ( !empty($location) && !empty($categories) ): ?>
+				&bull;
+			<?php endif; ?>
 
 			<?php
-				$categories = get_the_category();
 				if ( !empty($categories) ) {
 					$category = esc_html( $categories[0]->name ); ?>
 					<span class="vacancy__tag  vacancy__type">
@@ -56,7 +59,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> Download this description
+						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -65,7 +68,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> Apply directly
+					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>
@@ -77,7 +80,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> Download this description
+						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -85,7 +88,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> Apply directly
+					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>

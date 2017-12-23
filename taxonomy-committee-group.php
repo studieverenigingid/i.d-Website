@@ -2,7 +2,7 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo esc_attr_x('Our ' . get_queried_object()->name . ' committees'); ?></h1>
+	<h1 class="archive__title"><?php echo esc_attr_x('Our ' . get_queried_object()->name . ' committees', 'Committee group title', 'svid-theme-domain'); ?></h1>
 
 	<div class="committees__grid">
 

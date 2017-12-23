@@ -1,9 +1,16 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Template Name: about page
+ */
+
+get_header(); ?>
 
 
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-<main class="about__top">
+<main class="about__top"
+	style="background-color: <?php theme_color(false); ?>;">
 	<h1 class="about__title"><?php the_title(); ?></h1>
 	<p class="about__descr"><?php echo get_the_content(); ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -28,7 +35,7 @@
 			$loop->the_post();?>
 
 		<p class="board__indication">
-			<?php echo esc_attr_x('The current board', 'shows above the board title'); ?>
+			<?php echo esc_attr_x('The current board', 'Current board title', 'svid-theme-domain'); ?>
 		</p>
 		<h2 class="about__sub-title">
 			<?php the_title(); ?>
@@ -36,7 +43,7 @@
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="board__thumb">
-				<?php the_post_thumbnail('large',
+				<?php the_post_thumbnail('post-thumbnail',
 					array( 'class' => 'board__img')
 				); ?>
 			</div>
@@ -53,7 +60,7 @@
 
 	<a class="button committees__all"
 		href="<?php echo get_post_type_archive_link( 'board' ); ?>">
-		View previous boards
+		<?php echo esc_attr_x('View previous boards', 'View previous boards button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>
@@ -66,7 +73,7 @@
 
 <section class="committees">
 
-	<h2 class="about__sub-title">Some of our committees</h2>
+	<h2 class="about__sub-title"><?php echo esc_attr_x('Some of our committees', 'Our committees title', 'svid-theme-domain'); ?></h2>
 
 	<div class="committees__grid">
 	<?php
@@ -110,7 +117,7 @@
 
 	<a class="button committees__all"
 		href="<?php echo get_post_type_archive_link( 'committee' ); ?>">
-		View all committees
+		<?php echo esc_attr_x('View all committees', 'View all committees button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>
@@ -122,7 +129,7 @@
 
 
 <section class="master-coms">
-	<h2 class="about__sub-title">Our master communities</h2>
+	<h2 class="about__sub-title"><?php echo esc_attr_x('Our master communities', 'Our master communities title', 'svid-theme-domain'); ?></h2>
 	<div class="master-coms__list">
 		<?php
 			$args = array(

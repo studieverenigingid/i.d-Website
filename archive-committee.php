@@ -2,14 +2,15 @@
 
 <main>
 
-	<h1 class="archive__title">
-		<?php echo esc_attr_x('Our committees', 'archive title'); ?>
+	<h1 class="archive__title"
+		style="background-color: <?php theme_color(false); ?>;">
+		<?php echo esc_attr_x('Our committees', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
 	<div class="filters">
 		<div class="filters__label">
-			Filter by group:
-			<span class="filters__master-switch" data-for="comm-group">[none]</span>
+			<?php echo esc_attr_x('Filter by group:', 'Filter by group committee label', 'svid-theme-domain');?>
+			<span class="filters__master-switch" data-for="comm-group"><?php echo esc_attr_x('[none]', 'select no committee groups label', 'svid-theme-domain');?></span>
 		</div>
 		<div class="filters__group" id="comm-group"
 			data-for="comm-group--" data-multiple="true">

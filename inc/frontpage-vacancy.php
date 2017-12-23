@@ -6,7 +6,7 @@
 			$company = get_field('company');
 		?>
 		<p class="vacancy__intro vacancy__intro--frontpage">
-			<span class="vacancy__company"><?=$company?></span> is looking for a
+			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
 		<h3 class="vacancy__title">

@@ -4,10 +4,12 @@
 
 
 
-	<header class="event--page__header colorVibrant
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>">
+	<header class="event--page__header
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>"
+		style="background-color: <?php theme_color(false); ?>;">
 
-		<div class="event--page__short-info event--page__short-info--short-header colorVibrant">
+		<div class="event--page__short-info event--page__short-info--short-header"
+			style="background:<?php theme_color(false);?>">
 
 			<h1 class="event--page__name"><?php the_title(); ?></h1>
 
@@ -27,11 +29,13 @@
 				$start_time = $start->format('H:i');
 				$end_time   = $end->format('H:i');
 
+				$year = $start->format('Y');
+
 				$location_name = get_field('location_name');
 			?>
 			<div class="event--page__datetime">
 				<?php
-					echo $start_month . ' ' . $start_day . ', '. $start_time . ' – ';
+					echo $start_month . ' ' . $start_day . ', ' . $year . ', ' . $start_time . ' – ';
 					if ($start_day != $end_day){
 						echo $end_month . ' ' . $end_day . ', ' . $end_time;
 					} else {
@@ -42,7 +46,15 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="event--page__thumb colorVibrantGradient">
+				<style media="screen">
+					.event--page__thumb:before {
+						background-image: linear-gradient(
+							to bottom right, <?php theme_color(true); ?>,
+							transparent 50%
+						);
+					}
+				</style>
+				<div class="event--page__thumb">
 					<?php
 					the_post_thumbnail(
 						'large',
@@ -65,12 +77,12 @@
 
 			$buttons['fb'] = [
 				'url' => get_field('facebook_url'),
-				'text' => 'Facebook event'
+				'text' => esc_attr_x('Facebook event', 'Facebook event link text', 'svid-theme-domain')
 			];
 
 			$buttons['tickets'] = [
 				'url' => get_field('ticket_url'),
-				'text' => 'Get your tickets'
+				'text' => esc_attr_x('Get your tickets', 'Ticket link text', 'svid-theme-domain')
 			];
 
 			foreach ($buttons as $key => $butt) {
@@ -85,36 +97,40 @@
 		<?php the_content(); ?>
 
 		<?php
-			// Files
-			// Check if there are files
-			if ( have_rows('file_list') ):
-			// Check if user is logged in; if not, tell them to log in
-			if ( !is_user_logged_in() ): ?>
-				<section class="event__files event__files--unauth">
-					<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
-					<h3><?php echo esc_attr_x('To see the files, you have to log in.', 'only show files when logged in on event page'); ?></h3>
-					<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="button">
-						Login
-					</a>
-				</section>
+		// Files
+		// Check if there are files
+		if ( have_rows('file_list') ):
+		// Check if user is logged in; if not, tell them to log in
+		if ( !is_user_logged_in() ): ?>
 
-			</main>
+		</main>
+
+		<section class="event__files event__files--unauth">
+			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?></h2>
+			<h3><?php echo esc_attr_x('To see the files, you have to log in.', 'only show files when logged in on event page', 'svid-theme-domain'); ?></h3>
+			<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="button">
+				Login
+			</a>
+		</section>
+
 		<?php else: ?>
 
+		</main>
+
 		<section class="event__files">
-			<h2 class="event__section-title"><?php echo esc_attr_x('Files', 'title above file list'); ?></h2>
+			<h2 class="event__section-title">
+				<?php echo esc_attr_x('Files', 'title above file list', 'svid-theme-domain'); ?>
+			</h2>
 			<?php
 				// loop through the files
 				while ( have_rows('file_list') ) :
 					the_row();
 					$file = get_sub_field('file');
-
 					if ( get_sub_field('file_name') !== '' ) {
 						$file_name = get_sub_field('file_name');
 					} else {
 						$file_name = $file['name'];
-					}
-				?>
+					} ?>
 					<a class="event__file" target="_blank"
 						href="/download/?id=<?=$file['id']?>">
 						<h3 class="event__file-name">
@@ -122,11 +138,13 @@
 							<?=$file_name?>
 						</h3>
 					</a>
-			<?php endwhile;?>
-		</section>
-	<?php endif; else: ?>
-		</main>
-	<?php endif; ?>
+				<?php endwhile;?>
+
+			</section>
+
+		<?php endif; else: ?>
+			</main>
+		<?php endif; ?>
 
 
 

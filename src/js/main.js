@@ -5,12 +5,13 @@ function onDocReady () {
 	menuToggler();
 	menuSticky();
 	fixVHAfterLoad();
-	vibrantLoad();
 
 	// formhandling.js
 	ajaxFeedbackForm();
 	hideUpdateFields();
 	resetFormLink();
+	showHidePassword();
+	createAccountForm();
 
 	// userinfoedit.js
 	userInfoEdit();
@@ -57,36 +58,19 @@ function fixVHAfterLoad() {
 	$('.fix-me').height($('.fix-me').height());
 }
 
-function vibrantLoad() {
-	var img = document.querySelector('.event--page__img');
-
-	if (typeof(img) != 'undefined' && img != null) {
-		// Use vibrant to get the swatches
-		var vibrant = new Vibrant(img),
-			swatches = vibrant.swatches(),
-			DarkVibrantHex = swatches['DarkVibrant'].getHex();
-
-		// Remove the current meta tag
-		$('meta[name=theme-color]').remove();
-		// Create a new meta tag, add the picked color to it and place in head
-		var metaTag = $('<meta name="theme-color" content="' + DarkVibrantHex + '">');
-		$('head').append(metaTag);
-
-		// Create the style tag with gradient and background color CSS lines
-		var styles = "<style> \
-			.colorVibrantGradient:before { \
-				background-image: linear-gradient( \
-					to bottom right," +
-					DarkVibrantHex + ", \
-					transparent 50% \
-				); \
-			} .colorVibrant { \
-				background: " + DarkVibrantHex + "; \
-			} \
-		</style>";
-		// And add that to the head, too
-		$('head').append(styles);
-	}
+function notFound($) {
+	setTimeout(function() {
+		var container = $('.not-found');
+		$('.bies, .not-found').css('background-color', '#ef686c');
+		$('h1').html($('h1').text().replace('404', '4<span style="font-size: 0.44rem">0</span>4'));
+		setInterval(function() {
+			$('<div>44</div>').appendTo('.not-found')
+				.offset({
+					top: Math.floor(Math.random() * container.height()),
+					left: Math.floor(Math.random() * container.width())
+				});
+		}, 44 * 22);
+	}, 44 * 444);
 }
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is

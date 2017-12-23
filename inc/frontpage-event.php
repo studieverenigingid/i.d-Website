@@ -1,8 +1,8 @@
-<article class="event--page__header colorVibrant">
+<article class="event--page__header" style="background:<?php theme_color(false);?>">
 	<a href="<?php the_permalink(); ?>" class="event--page__link">
 		<div class="event--page__short-info">
 
-			<span class="event--page__indication">Up next</span>
+			<span class="event--page__indication"><?php echo esc_attr_x('Up next', 'frontpage up next title', 'svid-theme-domain');?></span>
 			<h2 class="event--page__name"><?php the_title(); ?></h2>
 
 			<?php
@@ -36,7 +36,15 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-			<div class="event--page__thumb event--frontpage__thumb colorVibrantGradient">
+			<style media="screen">
+				.event--page__thumb:before {
+					background-image: linear-gradient(
+						to bottom right, <?php theme_color(true); ?>,
+						transparent 50%
+					);
+				}
+			</style>
+			<div class="event--page__thumb event--frontpage__thumb">
 				<?php
 				the_post_thumbnail(
 					'large',

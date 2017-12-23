@@ -230,6 +230,21 @@ blockquote {
 	}
 }
 
+.show-password {
+	font-size: .75em;
+	float: right;
+	padding: .2em .3em;
+	background: transparentize($background--light, 0.7);
+	border-radius: .2em;
+	cursor: pointer;
+	position: relative;
+	margin: -3.1em .8em 0 0;
+
+	@media (min-width: $brk--phone) {
+		margin: -2.75em 1em 0 0;
+	}
+}
+
 
 
 
@@ -264,60 +279,6 @@ blockquote {
 			height: auto;
 		}
 	}
-
-	&__menu-toggle {
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 3.1rem;
-		width: 3.1rem;
-		line-height: 3.1rem;
-		text-align: left;
-		color: white;
-		font-size: .9rem;
-		z-index: 11;
-		cursor: pointer;
-		transition: width 200ms ease-out;
-		overflow: hidden;
-
-		@media (min-width: $brk--phone) {
-			display: none;
-		}
-
-		&:before,
-		&:after {
-			display: block;
-			content: "";
-			width: 1.2rem;
-			height: 4px;
-			box-shadow: 0 9px 0 0 white;
-			background: white;
-			position: absolute;
-			right: -.9rem;
-			top: 14px;
-			transition: right 200ms ease-out,
-				color 200ms ease-out;
-		}
-
-		&:after {
-			top: 23px;
-			right: -.2rem;
-			width: .8rem;
-		}
-
-		&.opened {
-			width: 4.7rem;
-			color: transparent;
-
-			&:before {
-				right: .9rem;
-			}
-
-			&:after {
-				right: .5rem;
-			}
-		}
-	}
 }
 // Amen
 
@@ -333,59 +294,55 @@ blockquote {
 	position: absolute;
 }
 
-.primary-menu {
-	font-family: $font--light;
-	position: absolute;
+.menu-toggle {
+	position: fixed;
 	right: 0;
-	top: 0;
-	background: $background--gray;
-	color: white;
+	bottom: 0;
+	height: 3.1rem;
 	width: 100%;
-	transform: translateX(100%);
-	transition: transform 200ms $transition--cubic;
-	z-index: 10;
-	padding-top: 3rem;
-	max-height: 80vh;
-	overflow-y: auto;
-
-	.current-menu-item {
-		font-family: $font--heavy;
-	}
-
-	&__list {
-		margin: 0;
-		padding: 1rem 0;
-		list-style: none;
-	}
-
-	@media (max-width: $brk--phone + 1) {
-		&.opened {
-			transform: translateX(0px);
-		}
-	}
+	padding-left: 1rem;
+	line-height: 3.1rem;
+	text-align: left;
+	color: white;
+	font-size: .9rem;
+	z-index: 11;
+	cursor: pointer;
+	transition: width 200ms ease-out;
+	overflow: hidden;
+	background: transparentize($background--gray, 0.4);
 
 	@media (min-width: $brk--phone) {
-		width: 100%;
-		padding-top: 0;
-		position: static;
-		transform: translateX(0px);
-		background: transparentize($background--gray, 0.4);
+		display: none;
+	}
 
-		&__list {
-			padding: 0.4rem 0 0.4rem 0.6rem;
+	&:before,
+	&:after {
+		display: block;
+		content: "";
+		width: 1.2rem;
+		height: 4px;
+		box-shadow: 0 9px 0 0 white;
+		background: white;
+		position: absolute;
+		right: -.9rem;
+		top: 14px;
+		transition: right 200ms ease-out,
+			color 200ms ease-out;
+	}
+
+	&:after {
+		top: 23px;
+		right: -.2rem;
+		width: .8rem;
+	}
+
+	&.opened {
+		&:before {
+			right: .9rem;
 		}
 
-		.menu-item {
-			display: inline-block;
-			font-size: .9em;
-
-			a {
-				padding: .4rem .8rem;
-			}
-		}
-
-		&--sticky {
-			position: fixed;
+		&:after {
+			right: .5rem;
 		}
 	}
 }
@@ -399,6 +356,107 @@ blockquote {
 
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+}
+
+.primary-menu {
+	width: 100%;
+	font-family: $font--light;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background: $background--gray;
+	color: white;
+	transform: translateX(100%);
+	transition: transform 200ms $transition--cubic;
+	z-index: 10;
+	padding-top: 3rem;
+	max-height: 100vh;
+	padding-bottom: 3.1rem;
+	overflow-y: auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+
+	.current-menu-item {
+		font-family: $font--heavy;
+	}
+
+	.menu-item {
+		&--language-switch {
+			a {
+				text-transform: uppercase;
+				padding: 1rem 0;
+				display: inline-block;
+			}
+		}
+	}
+
+	&__list,
+	&__language-switch {
+		margin: 0;
+		padding: 1rem 0;
+		list-style: none;
+	}
+
+	@media (max-width: $brk--phone + 1) {
+		&__list {
+			flex-basis: 100%;
+			height: 100%;
+		}
+
+		&__language-switch {
+			display: flex;
+
+			&__context {
+				padding: .8rem 0 .8rem 1.4rem;
+			}
+		}
+
+		&.opened {
+			transform: translateX(0px);
+		}
+	}
+
+	@media (min-width: $brk--phone) {
+		padding: 0;
+		position: static;
+		transform: translateX(0px);
+		background: transparentize($background--gray, 0.4);
+
+		&__list, &__language-switch {
+			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+		}
+
+		&__language-switch {
+			&__context {
+				display: none;
+			}
+
+			&:hover &__context {
+				display: inline-block;
+			}
+		}
+
+		.menu-item {
+			display: inline-block;
+			font-size: .9em;
+
+			a {
+				padding: .4rem .8rem;
+			}
+
+			&--language-switch {
+				a {
+					padding: .4rem 0;
+					display: inline-block;
+				}
+			}
+		}
+
+		&--sticky {
+			position: fixed;
 		}
 	}
 }
@@ -419,16 +477,23 @@ blockquote {
 
 	img {
 		max-width: 100%;
+		height: auto;
 	}
 }
 
 .divider {
-	border: none;
-	border-top: 1px solid transparentize($background--dark, 0.7);
+	border-width: 0;
+	border-style: solid;
+	border-color:  transparentize($background--dark, 0.7);
+	border-top-width: 1px;
 	margin: 1.5rem 2rem;
 
 	@media (min-width: $brk--phone) {
 		margin: 1.5rem 2.5rem 2.5rem;
+	}
+
+	&--light {
+		border-color: transparentize($background--light, 0.3);
 	}
 }
 
@@ -443,9 +508,42 @@ blockquote {
 	background: $accent;
 	padding: 10%;
 	color: $background--light;
+	position: relative;
+
+	@media (min-width: $brk--tablet) {
+		padding: 10% 15%;
+	}
+
+	@media (min-width: $brk--desktop) {
+		padding: 10% 20%;
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		padding: 10% 30%;
+	}
+
+	&__image {
+		max-width: 50%;
+		height: auto;
+		width: 300px;
+		margin: 0 auto 2rem;
+		display: block;
+
+		@media (min-width: $brk--phone) {
+			float: right;
+			margin: 0 2rem;
+		}
+	}
 
 	&__title {
 		color: $background--light;
+		font-size: 1.6rem;
+		opacity: .75;
+	}
+
+	&__sub-title {
+		color: $background--light;
+		margin: .5em 0;
 	}
 }
 
@@ -519,6 +617,44 @@ $ajax-load-size: 44px;
 
 
 /*-------------------------------------*\
+	Notifications
+\*-------------------------------------*/
+.notification {
+	padding: 1em;
+	margin: .5em 0;
+
+	&--success {
+		border: 2px solid white;
+		background: transparentize(black, 0.9);
+		color: white;
+
+		&--dark {
+			background: transparentize(black, 0.3);
+		}
+	}
+
+	&--failed {
+		background: #ca1414;
+		color: $background--light;
+	}
+
+	&--info {
+		border: 2px solid white;
+		background: transparentize(black, 0.9);
+		color: white;
+
+		a {
+			color: white;
+			font-family: $font--heavy;
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Footer
 \*-------------------------------------*/
 .pri-footer {
@@ -570,6 +706,25 @@ $ajax-load-size: 44px;
 		color: $background--light;
 		margin: .8em 0 .6em;
 		font-size: 1.5em;
+	}
+
+	&__sub-heading {
+		color: $background--light;
+		margin: 1rem 0 .6em;
+		font-size: .9em;
+	}
+
+	&__paragraph {
+		&--small {
+			font-size: .8em;
+		}
+	}
+
+	&__divider {
+		border-width: 0 0 1px;
+		border-color: transparentize($background--light, 0.5);
+		width: 2rem;
+		margin: 1.8rem 0;
 	}
 }
 

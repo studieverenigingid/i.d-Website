@@ -1,6 +1,5 @@
 <?php
 global $img_folder;
-global $header_class;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,26 +46,33 @@ global $header_class;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
-		<header class="bies colorVibrant <?=$header_class?>" style="background:<?php theme_color(false);?>">
+		<header class="bies" style="background:<?php theme_color(false);?>">
 
-			<a href="<?php echo get_site_url(); ?>">
+			<?php
+			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+			?>
+
+			<a href="<?php echo $wpml_home_url; ?>">
 				<picture>
-					<source srcset="<?=$img_folder?>bies.svg" type="image/svg+xml">
+					<source srcset="<?=$img_folder?>bies-<?=constant('ICL_LANGUAGE_CODE')?>.svg" type="image/svg+xml">
 					<img class="bies__image" alt="Study association i.d"
-						srcset="<?=$img_folder?>bies.png 1x,
-							<?=$img_folder?>bies@2x.png 2x"
-						src="<?=$img_folder?>bies.png">
+						srcset="<?=$img_folder?>bies-<?=constant('ICL_LANGUAGE_CODE')?>.png 1x,
+							<?=$img_folder?>bies-<?=constant('ICL_LANGUAGE_CODE')?>@2x.png 2x"
+						src="<?=$img_folder?>bies-<?=constant('ICL_LANGUAGE_CODE')?>.png">
 				</picture>
 			</a>
 
-			<div class="js-menu-toggle bies__menu-toggle">
-				menu
-			</div>
+			<nav class="primary-menu">
+				<?php wp_nav_menu( array(
+					'theme_location' => 'primary-menu',
+					'container' => false,
+					'menu_class' => 'primary-menu__list' ) ); ?>
 
-			<?php wp_nav_menu( array(
-				'theme_location' => 'primary-menu',
-				'container' => 'nav',
-				'container_class' => 'primary-menu',
-				'menu_class' => 'primary-menu__list' ) ); ?>
+					<?php custom_language_switcher(); ?>
+			</nav>
 
 		</header>
+
+		<div class="js-menu-toggle menu-toggle">
+			menu
+		</div>

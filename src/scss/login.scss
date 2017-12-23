@@ -21,9 +21,22 @@
 \*-------------------------------------*/
 .login {
   background: $accent;
+  margin-bottom: 0;
+  position: relative;
 
   &__title {
     color: white;
+  }
+
+  &__wrap {
+    &--working {
+      opacity: 0.5;
+
+      button {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
   }
 
   &__label {
@@ -39,6 +52,11 @@
       width: 10em;
       margin: 0;
     }
+  }
+
+  &__label-supplement {
+    opacity: .9;
+    font-family: $font--light;
   }
 
   &__input {
@@ -85,6 +103,10 @@
     flex-grow: 0;
     margin-left: 1em;
 
+    @media (min-width: $brk--tablet) {
+      height: 1.9em;
+    }
+
 		&:after,
     &:before {
 			position: relative;
@@ -106,7 +128,7 @@
       clear: both;
 
       @media (min-width: $brk--tablet) {
-        border-width: .8em;
+        border-width: .63em;
       }
 		}
 
@@ -136,7 +158,7 @@
   }
 
   &__form {
-    max-width: 36rem;
+    max-width: 32rem;
     position: relative;
 
     &--success {
@@ -154,21 +176,86 @@
       color: $background--light;
     }
 
-    &--info {
-      border: 2px solid white;
-      padding: 1em;
-      margin: .5em 0;
-      background: transparentize(black, 0.9);
-      color: white;
-
-      a {
-        color: white;
-        font-family: $font--heavy;
-      }
-    }
-
     &__message--success {
       color: white;
     }
+  }
+
+  &__right-column {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    @media (min-width: $brk--desktop) {
+      position: absolute;
+      top: 10.6em;
+      left: 10%;
+      transform: translate(36rem, 0);
+      padding-left: 4rem;
+      margin: 0;
+      right: 36rem + 4;
+    }
+  }
+
+  &__divider {
+    @media (min-width: $brk--desktop) {
+      border-width: 0 0 0 1px;
+      height: 16rem;
+      width: 0;
+      margin: 0;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+    }
+  }
+
+  &__divider-text {
+    text-align: center;
+    color: $background--light;
+    margin: -2.2em auto 1em;
+    display: block;
+    width: 2em;
+    background: $accent;
+
+    @media (min-width: $brk--phone) {
+      margin-top: -3.2em;
+    }
+
+    @media (min-width: $brk--tablet) {
+      margin-top: -3em;
+    }
+
+    @media (min-width: $brk--desktop) {
+      margin-top: 7.5rem;
+      margin-left: -4.1em;
+      position: absolute;
+      padding-bottom: .2em;
+    }
+  }
+
+  &__reg-text,
+  &__reg-link {
+    color: $background--light;
+  }
+
+  &__reg-text {
+    margin-bottom: 2.2rem;
+  }
+
+  &__netid {
+    &:hover {
+      background: #00a6d6;
+      color: white;
+    }
+
+    &-name {
+      font-family: $font--heavy;
+    }
+  }
+
+  &__information {
+    text-align: left;
+    color: white;
+    max-width: 36rem;
   }
 }

@@ -2,13 +2,12 @@
 
 <main>
 
-	<h1 class="archive__title"><?php echo esc_attr_x( 'Events', 'archive title' ); ?></h1>
+	<h1 class="archive__title"
+		style="background-color: <?php theme_color(false); ?>;">
+		<?php echo esc_attr_x( 'Events', 'archive title', 'svid-theme-domain'); ?>
+	</h1>
 
 	<div class="events">
-
-		<h2 class="events__archive-title" style="order: -100;">
-			<?php echo esc_attr_x( 'Upcoming events', 'archive' ); ?>
-		</h2>
 
 		<?php
 			$current_date = new DateTime();
@@ -22,11 +21,18 @@
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
 				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
+				if ($start >= $current_date && $first_past && $post_no === 0):
+			?>
+				<h2 class="events__archive-title" style="order: -100;">
+					<?php echo esc_attr_x( 'Upcoming events', 'archive', 'svid-theme-domain'); ?>
+				</h2>
+			<?php
+				endif;
 				if ($start < $current_date && $first_past):
 					$first_past = false;
 			?>
 				<h2 class="events__archive-title">
-					<?php echo esc_attr_x( 'Past events', 'archive' ); ?>
+					<?php echo esc_attr_x( 'Past events', 'archive', 'svid-theme-domain'); ?>
 				</h2>
 			<?php endif; ?>
 

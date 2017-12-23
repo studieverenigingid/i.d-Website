@@ -8,7 +8,7 @@
 	- Floris Jansen, id@fmjansen.nl
 
 	smoelenboek.scss:
-	+ Smoelenboek Searchbar
+	+ Smoelenboek top
 
 \*-------------------------------------*/
 
@@ -17,30 +17,16 @@
 
 
 /*-------------------------------------*\
-	Smoelenboek Searchbar
+	Smoelenboek top
 \*-------------------------------------*/
-.person-search {
-  background: $accent;
-  padding: 2rem;
+.smoelenboek {
+  &__top {
+		padding: .1rem 5%;
+		margin: 0;
+	  background: $accent;
+  }
 
-  &__searchbar {
-    font-family: $font--heavy;
-    background: $accent;
+  &__title {
     color: white;
-    border: none;
-    border-bottom: white dashed 2px;
-    outline: none;
-
-    &::placeholder {
-      color: white;
-    }
-
-    font-size: 2em;
-    text-align: center;
-    display: block;
-    width: 85%;
-    max-width: 960px;
-    padding: .4rem;
-    margin: 0 auto;
   }
 }

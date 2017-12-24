@@ -83,9 +83,10 @@ else:
   <section class="smoelenboek__results">
 
     <?php foreach ($person_list as $key => $person_id):
+      $method = ($user->is_board) ? 'get_populated_person' : 'get_person';
       $person = Lassie::getModel(
         'person_model',
-        'get_populated_person',
+        $method,
         array('person_id' => $person_id));
       $full_name = "$person->first_name $person->infix $person->last_name";
     ?>

@@ -29,25 +29,26 @@ else:
 
   </form>
 
+  <section class="smoelenboek__results">
+
+    <?php
+    // We have a specific person
+    if ($person_name) {
+      $specific_person_query = urldecode($person_name);
+      $person_list = Lassie::getModel('person_model', 'search_persons', array('keywords' => $specific_person_query));
+      $person_id = $person_list[0];
+      $person = Lassie::getModel('person_model', 'get_populated_person', array('person_id' => $person_id));
+
       if (!$person) esc_attr_e('This person does not exist.', 'svid-theme-domain');
 
-  <?php
-  if ($person_name) {
-    $specific_person_query = urldecode($person_name);
-    $person_list = Lassie::getModel('person_model', 'search_persons', array('keywords' => $specific_person_query));
-    $person_id = $person_list[0];
-    $person = Lassie::getModel('person_model', 'get_populated_person', array('person_id' => $person_id));
-    $full_name = "$person->first_name $person->infix $person->last_name"; ?>
+      $full_name = "$person->first_name $person->infix $person->last_name";
 
-    <section class="smoelenboek__results">
-
-      <?php
-        if ($person_query) {
-          $back_url = strtok($_SERVER["REQUEST_URI"],'?') . "?person_query=$person_query";
-          echo "<a href='$back_url' class='smoelenboek__back'>⇤ ";
-          esc_attr_e('Back to the results', 'svid-theme-domain');
-          echo "</a>";
-        }
+      if ($person_query) {
+        $back_url = strtok($_SERVER["REQUEST_URI"],'?') . "?person_query=$person_query";
+        echo "<a href='$back_url' class='smoelenboek__back'>⇤ ";
+        esc_attr_e('Back to the results', 'svid-theme-domain');
+        echo "</a>";
+      }
       ?>
 
       <div class="smoelenboek__person person person--large">
@@ -71,24 +72,23 @@ else:
         </address>
 
       </div>
-    </section>
 
-  <?php } elseif ($person_query) {
-    $user = Lassie::getPerson();
-    $person_list = Lassie::getModel(
-      'person_model',
-      'search_persons',
-      array('keywords' => $person_query));
-  ?>
-  <section class="smoelenboek__results">
-
-    <?php foreach ($person_list as $key => $person_id):
-      $method = ($user->is_board) ? 'get_populated_person' : 'get_person';
-      $person = Lassie::getModel(
+    <?php
+    // We have a search query
+    } elseif ($person_query) {
+      $user = Lassie::getPerson();
+      $person_list = Lassie::getModel(
         'person_model',
-        $method,
-        array('person_id' => $person_id));
-      $full_name = "$person->first_name $person->infix $person->last_name";
+        'search_persons',
+        array('keywords' => $person_query));
+
+      foreach ($person_list as $key => $person_id):
+        $method = ($user->is_board) ? 'get_populated_person' : 'get_person';
+        $person = Lassie::getModel(
+          'person_model',
+          $method,
+          array('person_id' => $person_id));
+        $full_name = "$person->first_name $person->infix $person->last_name";
     ?>
     <article class="smoelenboek__person person person--small">
       <h2 class="person__name person__name--small">
@@ -106,10 +106,17 @@ else:
         ?>
       </h2>
     </article>
-    <?php endforeach; ?>
-
-  </section>
+    <?php endforeach;
+  } else { ?>
+    <picture>
+      <source srcset="<?=$img_folder?>smoelenboek.svg" type="image/svg+xml">
+      <img class="smoelenboek__illustration" alt="Smoelenboek"
+        srcset="<?=$img_folder?>smoelenboek.png 1x,
+          <?=$img_folder?>smoelenboek@2x.png 2x"
+        src="<?=$img_folder?>smoelenboek.png">
+    </picture>
   <?php } ?>
+  </section>
 
 </main>
 

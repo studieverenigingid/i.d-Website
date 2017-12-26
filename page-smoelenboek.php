@@ -29,6 +29,7 @@ else:
 
   </form>
 
+      if (!$person) esc_attr_e('This person does not exist.', 'svid-theme-domain');
 
   <?php
   if ($person_name) {
@@ -36,7 +37,6 @@ else:
     $person_list = Lassie::getModel('person_model', 'search_persons', array('keywords' => $specific_person_query));
     $person_id = $person_list[0];
     $person = Lassie::getModel('person_model', 'get_populated_person', array('person_id' => $person_id));
-    if (!$person) echo 'This person does not exist.';
     $full_name = "$person->first_name $person->infix $person->last_name"; ?>
 
     <section class="smoelenboek__results">

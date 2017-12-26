@@ -41,6 +41,14 @@
     margin-bottom: 1rem;
   }
 
+  &__illustration {
+    opacity: .7;
+    width: 80vw;
+    max-width: 100%;
+    margin: 2rem auto 1rem;
+    display: block;
+  }
+
   &__person {
     margin: 1rem 0 1rem;
   }
@@ -75,7 +83,13 @@
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      justify-content: center;
+    }
+
+    &__illustration {
+      margin: 10% 3rem;
+      width: 22rem;
+      flex-grow: 1;
     }
 
     &__person {
@@ -84,6 +98,12 @@
 
     &__back {
       padding: 1rem 2rem;
+    }
+  }
+
+  @media (min-width: $brk--desktop) {
+    &__illustration {
+      margin: 30% 0;
     }
   }
 }

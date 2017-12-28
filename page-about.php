@@ -17,6 +17,14 @@ get_header(); ?>
 ?>
 <main class="about__top"
 	style="background-color: <?php theme_color(false); ?>;">
+
+	<p class="about__jump">
+		Jump to our:
+		<a class="about__jump-link" href="#board"><?php echo esc_attr_x('board', 'Current board link', 'svid-theme-domain'); ?></a> –
+		<a class="about__jump-link" href="#committees"><?php echo esc_attr_x('committees', 'Our committees link', 'svid-theme-domain'); ?></a> –
+		<a class="about__jump-link" href="#master_communities"><?php echo esc_attr_x('master communities', 'Our master communities link', 'svid-theme-domain'); ?></a>
+	</p>
+
 	<h1 class="about__title"><?php the_title(); ?></h1>
 	<p class="about__descr"><?php echo $content_before; ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
@@ -35,7 +43,7 @@ get_header(); ?>
 
 
 
-<section class="board">
+<section class="board" id="board">
 
 	<?php
 		wp_reset_postdata();
@@ -81,7 +89,7 @@ get_header(); ?>
 
 
 
-<section class="committees">
+<section class="committees" id="committees">
 
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Some of our committees', 'Our committees title', 'svid-theme-domain'); ?></h2>
 
@@ -138,7 +146,7 @@ get_header(); ?>
 
 
 
-<section class="master-coms">
+<section class="master-coms" id="master_communities">
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Our master communities', 'Our master communities title', 'svid-theme-domain'); ?></h2>
 	<div class="master-coms__list">
 		<?php

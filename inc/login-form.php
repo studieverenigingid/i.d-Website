@@ -5,7 +5,7 @@
     </label>
     <input type="text" name="log" class="login__input" id="login-name"
       required autocomplete="username"
-      placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
+      placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
   </div>
 
   <div class="form-group">

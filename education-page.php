@@ -46,14 +46,14 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
             <?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input name="name" type="text" class="education__input-short"
-            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+            placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 						style="background-color: <?php theme_color(false); ?>">
 
           <label for="feedback" class="education__label">
             <?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input type="email" name="email" class="education__input-short"
-            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+            placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 						style="background-color: <?php theme_color(false); ?>">
 
         </div>

@@ -1,0 +1,159 @@
+/*-------------------------------------*\
+
+	i.d-WEBSITE WORDPRESS THEME: SMOELENBOEK
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	smoelenboek.scss:
+	+ Smoelenboek top
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Smoelenboek top
+\*-------------------------------------*/
+.smoelenboek {
+  &__top {
+		padding: .1rem 5%;
+		margin: 0;
+	  background: $accent;
+  }
+
+  &__title {
+    color: white;
+  }
+
+  &__mid {
+    @extend .smoelenboek__top;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    background: darken($accent, 18%);
+  }
+
+  &__search {
+    margin-bottom: 1rem;
+  }
+
+  &__illustration {
+    opacity: .7;
+    width: 80vw;
+    max-width: 100%;
+    margin: 2rem auto 1rem;
+    display: block;
+  }
+
+  &__person {
+    margin: 1rem 0 1rem;
+
+    a {
+      color: $text;
+    }
+  }
+
+  &__back {
+    color: white;
+    width: 100%;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: $font--heavy;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: $brk--phone) {
+    &__mid {
+      display: flex;
+    }
+
+    &__search {
+      flex-grow: 1;
+      min-width: 18rem;
+    }
+
+    &__results {
+      flex-grow: 3;
+      min-width: 22rem;
+
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__illustration {
+      margin: 10% 3rem;
+      width: 22rem;
+      flex-grow: 1;
+    }
+
+    &__person {
+      margin-left: 2rem;
+    }
+
+    &__back {
+      padding: 1rem 2rem;
+    }
+  }
+
+  @media (min-width: $brk--desktop) {
+    &__illustration {
+      margin: 30% 0;
+    }
+  }
+}
+
+.person {
+  background: $background--light;
+  box-shadow: 0 .1rem .5rem transparentize(black, 0.8);
+  transition: all 100ms ease-out;
+  overflow: hidden;
+
+  &--small {
+    border-radius: .15rem;
+    pointer-events: none;
+
+    &:hover {
+      box-shadow: 0 .2rem 1rem transparentize(black, 0.6);
+      transform: translateY(-.1rem);
+    }
+
+    @media (min-width: $brk--phone) {
+      min-width: 20rem;
+      flex-grow: 1;
+    }
+  }
+
+  &--large {
+    width: 100%;
+  }
+
+  &__name {
+    margin: 1em;
+
+    &--small {
+      font-size: 1.5rem;
+      color: lighten($text, 44%);
+    }
+
+    a {
+      color: $text;
+      pointer-events: all;
+    }
+  }
+
+  &__contact {
+    font-style: normal;
+    margin: 0 2.4em 2.4em;
+    line-height: 1.4;
+  }
+}

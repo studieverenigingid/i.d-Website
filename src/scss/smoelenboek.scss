@@ -51,6 +51,10 @@
 
   &__person {
     margin: 1rem 0 1rem;
+
+    a {
+      color: $text;
+    }
   }
 
   &__back {
@@ -150,5 +154,6 @@
   &__contact {
     font-style: normal;
     margin: 0 2.4em 2.4em;
+    line-height: 1.4;
   }
 }

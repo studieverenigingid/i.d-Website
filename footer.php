@@ -93,7 +93,8 @@
 				<p class="cookie__question">
 					<?php esc_attr_e('Click OK for cookies', 'svid-theme-domain'); ?>
 				</p>
-				<a class="cookie__info" href="#cookie_info">
+				<a class="cookie__info"
+					href="<?=home_url('privacy')?>">
 					<?php esc_attr_e('or read more about them', 'svid-theme-domain'); ?>
 				</a>
 				<button type="button" name="accept_cookies"

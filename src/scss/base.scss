@@ -781,6 +781,19 @@ template {
 	right: -20px;
 	width: 200px;
 	height: 180px;
+	z-index: 2;
+
+	@media (min-width: $brk--phone) {
+		&:before {
+			display: block;
+			width: 140%;
+			height: 120%;
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	}
 
 	&__cookie {
 		display: block;
@@ -792,16 +805,22 @@ template {
 
 	&__dialog {
 		position: absolute;
-		left: 4rem;
-		top: 4rem;
+		left: 9rem;
+		top: 1rem;
 		background: darken($accent, 10%);
 		z-index: 1;
 		padding: 1.5rem 1rem;
 		text-align: center;
 		width: 130%;
+		max-width: 80vw;
 		box-shadow: 0 .3rem .3rem transparentize(black, 0.7);
 		border-radius: .2rem;
 		color: $background--light;
+
+		@media (min-width: $brk--phone) {
+			left: 4rem;
+			top: 4rem;
+		}
 	}
 
 	&:hover &__dialog {
@@ -818,15 +837,28 @@ template {
 	}
 
 	&__accept {
-		position: absolute;
-		z-index: 3;
-		top: 50%;
-		left: 50%;
 		font-family: $font--heavy;
 		font-size: .9em;
 		cursor: pointer;
-		transform: translate(-40%, -50%);
-		box-shadow: 0 .1rem .2rem transparentize(black, 0.7);
+
+		&--in-dialog {
+			margin: .8rem 0 0;
+		}
+
+		&--in-cookie {
+			position: absolute;
+			z-index: 3;
+			top: 50%;
+			left: 50%;
+			display: none;
+			transform: translate(-40%, -50%);
+			box-shadow: 0 .1rem .2rem transparentize(black, 0.7);
+		}
+
+		@media (min-width: $brk--phone) {
+			&--in-dialog { display: none; }
+			&--in-cookie { display: block; }
+		}
 	}
 }
 

@@ -85,7 +85,8 @@
 						<?=$img_folder?>cookie@2x.png 2x"
 					src="<?=$img_folder?>cookie.png">
 			</picture>
-			<button type="button" name="accept_cookies" class="button cookie__accept">
+			<button type="button" name="accept_cookies"
+				class="button cookie__accept cookie__accept--in-cookie">
 				OK
 			</button>
 			<div class="cookie__dialog">
@@ -95,6 +96,10 @@
 				<a class="cookie__info" href="#cookie_info">
 					<?php esc_attr_e('or read more about them', 'svid-theme-domain'); ?>
 				</a>
+				<button type="button" name="accept_cookies"
+					class="button button--white cookie__accept cookie__accept--in-dialog">
+					OK
+				</button>
 			</div>
 		</div>
 

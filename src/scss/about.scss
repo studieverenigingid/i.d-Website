@@ -59,6 +59,38 @@
 		height: auto;
 	}
 
+	&__descr-rest {
+		column-gap: 3em;
+		margin: 5em 5%;
+		max-width: 80em;
+
+
+		p {
+			margin-top: 0;
+			margin-bottom: 1.4em;
+		}
+
+		@media (min-width: 650px) {
+			column-count: 2;
+		}
+
+		@media (min-width: $brk--phone) {
+			margin: 6em 8%;
+		}
+
+		@media (min-width: $brk--tablet) {
+			margin: 7em 10%;
+		}
+
+		@media (min-width: $brk--desktop) {
+			column-count: 3;
+		}
+
+		@media (min-width: 1600px) {
+			column-gap: 4em;
+		}
+	}
+
 	@media (min-width: $brk--phone) {
 		&__top {
 			padding: .1rem 8%;
@@ -103,10 +135,10 @@
 \*-------------------------------------*/
 .board {
 	text-align: center;
-	margin: 6.5em 0 3rem;
+	margin: 1.5em 0 3rem;
 
 	@media (min-width: $brk--tablet) {
-		margin: 14% 0 10%;
+		margin: 4% 0 10%;
 	}
 
 	&__indication {

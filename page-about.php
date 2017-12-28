@@ -9,10 +9,16 @@ get_header(); ?>
 
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+<?php
+	$morestring = '<!--more-->';
+	$explode_content = explode( $morestring, $post->post_content );
+	$content_before = apply_filters( 'get_the_content', $explode_content[0] );
+	$content_after = apply_filters( 'the_content', $explode_content[1] );
+?>
 <main class="about__top"
 	style="background-color: <?php theme_color(false); ?>;">
 	<h1 class="about__title"><?php the_title(); ?></h1>
-	<p class="about__descr"><?php echo get_the_content(); ?></p>
+	<p class="about__descr"><?php echo $content_before; ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="about__thumb">
 			<?php the_post_thumbnail('post-thumbnail',
@@ -21,6 +27,10 @@ get_header(); ?>
 		</div>
 	<?php endif; ?>
 </main>
+
+<section class="about__descr-rest">
+	<?php echo $content_after; ?>
+</section>
 <?php endwhile; endif; ?>
 
 

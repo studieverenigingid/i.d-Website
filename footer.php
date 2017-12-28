@@ -77,6 +77,27 @@
 			</a>
 		<?php } ?>
 
+		<div class="cookie">
+			<picture>
+				<source srcset="<?=$img_folder?>cookie.svg" type="image/svg+xml">
+				<img class="cookie__cookie" alt="Study association i.d"
+					srcset="<?=$img_folder?>cookie.png 1x,
+						<?=$img_folder?>cookie@2x.png 2x"
+					src="<?=$img_folder?>cookie.png">
+			</picture>
+			<button type="button" name="accept_cookies" class="button cookie__accept">
+				OK
+			</button>
+			<div class="cookie__dialog">
+				<p class="cookie__question">
+					<?php esc_attr_e('Click OK for cookies', 'svid-theme-domain'); ?>
+				</p>
+				<a class="cookie__info" href="#cookie_info">
+					<?php esc_attr_e('or read more about them', 'svid-theme-domain'); ?>
+				</a>
+			</div>
+		</div>
+
 		<?php wp_footer(); ?>
 
 		<!--[if lt IE 9]>

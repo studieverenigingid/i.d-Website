@@ -773,6 +773,68 @@ template {
 
 
 /*-------------------------------------*\
+	Cookie dialog
+\*-------------------------------------*/
+.cookie {
+	position: fixed;
+	bottom: -30px;
+	right: -20px;
+	width: 200px;
+	height: 180px;
+
+	&__cookie {
+		display: block;
+		width: 200px;
+		position: relative;
+		z-index: 2;
+		pointer-events: none;
+	}
+
+	&__dialog {
+		position: absolute;
+		left: 4rem;
+		top: 4rem;
+		background: darken($accent, 10%);
+		z-index: 1;
+		padding: 1.5rem 1rem;
+		text-align: center;
+		width: 130%;
+		box-shadow: 0 .3rem .3rem transparentize(black, 0.7);
+		border-radius: .2rem;
+		color: $background--light;
+	}
+
+	&:hover &__dialog {
+		transform: translate(-100%, -100%);
+	}
+
+	&__question {
+		font-family: $font--heavy;
+		margin: 0 0 .2rem;
+	}
+
+	&__info {
+		color: $background--light;
+	}
+
+	&__accept {
+		position: absolute;
+		z-index: 3;
+		top: 50%;
+		left: 50%;
+		font-family: $font--heavy;
+		font-size: .9em;
+		cursor: pointer;
+		transform: translate(-40%, -50%);
+		box-shadow: 0 .1rem .2rem transparentize(black, 0.7);
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Imports
 \*-------------------------------------*/
 

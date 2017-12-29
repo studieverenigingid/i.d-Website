@@ -42,7 +42,7 @@ global $img_folder;
 		?>
 
 		<?php $options = get_option('id_settings');
-			if (isset($_COOKIE['accept_svid_cookies'])
+			if ( (isset($_COOKIE['accept_svid_cookies']) || is_user_logged_in())
 			&& !is_admin()
 		  && isset($options['id_ga_code_field'])) { ?>
 			<script async src="https://www.googletagmanager.com/gtag/js?id=<?=$options['id_ga_code_field']?>"></script>

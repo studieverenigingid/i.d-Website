@@ -9,6 +9,15 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 
 <main class="about__top" style="background-color: <?php theme_color(false); ?>">
+
+	<picture>
+		<source srcset="<?=$img_folder?>scroll.svg" type="image/svg+xml">
+		<img class="scroll-indicator" alt="Study association i.d"
+			srcset="<?=$img_folder?>scroll.png 1x,
+				<?=$img_folder?>scroll@2x.png 2x"
+			src="<?=$img_folder?>scroll.png">
+	</picture>
+
 	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
 	<h1 class="education__title">
     <?php the_title(); ?><span class="education__title--light">?</span>

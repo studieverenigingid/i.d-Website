@@ -18,9 +18,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 			src="<?=$img_folder?>scroll.png">
 	</picture>
 
-	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
 	<h1 class="education__title">
-    <?php the_title(); ?><span class="education__title--light">?</span>
+    <?php the_title(); ?>
   </h1>
 	<div class="education-feedback">
     <div class="education-feedback__message education-feedback__message--success">
@@ -31,7 +30,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 		<form action="#" class="education-feedback__wrap">
 
         <label for="feedback" class="education__label">
-          <?= esc_attr_x('What is it?', 'feedback-form-question', 'svid-theme-domain')?>
+          <?= esc_attr_x('Do you have feedback about the faculty of IDE or your education?', 'feedback-form-question', 'svid-theme-domain')?>
         </label>
 				<textarea name="feedback" id="" cols="30" rows="12"
           placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"

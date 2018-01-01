@@ -30,15 +30,6 @@
 		background: $accent;
 	}
 
-	&__jump {
-		opacity: .8;
-		color: $background--light;
-
-		&-link {
-			color: $background--light;
-		}
-	}
-
 	&__title {
 		color: $background--light;
 		max-width: 30rem;
@@ -70,7 +61,7 @@
 
 	&__descr-rest {
 		column-gap: 3em;
-		margin: 5em 5%;
+		margin: 5em 5% 3em;
 		max-width: 80em;
 
 
@@ -84,11 +75,11 @@
 		}
 
 		@media (min-width: $brk--phone) {
-			margin: 6em 8%;
+			margin: 6em 8% 4em;
 		}
 
 		@media (min-width: $brk--tablet) {
-			margin: 7em 10%;
+			margin: 7em 10% 5em;
 		}
 
 		@media (min-width: $brk--desktop) {
@@ -97,6 +88,26 @@
 
 		@media (min-width: 1600px) {
 			column-gap: 4em;
+		}
+	}
+
+	&__jump {
+		text-align: center;
+		background: $accent;
+		margin: 3em 5%;
+		padding: 1em;
+		color: $background--light;
+
+		&-link {
+			color: $background--light;
+		}
+
+		@media (min-width: $brk--phone) {
+			margin: 4em 8%;
+		}
+
+		@media (min-width: $brk--tablet) {
+			margin: 5em 10%;
 		}
 	}
 

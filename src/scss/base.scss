@@ -14,6 +14,7 @@
 	+ Paragraph styles
 	+ Bies
 	+ Menu
+	+ Scroll indicator
 	+ Primary content
 	+ Footer
 	+ Imports
@@ -458,6 +459,30 @@ blockquote {
 		&--sticky {
 			position: fixed;
 		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Scroll indicator
+\*-------------------------------------*/
+.scroll-indicator {
+	width: 100px;
+	display: none;
+
+	float: right;
+	transform: translateY(80px);
+
+	@media (min-width: $brk--tablet) {
+		transform: translateY(120px);
+		width: 136px;
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		transform: translate(-120px, 200px);
 	}
 }
 

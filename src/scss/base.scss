@@ -861,7 +861,8 @@ template {
 		}
 	}
 
-	&:hover &__dialog {
+	&:hover &__dialog,
+	&__dialog.opened {
 		transform: translate(-100%, -100%);
 	}
 

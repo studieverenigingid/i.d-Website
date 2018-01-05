@@ -49,7 +49,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 			    </label>
 					<input type="email" name="user_email" class="login__input"
             id="account-email" required
-						placeholder="<?=esc_attr_e('john@doe.com', 'svid-theme-domain')?>">
+						placeholder="<?=esc_attr_e('jamie@doe.com', 'svid-theme-domain')?>">
 				</div>
 
 				<div class="form-group">

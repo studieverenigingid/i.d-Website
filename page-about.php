@@ -9,10 +9,17 @@ get_header(); ?>
 
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+<?php
+	$morestring = '<!--more-->';
+	$explode_content = explode( $morestring, $post->post_content );
+	$content_before = apply_filters( 'get_the_content', $explode_content[0] );
+	$content_after = apply_filters( 'the_content', $explode_content[1] );
+?>
 <main class="about__top"
 	style="background-color: <?php theme_color(false); ?>;">
+
 	<h1 class="about__title"><?php the_title(); ?></h1>
-	<p class="about__descr"><?php echo get_the_content(); ?></p>
+	<p class="about__descr"><?php echo $content_before; ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="about__thumb">
 			<?php the_post_thumbnail('post-thumbnail',
@@ -21,11 +28,23 @@ get_header(); ?>
 		</div>
 	<?php endif; ?>
 </main>
+
+<section class="about__descr-rest">
+	<?php echo $content_after; ?>
+</section>
+
+<p class="about__jump">
+	Jump to our:
+	<a class="about__jump-link" href="#board"><?php echo esc_attr_x('board', 'Current board link', 'svid-theme-domain'); ?></a> –
+	<a class="about__jump-link" href="#committees"><?php echo esc_attr_x('committees', 'Our committees link', 'svid-theme-domain'); ?></a> –
+	<a class="about__jump-link" href="#master_communities"><?php echo esc_attr_x('master communities', 'Our master communities link', 'svid-theme-domain'); ?></a>
+</p>
+
 <?php endwhile; endif; ?>
 
 
 
-<section class="board">
+<section class="board" id="board">
 
 	<?php
 		wp_reset_postdata();
@@ -71,7 +90,7 @@ get_header(); ?>
 
 
 
-<section class="committees">
+<section class="committees" id="committees">
 
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Some of our committees', 'Our committees title', 'svid-theme-domain'); ?></h2>
 
@@ -128,7 +147,7 @@ get_header(); ?>
 
 
 
-<section class="master-coms">
+<section class="master-coms" id="master_communities">
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Our master communities', 'Our master communities title', 'svid-theme-domain'); ?></h2>
 	<div class="master-coms__list">
 		<?php

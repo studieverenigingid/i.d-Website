@@ -77,6 +77,38 @@
 			</a>
 		<?php } ?>
 
+		<?php if (!isset($_COOKIE['accept_svid_cookies']) && !is_user_logged_in()) { ?>
+			<form class="cookie" action="<?=esc_url( admin_url('admin-post.php') ) ?>"
+				method="post">
+				<input type="hidden" name="action" value="accept_cookies">
+				<input type="hidden" name="cookie_referer" value="<?=$_SERVER['REQUEST_URI']?>">
+				<picture>
+					<source srcset="<?=$img_folder?>cookie.svg" type="image/svg+xml">
+					<img class="cookie__cookie" alt="Study association i.d"
+						srcset="<?=$img_folder?>cookie.png 1x,
+							<?=$img_folder?>cookie@2x.png 2x"
+						src="<?=$img_folder?>cookie.png">
+				</picture>
+				<button type="submit" name="accept_cookies"
+					class="button cookie__accept cookie__accept--in-cookie">
+					OK
+				</button>
+				<div class="cookie__dialog">
+					<p class="cookie__question">
+						<?php esc_attr_e('Click OK for cookies', 'svid-theme-domain'); ?>
+					</p>
+					<a class="cookie__info"
+						href="<?=home_url('privacy')?>">
+						<?php esc_attr_e('or read more about them', 'svid-theme-domain'); ?>
+					</a>
+					<button type="submit" name="accept_cookies"
+						class="button button--white cookie__accept cookie__accept--in-dialog">
+						OK
+					</button>
+				</div>
+			</form>
+		<?php } ?>
+
 		<?php wp_footer(); ?>
 
 		<!--[if lt IE 9]>

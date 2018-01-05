@@ -1,11 +1,11 @@
-<form name="loginform" id="loginform" class="login__wrap" method="post" action="<?=site_url('wp-login.php','login_post') ?>">
+<form name="loginform" id="loginform" class="login__wrap" method="post" action="<?=home_url('wp-login.php','login_post') ?>">
   <div class="form-group">
     <label for="login-name" class="login__label">
       <?= esc_attr_x('Username or Email Address', 'Username value on login page', 'svid-theme-domain')?>
     </label>
     <input type="text" name="log" class="login__input" id="login-name"
       required autocomplete="username"
-      placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
+      placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
   </div>
 
   <div class="form-group">

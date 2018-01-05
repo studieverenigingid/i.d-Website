@@ -9,9 +9,17 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 
 <main class="about__top" style="background-color: <?php theme_color(false); ?>">
-	<p class="education__pre-title"><?php echo esc_attr_x('Do you have something to say about', 'Education intro question', 'svid-theme-domain');?></p>
+
+	<picture>
+		<source srcset="<?=$img_folder?>scroll.svg" type="image/svg+xml">
+		<img class="scroll-indicator" alt="Study association i.d"
+			srcset="<?=$img_folder?>scroll.png 1x,
+				<?=$img_folder?>scroll@2x.png 2x"
+			src="<?=$img_folder?>scroll.png">
+	</picture>
+
 	<h1 class="education__title">
-    <?php the_title(); ?><span class="education__title--light">?</span>
+    <?php the_title(); ?>
   </h1>
 	<div class="education-feedback">
     <div class="education-feedback__message education-feedback__message--success">
@@ -22,7 +30,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 		<form action="#" class="education-feedback__wrap">
 
         <label for="feedback" class="education__label">
-          <?= esc_attr_x('What is it?', 'feedback-form-question', 'svid-theme-domain')?>
+          <?= esc_attr_x('Do you have feedback about the faculty of IDE or your education?', 'feedback-form-question', 'svid-theme-domain')?>
         </label>
 				<textarea name="feedback" id="" cols="30" rows="12"
           placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
@@ -42,19 +50,32 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
         <div class="education__hideble-fields js-edu-hidable-fields">
 
+					<?php
+						if (is_user_logged_in()) {
+							$current_user = wp_get_current_user();
+							$current_name = $current_user->display_name;
+							$current_email = $current_user->user_email;
+						} else {
+							$current_name = '';
+							$current_email = '';
+						}
+				 	?>
+
           <label for="feedback" class="education__label">
             <?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input name="name" type="text" class="education__input-short"
-            placeholder="<?= esc_attr_x('John Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-						style="background-color: <?php theme_color(false); ?>">
+            placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						style="background-color: <?php theme_color(false); ?>"
+						value="<?=$current_name?>">
 
           <label for="feedback" class="education__label">
             <?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
           </label>
   				<input type="email" name="email" class="education__input-short"
-            placeholder="<?= esc_attr_x('john@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-						style="background-color: <?php theme_color(false); ?>">
+            placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						style="background-color: <?php theme_color(false); ?>"
+						value="<?=$current_email?>">
 
         </div>
 

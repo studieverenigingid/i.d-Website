@@ -8,7 +8,7 @@
 
 // Build the URL we’ll redirect the user back to
 $page_slug = ($_POST['language'] === 'nl') ? 'nl/maak_account' : 'create_account';
-$back_link = site_url($page_slug);
+$back_link = home_url($page_slug);
 
 // Enter the default values if everything goes alright
 $success_status = true;
@@ -115,7 +115,7 @@ if (wp_doing_ajax()) {
 	$success_message = __( 'Your account creation was successful! You should have received an email with a link to activate your account. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
 	$success_message = sprintf(
 		$success_message,
-		esc_url( site_url('login') )
+		esc_url( home_url('login') )
 	);
 
 	// Put the message in the response and send it

@@ -41,6 +41,20 @@ global $img_folder;
 			array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		?>
 
+		<?php $options = get_option('id_settings');
+			if ( (isset($_COOKIE['accept_svid_cookies']) || is_user_logged_in())
+			&& !is_admin()
+		  && isset($options['id_ga_code_field'])) { ?>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=<?=$options['id_ga_code_field']?>"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', '<?=$options['id_ga_code_field']?>');
+			</script>
+		<?php } ?>
+
 		<?php wp_head(); ?>
 
 	</head>

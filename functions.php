@@ -8,6 +8,7 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
+	include( 'inc/hon_mem-post-type.php' );
 	include( 'inc/committee-post-type.php' );
 	include( 'inc/board-post-type.php' );
 

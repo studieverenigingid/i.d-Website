@@ -312,7 +312,8 @@ $groups:
 /*-------------------------------------*\
 	Master communities
 \*-------------------------------------*/
-.master-coms {
+.master-coms,
+.hon-mems {
 	margin: 15% 0 15%;
 
 	@media (min-width: $brk--tablet) {
@@ -348,5 +349,38 @@ $groups:
 
 	&__logo {
 		vertical-align: middle;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Honorary members
+\*-------------------------------------*/
+.hon-mem {
+	width: 200px;
+	margin: 1.5em;
+
+	&__link {
+		text-decoration: none;
+		color: $accent;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__avatar {
+		border-radius: 150px;
+		height: 200px;
+		width: 200px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 }

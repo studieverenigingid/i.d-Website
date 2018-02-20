@@ -27,7 +27,7 @@
 				<p class="pri-footer__paragraph">
 					KvK: 40397069<br>
 					Btw: NL 8058.24.352 B01<br>
-					IBAN: NL 08 RABO 0319423239<br>
+					IBAN: NL08 RABO 0319 4232 39<br>
 					BIC: RABONL2U<br>
 				</p>
 

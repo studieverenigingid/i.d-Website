@@ -24,6 +24,12 @@
 					<a class="pri-footer__link"
 						href="mailto:svid@tudelft.nl">svid@tudelft.nl</a><br>
 				</p>
+				<p class="pri-footer__paragraph">
+					KvK: 40397069<br>
+					Btw: NL 8058.24.352 B01<br>
+					IBAN: NL 08 RABO 0319423239<br>
+					BIC: RABONL2U<br>
+				</p>
 
 				<p class="pri-footer__paragraph pri-footer__paragraph--small">
 					<?php echo sprintf (

@@ -4,7 +4,10 @@
  * Template Name: i.d-Kafee page
  */
 
-get_header(); ?>
+get_header();
+wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
+
+?>
 
 <header class="kafee--page__header
 	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>"
@@ -142,8 +145,7 @@ endif;
 
 
 		<div class="reserve-kafee__validate-and-send">
-
-			<input type="hidden" name="action" value="reserve_kafee_input">
+			<input type="hidden" name="action" value="reserve_kafee">
 
 			<div class="g-recaptcha"
 				data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">

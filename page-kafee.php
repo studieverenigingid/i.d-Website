@@ -84,53 +84,58 @@ endif;
 		?>
 
 		<label for="event-name" class="reserve-kafee__label">
-			<?= esc_attr_x('What do you want to reserve i.d-Kafee for?', 'reserve-kafee-question', 'svid-theme-domain')?>
+			<?= esc_attr_x('What do you want to reserve i.d-Kafee for?', 'reserve-kafee-eventname-label', 'svid-theme-domain')?>
 		</label>
 		<input type="text" name="event-name" class="reserve-kafee__input-short" required>
 
 		<label for="email" class="reserve-kafee__label">
-			<?= esc_attr_x('What is your email address?', 'reserve-kafee-question', 'svid-theme-domain')?>
+			<?= esc_attr_x('What is your email address?', 'reserve-kafee-email-label', 'svid-theme-domain')?>
 		</label>
 		<input type="email" name="email" class="reserve-kafee__input-short"
-		placeholder="<?= esc_attr_x('jamie@doe.com', 'reserve-kafee-placeholder', 'svid-theme-domain') ?>"
+		placeholder="<?= esc_attr_x('jamie@doe.com', 'reserve-kafee-email-placeholder', 'svid-theme-domain') ?>"
 		value="<?=$current_email?>" required>
 
-		<p class="reserve-kafee__label"><?= esc_attr_x('When do you want to use i.d-Kafee?', 'reserve-kafee-question', 'svid-theme-domain')?></p>
+		<p class="reserve-kafee__label"><?= esc_attr_x('When do you want to use i.d-Kafee?', 'reserve-kafee-datetime-label', 'svid-theme-domain')?></p>
+		<p class="reserve-kafee__small-label"><?= esc_attr_x('i.d-Kafee is available from 15:00 for private events on all weekdays except Wednesday. It closes at 21:00 on Mondays, Tuesdays and Thursdays but closes at 19:00 on Fridays.', 'reserve-kafee-datetime-description', 'svid-theme-domain')?></p>
 
 		<div class="reserve-kafee__input-group">
-			<label for="date" class="reserve-kafee__label">
-				<?= esc_attr_x('Set date', 'reserve-kafee-question', 'svid-theme-domain')?>
+			<label for="date" class="reserve-kafee__small-label">
+				<?= esc_attr_x('Set date', 'reserve-kafee-date-label', 'svid-theme-domain')?>
 			</label>
 			<input type="date" name="date" class="reserve-kafee__input-date" required>
 		</div>
 
 		<div class="reserve-kafee__input-group">
-		<label for="starttime" class="reserve-kafee__label">Set start time</label>
-		<input type="time" name="starttime" class="reserve-kafee__input-date" required>
+			<label for="starttime" class="reserve-kafee__small-label">
+				<?= esc_attr_x('Set start time', 'reserve-kafee-starttime-label', 'svid-theme-domain')?>
+			</label>
+			<input type="time" name="starttime" class="reserve-kafee__input-date" required>
 		</div>
 
 		<div class="reserve-kafee__input-group">
-			<label for="endtime" class="reserve-kafee__label">Set end time</label>
+			<label for="endtime" class="reserve-kafee__small-label">
+				<?= esc_attr_x('Set end time', 'reserve-kafee-endtime-label', 'svid-theme-domain')?>
+			</label>
 			<input type="time" name="endtime" class="reserve-kafee__input-date" required>
 		</div>
 
 		<label for="attendants" class="reserve-kafee__label">
-			<?= esc_attr_x('How many people will attend your event?', 'reserve-kafee-question', 'svid-theme-domain')?>
+			<?= esc_attr_x('How many people will attend your event?', 'reserve-kafee-attendants-label', 'svid-theme-domain')?>
 		</label>
 		<input type="number" min="0" name="attendants" class="reserve-kafee__input-short" required>
 
 		<label for="invoice" class="reserve-kafee__label">
-			<?= esc_attr_x('What is your invoice address or BAAN code?', 'reserve-kafee-question', 'svid-theme-domain')?>
+			<?= esc_attr_x('What is your invoice address or BAAN code?', 'reserve-kafee-invoice-label', 'svid-theme-domain')?>
 		</label>
 		<input type="text" name="invoice" class="reserve-kafee__input-short" required>
 
-		<label for="drinks-on-account" class="reserve-kafee__label--toggle">
-			<?= esc_attr_x('Will you pay for consumptions?', 'reserve-kafee-question', 'svid-theme-domain')?>
+		<label for="drinks-on-account" class="reserve-kafee__label reserve-kafee__label--toggle">
+			<?= esc_attr_x('Will you pay for consumptions?', 'reserve-kafee-paidfor-label', 'svid-theme-domain')?>
 		</label>
 		<input type="checkbox" name="drinks-on-account" class="reserve-kafee__toggle-button">
 
-		<label for="consumptions" class="reserve-kafee__label--toggle">
-			<?= esc_attr_x('Do you want to make use of the \'Study association i.d consumptions service\'&trade;?', 'reserve-kafee-question', 'svid-theme-domain')?>
+		<label for="consumptions" class="reserve-kafee__label reserve-kafee__label--toggle">
+			<?= esc_attr_x('Do you want to make use of the \'Study association i.d consumptions service\'&trade;?', 'reserve-kafee-consumptions-label', 'svid-theme-domain')?>
 		</label>
 		<input type="checkbox" name="consumptions" class="reserve-kafee__toggle-button">
 

@@ -2,9 +2,7 @@ function reserveKafeeForm() {
 
 }
 
-var	dateFormfield = document.getElementById('reserve-kafee-form').elements['date'],
-		starttimeFormfield = document.getElementById('reserve-kafee-form').elements['starttime'],
-		endtimeFormfield = document.getElementById('reserve-kafee-form').elements['endtime'];
+var kafeeForm = document.getElementById('reserve-kafee-form');
 
 function resetValidity() {
 	dateFormfield.setCustomValidity('');
@@ -14,23 +12,22 @@ function resetValidity() {
 
 function limitDates(){
 
-    var	day = new Date( dateFormfield.value ).getUTCDay(),
+		var	day = new Date(dateFormfield.value).getUTCDay(),
 				starttime =starttimeFormfield.value,
 				endtime = endtimeFormfield.value;
 
-    // Days in JS range from 0-6 where 0 is Sunday and 6 is Saturday
+		// Days in JS range from 0-6 where 0 is Sunday and 6 is Saturday
 
-    if( day == 0 || day == 6 ){
+		if( day == 0 || day == 6 ){
 			resetValidity();
-      dateFormfield.setCustomValidity('Unfortunately, i.d-Kafee can\'t be booked in the weekends.');
-    } else if (day == 3) {
+			dateFormfield.setCustomValidity('Unfortunately, i.d-Kafee can\'t be booked in the weekends.');
+		} else if (day == 3) {
 			resetValidity();
-    	dateFormfield.setCustomValidity('i.d-Kafee is open for everyone on wednesdays, so it isn\'t possible to reserve a private event.');
-    } else {
+			dateFormfield.setCustomValidity('i.d-Kafee is open for everyone on wednesdays, so it isn\'t possible to reserve a private event.');
+		} else {
 			// Check start and endtimes (also for specific limitations on days)
 			if (starttime < '15:00') {
 				resetValidity();
-				console.log(starttime);
 				starttimeFormfield.setCustomValidity('Your event can\'t start before 15:00');
 			}	else if (starttime >= endtime) {
 				resetValidity();
@@ -45,9 +42,19 @@ function limitDates(){
 			else {
 				resetValidity();
 			}
-    }
+		}
 }
 
-dateFormfield.addEventListener('input',limitDates);
-starttimeFormfield.addEventListener('input',limitDates);
-endtimeFormfield.addEventListener('input',limitDates);
+function initKafeeForm(){
+	dateFormfield.addEventListener('input',limitDates);
+	starttimeFormfield.addEventListener('input',limitDates);
+	endtimeFormfield.addEventListener('input',limitDates);
+}
+
+if (kafeeForm != null) {
+	var	dateFormfield = kafeeForm.elements['date'],
+			starttimeFormfield = kafeeForm.elements['starttime'],
+			endtimeFormfield = kafeeForm.elements['endtime'];
+
+	initKafeeForm();
+}

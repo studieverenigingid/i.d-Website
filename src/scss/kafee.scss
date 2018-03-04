@@ -201,6 +201,10 @@
 	}
 }
 
+/*-------------------------------------*\
+	Kafee Reservation Form
+\*-------------------------------------*/
+
 .reserve-kafee {
   &__title {
     color: $background--light;
@@ -216,7 +220,8 @@
     margin: 1em 0 .5em;
     display: block;
     color: black;
-    font-family: $font--light;
+		font-size: .8em;
+    font-family: $font--heavy;
 
     &--right {
       flex-grow: 1;
@@ -225,106 +230,70 @@
       width: 10em;
       margin: 0;
     }
+
+		&--toggle {
+			display: inline-block;
+			max-width: 90%;
+		}
   }
 
-	input:invalid {
-		border: 2px solid red;
+	&__input-group {
+		display: inline-block;
 	}
 
   &__input-message,
-  &__input-short {
+  &__input-short,
+	&__input-date {
     position: relative;
     width: 100%;
     padding: 1rem;
-    border: 1.5px solid $background--light;
+    border: 1px solid darken($background--light, 10%);
     border-radius: 4px;
     transition: transform .25s ease,
       opacity .25s ease-out;
     font-family: $font--light;
     font-size: 1em;
-    color: $background--light;
+    color: black;
     outline: none;
     appearance: none;
-    background: $hex-education;
+    background: darken($background--light, 2%);
 
     &::placeholder {
       color: white;
       opacity: .8;
     }
-  }
 
-  &__updater {
-    flex-flow: row wrap;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.7em 0;
+		&::-webkit-inner-spin-button {
+			display: none;
+		}
   }
 
   &__toggle-button {
-		outline: 0;
-		display: block;
-		width: 3.4em;
-		height: 2em;
+		-webkit-appearance: none;
+		appearance: none;
 		position: relative;
-		cursor: pointer;
-    user-select: none;
-    padding: 2px;
-		transition: all .2s ease;
-		border: 4px solid #f2f2f2;
-		border-radius: 2em;
-    flex-grow: 0;
-    margin-left: 1em;
+		display: inline-block;
+		height: 1.2rem;
+		width: 1.2rem;
+		border: 1px solid darken($background--light, 10%);
+    border-radius: 3rem;
+		color: black;
+    outline: none;
+		background-color: darken($background--light, 2%);
 
-		&:after,
-    &:before {
-			position: relative;
-			display: block;
-			content: "";
-			width: 50%;
-			height: 100%;
-		}
-
-		&:after {
-			left: 0;
-      transition: all .2s ease;
-      background: $accent;
-      box-sizing: border-box;
-			border: .6em solid $background--light;
-			content: "";
-      text-align: center;
-			border-radius: 1em;
-      clear: both;
-
-      @media (min-width: $brk--tablet) {
-        border-width: .7em;
-      }
-		}
-
-		&:before {
-			display: none;
+		&:checked {
+			&:after {
+				content: '';
+				background-color: $accent;
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				right: 3px;
+				bottom: 3px;
+				border-radius: 3rem;
+			}
 		}
 	}
-
-  &__toggle {
-    display: none;
-
-    &:checked + .education__toggle-button {
-      background: transparentize($background--light, .5);
-
-      &:after {
-        left: 50%;
-        border-width: .4em;
-      }
-
-      &:before {
-        display: block;
-        position: absolute;
-        font-size: .7em;
-        margin: .1em .2em;
-      }
-    }
-  }
 
   &__validate-and-send {
     display: flex;

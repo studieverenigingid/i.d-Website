@@ -14,6 +14,7 @@ function onDocReady () {
 	resetFormLink();
 	showHidePassword();
 	createAccountForm();
+	reserveKafeeForm();
 
 	// userinfoedit.js
 	userInfoEdit();

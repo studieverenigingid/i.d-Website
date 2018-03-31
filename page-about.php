@@ -187,13 +187,40 @@ get_header(); ?>
 
 
 
-<!-- <hr class="divider"> -->
+<?php
+	$args = array( 'post_type' => 'honorary_member' );
+	$loop = new WP_Query( $args );
+	if($loop->have_posts()) : ?>
 
+	<hr class="divider">
 
+	<section class="hon-mems">
 
-<!-- <section class="hon-mems">
-	<h2 class="about__sub-title">Coming soon: Our honorary members</h2>
-</section> -->
+		<h2 class="about__sub-title">
+			<?php echo esc_attr_x('Our honorary members', 'Honorary members title about page', 'svid-theme-domain'); ?>
+		</h2>
+
+		<div class="hon-mems__list">
+			<?php while($loop->have_posts()) : $loop->the_post();?>
+
+			<article class="hon-mem">
+				<a href="<?php the_permalink(); ?>" class="hon-mem__link">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="hon-mem__avatar">
+							<?php the_post_thumbnail('medium'); ?>
+						</div>
+					<?php endif; ?>
+					<h3 class="hon-mem__name">
+							<?php the_title(); ?>
+					</h3>
+				</a>
+			</article>
+
+			<?php endwhile; ?>
+		</div>
+
+	</section>
+<?php endif; wp_reset_postdata(); ?>
 
 
 

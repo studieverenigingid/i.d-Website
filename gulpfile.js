@@ -6,6 +6,7 @@ var gutil = require('gulp-util');
 
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var livereload = require('gulp-livereload');
 
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
@@ -43,7 +44,8 @@ gulp.task('scriptsDev', function() {
 				.pipe(sourcemaps.init())
 				.pipe(concat('main.js'))
 				.pipe(sourcemaps.write())
-				.pipe(gulp.dest(dest + 'js'));
+				.pipe(gulp.dest(dest + 'js'))
+				.pipe(livereload({ start: true }));
 });
 
 gulp.task('sass', function() {
@@ -68,7 +70,8 @@ gulp.task('sassDev', function() {
 				.pipe(sass().on('error', sass.logError))
 				.pipe(sourcemaps.write())
 				.pipe(rename('main.css'))
-				.pipe(gulp.dest(dest + 'css'));
+				.pipe(gulp.dest(dest + 'css'))
+				.pipe(livereload({ start: true }));
 });
 
 gulp.task('copy-scss', function() {
@@ -88,6 +91,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('watch', function() {
+	livereload.listen();
 	 // Watch .js files
 	gulp.watch(src + 'js/*.js', ['scriptsDev']);
 	 // Watch .scss files

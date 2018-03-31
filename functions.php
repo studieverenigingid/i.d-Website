@@ -8,6 +8,7 @@
 	include( 'inc/vacancy-post-type.php' );
 	include( 'inc/vacancy-custom-fields.php' );
 
+	include( 'inc/hon_mem-post-type.php' );
 	include( 'inc/committee-post-type.php' );
 	include( 'inc/board-post-type.php' );
 
@@ -256,6 +257,14 @@
 		$show_text = esc_attr('Show', 'svid-theme-domain');
 		echo "<div class='show-password show-password--show' data-other='$hide_text'>$show_text</div>";
 	}
+
+
+
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
+
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 
 ?>

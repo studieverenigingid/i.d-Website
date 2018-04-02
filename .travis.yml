@@ -1,0 +1,34 @@
+language: node_js
+
+node_js:
+- stable
+
+cache:
+  directories:
+  - "./node_modules"
+
+before_script:
+- npm install -g gulp-cli
+- npm install
+
+script: gulp build
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r -e 'ssh -p 4444' --quiet --exclude 'inc/API' --exclude 'static'
+    --exclude 'deploy_rsa.enc' --exclude 'README.md' --exclude 'package.json' --exclude
+    'gulpfile.js' --exclude 'CONTRIBUTING.md' --exclude '.gitignore'  $TRAVIS_BUILD_DIR/
+    floris@185.85.18.215:/var/www/dev.svid.nl/html/wp-content/themes/i.d-Website/
+  on:
+    branch: develop
+
+addons:
+  ssh_known_hosts: 185.85.18.215:4444
+
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_95c22b17302a_key -iv $encrypted_95c22b17302a_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa

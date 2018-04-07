@@ -37,7 +37,8 @@ get_header(); ?>
 	Jump to our:
 	<a class="about__jump-link" href="#board"><?php echo esc_attr_x('board', 'Current board link', 'svid-theme-domain'); ?></a> –
 	<a class="about__jump-link" href="#committees"><?php echo esc_attr_x('committees', 'Our committees link', 'svid-theme-domain'); ?></a> –
-	<a class="about__jump-link" href="#master_communities"><?php echo esc_attr_x('master communities', 'Our master communities link', 'svid-theme-domain'); ?></a>
+	<a class="about__jump-link" href="#master_communities"><?php echo esc_attr_x('master communities', 'Our master communities link', 'svid-theme-domain'); ?></a> –
+	<a class="about__jump-link" href="#honorary_members"><?php echo esc_attr_x('honorary members', 'Our honorary members link', 'svid-theme-domain'); ?></a>
 </p>
 
 <?php endwhile; endif; ?>
@@ -194,7 +195,7 @@ get_header(); ?>
 
 	<hr class="divider">
 
-	<section class="hon-mems">
+	<section class="hon-mems" id="honorary_members">
 
 		<h2 class="about__sub-title">
 			<?php echo esc_attr_x('Our honorary members', 'Honorary members title about page', 'svid-theme-domain'); ?>

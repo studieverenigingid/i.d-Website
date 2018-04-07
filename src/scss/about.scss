@@ -359,6 +359,22 @@ $groups:
 /*-------------------------------------*\
 	Honorary members
 \*-------------------------------------*/
+.hon-mems {
+	&__explanation {
+		@extend .primary-content;
+		padding: 1em 0 0;
+
+		p {
+			line-height: 1.6;
+			margin: 0;
+		}
+	}
+}
+
+
+
+
+
 .hon-mem {
 	width: 200px;
 	margin: 1.5em;

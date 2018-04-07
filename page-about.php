@@ -201,6 +201,10 @@ get_header(); ?>
 			<?php echo esc_attr_x('Our distinguished members', 'Honorary members title about page', 'svid-theme-domain'); ?>
 		</h2>
 
+		<div class="hon-mems__explanation">
+			<p><?php echo esc_attr_x('Study association i.d thanks industrial designers with important contributions to the professional domain and the study association by making them Honorary Members. People who are not neccessarily active as industrial designers but did—or sometimes still do—contribute a lot to the study association, become Members of Merit.', 'Distinguished members explanation', 'svid-theme-domain'); ?></p>
+		</div>
+
 		<div class="hon-mems__list">
 			<?php while($loop->have_posts()) : $loop->the_post();?>
 

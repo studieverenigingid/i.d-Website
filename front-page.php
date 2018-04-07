@@ -61,6 +61,13 @@ if ($upcoming_loop->have_posts()) :
 
       <?php if($upcoming_no === $upcoming_loop->post_count - 1) { ?>
 
+        <div class="event--small">
+          <h3 class="events__series-link events__series-link--mobile-only">
+            <a href="<?php echo get_post_type_archive_link('event'); ?>">
+              <?php echo esc_attr_x( 'All events', 'frontpage list', 'svid-theme-domain'); ?> →
+            </a>
+          </h3>
+        </div>
         </div>
 
       <?php }

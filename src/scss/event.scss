@@ -49,6 +49,14 @@
 		a {
 			color: $text;
 		}
+
+		&--mobile-only {
+			text-align: right;
+
+			@media (min-width: 600px) {
+				display: none;
+			}
+		}
 	}
 
 	&__archive-title {

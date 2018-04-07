@@ -16,7 +16,7 @@ script: gulp build
 deploy:
 - provider: script
   skip_cleanup: true
-  script: rsync -r -e 'ssh -p 4444' --quiet --exclude 'inc/API' --exclude 'static'
+  script: rsync -r -e 'ssh -p 4444' --quiet --exclude 'inc/API' --exclude 'src'
     --exclude 'deploy_rsa.enc' --exclude 'README.md' --exclude 'package.json' --exclude
     'gulpfile.js' --exclude 'CONTRIBUTING.md' --exclude '.gitignore'  $TRAVIS_BUILD_DIR/
     floris@185.85.18.215:/var/www/dev.svid.nl/html/wp-content/themes/i.d-Website/
@@ -24,7 +24,7 @@ deploy:
     branch: develop
 - provider: script
   skip_cleanup: true
-  script: rsync -r -e 'ssh -p 4444' --quiet --exclude 'inc/API' --exclude 'static'
+  script: rsync -r -e 'ssh -p 4444' --quiet --exclude 'inc/API' --exclude 'src'
     --exclude 'deploy_rsa.enc' --exclude 'README.md' --exclude 'package.json' --exclude
     'gulpfile.js' --exclude 'CONTRIBUTING.md' --exclude '.gitignore'  $TRAVIS_BUILD_DIR/
     floris@185.85.18.215:/var/www/studieverenigingid.nl/html/wp-content/themes/i.d-Website/

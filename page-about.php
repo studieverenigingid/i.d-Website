@@ -198,7 +198,7 @@ get_header(); ?>
 	<section class="hon-mems" id="honorary_members">
 
 		<h2 class="about__sub-title">
-			<?php echo esc_attr_x('Our honorary members', 'Honorary members title about page', 'svid-theme-domain'); ?>
+			<?php echo esc_attr_x('Our distinguished members', 'Honorary members title about page', 'svid-theme-domain'); ?>
 		</h2>
 
 		<div class="hon-mems__list">
@@ -215,6 +215,7 @@ get_header(); ?>
 							<?php the_title(); ?>
 					</h3>
 				</a>
+				<p class="hon-mem__type"><?php print_r(get_the_category()[0]->name); ?></p>
 			</article>
 
 			<?php endwhile; ?>

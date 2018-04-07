@@ -16,6 +16,7 @@
 			<h1 class="hon-mem--page__name">
 				<?php the_title(); ?>
 			</h1>
+			<p class="hon-mem__type"><?php print_r(get_the_category()[0]->name); ?></p>
 			<?php the_content(); ?>
 		</section>
 

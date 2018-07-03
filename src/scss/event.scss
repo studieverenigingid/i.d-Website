@@ -191,6 +191,7 @@
 		position: relative;
 		z-index: 2;
 		word-wrap: break-word;
+		line-height: 1.1;
 
 		@media (min-width: $brk--phone) {
 			font-size: 3em;

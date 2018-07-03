@@ -30,18 +30,6 @@
 /*-------------------------------------*\
 	Dependencies
 \*-------------------------------------*/
-@font-face {
-	font-family: FuturaStd;
-	src: url(../fonts/FuturaStd-Heavy.otf);
-	font-weight: 700;
-}
-
-@font-face {
-	font-family: FuturaBT;
-	src: url(../fonts/FuturaBT-Light.otf);
-	font-weight: 300;
-}
-
 @import 'grid';
 
 
@@ -51,8 +39,8 @@
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-$font--heavy: 'FuturaStd', sans-serif;
-$font--light: 'FuturaBT', sans-serif;
+$font--heavy: 'Muli', sans-serif;
+$font--light: 'Muli', sans-serif;
 $accent: #55ccbb;
 $background--light: #fafafa;
 $background--dark: #11417e;
@@ -141,7 +129,7 @@ h3 {
 }
 
 p {
-	line-height: 1.4;
+	line-height: 1.6;
 }
 
 blockquote {

@@ -294,6 +294,7 @@
 		max-width: 75vw;
 		width: 160%;
 		margin: 5% -25% 1rem 100%;
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
 
 		@media (min-width: 550px) {
 			width: 130%;
@@ -310,6 +311,11 @@
 			width: 130%;
 			margin-top: -24%;
 		}
+	}
+
+	&__img {
+		box-shadow: none;
+		display: block;
 	}
 }
 

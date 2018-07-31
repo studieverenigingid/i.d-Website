@@ -277,20 +277,19 @@ blockquote {
 
 .menu-toggle {
 	position: fixed;
-	right: 0;
-	bottom: 0;
+	left: 0;
+	top: 0;
 	height: 3.1rem;
-	width: 100%;
+	width: 4rem;
 	padding-left: 1rem;
 	line-height: 3.1rem;
-	text-align: left;
+	text-align: right;
 	color: white;
 	font-size: .9rem;
 	z-index: 11;
 	cursor: pointer;
 	transition: width 200ms ease-out;
 	overflow: hidden;
-	background: transparentize($background--gray, 0.4);
 
 	@media (min-width: $brk--phone) {
 		display: none;
@@ -305,25 +304,27 @@ blockquote {
 		box-shadow: 0 9px 0 0 white;
 		background: white;
 		position: absolute;
-		right: -.9rem;
+		left: -.9rem;
 		top: 14px;
-		transition: right 200ms ease-out,
+		transition: left 200ms ease-out,
 			color 200ms ease-out;
 	}
 
 	&:after {
 		top: 23px;
-		right: -.2rem;
+		left: -.2rem;
 		width: .8rem;
 	}
 
 	&.opened {
+		width: 6rem;
+
 		&:before {
-			right: .9rem;
+			left: .9rem;
 		}
 
 		&:after {
-			right: .5rem;
+			left: .5rem;
 		}
 	}
 }
@@ -345,16 +346,17 @@ blockquote {
 	width: 100%;
 	font-family: $font--light;
 	position: fixed;
-	right: 0;
+	left: 0;
 	top: 0;
+	bottom: 0;
 	background: $background--gray;
 	color: white;
-	transform: translateX(100%);
+	transform: translateX(-100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
 	padding-top: 3rem;
 	max-height: 100vh;
-	padding-bottom: 3.1rem;
+	padding-bottom: 1rem;
 	overflow-y: auto;
 	display: flex;
 	flex-flow: row wrap;
@@ -377,7 +379,7 @@ blockquote {
 	&__list,
 	&__language-switch {
 		margin: 0;
-		padding: 1rem 0;
+		padding: 3rem 0 0;
 		list-style: none;
 	}
 
@@ -388,10 +390,19 @@ blockquote {
 		}
 
 		&__language-switch {
-			display: flex;
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			padding: 0 1em 0 0;
+			font-size: .9rem;
 
 			&__context {
 				padding: .8rem 0 .8rem 1.4rem;
+			}
+
+			&__link {
+				font-weight: 900;
 			}
 		}
 
@@ -401,6 +412,7 @@ blockquote {
 	}
 
 	@media (min-width: $brk--phone) {
+		bottom: auto;
 		padding: 0;
 		position: static;
 		transform: translateX(0px);

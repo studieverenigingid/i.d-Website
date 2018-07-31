@@ -118,25 +118,6 @@
 			'id_educationInputSettings_section'
 		);
 
-		// Registering Google Analytics code
-
-		register_setting( 'googleAnalyticsSettings', 'id_settings' );
-
-		add_settings_section(
-			'id_GoogleAnalyticsSettings_section',
-			__( 'Google Analytics', 'wordpress' ),
-			'id_GoogleAnalyticsSettings_section_callback',
-			'googleAnalyticsSettings'
-		);
-
-		add_settings_field(
-			'id_ga_code_field',
-			__( 'GA code', 'wordpress' ),
-			'id_ga_code_render',
-			'googleAnalyticsSettings',
-			'id_GoogleAnalyticsSettings_section'
-		);
-
 	}
 
 	// Vimeo form rendering
@@ -261,25 +242,6 @@
 	function id_educationInputSettings_section_callback(  ) {
 
 		echo __( 'Register the email addresses the education input should be sent to from the form. Enter multiple email addresses separated with a comma. Enter the reCaptcha secret, too (reCaptcha is what keeps the spam away).', 'wordpress' );
-
-	}
-
-	// Google Analytics input form rendering
-
-	function id_ga_code_render(  ) {
-
-		$options = get_option( 'id_settings' );
-		?>
-		<input type='text' name='id_settings[id_ga_code_field]' value='<?php echo $options['id_ga_code_field']; ?>'>
-		<?php
-
-	}
-
-	// Google Analytics input section callback
-
-	function id_GoogleAnalyticsSettings_section_callback(  ) {
-
-		echo __( 'Get Google Analytics working by entering the code.', 'wordpress' );
 
 	}
 

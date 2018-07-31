@@ -6,7 +6,6 @@ function onDocReady () {
 	menuSticky();
 	fixVHAfterLoad();
 	scrollIndicator();
-	cookieConsent();
 
 	// formhandling.js
 	ajaxFeedbackForm();
@@ -101,15 +100,6 @@ function scrollIndicator() {
 			}
 		});
 	}
-}
-
-function cookieConsent() {
-	var cookieImage = $('.cookie'),
-		cookieDialog = $('.cookie__dialog');
-
-	cookieImage.click(function() {
-		cookieDialog.toggleClass('opened');
-	});
 }
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is

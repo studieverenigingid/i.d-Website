@@ -5,7 +5,7 @@
 
 	function id_add_admin_menu(  ) {
 
-		add_submenu_page( 'options-general.php', 'i.d-Website Settings', 'i.d-Website Settings', 'manage_options', 'i.d-website_settings', 'id_options_page' );
+		add_submenu_page( 'options-general.php', 'ID Website Settings', 'ID Website Settings', 'manage_options', 'ID-website_settings', 'id_options_page' );
 
 	}
 
@@ -183,7 +183,7 @@
 					<input type='text' name='id_settings[id_instagram_access_token_field]' value='<?php get_instagram_access_token(); ?>'>
 				<?php
 			} else {
-				echo '<a class="button-primary" href="https://api.instagram.com/oauth/authorize/?client_id='.$options[id_instagram_client_id_field].'&redirect_uri='.admin_url( 'options-general.php?page=i.d-website_settings').'&response_type=code">Log in with Instagram</a>';
+				echo '<a class="button-primary" href="https://api.instagram.com/oauth/authorize/?client_id='.$options[id_instagram_client_id_field].'&redirect_uri='.admin_url( 'options-general.php?page=ID-website_settings').'&response_type=code">Log in with Instagram</a>';
 			}
 		} else {
 			?> <p>Fill in your instagram client ID and Secret first</p> <?php
@@ -245,14 +245,14 @@
 
 	}
 
-	// i.d-Website settings page
+	// ID Website settings page
 
 	function id_options_page() {
 
 		?>
 		<form action='options.php' method='post'>
 
-			<h2>i.d-Website Settings</h2>
+			<h2>ID Website Settings</h2>
 
 			<?php
 			submit_button();
@@ -289,7 +289,7 @@
 		$access_token_settings = array(	'client_id' => $options['id_instagram_client_id_field'],
 										'client_secret' => $options['id_instagram_client_secret_field'],
 										'grant_type' => 'authorization_code',
-										'redirect_uri' => admin_url( 'options-general.php?page=i.d-website_settings'),
+										'redirect_uri' => admin_url( 'options-general.php?page=ID-website_settings'),
 										'code' => $code
 									 );
 

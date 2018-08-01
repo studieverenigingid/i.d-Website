@@ -280,7 +280,8 @@ blockquote {
 	left: 0;
 	top: 0;
 	height: 3.1rem;
-	width: 4rem;
+	width: 6rem;
+	padding-right: 2rem;
 	padding-left: 1rem;
 	line-height: 3.1rem;
 	text-align: right;
@@ -317,7 +318,7 @@ blockquote {
 	}
 
 	&.opened {
-		width: 6rem;
+		width: 8rem;
 
 		&:before {
 			left: .9rem;

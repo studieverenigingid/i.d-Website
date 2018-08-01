@@ -292,7 +292,7 @@ blockquote {
 	transition: width 200ms ease-out;
 	overflow: hidden;
 
-	@media (min-width: $brk--phone) {
+	@media (min-width: $brk--tablet) {
 		display: none;
 	}
 
@@ -384,7 +384,7 @@ blockquote {
 		list-style: none;
 	}
 
-	@media (max-width: $brk--phone + 1) {
+	@media (max-width: $brk--tablet + 1) {
 		&__list {
 			flex-basis: 100%;
 			height: 100%;
@@ -412,7 +412,7 @@ blockquote {
 		}
 	}
 
-	@media (min-width: $brk--phone) {
+	@media (min-width: $brk--tablet) {
 		bottom: auto;
 		padding: 0;
 		position: static;

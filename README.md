@@ -1,4 +1,4 @@
-# i.d-Website
+# ID Website
 The Wordpress theme for id.tudelft.nl
 
 ## Contents

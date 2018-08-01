@@ -1,6 +1,6 @@
 /*-------------------------------------*\
 
-	i.d-WEBSITE WORDPRESS THEME
+	ID WEBSITE WORDPRESS THEME
 
 	See style.css for the WP info.
 
@@ -30,18 +30,6 @@
 /*-------------------------------------*\
 	Dependencies
 \*-------------------------------------*/
-@font-face {
-	font-family: FuturaStd;
-	src: url(../fonts/FuturaStd-Heavy.otf);
-	font-weight: 700;
-}
-
-@font-face {
-	font-family: FuturaBT;
-	src: url(../fonts/FuturaBT-Light.otf);
-	font-weight: 300;
-}
-
 @import 'grid';
 
 
@@ -51,8 +39,8 @@
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-$font--heavy: 'FuturaStd', sans-serif;
-$font--light: 'FuturaBT', sans-serif;
+$font--heavy: 'Muli', sans-serif;
+$font--light: 'Muli', sans-serif;
 $accent: #55ccbb;
 $background--light: #fafafa;
 $background--dark: #11417e;
@@ -141,7 +129,7 @@ h3 {
 }
 
 p {
-	line-height: 1.4;
+	line-height: 1.6;
 }
 
 blockquote {
@@ -257,28 +245,20 @@ blockquote {
 .bies {
 	width: 100%;
 	background: $accent;
-	padding: 0 0 15px;
 	position: relative;
+	padding-bottom: 1em;
 
 	&__image {
-		min-height: 60px;
-		height: 60px;
+		height: 80px;
 		position: relative;
 		z-index: 11;
 		display: block;
+		margin: 0 auto;
 
-		@media (min-width: $brk--phone) {
-			background: transparentize($background--gray, 0.4);
-
-			&--sticky {
-				margin-bottom: 45px;
-			}
+		@media (min-width: $brk--tablet) {
+			margin: 0 0 0 2em;
 		}
 
-		@media (min-width: 1218px) {
-			width: 100%;
-			height: auto;
-		}
 	}
 }
 // Amen
@@ -297,22 +277,22 @@ blockquote {
 
 .menu-toggle {
 	position: fixed;
-	right: 0;
-	bottom: 0;
+	left: 0;
+	top: 0;
 	height: 3.1rem;
-	width: 100%;
+	width: 6rem;
+	padding-right: 2rem;
 	padding-left: 1rem;
 	line-height: 3.1rem;
-	text-align: left;
+	text-align: right;
 	color: white;
 	font-size: .9rem;
 	z-index: 11;
 	cursor: pointer;
 	transition: width 200ms ease-out;
 	overflow: hidden;
-	background: transparentize($background--gray, 0.4);
 
-	@media (min-width: $brk--phone) {
+	@media (min-width: $brk--tablet) {
 		display: none;
 	}
 
@@ -325,25 +305,27 @@ blockquote {
 		box-shadow: 0 9px 0 0 white;
 		background: white;
 		position: absolute;
-		right: -.9rem;
+		left: -.9rem;
 		top: 14px;
-		transition: right 200ms ease-out,
+		transition: left 200ms ease-out,
 			color 200ms ease-out;
 	}
 
 	&:after {
 		top: 23px;
-		right: -.2rem;
+		left: -.2rem;
 		width: .8rem;
 	}
 
 	&.opened {
+		width: 8rem;
+
 		&:before {
-			right: .9rem;
+			left: .9rem;
 		}
 
 		&:after {
-			right: .5rem;
+			left: .5rem;
 		}
 	}
 }
@@ -365,16 +347,17 @@ blockquote {
 	width: 100%;
 	font-family: $font--light;
 	position: fixed;
-	right: 0;
+	left: 0;
 	top: 0;
+	bottom: 0;
 	background: $background--gray;
 	color: white;
-	transform: translateX(100%);
+	transform: translateX(-100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
 	padding-top: 3rem;
 	max-height: 100vh;
-	padding-bottom: 3.1rem;
+	padding-bottom: 1rem;
 	overflow-y: auto;
 	display: flex;
 	flex-flow: row wrap;
@@ -397,21 +380,30 @@ blockquote {
 	&__list,
 	&__language-switch {
 		margin: 0;
-		padding: 1rem 0;
+		padding: 3rem 0 0;
 		list-style: none;
 	}
 
-	@media (max-width: $brk--phone + 1) {
+	@media (max-width: $brk--tablet + 1) {
 		&__list {
 			flex-basis: 100%;
 			height: 100%;
 		}
 
 		&__language-switch {
-			display: flex;
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			padding: 0 1em 0 0;
+			font-size: .9rem;
 
 			&__context {
 				padding: .8rem 0 .8rem 1.4rem;
+			}
+
+			&__link {
+				font-weight: 900;
 			}
 		}
 
@@ -420,19 +412,34 @@ blockquote {
 		}
 	}
 
-	@media (min-width: $brk--phone) {
+	@media (min-width: $brk--tablet) {
+		font-size: .9em;
+		bottom: auto;
 		padding: 0;
-		position: static;
+		position: absolute;
 		transform: translateX(0px);
-		background: transparentize($background--gray, 0.4);
+		background: none;
+		transition: padding 200ms ease-out,
+			background 200ms ease-out;
+		padding-left: 140px;
+		padding-right: 2.5em;
 
 		&__list, &__language-switch {
 			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
 		}
 
 		&__language-switch {
+			font-size: 1em;
+			position: absolute;
+			right: 0;
+
 			&__context {
 				display: none;
+				padding: 0;
+			}
+
+			&:hover {
+				background: $background--gray;
 			}
 
 			&:hover &__context {
@@ -445,7 +452,7 @@ blockquote {
 			font-size: .9em;
 
 			a {
-				padding: .4rem .8rem;
+				padding: .3em .6em;
 			}
 
 			&--language-switch {
@@ -458,7 +465,21 @@ blockquote {
 
 		&--sticky {
 			position: fixed;
+			background: transparentize($background--gray, 0.4);
+			padding-left: 0;
 		}
+	}
+
+	@media (min-width: $brk--desktop) {
+		.menu-item {
+			a {
+				padding: .5em .8em;
+			}
+		}
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		font-size: 1em;
 	}
 }
 
@@ -698,10 +719,10 @@ $ajax-load-size: 44px;
 	flex-wrap: wrap;
 
 	&__col {
-		flex-basis: 10rem;
+		flex-basis: 14rem;
 		flex-grow: 1;
 		width: 10rem;
-		margin: 0 1rem;
+		margin: 0 1.5rem;
 		opacity: .88;
 	}
 
@@ -712,10 +733,7 @@ $ajax-load-size: 44px;
 
 	&__logo {
 		max-width: 16rem;
-
-		@media (min-width: $brk--phone) {
-			margin: .3rem 0;
-		}
+		margin: 2rem 0 .8rem;
 	}
 
 	&__name {
@@ -763,6 +781,11 @@ $ajax-load-size: 44px;
 .sitemap {
 	overflow: hidden;
 	color: $background--light;
+
+	&__list {
+		margin: 0;
+		padding-left: 1.2em;
+	}
 
 	&__link {
 		padding: .2rem 0;
@@ -824,7 +847,7 @@ template {
 // Contact
 @import "contact";
 
-// i.d-Kafee
+// ID Kafee
 @import "kafee";
 
 // Pagination

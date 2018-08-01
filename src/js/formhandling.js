@@ -164,7 +164,7 @@ function listenToForm(formId) {
 		} else if (response['responseJSON']['data']['message'] !== undefined) {
 			userError = response['responseJSON']['data']['message'];
 		} else if (response.readyState === 4) {
-			userError = 'There has been an error, please try again later or send this to someone at Study association i.d: ' + error;
+			userError = 'There has been an error, please try again later or send this to someone at ID: ' + error;
 		} else if (response.readyState === 0) {
 			userError = 'There has been a network error, are you still connected to the internet?';
 		} else {

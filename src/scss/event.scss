@@ -1,6 +1,6 @@
 /*-------------------------------------*\
 
-	i.d-WEBSITE WORDPRESS THEME: EVENT
+	ID WEBSITE WORDPRESS THEME: EVENT
 
 	See style.css for the WP info.
 
@@ -191,6 +191,7 @@
 		position: relative;
 		z-index: 2;
 		word-wrap: break-word;
+		line-height: 1.1;
 
 		@media (min-width: $brk--phone) {
 			font-size: 3em;

@@ -8,14 +8,14 @@
 				<a href="<?php echo $wpml_home_url; ?>">
 					<picture>
 						<source srcset="<?=$img_folder?>logo-payoff.svg" type="image/svg+xml">
-						<img class="pri-footer__logo" alt="Study association i.d"
+						<img class="pri-footer__logo" alt="ID study association"
 							srcset="<?=$img_folder?>logo-payoff.png 1x,
 								<?=$img_folder?>logo-payoff@2x.png 2x"
 							src="<?=$img_folder?>logo-payoff.png">
 					</picture>
 				</a>
 				<p class="pri-footer__paragraph">
-					<strong class="pri-footer__name"><?php echo esc_attr_x('Study association i.d', 'Company Name', 'svid-theme-domain');?></strong><br>
+					<strong class="pri-footer__name"><?php echo esc_attr_x('ID', 'Company Name', 'svid-theme-domain');?></strong><br>
 					Landbergstraat 15<br>
 					2628 CE Delft<br>
 					<?php echo esc_attr_x('Netherlands', 'Netherlands in footer', 'svid-theme-domain');?><br>

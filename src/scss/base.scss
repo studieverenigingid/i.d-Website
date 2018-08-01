@@ -719,10 +719,10 @@ $ajax-load-size: 44px;
 	flex-wrap: wrap;
 
 	&__col {
-		flex-basis: 10rem;
+		flex-basis: 14rem;
 		flex-grow: 1;
 		width: 10rem;
-		margin: 0 1rem;
+		margin: 0 1.5rem;
 		opacity: .88;
 	}
 
@@ -733,10 +733,7 @@ $ajax-load-size: 44px;
 
 	&__logo {
 		max-width: 16rem;
-
-		@media (min-width: $brk--phone) {
-			margin: .3rem 0;
-		}
+		margin: 2rem 0 .8rem;
 	}
 
 	&__name {
@@ -784,6 +781,11 @@ $ajax-load-size: 44px;
 .sitemap {
 	overflow: hidden;
 	color: $background--light;
+
+	&__list {
+		margin: 0;
+		padding-left: 1.2em;
+	}
 
 	&__link {
 		padding: .2rem 0;

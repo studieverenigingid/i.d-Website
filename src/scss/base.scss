@@ -413,19 +413,33 @@ blockquote {
 	}
 
 	@media (min-width: $brk--tablet) {
+		font-size: .9em;
 		bottom: auto;
 		padding: 0;
-		position: static;
+		position: absolute;
 		transform: translateX(0px);
-		background: transparentize($background--gray, 0.4);
+		background: none;
+		transition: padding 200ms ease-out,
+			background 200ms ease-out;
+		padding-left: 140px;
+		padding-right: 2.5em;
 
 		&__list, &__language-switch {
 			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
 		}
 
 		&__language-switch {
+			font-size: 1em;
+			position: absolute;
+			right: 0;
+
 			&__context {
 				display: none;
+				padding: 0;
+			}
+
+			&:hover {
+				background: $background--gray;
 			}
 
 			&:hover &__context {
@@ -438,7 +452,7 @@ blockquote {
 			font-size: .9em;
 
 			a {
-				padding: .4rem .8rem;
+				padding: .3em .6em;
 			}
 
 			&--language-switch {
@@ -451,7 +465,21 @@ blockquote {
 
 		&--sticky {
 			position: fixed;
+			background: transparentize($background--gray, 0.4);
+			padding-left: 0;
 		}
+	}
+
+	@media (min-width: $brk--desktop) {
+		.menu-item {
+			a {
+				padding: .5em .8em;
+			}
+		}
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		font-size: 1em;
 	}
 }
 

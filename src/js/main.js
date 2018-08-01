@@ -39,18 +39,18 @@ function menuToggler () {
 function menuSticky() {
 	var primaryMenu = $('.primary-menu');
 	var biesImage = $('.bies__image');
-	var posFromTop = primaryMenu.offset().top
+	var posFromTop = primaryMenu.offset().top + 80;
 
 	$(window).scroll(function() {
 		var scroll = $(window).scrollTop();
 
 		if (scroll > posFromTop) {
-	    primaryMenu.addClass("primary-menu--sticky");
+	    	primaryMenu.addClass("primary-menu--sticky");
 			biesImage.addClass("bies__image--sticky");
-	  } else {
+	  	} else {
 			primaryMenu.removeClass("primary-menu--sticky");
 			biesImage.removeClass("bies__image--sticky");
-	  }
+	  	}
 	});
 
 }

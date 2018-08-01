@@ -12,7 +12,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 	<picture>
 		<source srcset="<?=$img_folder?>scroll.svg" type="image/svg+xml">
-		<img class="scroll-indicator" alt="Study association i.d"
+		<img class="scroll-indicator" alt="don’t forget to scroll"
 			srcset="<?=$img_folder?>scroll.png 1x,
 				<?=$img_folder?>scroll@2x.png 2x"
 			src="<?=$img_folder?>scroll.png">

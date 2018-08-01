@@ -92,7 +92,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 		<aside class="login__right-column">
 			<hr class="divider divider--light login__divider">
 			<p class="login__information">
-				If you are already a member of Study association i.d, you can easily
+				If you are already a member of ID, you can easily
 				create your account here. With this, you can log in to read the full
 				Turn The Page, get the General Members Assembly documents and change
 				your contact information. You will get an email to activate your

@@ -259,6 +259,9 @@ blockquote {
 			margin: 0 0 0 2em;
 		}
 
+		@media (min-width: $brk--desktop) {
+			height: 7.5vw;
+		}
 	}
 }
 // Amen
@@ -470,6 +473,8 @@ blockquote {
 	}
 
 	@media (min-width: $brk--desktop) {
+		padding-left: 12vw;
+
 		.menu-item {
 			a {
 				padding: .5em .8em;
@@ -478,6 +483,7 @@ blockquote {
 	}
 
 	@media (min-width: $brk--large-desktop) {
+		padding-left: 11vw;
 		font-size: 1em;
 	}
 }

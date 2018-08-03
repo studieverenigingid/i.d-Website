@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: i.d-Kafee page
+ * Template Name: ID Kafee page
  */
 
 get_header(); ?>

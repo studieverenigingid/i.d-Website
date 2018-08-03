@@ -52,7 +52,7 @@ if(function_exists("register_field_group"))
 				'name' => 'location_name',
 				'type' => 'text',
 				'default_value' => '',
-				'placeholder' => 'i.d-Kafee',
+				'placeholder' => 'ID Kafee',
 				'prepend' => '',
 				'append' => '',
 				'formatting' => 'none',

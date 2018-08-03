@@ -14,7 +14,7 @@ Want to contribute? Setup your development environment:
 7. Register a (test-)app at [Vimeo](https://developer.vimeo.com/apps)
 8. Register a (test-)app at [Instagram](https://www.instagram.com/developer/register/)
 8. Register a (test-)app at [Flickr](https://www.flickr.com/services/apps/create/apply/)
-9. Put the app ID’s and secrets in the admin at `https://[your-wp-installation]/wp-admin/options-general.php?page=i.d-website_settings`
+9. Put the app ID’s and secrets in the admin at `https://[your-wp-installation]/wp-admin/options-general.php?page=ID-website_settings`
 
 
 _\*Please note both vacancies and events need some extra content (i.e. dates) to actually show up on the front page_

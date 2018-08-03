@@ -3,7 +3,7 @@ if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array (
 	'key' => 'group_5959f8595f16d',
-	'title' => 'i.d-Kafee Page',
+	'title' => 'ID Kafee Page',
 	'fields' => array (
 		array (
 			'key' => 'field_5959f87c1dc2f',

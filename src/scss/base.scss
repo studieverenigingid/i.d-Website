@@ -480,11 +480,19 @@ blockquote {
 				padding: .5em .8em;
 			}
 		}
+
+		&--sticky {
+			padding-left: 0;
+		}
 	}
 
 	@media (min-width: $brk--large-desktop) {
 		padding-left: 11vw;
 		font-size: 1em;
+
+		&--sticky {
+			padding-left: 0;
+		}
 	}
 }
 

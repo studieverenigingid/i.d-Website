@@ -239,6 +239,23 @@ blockquote {
 
 
 /*-------------------------------------*\
+	Tables
+\*-------------------------------------*/
+table {
+	border: 1px #aaa solid;
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px #aaa solid;
+	padding: .4em;
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Bies
 \*-------------------------------------*/
 // Holy bies

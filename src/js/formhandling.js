@@ -31,7 +31,7 @@ function ajaxFeedbackForm() {
 
 		// send the request to the server
 		$.ajax({
-			url: wpjs_object.ajaxurl,
+			url: ajaxurl,
 			type: 'POST',
 			dataType: 'json',
 			data: data,
@@ -190,7 +190,7 @@ function listenToForm(formId) {
 		var formData = new FormData($(this)[0]);
 
 		$.ajax({
-			url: wpjs_object.ajaxurl,
+			url: ajaxurl,
 			type: 'POST',
 			dataType: 'JSON',
 			data: formData,

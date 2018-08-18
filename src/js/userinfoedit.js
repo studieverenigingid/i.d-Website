@@ -109,7 +109,7 @@ function userInfoEdit() {
 			var formData = new FormData($(this)[0]);
 
 			$.ajax({
-				url: wpjs_object.ajaxurl,
+				url: ajaxurl,
 				type: 'POST',
 				dataType: 'JSON',
 				data: formData,

@@ -1,7 +1,11 @@
+var ajaxurl;
 jQuery(document).ready(onDocReady);
 
 function onDocReady () {
 	var $ = jQuery;
+
+	ajaxurl = document.head.querySelector("[name=ajaxurl]").content;
+
 	menuToggler();
 	menuSticky();
 	fixVHAfterLoad();

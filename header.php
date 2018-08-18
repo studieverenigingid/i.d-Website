@@ -43,9 +43,9 @@ global $img_folder;
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
 			array('jquery'), $theme_info->version, true );
-			wp_localize_script( 'scripts', 'wpjs_object',
-			array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		?>
+
+		<meta name="ajaxurl" content="<?php echo admin_url( 'admin-ajax.php' ); ?>">
 
 		<?php wp_head(); ?>
 

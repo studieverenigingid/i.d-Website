@@ -135,7 +135,7 @@ function socialFeed() {
 	if (!$.contains( $('body')[0], $('.social')[0] )) return;
 	$.ajax({
 		type: "GET",
-		url: wpjs_object.ajaxurl,
+		url: ajaxurl,
 		data: {
 			action: 'social_feed_ajax_request',
 			last_insta: lastInsta,

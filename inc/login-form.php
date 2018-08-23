@@ -1,10 +1,4 @@
-<?php
-$login_endpoint = 'wp-login.php';
-if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
-  $login_endpoint .= '?redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
-}
-?>
-<form name="loginform" id="loginform" class="login__wrap" method="post" action="<?=home_url($login_endpoint,'login_post') ?>">
+<form name="loginform" id="loginform" class="login__wrap" method="post" action="<?=home_url('wp-login.php','login_post') ?>">
   <div class="form-group">
     <label for="login-name" class="login__label">
       <?= esc_attr_x('Username or Email Address', 'Username value on login page', 'svid-theme-domain')?>

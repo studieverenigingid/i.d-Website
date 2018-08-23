@@ -4,7 +4,7 @@
  * Template Name: User Profile Page
  */
 if (!is_user_logged_in()) {
-  header('Location: '. get_home_url(null, 'login'));
+  login_first_redirect();
 } else {
 	get_header();
 ?>

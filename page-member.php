@@ -4,7 +4,7 @@
  * Template Name: Member Page
  */
 if (!is_user_logged_in()) {
-  login_first_redirect();
+  header('Location: '. get_home_url(null, 'login'));
 } else {
 	get_header();
 ?>

@@ -175,9 +175,16 @@ acf_add_local_field_group(array (
 			),
 		),
 	),
-	'location' => array (
-		array (
-			array (
+	'location' => array(
+		array(
+			array(
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page-member.php',
+			),
+		),
+		array(
+			array(
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'event',

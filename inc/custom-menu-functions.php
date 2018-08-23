@@ -4,9 +4,16 @@
   * @return (bool|string) $login_page; false if page doesn’t exist, otherwise
   * its url
   */
-function login_page_url() {
-  $login_page = home_url( '/login' ); // new login page
+function login_page_url($ignore_redirect_to = false) {
+  $login_page = home_url( '/login' ) . '?'; // new login page
   $exists = get_page_by_path( '/login' );
+  if (!empty($_GET['redirect_to']) && !$ignore_redirect_to) { // if there is a redirect supplied
+    $login_page .= 'redirect_to=' . urlencode($_GET['redirect_to']) . '&'; // make sure it sustains
+  } elseif($ignore_redirect_to) {
+    global $wp;
+    $target_url = home_url($wp->request);
+    $login_page .= 'redirect_to=' . urlencode($target_url);
+  }
   if ($exists) return $login_page;
   return false;
 }
@@ -31,7 +38,7 @@ function custom_login_form() {
 function login_failed() {
   $login_page = login_page_url();
   if($login_page) {
-    wp_redirect($login_page . "?login=failed");
+    wp_redirect($login_page . "login=failed");
     exit;
   }
 }
@@ -40,12 +47,25 @@ function verify_username_password($user, $username, $password ) {
   $login_page = login_page_url();
   if ( !array_key_exists('use_sso', $_GET) || $_GET['use_sso'] !== 'true' ) {
     if($login_page && empty($username) || $login_page && empty($password)) {
-      wp_redirect( $login_page . "?login=empty");
+      wp_redirect( $login_page . "login=empty");
       exit;
     }
   }
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+function complete_redirect($redirect_to, $request, $user) {
+  if (!empty($_GET['redirect_to'])) {
+    wp_redirect($_GET['redirect_to']);
+  } else {
+    wp_redirect(home_url());
+  }
+}
+add_filter('login_redirect', 'complete_redirect', 10, 3);
+
+function login_first_redirect() {
+  header('Location: '. get_home_url(null, 'login') . '?redirect_to=' . urlencode(get_permalink()));
+}
 
 
 function custom_menu_items( $items, $args ) {
@@ -59,7 +79,7 @@ function custom_menu_items( $items, $args ) {
     }
     $items .= '<li class="menu-item"><a href="' . $logout_url . '">' . __( 'Log Out', 'svid-theme-domain' ) . '</a></li>';
   } else {
-    $items .= '<li class="menu-item"><a href="' . login_page_url() . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
+    $items .= '<li class="menu-item"><a href="' . login_page_url(true) . '">' . __( 'Log In', 'svid-theme-domain' ) . '</a></li>';
   }
   return $items;
 }

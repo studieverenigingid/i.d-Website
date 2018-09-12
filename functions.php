@@ -119,7 +119,7 @@
 		} elseif (is_page_template('page-kafee.php')) {
 			echo "#6dadb6";
 		} elseif (is_page_template('education-page.php')) {
-			echo "#F18918";
+			echo "#f58220";
 		} elseif ($default){
 			echo "#55ccbb";
 		}

@@ -23,9 +23,8 @@
 				$groups = get_the_terms($post, 'committee-group');
 				if ($groups) {
 					foreach ($groups as $key => $group) {
-						$grp_link = get_term_link($group->term_id);
 						$grp_name = $group->name;
-						echo "<a href='$grp_link' class='news-item__category'>$grp_name</a>";
+						echo "$grp_name";
 						if ($key+1 < count($groups)) echo ', ';
 					}
 				}

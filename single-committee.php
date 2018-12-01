@@ -9,6 +9,13 @@
 	<header class="news-item__header"
 		style="background-color: <?php theme_color(false); ?>;">
 
+		<div class="news-item__meta--large">
+			<a class="all-committees-link"
+				href="<?php echo get_post_type_archive_link( 'committee' ); ?>">
+				<?php echo esc_attr_x('View all committees', 'View all committees button text', 'svid-theme-domain'); ?>
+			</a>
+		</div>
+
 		<h1 class="news-item__title--large"><?php the_title(); ?></h1>
 
 		<div class="news-item__meta--large">

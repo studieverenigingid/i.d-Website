@@ -139,7 +139,7 @@ add_filter('posts_where', 'my_posts_where');
 
 	<div class="vacancy vacancy--full-width">
 		<a class="vacancy__archivelink vacancy__archivelink--frontpage"
-		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+		href="<?php echo get_home_url(null, 'vacancies'); ?>">
 		<?php echo esc_attr_x('All vacancies.', 'All vacancy link text', 'svid-theme-domain'); ?>
 	  </a>
 	</div>

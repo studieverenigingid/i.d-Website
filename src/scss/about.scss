@@ -309,6 +309,19 @@ $groups:
 
 
 
+.all-committees-link {
+	font-size: 1rem;
+	color: white;
+
+	&:before {
+		content: "←";
+	}
+}
+
+
+
+
+
 /*-------------------------------------*\
 	Master communities
 \*-------------------------------------*/

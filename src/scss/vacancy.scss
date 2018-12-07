@@ -58,13 +58,26 @@
 			color: $background--light;
 		}
 	}
+
+	&__context {
+		background: $accent;
+		color: white;
+		overflow: hidden;
+
+		p {
+			width: 80%;
+			max-width: 50rem;
+			margin: 0 auto 1em;
+		}
+
+		@media (min-width: $brk--phone) {
+			padding-bottom: 5rem;
+		}
+	}
 }
 
 .archive__title--vacancies {
-	@media (min-width: $brk--phone) {
-		padding-bottom: 5rem;
-		margin-bottom: 0;
-	}
+	margin-bottom: 0;
 }
 
 

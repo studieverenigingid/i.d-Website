@@ -25,9 +25,15 @@
 				$end = new DateTime(get_field('end_datetime'));
 				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
-				$start_to_end = $start->format('F jS, H:i') . $end->format(' – H:i');
-				// TODO: make a language adaptive version of this; Dutch needs another
-				// date and time representation, like j F, H:i – H:i.
+				$event_duration = $start->diff($end);
+
+				if ($event_duration->days > 0) {
+					$start_to_end = $start->format('F jS') . $end->format(' – F jS');
+				} else {
+					$start_to_end = $start->format('F jS, H:i') . $end->format(' – H:i');
+					// TODO: make a language adaptive version of this; Dutch needs another
+					// date and time representation, like j F, H:i – H:i.
+				}
 
 				echo $start_to_end;
 			?>

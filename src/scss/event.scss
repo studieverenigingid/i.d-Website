@@ -105,6 +105,10 @@
 		}
 	}
 
+	&__name {
+		word-wrap: break-word;
+	}
+
 	&__anchor {
 		text-decoration: none;
 		color: #000;

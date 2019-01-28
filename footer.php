@@ -51,11 +51,11 @@
 			<div class="pri-footer__paragraph pri-footer__col">
 				<h2 class="pri-footer__heading">Social media</h2>
 				<div>
-					<a href="https://www.instagram.com/studieverenigingid/"
+					<a href="https://www.instagram.com/IDstudyassociation/"
 						class="button button--insta">
 						<i class="fa fa-instagram"></i> Instagram
 					</a>
-					<a href="https://www.facebook.com/studieverenigingi.d/"
+					<a href="https://www.facebook.com/IDstudyassociation/"
 						class="button button--facebook">
 						<i class="fa fa-facebook"></i> Facebook
 					</a>

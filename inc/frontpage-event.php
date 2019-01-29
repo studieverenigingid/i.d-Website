@@ -21,13 +21,22 @@
 				$start_time = $start->format('H:i');
 				$end_time   = $end->format('H:i');
 
+				$event_duration = $start->diff($end);
+
 				$location_name = get_field('location_name');
 			?>
 			<div class="event--page__datetime">
 				<?php
-					echo $start_month . ' ' . $start_day . ', '. $start_time . ' – ';
+					echo $start_month . ' ' . $start_day;
+
+					if ($event_duration->days === 0) {
+						echo ', ' . $start_time;
+					}
+
+					echo ' – ';
+
 					if ($start_day != $end_day){
-						echo $end_month . ' ' . $end_day . ', ' . $end_time;
+						echo $end_month . ' ' . $end_day;
 					} else {
 						echo $end_time;
 					}

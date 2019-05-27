@@ -218,7 +218,7 @@ function event_file_upload_prefilter( $errors, $file, $field ) {
 
   }
   //this filter changes directory just for item being uploaded
-  add_filter('upload_dir', 'event_files_upload_dir');
+  add_filter('upload_dir', 'event_files_upload_dir', 10, 3);
 
   // return
   return $errors;

@@ -30,5 +30,5 @@
     "gulp-uglify": "*",
     "gulp-util": "*",
     "gulp-rename": "*"
-  },
+  }
 }

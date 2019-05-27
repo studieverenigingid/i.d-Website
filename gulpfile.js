@@ -93,20 +93,20 @@ gulp.task('fonts', function() {
 gulp.task('watch', function() {
 	livereload.listen();
 	 // Watch .js files
-	gulp.watch(src + 'js/*.js', ['scriptsDev']);
+	gulp.watch(src + 'js/*.js', gulp.task('scriptsDev'));
 	 // Watch .scss files
-	gulp.watch(src + 'scss/*.scss', ['sassDev']);
+	gulp.watch(src + 'scss/*.scss', gulp.task('sassDev'));
 	// Watch image files
-	gulp.watch(src + 'images/**/*', ['images']);
+	gulp.watch(src + 'images/**/*', gulp.task('images'));
 	// Watch font files
-	gulp.watch(src + 'fonts/*', ['fonts']);
+	gulp.watch(src + 'fonts/*', gulp.task('fonts'));
 });
 
 
 // Default task
-gulp.task('default', ['scriptsDev', 'sassDev', 'copy-scss', 'images', 'fonts', 'watch']);
+gulp.task('default', gulp.series('scriptsDev', 'sassDev', 'copy-scss', 'images', 'fonts', 'watch'));
 // Build task
-gulp.task('build', ['scripts', 'sass', 'images', 'fonts']);
+gulp.task('build', gulp.parallel('scripts', 'sass', 'images', 'fonts'));
 
 gulp.task('clear', function() {
 	// Still pass the files to clear cache for

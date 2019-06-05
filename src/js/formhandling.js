@@ -128,6 +128,10 @@ function createAccountForm() {
 	listenToForm('#create_account_form');
 }
 
+function buyTicketEventPage() {
+	listenToForm('#buy_tickets_form');
+}
+
 function listenToForm(formId) {
 
 	var notification = '<h4 class="notification"></h4>',
@@ -161,7 +165,8 @@ function listenToForm(formId) {
 		// Tell the user something failed
 		if (response['data'] !== undefined && response['data']['message'] !== undefined) {
 			userError = response['data']['message'];
-		} else if (response['responseJSON']['data']['message'] !== undefined) {
+		} else if (response['responseJSON']['data'] !== undefined &&
+			response['responseJSON']['data']['message'] !== undefined) {
 			userError = response['responseJSON']['data']['message'];
 		} else if (response.readyState === 4) {
 			userError = 'There has been an error, please try again later or send this to someone at ID: ' + error;
@@ -175,7 +180,9 @@ function listenToForm(formId) {
 			.text(userError)
 			.prependTo(formId);
 		$(formId).removeClass(workingClass);
-		grecaptcha.reset();
+		if(typeof grecaptcha !== 'undefined') {
+			grecaptcha.reset();
+		}
 	}
 
 

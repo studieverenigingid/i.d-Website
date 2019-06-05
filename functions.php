@@ -47,6 +47,7 @@
 	add_action( 'wp_ajax_user_password', 'user_password');
 	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
 	add_action( 'wp_ajax_nopriv_user_create_account', 'user_create_account' );
+	add_action( 'wp_ajax_buy_ticket', 'buy_ticket' );
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
@@ -199,6 +200,10 @@
 	function education_input() {
 		include 'inc/send-education.php';
 		wp_die();
+	}
+
+	function buy_ticket() {
+		include 'inc/buy-ticket.php';
 	}
 
 	function cc_hide_admin_bar() {

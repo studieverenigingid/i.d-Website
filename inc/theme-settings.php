@@ -14,20 +14,20 @@
 
 		// Registering Vimeo section and fields
 
-		register_setting( 'vimeoSettings', 'id_settings' );
+		register_setting( 'id_settings_group', 'id_settings' );
 
 		add_settings_section(
 			'id_vimeoSettings_section',
 			__( 'Vimeo API settings', 'wordpress' ),
 			'id_vimeoSettings_section_callback',
-			'vimeoSettings'
+			'ID-website_settings'
 		);
 
 		add_settings_field(
 			'id_vimeo_api_id_field',
 			__( 'Vimeo API ID', 'wordpress' ),
 			'id_vimeo_api_id_render',
-			'vimeoSettings',
+			'ID-website_settings',
 			'id_vimeoSettings_section'
 		);
 
@@ -35,26 +35,25 @@
 			'id_vimeo_api_secret_field',
 			__( 'Vimeo API Secret', 'wordpress' ),
 			'id_vimeo_api_secret_render',
-			'vimeoSettings',
+			'ID-website_settings',
 			'id_vimeoSettings_section'
 		);
 
 		// Registering Instagram section and fields
 
-		register_setting( 'instagramSettings', 'id_settings' );
 
 		add_settings_section(
 			'id_instagramSettings_section',
 			__( 'Instagram API settings', 'wordpress' ),
 			'id_instagramSettings_section_callback',
-			'instagramSettings'
+			'ID-website_settings'
 		);
 
 		add_settings_field(
 			'id_instagram_client_id_field',
 			__( 'Instagram client ID', 'wordpress' ),
 			'id_instagram_client_id_render',
-			'instagramSettings',
+			'ID-website_settings',
 			'id_instagramSettings_section'
 		);
 
@@ -62,7 +61,7 @@
 			'id_instagram_client_secret_field',
 			__( 'Instagram client secret', 'wordpress' ),
 			'id_instagram_client_secret_render',
-			'instagramSettings',
+			'ID-website_settings',
 			'id_instagramSettings_section'
 		);
 
@@ -70,43 +69,39 @@
 			'id_instagram_access_token_field',
 			__( 'Instagram access token', 'wordpress' ),
 			'id_instagram_access_token_render',
-			'instagramSettings',
+			'ID-website_settings',
 			'id_instagramSettings_section'
 		);
-
-		register_setting( 'flickrSettings', 'id_settings' );
 
 		add_settings_section(
 			'id_flickrSettings_section',
 			__( 'Flickr API settings', 'wordpress' ),
 			'id_flickrSettings_section_callback',
-			'flickrSettings'
+			'ID-website_settings'
 		);
 
 		add_settings_field(
 			'id_flickr_api_key_field',
 			__( 'Flickr API Key', 'wordpress' ),
 			'id_flickr_api_key_render',
-			'flickrSettings',
+			'ID-website_settings',
 			'id_flickrSettings_section'
 		);
 
 		// Registering education input section and fields
 
-		register_setting( 'educationInputSettings', 'id_settings' );
-
 		add_settings_section(
 			'id_educationInputSettings_section',
 			__( 'Education input receivers', 'wordpress' ),
 			'id_educationInputSettings_section_callback',
-			'educationInputSettings'
+			'ID-website_settings'
 		);
 
 		add_settings_field(
 			'id_email_addresses_field',
 			__( 'Education input receiver email adresses', 'wordpress' ),
 			'id_education_input_email_addresses_render',
-			'educationInputSettings',
+			'ID-website_settings',
 			'id_educationInputSettings_section'
 		);
 
@@ -114,7 +109,7 @@
 			'id_recaptcha_secret_field',
 			__( 'reCaptcha secret', 'wordpress' ),
 			'id_recaptcha_secret_render',
-			'educationInputSettings',
+			'ID-website_settings',
 			'id_educationInputSettings_section'
 		);
 
@@ -257,20 +252,8 @@
 			<?php
 			submit_button();
 
-			settings_fields( 'vimeoSettings' );
-			do_settings_sections( 'vimeoSettings' );
-
-			settings_fields( 'instagramSettings' );
-			do_settings_sections( 'instagramSettings' );
-
-			settings_fields( 'flickrSettings' );
-			do_settings_sections( 'flickrSettings' );
-
-			settings_fields( 'educationInputSettings' );
-			do_settings_sections( 'educationInputSettings' );
-
-			settings_fields( 'googleAnalyticsSettings' );
-			do_settings_sections( 'googleAnalyticsSettings' );
+			settings_fields( 'id_settings_group' );
+			do_settings_sections( 'ID-website_settings' );
 
 			submit_button();
 			?>

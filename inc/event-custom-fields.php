@@ -82,6 +82,27 @@ if(function_exists("register_field_group"))
 				'formatting' => 'none',
 				'maxlength' => '',
 			),
+			array(
+				'key' => 'field_5cf7d85c20a37',
+				'label' => 'Lassie event ID',
+				'name' => 'lassie_event_id',
+				'type' => 'number',
+				'instructions' => 'Enter the ID of the Lassie event (created at <a href="https://id.lassie.cloud/administration/events/">admin > events</a>) to enable ticket sales.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => 27,
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => 1,
+			),
 		),
 		'location' => array (
 			array (

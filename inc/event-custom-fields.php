@@ -206,7 +206,7 @@ acf_add_local_field_group(array (
 
 
 // Protect these files
-function event_file_upload_prefilter( $errors, $file, $field ) {
+function event_file_upload_prefilter( $errors ) {
 
   // only allow admin
   if( !current_user_can('manage_options') ) {

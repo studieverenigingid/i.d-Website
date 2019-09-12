@@ -57,8 +57,12 @@ get_header();
 			 */
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			if ( is_plugin_active( 'samltud/samltud.php' ) ) {
-        if ( $SAML_Client->settings->get_enabled() ) { ?>
-			<a href="<?php echo home_url('wp-login.php?use_sso=true'); ?>"
+        if ( $SAML_Client->settings->get_enabled() ) {
+          $saml_url = site_url('wp-login.php?use_sso=true');
+          if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
+            $saml_url .= '?redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
+          } ?>
+			<a href="<?php echo $saml_url; ?>"
 				class="login__netid button button--white">
 				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
 				<span class="login__netid-name">NetID</span>

@@ -7,7 +7,8 @@
 get_header(); ?>
 
 <header class="contact--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>">
+	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>"
+	style="background-color: <?php theme_color(false); ?>;">
 
 	<div class="contact--page__short-info
 		<?php if ( !has_post_thumbnail() ) echo 'contact--page__short-info--short-header'; ?>">

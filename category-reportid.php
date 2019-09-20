@@ -2,7 +2,10 @@
 
 <main>
 
-	<h1 class="archive__title"><?php single_cat_title(); ?></h1>
+	<h1 class="archive__title"
+		style="background-color: <?php theme_color(false); ?>;">
+		<?php single_cat_title(); ?>
+	</h1>
 
 	<div class="news">
 

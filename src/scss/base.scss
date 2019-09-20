@@ -804,9 +804,6 @@ $ajax-load-size: 44px;
 		margin-bottom: 0;
 	}
 
-	&__body {
-	}
-
 	&__link {
 		color: #fff;
 		opacity: .8;
@@ -828,7 +825,8 @@ $ajax-load-size: 44px;
 		}
 
 		&__photo {
-			max-width: 35vw;
+			width: auto;
+			height: 60vh;
 		}
 	}
 }

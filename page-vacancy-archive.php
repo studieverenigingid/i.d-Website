@@ -15,7 +15,8 @@ get_header(); ?>
 		<?php echo esc_attr_x( 'Vacancies', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
-	<div class="vacancies__context">
+	<div class="vacancies__context"
+		style="background-color: <?php theme_color(false); ?>;">
 		<?php the_content(); ?>
 	</div>
 

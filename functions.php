@@ -2,6 +2,8 @@
 
 	include( 'inc/color-custom-fields.php' );
 
+	include( 'inc/customize-controls.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 
@@ -80,7 +82,11 @@
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {
 		$page_color = get_field('page_color');
-		if (date('W') === '44') {
+		$in_memoriam = !empty(get_theme_mod('in_memoriam_title'))
+			&& !empty(get_theme_mod('in_memoriam_body'));
+		if ($in_memoriam) {
+			echo "#000000";
+		} elseif (date('W') === '44') {
 			echo '#ef686c';
 		} elseif (is_front_page()) {
 			$today = date('Ymd');

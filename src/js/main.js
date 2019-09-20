@@ -10,6 +10,7 @@ function onDocReady () {
 	menuSticky();
 	fixVHAfterLoad();
 	scrollIndicator();
+	closeInMemoriam();
 
 	// formhandling.js
 	ajaxFeedbackForm();
@@ -104,6 +105,13 @@ function scrollIndicator() {
 			}
 		});
 	}
+}
+
+function closeInMemoriam() {
+	$('.in-memoriam__link').click(function(e) {
+		e.preventDefault();
+		$('.in-memoriam').remove();
+	});
 }
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is

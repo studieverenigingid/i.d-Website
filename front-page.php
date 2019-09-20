@@ -4,6 +4,42 @@
 
 
 
+<?php
+  $in_memoriam_title = get_theme_mod('in_memoriam_title');
+  $in_memoriam_body = get_theme_mod('in_memoriam_body');
+  $in_memoriam_photo = get_theme_mod('in_memoriam_photo');
+  $in_memoriam = !empty($in_memoriam_title)
+    && !empty($in_memoriam_body);
+  if ($in_memoriam): ?>
+  <!-- *********** -->
+  <!-- IN MEMORIAM -->
+  <!-- *********** -->
+  <section class="in-memoriam">
+    <div class="in-memoriam__flex">
+
+      <?php if (!empty($in_memoriam_photo)) { ?>
+        <img class="in-memoriam__photo"
+          src="<?php echo $in_memoriam_photo; ?>"
+          alt="<?php echo $in_memoriam_title; ?>">
+      <?php } ?>
+
+      <div class="in-memoriam__text">
+        <h1 class="in-memoriam__title"><?php echo $in_memoriam_title; ?></h1>
+        <p class="in-memoriam__body"><?php echo $in_memoriam_body; ?></p>
+      </div>
+
+      <a class="in-memoriam__link" href="#continue">
+        <?php echo esc_attr_x( 'Continue to website', 'in memoriam continue link', 'svid-theme-domain' ) ?>
+      </a>
+
+    </div>
+  </section>
+<?php endif; ?>
+
+
+
+
+
 <!-- ****** -->
 <!-- EVENTS -->
 <!-- ****** -->

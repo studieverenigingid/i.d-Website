@@ -2,6 +2,8 @@
 
 	include( 'inc/color-custom-fields.php' );
 
+	include( 'inc/customize-controls.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 

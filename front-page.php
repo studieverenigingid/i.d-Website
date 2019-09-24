@@ -17,6 +17,10 @@
   <section class="in-memoriam">
     <div class="in-memoriam__flex">
 
+      <a class="in-memoriam__link" href="#continue">
+        <?php echo esc_attr_x( 'Continue to website', 'in memoriam continue link', 'svid-theme-domain' ) ?>
+      </a>
+
       <?php if (!empty($in_memoriam_photo)) { ?>
         <img class="in-memoriam__photo"
           src="<?php echo $in_memoriam_photo; ?>"
@@ -27,10 +31,6 @@
         <h1 class="in-memoriam__title"><?php echo $in_memoriam_title; ?></h1>
         <p class="in-memoriam__body"><?php echo $in_memoriam_body; ?></p>
       </div>
-
-      <a class="in-memoriam__link" href="#continue">
-        <?php echo esc_attr_x( 'Continue to website', 'in memoriam continue link', 'svid-theme-domain' ) ?>
-      </a>
 
     </div>
   </section>

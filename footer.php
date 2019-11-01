@@ -24,6 +24,11 @@
 					<a class="pri-footer__link"
 						href="mailto:svid@tudelft.nl">svid@tudelft.nl</a><br>
 				</p>
+
+				<p class="pri-footer__paragraph">
+					<?php include('inc/hours.php'); ?>
+				</p>
+
 				<p class="pri-footer__paragraph">
 					KvK: 40397069<br>
 					Btw: NL 8058.24.352 B01<br>

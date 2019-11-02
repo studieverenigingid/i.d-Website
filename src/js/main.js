@@ -11,6 +11,7 @@ function onDocReady () {
 	fixVHAfterLoad();
 	scrollIndicator();
 	closeInMemoriam();
+	openingHours();
 
 	// formhandling.js
 	ajaxFeedbackForm();
@@ -112,6 +113,15 @@ function closeInMemoriam() {
 		e.preventDefault();
 		$('.in-memoriam').remove();
 	});
+}
+
+function openingHours() {
+	let hoursList = $('.opening_hours__full-list');
+	hoursList.addClass('closed');
+	$('.opening_hours__link').click(function(e) {
+		e.preventDefault();
+		hoursList.toggleClass('closed');
+	})
 }
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is

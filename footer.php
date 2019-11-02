@@ -25,7 +25,7 @@
 						href="mailto:svid@tudelft.nl">svid@tudelft.nl</a><br>
 				</p>
 
-				<p class="pri-footer__paragraph">
+				<p class="pri-footer__paragraph opening_hours">
 					<?php include('inc/hours.php'); ?>
 				</p>
 

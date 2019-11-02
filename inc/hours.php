@@ -37,6 +37,7 @@ $opening_messages = array(
 );
 
 $todays_hours = $hours[$current_day];
+echo "<a href='#' class='opening_hours__link'>";
 if($todays_hours === 'closed') {
   echo $opening_messages['closed_for_weekend'];
   echo "<strong>" . date("H:i", $hours[1][0][0]) . "</strong>";
@@ -67,3 +68,37 @@ if($todays_hours === 'closed') {
     }
   }
 }
+echo ". </a>";
+?>
+
+<table class="opening_hours__full-list">
+<?php
+  $week_days = [
+    1 => esc_attr_x( 'Monday', 'opening hours in footer', 'svid-theme-domain'),
+    2 => esc_attr_x( 'Tuesday', 'opening hours in footer', 'svid-theme-domain'),
+    3 => esc_attr_x( 'Wednesday', 'opening hours in footer', 'svid-theme-domain'),
+    4 => esc_attr_x( 'Thursday', 'opening hours in footer', 'svid-theme-domain'),
+    5 => esc_attr_x( 'Friday', 'opening hours in footer', 'svid-theme-domain'),
+    6 => esc_attr_x( 'Saturday', 'opening hours in footer', 'svid-theme-domain'),
+    7 => esc_attr_x( 'Sunday', 'opening hours in footer', 'svid-theme-domain')
+  ];
+  foreach ($hours as $day => $days_hours) { ?>
+    <tr <?php echo ($day == $current_day) ? 'class="opening_hours__current"' : ''; ?>>
+      <td><?php echo $week_days[$day]; ?></td>
+    <?php if($days_hours === 'closed') { ?>
+      <td><?php echo esc_attr_x( 'Closed', 'opening hours in footer', 'svid-theme-domain'); ?></td>
+    <?php } else { ?>
+      <td>
+        <?php echo date("H:i", $days_hours[0][0]); ?>
+        –
+        <?php echo date("H:i", $days_hours[0][1]); ?>
+        <br>
+        <?php echo date("H:i", $days_hours[1][0]); ?>
+        –
+        <?php echo date("H:i", $days_hours[1][1]); ?>
+      </td>
+    <?php } ?>
+    </tr>
+  <?php }
+?>
+</table>

@@ -37,7 +37,6 @@ $opening_messages = array(
 );
 
 $todays_hours = $hours[$current_day];
-echo "<a href='#' class='opening_hours__link'>";
 if($todays_hours === 'closed') {
   echo $opening_messages['closed_for_weekend'];
   echo "<strong>" . date("H:i", $hours[1][0][0]) . "</strong>";
@@ -68,9 +67,13 @@ if($todays_hours === 'closed') {
     }
   }
 }
-echo ". </a>";
 ?>
 
+<a href="#" class="opening_hours__link">
+  <span class="opening_hours__link-text">
+    <?php echo esc_attr_x( 'Show full opening hours', 'opening hours in footer', 'svid-theme-domain'); ?>
+  </span>
+</a>
 <table class="opening_hours__full-list">
 <?php
   $week_days = [

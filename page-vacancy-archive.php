@@ -32,7 +32,7 @@ get_header(); ?>
 				$vacancy_types = get_categories( array( 'parent' => $vacancy_cat->cat_ID ) );
 				foreach ($vacancy_types as $key => $group_opt):
 			?>
-			<label class="filters__tag vacancy-tag--<?=$group_opt->slug?>"
+			<label class="filters__tag vacancy-tag"
 				for="<?=$group_opt->slug?>">
 				<input type="checkbox" name="committee-group" checked
 					value="<?=$group_opt->slug?>" id="<?=$group_opt->slug?>"

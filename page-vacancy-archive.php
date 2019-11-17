@@ -12,12 +12,34 @@ get_header(); ?>
 
 	<h1 class="archive__title archive__title--vacancies"
 		style="background-color: <?php theme_color(false); ?>;">
-		<?php echo esc_attr_x( 'Vacancies', 'archive title', 'svid-theme-domain'); ?>
+		<?php echo esc_attr_x( 'Career', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
 	<div class="vacancies__context"
 		style="background-color: <?php theme_color(false); ?>;">
 		<?php the_content(); ?>
+	</div>
+
+	<div class="filters">
+		<div class="filters__label">
+			<?php echo esc_attr_x('Filter by type:', 'Filter by type vacancy/career label', 'svid-theme-domain');?>
+			<span class="filters__master-switch" data-for="comm-group"><?php echo esc_attr_x('[none]', 'select no vacancy type label', 'svid-theme-domain');?></span>
+		</div>
+		<div class="filters__group" id="comm-group"
+			data-for="comm-group--" data-multiple="true">
+			<?php
+				$vacancy_cat = get_category_by_slug('vacancy');
+				$vacancy_types = get_categories( array( 'parent' => $vacancy_cat->cat_ID ) );
+				foreach ($vacancy_types as $key => $group_opt):
+			?>
+			<label class="filters__tag vacancy-tag--<?=$group_opt->slug?>"
+				for="<?=$group_opt->slug?>">
+				<input type="checkbox" name="committee-group" checked
+					value="<?=$group_opt->slug?>" id="<?=$group_opt->slug?>"
+					><?=$group_opt->name?>
+			</label>
+			<?php endforeach; ?>
+		</div>
 	</div>
 
 	<div class="vacancies vacancies--archive">

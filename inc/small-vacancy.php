@@ -1,4 +1,8 @@
-<article class="vacancy vacancy--archive">
+<?php
+$categories = get_the_category();
+?>
+<article class="vacancy vacancy--archive <?php echo $categories[0]->slug ?>"
+	data-visible="1">
 
 	<?php
 		if ( has_post_thumbnail() ) { ?>
@@ -29,7 +33,6 @@
 		<p class="vacancy__details">
 			<?php
 				$location = get_field('location');
-				$categories = get_the_category();
 
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">

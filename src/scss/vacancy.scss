@@ -34,7 +34,7 @@
 			width: 80%;
 			max-width: 50rem;
 			padding: 0;
-			margin: -3.5rem auto 2rem;
+			margin: 1.5rem auto 2rem;
 			background: $background--light;
 			overflow: hidden;
 			border: 1px solid rgba(0, 0, 0, 0.08);
@@ -71,7 +71,7 @@
 		}
 
 		@media (min-width: $brk--phone) {
-			padding-bottom: 5rem;
+			padding-bottom: 2rem;
 		}
 	}
 }

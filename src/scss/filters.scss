@@ -90,3 +90,16 @@
 		}
 	}
 }
+
+$types:
+	('job' , darken($accent, 5%)),
+	('internship' , darken($accent, 10%)),
+	('graduation' , darken($accent, 15%));
+
+.vacancy-tag {
+	@each $group, $color in $types {
+		&--#{$group} {
+			background: $color;
+		}
+	}
+}

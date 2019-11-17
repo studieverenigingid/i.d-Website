@@ -38,7 +38,7 @@
 	}
 
 	&__tag {
-		margin: .5rem;
+		margin: .3rem;
 		padding: .5em .6em .47em;
 		color: white;
 		display: block;
@@ -87,6 +87,19 @@
 			bottom: 0;
 			background: transparentize(black, 0.9);
 			border-radius: .2em;
+		}
+	}
+}
+
+$types:
+	('job' , darken($accent, 5%)),
+	('internship' , darken($accent, 10%)),
+	('graduation' , darken($accent, 15%));
+
+.vacancy-tag {
+	@each $group, $color in $types {
+		&--#{$group} {
+			background: $color;
 		}
 	}
 }

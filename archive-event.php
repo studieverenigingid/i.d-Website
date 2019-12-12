@@ -11,7 +11,6 @@
 
 		<?php
 			$current_date = new DateTime();
-			$current_date->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 			$first_past = true;
 			$post_no = 0;
 		?>
@@ -20,7 +19,6 @@
 
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
-				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 				if ($start >= $current_date && $first_past && $post_no === 0):
 			?>
 				<h2 class="events__archive-title" style="order: -100;">

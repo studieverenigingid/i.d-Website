@@ -20,10 +20,7 @@
 
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
-				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
-
 				$end = new DateTime(get_field('end_datetime'));
-				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
 				$event_duration = $start->diff($end);
 

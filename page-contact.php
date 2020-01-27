@@ -42,6 +42,42 @@ get_header(); ?>
 
 </header>
 
+<?php if( have_rows('board_members') ): ?>
+	<section class="board-members contact--page__container">
+		<h2 class="board-members__title contact--page__blocktitle">
+			Send one of our board members an email
+		</h2>
+	</section>
+	<section>
+		<div class="board-members__cont">
+			<?php // loop through the rows of data
+	    while ( have_rows('board_members') ) : the_row(); ?>
+				<div class="board-members__person">
+					<?php
+					$image = get_sub_field('photo');
+					if( !empty( $image ) ): ?>
+					<img src="<?php echo esc_url($image['url']); ?>"
+						alt="Portrait photo of <?php the_sub_field('name') ?>"
+						class="board-members__profile-pic">
+					<?php endif; ?>
+					<h3 class="board-members__name">
+						<?php the_sub_field('name'); ?>
+					</h3>
+					<p class="board-members__function">
+						<?php the_sub_field('func'); ?></p>
+					<p class="board-members__email">
+						<a href="mailto:<?php the_sub_field('email'); ?>">
+							<?php the_sub_field('email'); ?>
+						</a>
+					</p>
+				</div>
+  	<?php endwhile; ?>
+			<div class="board-members__spacer">&nbsp;</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+
 <?php
 
 if( have_rows('contact_page_block') ):
@@ -56,9 +92,6 @@ if( have_rows('contact_page_block') ):
 			</section>
 
     <?php endwhile;
-
-else :
-	echo "no content found";
 endif;
 
 ?>

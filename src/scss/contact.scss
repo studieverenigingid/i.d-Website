@@ -212,3 +212,58 @@
 		}
 	}
 }
+
+.board-members {
+	&__cont {
+		display: flex;
+		overflow: auto;
+		margin-top: -7em;
+		margin-bottom: 3em;
+		padding: 1em 1em 0;
+		position: relative;
+
+		@media (min-width: $brk--tablet) {
+			margin-top: -5em;
+			padding: 0 5em;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+	}
+
+	&__person {
+		text-align: center;
+		width: 200px;
+		flex-grow: 1;
+		flex-shrink: 0;
+		margin: 1em;
+		font-size: 1rem;
+		padding-bottom: 1em;
+		box-shadow: 0 .5rem 1rem transparentize(black, 0.8);
+
+		@media (min-width: $brk--tablet) {
+			flex-basis: 21%;
+		}
+	}
+
+	&__name {
+		margin: .7em 1rem .5em;
+	}
+
+	&__function,
+	&__email {
+		margin: .25em 1rem;
+	}
+
+	&__profile-pic {
+		height: auto;
+		max-width: 100%;
+	}
+
+	&__spacer {
+		margin: 1em;
+
+		@media (min-width: $brk--tablet) {
+			display: none;
+		}
+	}
+}

@@ -25,7 +25,7 @@ $hours = array(
   7 => 'closed',
 );
 
-$current_time = time();
+$current_time = current_time("timestamp");
 $current_day = date('N', $current_time);
 
 $opening_messages = array(
@@ -41,7 +41,6 @@ if($todays_hours === 'closed') {
   echo $opening_messages['closed_for_weekend'];
   echo "<strong>" . date("H:i", $hours[1][0][0]) . "</strong>";
 } else {
-  $current_time = time();
   if($current_time < $todays_hours[0][0]) {
     echo $opening_messages['closed_morning'];
     echo "<strong>" . date("H:i", $todays_hours[0][0]) . "</strong>.";

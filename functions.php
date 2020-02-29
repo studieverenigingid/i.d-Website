@@ -274,6 +274,28 @@
 
 
 
+	/* Remove comment support */
+  // Removes from admin menu
+  add_action( 'admin_menu', 'custom_admin_menus' );
+  function custom_admin_menus() {
+      remove_menu_page( 'edit-comments.php' );
+  }
+  // Removes from post and pages
+  add_action('init', 'remove_comment_support', 100);
+
+  function remove_comment_support() {
+      remove_post_type_support( 'post', 'comments' );
+      remove_post_type_support( 'page', 'comments' );
+  }
+  // Removes from admin bar
+  function custom_admin_bar_render() {
+      global $wp_admin_bar;
+      $wp_admin_bar->remove_menu('comments');
+  }
+  add_action( 'wp_before_admin_bar_render', 'custom_admin_bar_render' );
+
+
+
 	remove_action('wp_head', 'print_emoji_detection_script', 7);
 	remove_action('wp_print_styles', 'print_emoji_styles');
 

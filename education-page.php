@@ -8,7 +8,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main class="about__top" style="background-color: <?php theme_color(false); ?>">
+<main id="site-content" class="about__top" style="background-color: <?php theme_color(false); ?>">
 
 	<picture>
 		<source srcset="<?=$img_folder?>scroll.svg" type="image/svg+xml">

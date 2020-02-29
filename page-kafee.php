@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<header class="kafee--page__header
+<header id="site-content" class="kafee--page__header
 	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>"
 	style="background-color: <?php theme_color(false); ?>;">
 

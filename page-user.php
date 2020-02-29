@@ -26,7 +26,7 @@ if (!is_user_logged_in()) {
 
 
 
-	<main class="user__top"
+	<main id="site-content" class="user__top"
     style="background-color: <?php theme_color(false); ?>;">
     <style media="screen">
       .user__info__input {

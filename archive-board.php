@@ -4,7 +4,7 @@
 
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
 	<h1 class="archive__title"
 		style="background-color: <?php theme_color(false); ?>;">

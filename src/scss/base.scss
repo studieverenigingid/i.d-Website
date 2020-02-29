@@ -256,6 +256,33 @@ td {
 
 
 /*-------------------------------------*\
+	Skip to content
+\*-------------------------------------*/
+.skip {
+	background: white;
+	border: 1px solid black;
+	color: black;
+	display: block;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1;
+	padding: 1em;
+	position: absolute;
+	text-decoration: none;
+	top: -5em;
+
+	&:focus {
+		left: 5px;
+		top: 5px;
+		z-index: 100000;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Bies
 \*-------------------------------------*/
 // Holy bies

@@ -4,7 +4,7 @@
 
 
 
-	<header class="event--page__header
+	<header id="site-content" class="event--page__header
 		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>"
 		style="background-color: <?php theme_color(false); ?>;">
 

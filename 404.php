@@ -2,7 +2,7 @@
 	get_header();
 ?>
 
-<main class="not-found"
+<main id="site-content" class="not-found"
 	style="background-color: <?php theme_color(false); ?>;">
 	<picture>
 		<source srcset="<?=$img_folder?>404.svg" type="image/svg+xml">

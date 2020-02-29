@@ -12,7 +12,7 @@ else:
   $person_query = (empty($_GET['person_query'])) ? false : $_GET['person_query'];
 ?>
 
-<header class="smoelenboek__top">
+<header id="site-content" class="smoelenboek__top">
   <h1 class="smoelenboek__title">Smoelenboek</h1>
 </header>
 

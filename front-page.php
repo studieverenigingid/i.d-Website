@@ -14,7 +14,7 @@
   <!-- *********** -->
   <!-- IN MEMORIAM -->
   <!-- *********** -->
-  <section class="in-memoriam">
+  <section id="site-content" class="in-memoriam">
     <div class="in-memoriam__flex">
 
       <a class="in-memoriam__link" href="#continue">
@@ -43,7 +43,8 @@
 <!-- ****** -->
 <!-- EVENTS -->
 <!-- ****** -->
-<section class="events--frontpage">
+<section class="events--frontpage"
+  <?php if (!$in_memoriam) echo 'id="site-content"'; ?>>
 
 <?php
 

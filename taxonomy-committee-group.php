@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
 	<h1 class="archive__title"><?php echo esc_attr_x('Our ' . get_queried_object()->name . ' committees', 'Committee group title', 'svid-theme-domain'); ?></h1>
 

@@ -91,6 +91,20 @@
 				'text' => esc_attr_x('Get your tickets', 'Ticket link text', 'svid-theme-domain')
 			];
 
+			$start->setTimezone(new DateTimeZone('UTC'));
+			$end->setTimezone(new DateTimeZone('UTC'));
+			$google_cal_url = "https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml";
+			$google_cal_url .= "&text=" . urlencode(get_the_title());
+			$google_cal_url .= "&dates=" . $start->format('Ymd\THis\Z') .
+				"/" . $end->format('Ymd\THis\Z');
+			$google_cal_url .= "&location=" . urlencode($location_name);
+			$google_cal_url .= "&details=" . urlencode(get_the_excerpt());
+
+			$buttons['add-to-google'] = [
+				'url' => $google_cal_url,
+				'text' => esc_attr_x('Add to Google Calendar', 'Google Calendar link', 'svid-theme-domain')
+			];
+
 			foreach ($buttons as $key => $butt) {
 				$url = $butt['url'];
 				$text = $butt['text'];

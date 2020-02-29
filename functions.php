@@ -260,6 +260,20 @@
 
 
 
+	function change_color_palette() { ?>
+	<script type="text/javascript">
+		(function($) {
+			acf.add_filter('color_picker_args', function( args, field ){
+		    args.palettes = ['#ec008c', '#00aeef', '#f58220', '#50b848', '#ffe501']
+		    return args;
+			});
+		})(jQuery);
+	</script>
+	<?php }
+	add_action('acf/input/admin_footer', 'change_color_palette');
+
+
+
 	remove_action('wp_head', 'print_emoji_detection_script', 7);
 	remove_action('wp_print_styles', 'print_emoji_styles');
 

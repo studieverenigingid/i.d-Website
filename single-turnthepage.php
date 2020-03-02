@@ -6,7 +6,8 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header class="ttp-issue__header" style="background-color: <?php theme_color(false); ?>;">
+	<header id="site-content" class="ttp-issue__header"
+		style="background-color: <?php theme_color(false); ?>;">
 
 		<h1 class="ttp-issue__title--large"><?php the_field('issue_number'); echo " | "; the_title(); ?></h1>
 

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
 	<h1 class="archive__title archive__title--vacancies"
 		style="background-color: <?php theme_color(false); ?>;">

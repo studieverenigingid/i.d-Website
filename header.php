@@ -55,6 +55,10 @@ global $img_folder;
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
 
+		<a href="#site-content" class="skip">
+			<?php echo esc_attr_x('Skip to content', 'Accessibility skip to content element', 'svid-theme-domain');?>
+		</a>
+
 		<header class="bies" style="background:<?php theme_color(false);?>">
 
 			<?php

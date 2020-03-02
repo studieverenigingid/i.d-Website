@@ -4,7 +4,7 @@
 
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
 	<div class="archive__title__parent"
 		style="background-color:<?php the_field("page_color", $fp[0]->ID); ?>;">

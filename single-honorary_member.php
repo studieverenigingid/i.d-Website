@@ -4,7 +4,7 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<main class="hon-mem--page"
+	<main id="site-content" class="hon-mem--page"
 		style="background-color: <?php theme_color(false); ?>;">
 
 		<?php if ( has_post_thumbnail() ) : ?>

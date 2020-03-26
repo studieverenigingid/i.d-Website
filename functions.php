@@ -23,6 +23,8 @@
 
 	include( 'inc/kafee-custom-fields.php' );
 
+	include( 'inc/partner-company-custom-fields.php' );
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );

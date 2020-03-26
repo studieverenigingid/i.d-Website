@@ -1,0 +1,100 @@
+/*-------------------------------------*\
+
+	ID WEBSITE WORDPRESS THEME: CAREER
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	career.scss:
+	+ Partner companies
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Partner companies
+\*-------------------------------------*/
+.partner-intro {
+  padding-bottom: 5vw;
+}
+
+
+
+.partner-companies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: -5vw;
+  padding: 0 5vw 5vw;
+}
+
+
+
+.partner-company {
+  background: white;
+  border-radius: .5em;
+  box-shadow: 0 .2rem 1rem transparentize(black, .7);
+  flex-grow: 1;
+  margin: 1.5vw;
+  overflow: hidden;
+  width: 260px;
+
+  &__visual {
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1px;
+  }
+
+  &__logo-bubble {
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 .1rem .3rem transparentize(black, .7);
+    display: flex;
+    height: 125px;
+    justify-content: center;
+    margin: 10%;
+    transition: box-shadow .2s $transition--cubic;
+    width: 125px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 .2rem 1rem transparentize(black, .5);
+    }
+  }
+
+  &__logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-height: 70%;
+    max-width: 70%;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    margin: 1em 1.5rem .5rem;
+  }
+
+  &__tagline {
+    font-style: italic;
+    margin: .5rem 1.5rem -.5rem;
+    opacity: .8;
+  }
+
+  &__description {
+    font-size: 1rem;
+    margin: 0 1.5rem;
+  }
+
+  &__website {
+    display: block;
+    margin: 1em 0 1.5em;
+  }
+}

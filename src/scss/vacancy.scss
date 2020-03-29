@@ -242,6 +242,10 @@
 		display: inline-block;
 	}
 
+	&__separator {
+		margin: 0 .35em;
+	}
+
 	&__archivelink {
 		width: 100%;
 		display: flex;

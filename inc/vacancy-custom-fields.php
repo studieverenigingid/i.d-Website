@@ -122,6 +122,20 @@
 				'formatting' => 'none',
 				'maxlength' => '',
 			),
+			array(
+				'key' => 'field_5e80feb2cd51b',
+				'label' => 'Duration',
+				'name' => 'duration',
+				'type' => 'text',
+				'instructions' => 'The duration of the internship (or job) – only shows when filled out.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'default_value' => '',
+				'placeholder' => '6 months',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
 		),
 		'location' => array (
 			array (

@@ -114,7 +114,7 @@
 				'label' => 'Location',
 				'name' => 'location',
 				'type' => 'text',
-				'instructions' => 'The city/country/etc. where the job is located.',
+				'instructions' => 'The city/country/etc. where the job is located – only shows when filled out.',
 				'default_value' => '',
 				'placeholder' => 'Anywhere',
 				'prepend' => '',

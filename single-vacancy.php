@@ -29,6 +29,7 @@
 		<p class="vacancy__details  vacancy__details--large">
 			<?php
 				$location = get_field('location');
+				$duration = get_field('duration');
 				$categories = get_the_category();
 
 				if ( !empty($location) ) { ?>
@@ -37,8 +38,21 @@
 					</span>
 			<?php	} ?>
 
-			<?php if ( !empty($location) && !empty($categories) ): ?>
-				&bull;
+			<?php if ( !empty($location) && !empty($duration || $categories) ): ?>
+				<span class="vacancy__separator">
+					&bull;</span>
+			<?php endif; ?>
+
+			<?php if ( !empty($duration) ) { ?>
+				<span class="vacancy__tag  vacancy__duration">
+					<i class="fa fa-calendar-o"></i> <?=$duration?>
+				</span>
+			<?php	} ?>
+
+
+			<?php if ( !empty($duration) && !empty($categories) ): ?>
+				<span class="vacancy__separator">
+					&bull;</span>
 			<?php endif; ?>
 
 			<?php

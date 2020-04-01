@@ -17,23 +17,11 @@ $categories = get_the_category();
 
 	<div class="vacancy__text">
 
-		<?php
-			$company = get_field('company');
-		?>
-		<p class="vacancy__intro">
-			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
-		</p>
-
-		<h3 class="vacancy__title">
-			<a href="<?php the_permalink(); ?>" class="vacancy__link">
-				<?php the_title(); ?>
-			</a>
-		</h3>
-
 		<p class="vacancy__details">
 			<?php
-				$duration = get_field('duration');
 				$location = get_field('location');
+				$duration = get_field('duration');
+				$company = get_field('company');
 
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
@@ -41,7 +29,7 @@ $categories = get_the_category();
 					</span>
 			<?php	} ?>
 
-			<?php if ( !empty($location) && !empty($duration || $categories) ): ?>
+			<?php if ( !empty($location) && !empty($duration || $categories || $company) ): ?>
 				<span class="vacancy__separator">
 					&bull;</span>
 			<?php endif; ?>
@@ -53,7 +41,7 @@ $categories = get_the_category();
 			<?php	} ?>
 
 
-			<?php if ( !empty($duration) && !empty($categories) ): ?>
+			<?php if ( !empty($duration) && !empty($categories || $company) ): ?>
 				<span class="vacancy__separator">
 					&bull;</span>
 			<?php endif; ?>
@@ -65,7 +53,20 @@ $categories = get_the_category();
 			    	<?=$category?>
 					</span>
 			<?php	} ?>
+
 		</p>
+
+		<p class="vacancy__intro vacancy__intro--small">
+			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
+		</p>
+
+		<h3 class="vacancy__title">
+			<a href="<?php the_permalink(); ?>" class="vacancy__link">
+				<?php the_title(); ?>
+			</a>
+		</h3>
+
+		<?php the_excerpt(); ?>
 
 	</div>
 

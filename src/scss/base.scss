@@ -576,6 +576,12 @@ td {
 	pointer-events: inherit;
 }
 
+.menu-item--external a::after {
+	content: "\f08e";
+	font-family: FontAwesome;
+	margin-left: 5px;
+}
+
 
 
 

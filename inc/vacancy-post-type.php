@@ -33,8 +33,8 @@ function create_vacancy_post_type() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'rewrite' => true,
-		'supports' => array( 'editor', 'revisions', 'thumbnail', 'title' 
-			),
+		'supports' => array( 'editor', 'revisions', 'thumbnail', 'title',
+			'excerpt' ),
 		'taxonomies' => array( 'category' )
 	);
 	register_post_type( 'vacancy' , $args );

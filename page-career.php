@@ -64,7 +64,7 @@ get_header(); ?>
 
 
 
-<section class="career__partners" id="partner-companies">
+<section class="career__block" id="partner-companies">
 
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Partner companies', 'Our committees title', 'svid-theme-domain'); ?></h2>
 
@@ -109,7 +109,7 @@ get_header(); ?>
 
 
 
-<section class="career__vacancies" id="vacancies">
+<section class="career__block" id="vacancies">
 
 	<h2 class="about__sub-title"><?php echo esc_attr_x('Looking for a job or internship?', 'Vacancies title', 'svid-theme-domain'); ?></h2>
 
@@ -154,7 +154,7 @@ get_header(); ?>
 
 
 
-<section class="career__collaboration" id="collaboration">
+<section class="career__block" id="collaboration">
 	<h2 class="about__sub-title">
 		<?php echo esc_attr_x('Collaborate with ID', 'Coll title', 'svid-theme-domain'); ?>
 	</h2>
@@ -181,7 +181,7 @@ get_header(); ?>
 
 
 
-<section class="career__alumni" id="alumni">
+<section class="career__block" id="alumni">
 	<h2 class="about__sub-title">
 		<?php echo esc_attr_x('About our alumni', 'Alumni title', 'svid-theme-domain'); ?>
 	</h2>

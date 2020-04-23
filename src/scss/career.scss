@@ -21,6 +21,10 @@
 	Career page
 \*-------------------------------------*/
 .career {
+  &__header + hr {
+    opacity: 0;
+  }
+
   &__jump {
     @extend .about__jump;
     margin-top: 8em;
@@ -66,6 +70,22 @@
       box-shadow: 0 .2rem 1rem transparentize(black, .7);
       display: block;
       height: auto;
+      width: 100%;
+    }
+  }
+
+  &__embed {
+    height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
       width: 100%;
     }
   }

@@ -75,7 +75,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<?php
-		$partner_page_ID = get_page_by_path('partner-companies');
+		$partner_page_ID = (get_page_by_path('partner-companies')) ? get_page_by_path('partner-companies') : get_page_by_path('career/partner-companies');
 		if( have_rows('companies', $partner_page_ID) ): $i = 0; ?>
 			<section class="partner-companies partner-companies--career">
 		 	<?php // loop through the rows of data
@@ -141,8 +141,11 @@ get_header(); ?>
 
 	</div>
 
+	<?php
+		$vacancy_page_ID = (get_page_by_path('vacancies')) ? get_page_by_path('vacancies') : get_page_by_path('career/vacancies');
+	?>
 	<a class="button committees__all"
-		href="<?php echo get_post_type_archive_link( 'vacancy' ); ?>">
+		href="<?php echo get_permalink( $vacancy_page_ID ); ?>">
 		<?php echo esc_attr_x('All vacancies', 'View all vacancies button text', 'svid-theme-domain'); ?>
 	</a>
 
@@ -166,7 +169,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<?php
-	$collab_page_ID = get_page_by_path('collaborate');
+	$collab_page_ID = (get_page_by_path('collaborate')) ? get_page_by_path('collaborate') : get_page_by_path('career/collaborate');
 	?>
 	<a class="button committees__all"
 		href="<?php echo get_permalink( $collab_page_ID ); ?>">
@@ -193,7 +196,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<?php
-	$alumni_page_ID = get_page_by_path('alumni');
+	$alumni_page_ID = (get_page_by_path('alumni')) ? get_page_by_path('alumni') : get_page_by_path('career/alumni');
 	?>
 	<a class="button committees__all"
 		href="<?php echo get_permalink( $alumni_page_ID ); ?>">

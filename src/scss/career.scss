@@ -42,6 +42,20 @@
     p {
       line-height: 1.6;
     }
+
+    &--wide {
+      max-width: none;
+
+      img {
+        display: block;
+        margin: auto;
+      }
+
+      p {
+        max-width: 36em;
+        margin: 1em auto;
+      }
+    }
   }
 
   &__small-vacancy {

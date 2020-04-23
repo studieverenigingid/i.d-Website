@@ -52,7 +52,9 @@ if( have_rows('career_content_blocks') ):
 				<h2 class="about__sub-title">
 					<?php the_sub_field('career_content_title'); ?>
 				</h2>
-				<div class="career__description">
+
+				<?php $wide = (get_sub_field('wide')) ? 'career__description--wide' : ''; ?>
+				<div class="career__description <?php echo $wide; ?>">
 					<?php the_sub_field('career_content_info'); ?>
 				</div>
 

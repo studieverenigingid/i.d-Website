@@ -24,6 +24,8 @@
 	include( 'inc/kafee-custom-fields.php' );
 
 	include( 'inc/partner-company-custom-fields.php' );
+	include( 'inc/career-custom-fields.php' );
+	include( 'inc/career-blocks-custom-fields.php' );
 
 	include( 'inc/theme-settings.php');
 

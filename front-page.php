@@ -55,7 +55,7 @@ $upcoming_loop = new WP_Query( array(
   'posts_per_page' => 4,
   'meta_query' => array(
 	array(
-	  'key'     => 'start_datetime',
+	  'key'     => 'end_datetime',
 	  'compare' => '>=',
 	  'value'   => $today,
 	  'type'    => 'DATE'

@@ -937,6 +937,16 @@ $ajax-load-size: 44px;
 		width: 2rem;
 		margin: 1.8rem 0;
 	}
+
+	@media (max-width: 583px) {
+		&__association,
+		&__sitemap {
+			order: 2;
+		}
+		&__paragraph {
+			order: 1;
+		}
+	}
 }
 
 .opening_hours {

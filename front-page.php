@@ -55,7 +55,7 @@ $upcoming_loop = new WP_Query( array(
   'posts_per_page' => 4,
   'meta_query' => array(
 	array(
-	  'key'     => 'start_datetime',
+	  'key'     => 'end_datetime',
 	  'compare' => '>=',
 	  'value'   => $today,
 	  'type'    => 'DATE'
@@ -213,7 +213,7 @@ wp_reset_postdata();
 	</div>
 
   <template id="js-social-post">
-    <a class="social__link" target="_blank">
+    <a class="social__link" target="_blank" rel="noreferrer">
   		<div class="social__container">
   		  <div class="social__title">
   		    <i class="social__ico fa"></i>

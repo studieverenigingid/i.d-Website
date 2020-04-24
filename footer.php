@@ -56,25 +56,21 @@
 			<div class="pri-footer__paragraph pri-footer__col">
 				<h2 class="pri-footer__heading">Social media</h2>
 				<div>
-					<a href="https://www.instagram.com/IDstudyassociation/"
+					<a rel="noopener" href="https://www.instagram.com/IDstudyassociation/"
 						class="button button--insta">
 						<i class="fa fa-instagram"></i> Instagram
 					</a>
-					<a href="https://www.facebook.com/IDstudyassociation/"
+					<a rel="noopener" href="https://www.facebook.com/IDstudyassociation/"
 						class="button button--facebook">
 						<i class="fa fa-facebook"></i> Facebook
 					</a>
-					<a href="https://www.flickr.com/photos/svid/"
+					<a rel="noopener" href="https://www.flickr.com/photos/svid/"
 						class="button button--flickr">
 						<i class="fa fa-flickr"></i> Flickr
 					</a>
-					<a href="https://vimeo.com/studieverenigingid"
+					<a rel="noopener" href="https://vimeo.com/studieverenigingid"
 						class="button button--vimeo">
 						<i class="fa fa-vimeo"></i> Vimeo
-					</a>
-					<a href="https://medium.com/turnthepage"
-						class="button button--medium">
-						<i class="fa fa-medium"></i> Medium
 					</a>
 				</div>
 			</div>

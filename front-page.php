@@ -61,7 +61,8 @@ $upcoming_loop = new WP_Query( array(
 	  'type'    => 'DATE'
 	),
   ),
-  'orderby' => 'start_datetime',
+  'orderby' => 'meta_value',
+  'meta_key' => 'start_datetime',
   'order' => 'ASC',
 ) );
 

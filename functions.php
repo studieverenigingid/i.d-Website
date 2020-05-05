@@ -26,6 +26,7 @@
 	include( 'inc/partner-company-custom-fields.php' );
 	include( 'inc/career-custom-fields.php' );
 	include( 'inc/career-blocks-custom-fields.php' );
+	include( 'inc/ide-feeds.php' );
 
 	include( 'inc/theme-settings.php');
 

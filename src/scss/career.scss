@@ -10,6 +10,7 @@
 	career.scss:
   + Career page
 	+ Partner companies
+  + RSS feed
 
 \*-------------------------------------*/
 
@@ -206,5 +207,41 @@
   &__website {
     display: block;
     margin: 1em 0 1.5em;
+  }
+}
+
+
+
+
+
+/*-------------------------------------*\
+	RSS Feed
+\*-------------------------------------*/
+.rss-feed {
+  &__item {
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    padding: 1.5em 0 1em;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  &__image {
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 1.5em;
+  }
+
+  &__head {
+    margin-top: 0;
+  }
+
+  a {
+    color: black;
+    font-weight: bold;
+    text-decoration-color: $accent;
   }
 }

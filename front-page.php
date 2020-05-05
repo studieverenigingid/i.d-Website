@@ -263,4 +263,72 @@ wp_reset_postdata();
 
 
 
+
+
+<!-- ************** -->
+<!-- CALL TO ACTION -->
+<!-- ************** -->
+<section class="call-to-action">
+  <header class="call-to-action__head">
+    <h2 class="call-to-action__question">What’s the big ID?</h2>
+  </header>
+
+  <div class="call-to-action__group call-to-action__group--social">
+    <h3 class="call-to-action__group-name">
+      For members
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="#">Take a look at our committees</a>
+      </li>
+      <li>
+        <a href="#">Read the latest news</a>
+      </li>
+      <li>
+        <a href="#">Update your information</a>
+      </li>
+    </ul>
+    <a class="button" href="#">Join an upcoming event</a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--education">
+    <h3 class="call-to-action__group-name">
+      For (IDE) students
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="#">Check out who we are</a>
+      </li>
+      <li>
+        <a href="#">Find a job or internship</a>
+      </li>
+      <li>
+        <a href="#">Give feedback about our education</a>
+      </li>
+    </ul>
+    <a class="button" href="#">Become a member</a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--career">
+    <h3 class="call-to-action__group-name">
+      For businesses
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="#">Get to know our alumni</a>
+      </li>
+      <li>
+        <a href="#">See what we can do for you</a>
+      </li>
+      <li>
+        <a href="#">Check out our vacancy page</a>
+      </li>
+    </ul>
+    <a class="button" href="#">Become a partner</a>
+  </div>
+
+</section>
+
+
+
 <?php get_footer(); ?>

@@ -24,7 +24,16 @@
 			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
-		<h1 class="vacancy__title  vacancy__title--large"><?php the_title(); ?></h1>
+		<h1 class="vacancy__title  vacancy__title--large">
+			<?php
+				$title = get_the_title();
+				if (strpos($title, "–")) {
+					echo substr($title, 0, strpos($title, "–"));
+				} else {
+					echo $title;
+				}
+			?>
+		</h1>
 
 		<p class="vacancy__details  vacancy__details--large">
 			<?php

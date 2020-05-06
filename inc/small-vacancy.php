@@ -67,7 +67,14 @@ $categories = get_the_category();
 
 		<h3 class="vacancy__title">
 			<a href="<?php the_permalink(); ?>" class="vacancy__link">
-				<?php the_title(); ?>
+				<?php
+					$title = get_the_title();
+					if (strpos($title, "–")) {
+						echo substr($title, 0, strpos($title, "–"));
+					} else {
+						echo $title;
+					}
+				?>
 			</a>
 		</h3>
 

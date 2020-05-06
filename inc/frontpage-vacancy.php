@@ -11,7 +11,14 @@
 
 		<h3 class="vacancy__title">
 			<a href="<?php the_permalink(); ?>" class="vacancy__link vacancy__link--frontpage">
-				<?php the_title(); ?>
+				<?php
+					$title = get_the_title();
+					if (strpos($title, "–")) {
+						echo substr($title, 0, strpos($title, "–"));
+					} else {
+						echo $title;
+					}
+				?>
 			</a>
 		</h3>
 

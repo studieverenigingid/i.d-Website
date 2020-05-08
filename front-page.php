@@ -270,7 +270,7 @@ wp_reset_postdata();
 <!-- ************** -->
 <section class="call-to-action">
   <header class="call-to-action__head">
-    <h2 class="call-to-action__question">What’s the big ID?</h2>
+    <h2 class="call-to-action__question">What’s up next?</h2>
   </header>
 
   <div class="call-to-action__group call-to-action__group--social">
@@ -279,16 +279,24 @@ wp_reset_postdata();
     </h3>
     <ul class="call-to-action__options">
       <li>
-        <a href="#">Take a look at our committees</a>
+        <a href="<?php echo get_post_type_archive_link('committee'); ?>">
+          Take a look at our committees
+        </a>
       </li>
       <li>
-        <a href="#">Read the latest news</a>
+        <a href="<?php echo get_post_type_archive_link('post'); ?>">
+          Read the latest news
+        </a>
       </li>
       <li>
-        <a href="#">Update your information</a>
+        <a href="<?php echo get_home_url(null, 'user'); ?>">
+          Update your information
+        </a>
       </li>
     </ul>
-    <a class="button" href="#">Join an upcoming event</a>
+    <a class="button" href="<?php echo get_post_type_archive_link('event'); ?>">
+      Join an upcoming event
+    </a>
   </div>
 
   <div class="call-to-action__group call-to-action__group--education">
@@ -297,16 +305,24 @@ wp_reset_postdata();
     </h3>
     <ul class="call-to-action__options">
       <li>
-        <a href="#">Check out who we are</a>
+        <a href="<?php echo get_home_url(null, 'about'); ?>">
+          Check out who we are
+        </a>
       </li>
       <li>
-        <a href="#">Find a job or internship</a>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Find a job or internship
+        </a>
       </li>
       <li>
-        <a href="#">Give feedback about our education</a>
+        <a href="<?php echo get_home_url(null, 'education'); ?>">
+          Give feedback about IDE education
+        </a>
       </li>
     </ul>
-    <a class="button" href="#">Become a member</a>
+    <a class="button" href="<?php echo get_home_url(null, 'contact'); ?>">
+      Ask us anything
+    </a>
   </div>
 
   <div class="call-to-action__group call-to-action__group--career">
@@ -315,16 +331,24 @@ wp_reset_postdata();
     </h3>
     <ul class="call-to-action__options">
       <li>
-        <a href="#">Get to know our alumni</a>
+        <a href="<?php echo get_home_url(null, 'career/alumni'); ?>">
+          Get to know our alumni
+        </a>
       </li>
       <li>
-        <a href="#">See what we can do for you</a>
+        <a href="<?php echo get_home_url(null, 'career/partner-companies'); ?>">
+          Become a partner
+        </a>
       </li>
       <li>
-        <a href="#">Check out our vacancy page</a>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Check out our vacancy page
+        </a>
       </li>
     </ul>
-    <a class="button" href="#">Become a partner</a>
+    <a class="button" href="<?php echo get_home_url(null, 'career/collaborate-with-id'); ?>">
+      See what we can do for you
+    </a>
   </div>
 
 </section>

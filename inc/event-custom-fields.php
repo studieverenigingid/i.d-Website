@@ -209,7 +209,7 @@ acf_add_local_field_group(array (
 function event_file_upload_prefilter( $errors ) {
 
   // only allow admin
-  if( !current_user_can('manage_options') ) {
+  if( !current_user_can('upload_files') ) {
     // this returns value to the wp uploader UI
     // if you remove the ! you can see the returned values
     $errors[] = 'test prefilter';

@@ -229,7 +229,7 @@ get_header(); ?>
 	</div>
 	<?php endif; ?>
 
-	<a class="button committees__all"
+	<a class="button committees__all" target="_blank" rel="nofollow"
 		href="https://idebusinessfair.com/">
 		<?php echo esc_attr_x('Visit IDE Business Fair website', 'Website button text', 'svid-theme-domain'); ?>
 	</a>

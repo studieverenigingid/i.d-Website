@@ -82,6 +82,25 @@ acf_add_local_field_group(array(
 			'media_upload' => 1,
 			'delay' => 0,
 		),
+		array(
+			'key' => 'field_5ea05835da071',
+			'label' => 'IDE Business Fair',
+			'name' => 'idebf',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 1,
+			'delay' => 0,
+		),
 	),
 	'location' => array(
 		array(

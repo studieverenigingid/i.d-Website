@@ -58,6 +58,10 @@ get_header(); ?>
 	<a class="about__jump-link" href="#alumni">
 		<?php echo esc_attr_x('alumni',
 			'Alumni link',
+			'svid-theme-domain'); ?></a> –
+	<a class="about__jump-link" href="#idebf">
+		<?php echo esc_attr_x('ide business fair',
+			'IDEBF link',
 			'svid-theme-domain'); ?></a>
 </p>
 
@@ -90,6 +94,9 @@ get_header(); ?>
 							alt="Logo <?php the_sub_field('name'); ?>">
 					</div>
 		    <?php endwhile; ?>
+				<div class="partner-company__logo-bubble partner-company__logo-bubble--career">
+					<strong>And more</strong>
+				</div>
 			</section>
 		<?php else :
 			echo "no partner companies found";
@@ -201,6 +208,30 @@ get_header(); ?>
 	<a class="button committees__all"
 		href="<?php echo get_permalink( $alumni_page_ID ); ?>">
 		<?php echo esc_attr_x('Read about alumni', 'Collaboration page button text', 'svid-theme-domain'); ?>
+	</a>
+
+</section>
+
+
+
+<hr class="divider">
+
+
+
+<section class="career__block" id="idebf">
+	<h2 class="about__sub-title">
+		<?php echo esc_attr_x('IDE Business Fair', 'IDEBF title', 'svid-theme-domain'); ?>
+	</h2>
+
+	<?php if(get_field('idebf')): ?>
+	<div class="career__description">
+		<?php the_field('idebf'); ?>
+	</div>
+	<?php endif; ?>
+
+	<a class="button committees__all"
+		href="https://idebusinessfair.com/">
+		<?php echo esc_attr_x('Visit IDE Business Fair website', 'Website button text', 'svid-theme-domain'); ?>
 	</a>
 
 </section>

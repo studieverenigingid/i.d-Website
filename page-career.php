@@ -90,6 +90,9 @@ get_header(); ?>
 							alt="Logo <?php the_sub_field('name'); ?>">
 					</div>
 		    <?php endwhile; ?>
+				<div class="partner-company__logo-bubble partner-company__logo-bubble--career">
+					<strong>And more</strong>
+				</div>
 			</section>
 		<?php else :
 			echo "no partner companies found";

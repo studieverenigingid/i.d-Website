@@ -11,6 +11,10 @@ function formFails(form, data) {
 function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
 	form.addClass('education-feedback--success');
+	var errorMessage = $('<div>');
+	errorMessage.addClass('education-feedback__message education-feedback__message--success');
+	errorMessage.text('Your input was sent, thanks! <a href="#reset" class="education-feedback__link js-reset-link">I have even more feedback.</a>');
+	form.prepend(errorMessage);
 	form.removeClass('education-feedback--sending');
 }
 

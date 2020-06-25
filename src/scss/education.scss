@@ -9,11 +9,16 @@
 
 
 .education {
-  &__pre-title {
-    color: $background--light;
-    margin-bottom: .8em;
-    opacity: .7;
-    font-family: $font--heavy;
+  &__top {
+    background: $accent;
+    margin: 0;
+		padding: .1rem 5% 1rem;
+	}
+
+  @media (min-width: $brk--phone) {
+		&__top {
+			padding: .1rem 8% 1rem;
+		}
   }
 
   &__title {

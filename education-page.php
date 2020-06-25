@@ -8,7 +8,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main id="site-content" class="about__top" style="background-color: <?php theme_color(false); ?>">
+<main id="site-content" class="education__top" style="background-color: <?php theme_color(false); ?>">
 
 	<h1 class="education__title">
     <?php the_title(); ?>

@@ -30,7 +30,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 $args = array( 'post_type' => 'post', 'category_name' => 'education', 'posts_per_page' => 3 );
 $loop = new WP_Query( $args );
 if($loop->have_posts()) : ?>
-  <section class="news education-news">
+  <section class="news education-news" id="education-news">
     <h2><?= esc_attr_x('What is happening in education?', 'education-what-we-did-with-it', 'svid-theme-domain')?></h2>
     <?php while($loop->have_posts()) : $loop->the_post(); ?>
 
@@ -44,7 +44,7 @@ if($loop->have_posts()) : ?>
 
 <?php
 if( have_rows('feedback_step') ) { ?>
-  <section class="education-process">
+  <section class="education-process" id="feedback-process">
     <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
     <?php while( have_rows('feedback_step') ) {
       the_row();
@@ -61,7 +61,7 @@ if( have_rows('feedback_step') ) { ?>
 
 
 
-	<section class="education-feedback">
+	<section class="education-feedback" id="feedback-form">
 		<h2><?= esc_attr_x('Orange notes', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 
 		<div class="education-feedback__message education-feedback__message--success">
@@ -141,7 +141,7 @@ if( have_rows('feedback_step') ) { ?>
 	</section>
 
 
-  <section class="education-about">
+  <section class="education-about" id="about-committee">
     <h2><?= esc_attr_x('Who are we?', 'education-who-are-we', 'svid-theme-domain')?></h2>
     <img src="<?= get_field( "commity_photo" )['sizes']['large'] ?>" alt="<?= get_field( "commity_photo" )['url'] ?>">
     <div class="education-about__description">

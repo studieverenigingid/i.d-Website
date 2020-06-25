@@ -14,6 +14,13 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
     <?php the_title(); ?>
   </h1>
 
+	<div class="education__content">
+		<?php
+			if(have_posts()) : while(have_posts()) :
+				the_post();
+				the_content();
+			endwhile; endif; ?>
+	</div>
 
 </main>
 
@@ -53,19 +60,7 @@ if( have_rows('feedback_step') ) { ?>
 <?php } ?>
 
 
-<?php
-$args = array( 'post_type' => 'post', 'category_name' => 'education', 'posts_per_page' => 3 );
-$loop = new WP_Query( $args );
-if($loop->have_posts()) : ?>
-  <section class="news education-news">
-    <h2><?= esc_attr_x('What have we done in the past?', 'education-what-we-did-with-it', 'svid-theme-domain')?></h2>
-    <?php while($loop->have_posts()) : $loop->the_post(); ?>
 
-		<?php include('inc/small-news-item.php') ?>
-
-    <?php endwhile; ?>
-  </section>
-<?php endif; wp_reset_postdata(); ?>
 	<section class="education-feedback">
 		<h2><?= esc_attr_x('Orange notes', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 

@@ -270,11 +270,7 @@
   }
 
   &-news {
-    margin: 4rem auto 0;
-
-    @media(max-width: $brk--desktop) {
-      margin-top: 2rem;
-    }
+    margin: 0 auto;
   }
 
 

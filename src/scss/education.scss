@@ -36,6 +36,7 @@
     display: block;
     color: $background--light;
     font-family: $font--heavy;
+    text-align: left;
 
     &--right {
       flex-grow: 1;
@@ -145,8 +146,8 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: 1.5em 0;
-    padding: 2em 0;
+    margin: 1.5em 0 0;
+    padding: 2em 0 1em;
     border-top: 1.5px solid transparentize($background--light, 0.5);
   }
 
@@ -156,8 +157,17 @@
   }
 
   &-feedback {
-    max-width: 36rem;
     position: relative;
+    margin: 0 30px;
+    text-align: center;
+
+    &__wrap {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 10px 30px;
+      border-radius: 1rem;
+      max-width: 36rem;
+    }
 
     &--sending {
       button {
@@ -186,21 +196,19 @@
       }
     }
 
+    &__message {
+      color: $background--light;
+      margin: .5em auto;
+      padding: 1em;
+      max-width: 33.3rem;
+    }
+
     &__message--success {
-      position: absolute;
-      top: 10em;
-      left: 2rem;
-      right: 2rem;
-      color: white;
-      text-align: center;
-      transform: translateY(-50%);
+      background: green;
     }
 
     &__message--failed {
-      padding: 1em;
-      margin: .5em 0;
       background: #ca1414;
-      color: $background--light;
     }
 
     &__link {

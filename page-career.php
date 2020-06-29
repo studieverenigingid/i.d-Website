@@ -128,12 +128,13 @@ get_header(); ?>
 
 	<div class="career__small-vacancy">
 
-		<h3 class="career__small-heading">Most recent vacancy</h3>
+		<h3 class="career__small-heading">One of our vacancies</h3>
 
 		<?php
 			$args = array(
 				'post_type' => 'vacancy',
-				'posts_per_page' => 1
+				'posts_per_page' => 1,
+				'orderby'   => 'rand',
 			);
 
 			$loop = new WP_Query( $args );

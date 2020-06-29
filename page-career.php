@@ -259,7 +259,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<a class="button committees__all" target="_blank" rel="nofollow"
-		href="https://flightcase.com/">
+		href="http://www.flightcase-delft.com/">
 		<?php echo esc_attr_x('Visit Flight Case website', 'Website button text', 'svid-theme-domain'); ?>
 	</a>
 

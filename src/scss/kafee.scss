@@ -200,3 +200,45 @@
 		}
 	}
 }
+
+
+
+
+$no-color: #b01010;
+$yes-color: #3d662c;
+$beer-background: #fff;
+$beer-text: $text;
+
+.isitkafee {
+  background: $beer-background;
+  color: $beer-text;
+  text-align: center;
+
+  &__question {
+    color: $beer-text;
+  }
+
+  &__answer {
+    font-size: 3em;
+    font-weight: bold;
+    margin: .2em 0 0;
+  }
+
+  &__countdown {
+    text-align: center;
+  }
+
+  &--no &__answer {
+    color: $no-color;
+  }
+
+  &--yes &__answer {
+    color: $yes-color;
+  }
+
+  &__disclaimer {
+    font-size: .8em;
+		margin-bottom: 0;
+    opacity: .7;
+  }
+}

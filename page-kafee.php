@@ -66,7 +66,8 @@ if( have_rows('kafee_content_blocks') ):
 
  	// loop through the rows of data
     while ( have_rows('kafee_content_blocks') ) : the_row(); ?>
-			<section class="kafee--page__container">
+			<section class="kafee--page__container"
+				id="<?php echo strtolower(get_sub_field('kafee_content_title')) ?>">
 				<h2 class="kafee--page__blocktitle">
 					<?php the_sub_field('kafee_content_title'); ?>
 				</h2>

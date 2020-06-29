@@ -60,7 +60,7 @@ get_header(); ?>
 			'Alumni link',
 			'svid-theme-domain'); ?></a> –
 	<a class="about__jump-link" href="#idebf">
-		<?php echo esc_attr_x('ide business fair',
+		<?php echo esc_attr_x('IDE Business Fair',
 			'IDEBF link',
 			'svid-theme-domain'); ?></a>
 </p>

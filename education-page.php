@@ -64,11 +64,6 @@ if( have_rows('feedback_step') ) { ?>
 	<section class="education-feedback" id="feedback-form">
 		<h2><?= esc_attr_x('Orange notes', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 
-		<div class="education-feedback__message education-feedback__message--success">
-			<?= esc_attr_x('Your input was sent, thanks!', 'feedback-form-message', 'svid-theme-domain')?><br>
-			<a href="#reset" class="education-feedback__link js-reset-link"><?php echo esc_attr_x('I have even more feedback.', 'More feedback label text', 'svid-theme-domain');?></a>
-		</div>
-
 		<form action="#" class="education-feedback__wrap"
 			style="background-color: <?php theme_color(false); ?>">
 

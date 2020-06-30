@@ -44,12 +44,14 @@ get_header(); ?>
 if( have_rows('career_content_blocks') ):
 
  	// loop through the rows of data
-    while ( have_rows('career_content_blocks') ) : the_row(); ?>
+    while ( have_rows('career_content_blocks') ) : the_row();
+		$section_id = strtolower(get_sub_field('career_content_title'));
+		$section_id = str_replace(" ", "", $section_id); ?>
 
 			<hr class="divider">
 
 			<section class="career__block"
-				id="<?php echo strtolower(get_sub_field('career_content_title')) ?>">>
+				id="<?php echo $section_id; ?>">
 				<h2 class="about__sub-title">
 					<?php the_sub_field('career_content_title'); ?>
 				</h2>

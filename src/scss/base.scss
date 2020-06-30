@@ -154,6 +154,30 @@ blockquote {
 	}
 }
 
+.wp-block-separator {
+	border-width: 1px 0 0 0;
+	border-color: #aaa;
+	border-style: dotted;
+}
+
+.news--page__content{
+	a {
+		color: $accent;
+
+		&:visited {
+			color: darken($accent, 10%);
+		}
+
+		&:hover {
+			color: darken($accent, 15%);
+		}
+	}
+
+	li {
+		margin-bottom: 1em;
+	}
+}
+
 
 
 

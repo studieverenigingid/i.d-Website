@@ -48,7 +48,8 @@ if( have_rows('career_content_blocks') ):
 
 			<hr class="divider">
 
-			<section class="career__block">
+			<section class="career__block"
+				id="<?php echo strtolower(get_sub_field('career_content_title')) ?>">>
 				<h2 class="about__sub-title">
 					<?php the_sub_field('career_content_title'); ?>
 				</h2>

@@ -9,7 +9,8 @@ if (!isset($offset)) $offset = 1;
 $last_insta = $_GET['last_insta'];
 
 // Setting the relevent transient key
-$transient_key = 'social_feed_page_' . $offset;
+$theme_info = wp_get_theme();
+$transient_key = 'social_feed_page_' . $offset . $theme_info->version;
 
 
 

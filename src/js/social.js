@@ -1,6 +1,5 @@
 // define variables to store where we are in the social post list
-var lastInsta,
-	offset = 1,
+var offset = 1,
 	socialLoader,
 	waitingForAutoLoad = false;
 
@@ -123,7 +122,6 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	}
 
 	// update the location in the social post list
-	lastInsta = data['insta_id'];
 	offset = data['offset'];
 
 }
@@ -138,7 +136,6 @@ function socialFeed() {
 		url: ajaxurl,
 		data: {
 			action: 'social_feed_ajax_request',
-			last_insta: lastInsta,
 			offset: offset,
 		}
 	}).done(socialFeedReceived)

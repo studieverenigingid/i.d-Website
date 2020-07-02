@@ -6,10 +6,10 @@ $options = get_option('id_settings');
 // GET Parameters
 $offset = $_GET['offset'];
 if (!isset($offset)) $offset = 1;
-$last_insta = $_GET['last_insta'];
 
 // Setting the relevent transient key
-$transient_key = 'social_feed_page_' . $offset;
+$theme_info = wp_get_theme();
+$transient_key = 'social_feed_page_' . $offset . $theme_info->version;
 
 
 
@@ -132,62 +132,6 @@ function createVimeoArray($options, $offset) {
 
 
 
-// Instagram
-
-/**
- * Get the latest Instagram posts.
- *
- * @param	array $options	The Wordpress option array with api data
- * @param	string $last_insta	The id of the last loaded Instagram post
- * @return array $instaPosts	List of the last Instagram posts
- */
-function createInstaArray($options, $last_insta) {
-
-	$instagram_access_token = $options['id_instagram_access_token_field'];
-
-	$url = 'https://api.instagram.com/v1/' .
-		'users/self/media/recent/' .
-		'?access_token=' . $instagram_access_token .
-		'&count=3';
-
-	// Get posts from before the oldest Instagram post which was already loaded
-	if (isset($last_insta)) $url .= '&max_id=' . $last_insta;
-
-
-	$data = request($url);
-
-	if (!$data) {
-		// If the request fails, return an empty array
-		return array();
-	}
-
-	$posts = json_decode($data, true);
-
-	$i = 0;
-	foreach ($posts['data'] as $post) {
-		$image_url = $post['images']['standard_resolution']['url'];
-		$link = $post['link'];
-		$date = $post['created_time'];
-		$insta_id = $post['id'];
-
-		$instaPosts[$i]['link'] = $link;
-		$instaPosts[$i]['date'] = $date;
-		$instaPosts[$i]['thumb'] = $image_url;
-		$instaPosts[$i]['id'] = $insta_id;
-		$instaPosts[$i]['type'] = 'Instagram';
-		$instaPosts[$i]['title'] = 'Instagram';
-		$instaPosts[$i]['class'] = 'insta';
-		$instaPosts[$i]['icon'] = 'instagram';
-		$i++;
-	}
-
-	return $instaPosts;
-}
-
-
-
-
-
 // Flickr
 
 /**
@@ -304,13 +248,6 @@ function latestPosts($offset, $latestPosts) {
 		);
 
 		$response['posts'][$key] = $post;
-
-		// Add the id of the last insta post to the response, so we can later get
-		// posts older than this one, based on id
-		if ($post['type'] == 'Instagram') {
-			$response['insta_id'] = $post['id'];
-		}
-
 		$response['post_amount']++;
 
 	}
@@ -326,11 +263,10 @@ $cached_response = get_transient($transient_key);
 if ($cached_response === false) {
 	// if not, excecute all functions, put it in response and store it
 	$vimeoPosts = createVimeoArray($options, $offset);
-	$instaPosts = createInstaArray($options, $last_insta);
 	$flickrPhotosets = createFlickrArray($options, $offset);
 	$response = latestPosts(
 		$offset,
-		array($instaPosts, $vimeoPosts, $flickrPhotosets)
+		array($vimeoPosts, $flickrPhotosets)
 	);
 
 	if (WP_DEBUG) {

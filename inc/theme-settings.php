@@ -73,6 +73,10 @@
 			'id_instagramSettings_section'
 		);
 
+
+
+		// Registering Flickr section and fields
+
 		add_settings_section(
 			'id_flickrSettings_section',
 			__( 'Flickr API settings', 'wordpress' ),

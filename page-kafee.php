@@ -43,13 +43,31 @@ get_header(); ?>
 
 </header>
 
+<section id="isitkafee" class="kafee--page__container isitkafee">
+	<h2 class="kafee--page__blocktitle isitkafee__question">
+		🍻 Is it ID Kafee already?
+	</h2>
+	<p class="isitkafee__answer">
+		<span id="yesorno">
+			<noscript>maybe</noscript>
+		</span>
+	</p>
+	<p class="isitkafee__countdown">
+		<span id="countdown">
+		  <noscript>Your Javascript is turned off, but if it’s Wednesday after 17:00, you already know...</noscript>
+	  </span>
+	</p>
+	<p class="isitkafee__disclaimer">Please note we’re not taking off-days into account here, so during holidays, IDE Business Fair and IO Festival we’re closed even if it says ‘yes’.</p>
+</section>
+
 <?php
 
 if( have_rows('kafee_content_blocks') ):
 
  	// loop through the rows of data
     while ( have_rows('kafee_content_blocks') ) : the_row(); ?>
-			<section class="kafee--page__container">
+			<section class="kafee--page__container"
+				id="<?php echo strtolower(get_sub_field('kafee_content_title')) ?>">
 				<h2 class="kafee--page__blocktitle">
 					<?php the_sub_field('kafee_content_title'); ?>
 				</h2>

@@ -90,7 +90,8 @@
 	&__thumb {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 244px;
+		object-fit: cover;
 		margin-bottom: 1.5em;
 	}
 

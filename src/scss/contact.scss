@@ -9,6 +9,7 @@
 
 	contact.scss:
 	+ Contact Page
+	+ Contact forms
 
 \*-------------------------------------*/
 
@@ -266,4 +267,17 @@
 			display: none;
 		}
 	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Contact Forms
+\*-------------------------------------*/
+.form-cols {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
 }

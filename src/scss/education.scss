@@ -165,6 +165,8 @@
     position: relative;
     margin: 0 30px;
     text-align: center;
+    width: 440px;
+    flex-grow: 1;
 
     &__wrap {
       display: inline-block;
@@ -230,10 +232,12 @@
   }
 
   &-process {
+    align-items: center;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
+    flex-flow: column;
+    flex-grow: 1;
+    width: 440px;
     max-width: $brk--large-desktop;
     margin: 0 auto 4rem;
     padding: 0 2rem;
@@ -246,20 +250,7 @@
       position: relative;
       width: 100%;
       margin-bottom: 4em;
-
-      @media (min-width: 400px) {
-        width: 70%;
-      }
-
-      @media (min-width: $brk--real-phone) {
-        width: 50%;
-        padding: 0 2.5%;
-      }
-
-      @media (min-width: $brk--tablet) {
-        width: 33.3%;
-        margin: 2em 0;
-      }
+      max-width: 350px;
     }
 
     &__item {

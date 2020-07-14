@@ -9,7 +9,6 @@ function onDocReady () {
 	menuToggler();
 	menuSticky();
 	fixVHAfterLoad();
-	scrollIndicator();
 	closeInMemoriam();
 	openingHours();
 

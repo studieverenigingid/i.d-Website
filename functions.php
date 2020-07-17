@@ -131,10 +131,6 @@
 				!is_home() &&
 				!is_404()) {
 			echo get_field('page_color');
-		} elseif (is_page_template('page-kafee.php')) {
-			echo "#6dadb6";
-		} elseif (is_page_template('education-page.php')) {
-			echo "#f58220";
 		} elseif ($default){
 			echo "#55ccbb";
 		}

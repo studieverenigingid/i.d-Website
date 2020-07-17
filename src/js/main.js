@@ -27,6 +27,9 @@ function onDocReady () {
 
 	// filters.js
 	registerFilters();
+
+	// kafee.js
+	if (!!document.getElementById('isitkafee')) aftellen();
 }
 
 function menuToggler () {

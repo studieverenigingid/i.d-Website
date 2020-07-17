@@ -127,7 +127,8 @@
 		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&
 				!is_archive() &&
-				!is_home()) {
+				!is_home() &&
+				!is_404()) {
 			echo get_field('page_color');
 		} elseif (is_page_template('page-kafee.php')) {
 			echo "#6dadb6";

@@ -13,7 +13,7 @@ function formSucceeds(form, data) {
 	form.addClass('contact-form--success');
 	var errorMessage = $('<div>');
 	errorMessage.addClass('contact-form__message contact-form__message--success');
-	errorMessage.text('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
+	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
 	form.prepend(errorMessage);
 	form.removeClass('contact-form--sending');
 }

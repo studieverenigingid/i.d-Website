@@ -111,7 +111,7 @@
 
 	&__anchor {
 		text-decoration: none;
-		color: #000;
+		color: $text;
 
 		&:hover, &:focus {
 			text-decoration: underline;
@@ -184,7 +184,7 @@
 		color: $background--light;
 		text-transform: uppercase;
 		font-size: .8em;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 
 	&__name {

@@ -29,7 +29,7 @@
 	}
 
   &__info {
-    color: white;
+    color: $background--light;
     display: flex;
     flex-flow: wrap row;
 
@@ -76,16 +76,15 @@
     }
 
     &__input {
-      color: white;
+      color: $background--light;
       background: var(--theme-color);
       border: none;
-      font-family: $font--light;
       font-size: 1em;
       margin: .25rem 0 1rem 0;
 
       &--name {
-        color: white;
-        font-family: $font--heavy;
+        color: $background--light;
+        font-weight: $bold-weight;
         font-size: 2.4em;
       }
 
@@ -94,11 +93,11 @@
       }
 
       &:not([readonly]) {
-        border-bottom: dashed 1px white !important;
+        border-bottom: dashed 1px $background--light !important;
         text-decoration: none !important;
 
         &.invalid {
-          color: #DD1144;
+          color: $error-color;
         }
       }
 
@@ -115,7 +114,7 @@
 
     a {
       text-decoration: none;
-      color: white;
+      color: $background--light;
 
       &:hover {
         text-decoration: underline;
@@ -123,11 +122,11 @@
     }
 
     &--succes {
-      background: green;
+      background: $success-color;
     }
 
     &--failed {
-      background: red;
+      background: $error-color;
     }
 
     .notification {

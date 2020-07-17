@@ -34,12 +34,12 @@
   }
 
   &__question {
-    color: #fff;
+    color: $background--light;
     margin: 0;
   }
 
   &__group {
-    background: white;
+    background: $background--light;
     border-radius: .5em;
     box-shadow: 0 .2rem 1rem transparentize(black, .7);
     flex-grow: 1;
@@ -70,7 +70,7 @@
     }
 
     a {
-      color: black;
+      color: $text;
       text-decoration-color: var(--group-color, var(--theme-color));
     }
   }

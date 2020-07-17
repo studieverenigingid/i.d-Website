@@ -34,8 +34,6 @@
 
 	include( 'inc/custom-menu-functions.php');
 
-	include( 'inc/custom-language-switcher.php' );
-
 	include( 'inc/samltud-helper.php' );
 
 	register_nav_menus( array(

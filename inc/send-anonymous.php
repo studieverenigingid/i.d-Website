@@ -5,8 +5,8 @@
   /*
     Inputs possible (* if required):
 		- *input
-    - name
-    - email
+    - about
+    - relation
   */
 
 	/**
@@ -18,7 +18,7 @@
   function send_mail($input, $about, $relation) {
 
 		$options = get_option('id_settings');
-    $receiver = $options['id_email_addresses_field'];
+    $receiver = $options['id_anonymous_email_addresses_field'];
 		$subject = 'Anonymous input form website';
 
     $message = "<!DOCTYPE html>
@@ -37,9 +37,7 @@
 
     $message = wordwrap($message, 70);
 
-    $sender = "Anonymous <anonymous@svid.nl>";
-
-		$headers = "From: $sender\r\n";
+		$headers = "From: Anonymous <anonymous@svid.nl>\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 

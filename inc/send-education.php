@@ -18,7 +18,7 @@
   function send_mail($input, $name, $email) {
 
 		$options = get_option('id_settings');
-    $receiver = $options['id_email_addresses_field'];
+    $receiver = $options['id_education_email_addresses_field'];
 		$subject = 'Education input form website';
 
     $message = "<!DOCTYPE html>

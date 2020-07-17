@@ -7,7 +7,7 @@
  */
 
 // Build the URL we’ll redirect the user back to
-$page_slug = ($_POST['language'] === 'nl') ? 'nl/maak_account' : 'create_account';
+$page_slug = 'create_account';
 $back_link = home_url($page_slug);
 
 // Enter the default values if everything goes alright

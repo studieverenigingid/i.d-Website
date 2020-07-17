@@ -81,8 +81,6 @@ global $img_folder;
 					'theme_location' => 'primary-menu',
 					'container' => false,
 					'menu_class' => 'primary-menu__list' ) ); ?>
-
-					<?php custom_language_switcher(); ?>
 			</nav>
 
 		</header>

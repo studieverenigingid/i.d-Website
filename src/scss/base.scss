@@ -410,18 +410,7 @@ td {
 		font-family: $font--heavy;
 	}
 
-	.menu-item {
-		&--language-switch {
-			a {
-				text-transform: uppercase;
-				padding: 1rem 0;
-				display: inline-block;
-			}
-		}
-	}
-
-	&__list,
-	&__language-switch {
+	&__list {
 		margin: 0;
 		padding: 3rem 0 0;
 		list-style: none;
@@ -431,23 +420,6 @@ td {
 		&__list {
 			flex-basis: 100%;
 			height: 100%;
-		}
-
-		&__language-switch {
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: block;
-			padding: 0 1em 0 0;
-			font-size: .9rem;
-
-			&__context {
-				padding: .8rem 0 .8rem 1.4rem;
-			}
-
-			&__link {
-				font-weight: 900;
-			}
 		}
 
 		&.opened {
@@ -468,27 +440,8 @@ td {
 		padding-right: 2.5em;
 		overflow-y: visible;
 
-		&__list, &__language-switch {
+		&__list {
 			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-		}
-
-		&__language-switch {
-			font-size: 1em;
-			position: absolute;
-			right: 0;
-
-			&__context {
-				display: none;
-				padding: 0;
-			}
-
-			&:hover {
-				background: $background--gray;
-			}
-
-			&:hover &__context {
-				display: inline-block;
-			}
 		}
 
 		.menu-item {
@@ -497,13 +450,6 @@ td {
 
 			a {
 				padding: .3em .6em;
-			}
-
-			&--language-switch {
-				a {
-					padding: .4rem 0;
-					display: inline-block;
-				}
 			}
 		}
 

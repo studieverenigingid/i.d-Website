@@ -4,7 +4,7 @@ function formFails(form, data) {
 	var errorMessage = $('<div>');
 	errorMessage.addClass('contact-form__message contact-form__message--failed');
 	errorMessage.text(data['error']);
-	form.prepend(errorMessage);
+	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
 }
 
@@ -14,7 +14,7 @@ function formSucceeds(form, data) {
 	var errorMessage = $('<div>');
 	errorMessage.addClass('contact-form__message contact-form__message--success');
 	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
-	form.prepend(errorMessage);
+	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
 }
 

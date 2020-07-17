@@ -68,9 +68,17 @@
 		);
 
 		add_settings_field(
-			'id_email_addresses_field',
+			'id_education_email_addresses_field',
 			__( 'Education input receiver email adresses', 'wordpress' ),
 			'id_education_input_email_addresses_render',
+			'ID-website_settings',
+			'id_educationInputSettings_section'
+		);
+
+		add_settings_field(
+			'id_anonymous_email_addresses_field',
+			__( 'Anonymous input receiver email adresses', 'wordpress' ),
+			'id_anonymous_input_email_addresses_render',
 			'ID-website_settings',
 			'id_educationInputSettings_section'
 		);
@@ -136,7 +144,16 @@
 
 		$options = get_option( 'id_settings' );
 		?>
-		<input type='email' name='id_settings[id_email_addresses_field]' value='<?php echo $options['id_email_addresses_field']; ?>'>
+		<input type='email' name='id_settings[id_education_email_addresses_field]' value='<?php echo $options['id_education_email_addresses_field']; ?>'>
+		<?php
+
+	}
+
+	function id_anonymous_input_email_addresses_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='email' name='id_settings[id_anonymous_email_addresses_field]' value='<?php echo $options['id_anonymous_email_addresses_field']; ?>'>
 		<?php
 
 	}
@@ -154,7 +171,7 @@
 
 	function id_educationInputSettings_section_callback(  ) {
 
-		echo __( 'Register the email addresses the education input should be sent to from the form. Enter multiple email addresses separated with a comma. Enter the reCaptcha secret, too (reCaptcha is what keeps the spam away).', 'wordpress' );
+		echo __( 'Register the email addresses the education and anonymous input should be sent to from the form. Enter multiple email addresses separated with a comma. Enter the reCaptcha secret, too (reCaptcha is what keeps the spam away).', 'wordpress' );
 
 	}
 

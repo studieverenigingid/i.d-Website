@@ -269,6 +269,11 @@
   }
 }
 
+.faq {
+	width: 440px;
+	flex-grow: 1;
+}
+
 
 
 
@@ -335,6 +340,20 @@
       opacity: .8;
     }
   }
+
+	&__radioq {
+		border: 1.5px solid $background--light;
+    padding: .4rem 1rem 1.2rem;
+    border-radius: 4px;
+		text-align: left;
+	}
+
+	&__option {
+    display: inline-block;
+    color: $background--light;
+    font-family: $font--heavy;
+    text-align: left;
+	}
 
   &__updater {
     flex-flow: row wrap;
@@ -469,4 +488,7 @@
     color: white;
   }
 
+	&__comment {
+		color: white;
+	}
 }

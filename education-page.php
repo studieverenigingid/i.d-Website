@@ -121,7 +121,7 @@ if( have_rows('feedback_step') ) { ?>
 							data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
 						</div>
 
-						<button type="submit" class="button contact-form__submit">
+						<button type="submit" class="button button--white contact-form__submit">
 							<?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
 						</button>
 

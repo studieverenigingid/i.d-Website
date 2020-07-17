@@ -62,7 +62,7 @@
     &__item-wrap {
       position: relative;
       width: 100%;
-      margin-bottom: 4em;
+      margin-bottom: 2em;
       max-width: 350px;
     }
 
@@ -82,6 +82,7 @@
       &-title {
         text-align: center;
         font-size: 1.6em;
+        margin-top: .3em;
       }
     }
   }

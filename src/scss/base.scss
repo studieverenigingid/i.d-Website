@@ -80,6 +80,7 @@ body {
 	font-family: $font--light;
 	font-size: 16px;
 	overflow-x: hidden;
+	--theme-color: $accent;
 
 	@media (min-width: $brk--tablet) {
 		font-size: 18px;
@@ -162,15 +163,7 @@ blockquote {
 
 .news--page__content{
 	a {
-		color: $accent;
-
-		&:visited {
-			color: darken($accent, 10%);
-		}
-
-		&:hover {
-			color: darken($accent, 15%);
-		}
+		color: var(--theme-color);
 	}
 
 	li {
@@ -215,8 +208,8 @@ blockquote {
 
 	&--light {
 		background: none;
-		border: 1px solid $accent;
-		color: $accent;
+		border: 1px solid var(--theme-color);
+		color: var(--theme-color);
 
 		&:hover,
 		&:focus {
@@ -231,7 +224,7 @@ blockquote {
 
 		&:hover,
 		&:focus {
-			color: $accent;
+			color: var(--theme-color);
 			background: white;
 		}
 	}
@@ -312,7 +305,7 @@ td {
 // Holy bies
 .bies {
 	width: 100%;
-	background: $accent;
+	background: var(--theme-color);
 	position: relative;
 	padding-bottom: 1em;
 
@@ -655,7 +648,7 @@ td {
 	Primary content
 \*-------------------------------------*/
 .not-found {
-	background: $accent;
+	background: var(--theme-color);
 	padding: 10%;
 	color: $background--light;
 	position: relative;
@@ -1042,12 +1035,8 @@ $ajax-load-size: 44px;
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
-	background-color: $accent;
+	background-color: var(--theme-color);
 	color: white;
-
-	&:focus, &:hover {
-		background-color: darken($accent, 15%);
-	}
 
 	@media (max-width: $brk--phone){
 		display: block;

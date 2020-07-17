@@ -110,7 +110,7 @@
 
 	&__meta {
 		a {
-			color: $accent;
+			color: var(--theme-color);
 			text-decoration: none;
 
 			&:hover {
@@ -129,7 +129,7 @@
 \*-------------------------------------*/
 .news-item {
 	&__header {
-		background: $accent;
+		background: var(--theme-color);
 		text-align: center;
 		padding: .1rem;
 		font-size: 1.1em;

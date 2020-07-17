@@ -10,7 +10,7 @@
 
 .education {
   &__top {
-    background: $accent;
+    background: var(--theme-color);
     margin: 0;
 		padding: .1rem 5% 1rem;
 	}

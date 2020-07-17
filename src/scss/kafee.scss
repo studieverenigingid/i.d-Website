@@ -24,6 +24,7 @@
 	&__header {
 		padding: .1rem 0 4rem;
 		margin-bottom: 34%;
+		background: var(--theme-color);
 
 		@media (min-width: 550px) {
 			margin-bottom: 30%;
@@ -60,7 +61,7 @@
 
 		&--short-header {
 			margin-bottom: -4em;
-			background: $hex-kafee;
+			background: var(--theme-color);
 		}
 	}
 

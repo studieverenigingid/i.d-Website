@@ -2,8 +2,7 @@
 
 <main id="site-content">
 
-	<h1 class="archive__title archive__title--vacancies"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title archive__title--vacancies">
 		<?php echo esc_attr_x( 'Career', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 

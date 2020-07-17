@@ -53,13 +53,14 @@ global $img_folder;
 		<?php wp_head(); ?>
 
 	</head>
-	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
+	<body<?php if(is_home()) { echo ' class="home"'; } ?>
+		style="--theme-color: <?php theme_color(true); ?>;">
 
 		<a href="#site-content" class="skip">
 			<?php echo esc_attr_x('Skip to content', 'Accessibility skip to content element', 'svid-theme-domain');?>
 		</a>
 
-		<header class="bies" style="background:<?php theme_color(false);?>">
+		<header class="bies">
 
 			<?php
 			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );

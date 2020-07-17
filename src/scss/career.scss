@@ -28,6 +28,7 @@
 
   &__jump {
     @extend .about__jump;
+    background: var(--theme-color);
     margin-top: 8em;
   }
 
@@ -244,6 +245,6 @@
   a {
     color: black;
     font-weight: bold;
-    text-decoration-color: $accent;
+    text-decoration-color: var(--theme-color);
   }
 }

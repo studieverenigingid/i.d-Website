@@ -152,7 +152,7 @@
 \*-------------------------------------*/
 .event--page {
 	&__header {
-		background: $accent;
+		background: var(--theme-color);
 		padding: .1rem 0 2.5rem;
 
 		&--short-header {
@@ -175,7 +175,7 @@
 
 		&--short-header {
 			margin-bottom: -4em;
-			background: $accent;
+			background: var(--theme-color);
 		}
 	}
 
@@ -343,7 +343,7 @@
 
 		&:hover {
 			box-shadow: 0 .1rem .3rem transparentize(black, 0.8);
-			background: $accent;
+			background: var(--theme-color);
 			border-color: transparent;
 		}
 	}
@@ -374,7 +374,7 @@
 .archive__title {
 	padding: .8em 2rem .8em;
 	margin: 0 0 2rem;
-	background: $accent;
+	background: var(--theme-color);
 	color: $background--light;
 	text-align: center;
 }

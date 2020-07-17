@@ -6,8 +6,7 @@
 
 <main id="site-content">
 
-	<h1 class="archive__title"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title">
 		<?php echo esc_attr_x('Our boards', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 

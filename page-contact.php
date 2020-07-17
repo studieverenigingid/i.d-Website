@@ -8,8 +8,7 @@ get_header();
 wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 
 <header id="site-content" class="contact--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>"
-	style="background-color: <?php theme_color(false); ?>;">
+	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>">
 
 	<div class="contact--page__short-info
 		<?php if ( !has_post_thumbnail() ) echo 'contact--page__short-info--short-header'; ?>">
@@ -112,7 +111,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 				</label>
 				<textarea name="feedback" id="" cols="30" rows="12"
 					placeholder="<?= esc_attr_x('I love the study association because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-					style="background-color: <?php theme_color(false); ?>"
 					class="contact-form__input-message"
 					required></textarea>
 

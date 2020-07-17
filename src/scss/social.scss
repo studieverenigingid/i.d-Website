@@ -91,12 +91,12 @@
 			@extend .social__container--insta;
 			font-family: $font--heavy;
 			margin: 0 2em;
-			box-shadow: 0 0 0 2em $accent;
-			background: $accent;
+			box-shadow: 0 0 0 2em var(--theme-color);
+			background: var(--theme-color);
 
 			@media (min-width: $brk--phone) {
 				margin-right: 4em;
-				box-shadow: 1em 0 0 3em $accent;
+				box-shadow: 1em 0 0 3em var(--theme-color);
 			}
 		}
 	}

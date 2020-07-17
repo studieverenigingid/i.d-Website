@@ -26,13 +26,7 @@ if (!is_user_logged_in()) {
 
 
 
-	<main id="site-content" class="user__top"
-    style="background-color: <?php theme_color(false); ?>;">
-    <style media="screen">
-      .user__info__input {
-        background-color: <?php theme_color(false); ?>;
-      }
-    </style>
+	<main id="site-content" class="user__top">
     <form action="#" class="user__info">
       <div class="user__info__column user__info__column--left">
         <label for="first_name" class="user__info__label"><?php echo esc_attr_x('First name', 'User page first name label', 'svid-theme-domain');?></label>

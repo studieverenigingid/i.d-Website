@@ -1,4 +1,4 @@
-<article class="event--page__header" style="background:<?php theme_color(false);?>">
+<article class="event--page__header">
 	<a href="<?php the_permalink(); ?>" class="event--page__link">
 		<div class="event--page__short-info">
 

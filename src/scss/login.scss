@@ -20,7 +20,7 @@
 	Login Page
 \*-------------------------------------*/
 .login {
-  background: $accent;
+  background: var(--theme-color);
   margin-bottom: 0;
   position: relative;
 
@@ -215,7 +215,7 @@
     margin: -2.2em auto 1em;
     display: block;
     width: 2em;
-    background: $accent;
+    background: var(--theme-color);
 
     @media (min-width: $brk--phone) {
       margin-top: -3.2em;

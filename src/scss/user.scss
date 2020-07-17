@@ -27,7 +27,7 @@
 	}
 
   &__top {
-    background: $accent;
+    background: var(--theme-color);
   }
 
   &__info {
@@ -80,7 +80,7 @@
 
     &__input {
       color: white;
-      background: $accent;
+      background: var(--theme-color);
       border: none;
       outline: none;
       font-family: $font--light;

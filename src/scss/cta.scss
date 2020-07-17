@@ -1,0 +1,92 @@
+/*-------------------------------------*\
+
+	ID WEBSITE WORDPRESS THEME: CALL TO
+    ACTION
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	cta.scss:
+  + Call to action
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Call to action
+\*-------------------------------------*/
+.call-to-action {
+  background: $accent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+
+  &__head {
+    padding: 2.5vw;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__question {
+    color: #fff;
+    margin: 0;
+  }
+
+  &__group {
+    background: white;
+    border-radius: .5em;
+    box-shadow: 0 .2rem 1rem transparentize(black, .7);
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 1em;
+    max-width: 26rem;
+    padding: 30px;
+    width: 16rem;
+
+    @each $group, $color in $groups {
+      &--#{$group} {
+        --group-color: #{$color};
+      }
+    }
+  }
+
+  &__group-name {
+    color: var(--group-color, #000);
+    margin-top: 0;
+    text-align: center;
+  }
+
+  &__options {
+    padding-left: 1.5em;
+
+    li {
+      margin: .5em 0;
+    }
+
+    a {
+      color: black;
+      text-decoration-color: var(--group-color, $accent);
+    }
+  }
+
+  .button {
+    background: var(--group-color, $accent);
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+      filter: contrast(85%);
+    }
+  }
+
+  & + .pri-footer {
+    margin-top: -5em;
+    padding-top: 5em;
+  }
+}

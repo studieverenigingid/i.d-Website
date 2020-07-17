@@ -102,13 +102,14 @@
 			  'posts_per_page' => 1,
 			  'meta_query' => array(
 				array(
-				  'key'     => 'start_datetime',
+				  'key'     => 'end_datetime',
 				  'compare' => '>=',
 				  'value'   => $today,
 				  'type'    => 'DATE'
 				),
 			  ),
-			  'orderby' => 'start_datetime',
+			  'orderby' => 'meta_value',
+			  'meta_key' => 'start_datetime',
 			  'order' => 'ASC',
 			) );
 			if ($upcoming_loop->have_posts()) :

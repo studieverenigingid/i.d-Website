@@ -178,18 +178,6 @@ blockquote {
 /*-------------------------------------*\
 	Buttons
 \*-------------------------------------*/
-@mixin button-background($color) {
-	background: $color;
-
-	&:hover {
-		background: darken($color, 10%);
-	}
-
-	&:focus {
-		background: darken($color, 15%);
-	}
-}
-
 .button {
 	display: inline-block;
 	padding: .7em 1.4em;
@@ -200,10 +188,10 @@ blockquote {
 	border: none;
 	font-size: 1em;
 	font-family: $font--light;
-	@include button-background($accent);
+	background: var(--theme-color);
 
 	&:hover, &:focus {
-		outline: none;
+		filter: brightness(.9);
 	}
 
 	&--light {
@@ -231,7 +219,7 @@ blockquote {
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
-			@include button-background($color);
+			background: $color;
 		}
 	}
 }

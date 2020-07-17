@@ -120,7 +120,12 @@
 
 		@each $socialnetwork, $color in $social {
 			&--#{$socialnetwork} {
-				@include button-background($color);
+				background: $color;
+
+				&:hover,
+				&:focus {
+					filter: brightness(.9);
+				}
 			}
 
 			&--#{$socialnetwork}:after {

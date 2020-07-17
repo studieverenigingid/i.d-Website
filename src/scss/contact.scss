@@ -121,7 +121,7 @@
       content: "";
       width: 10em;
       height: 10em;
-      background-image: linear-gradient(to bottom right, transparentize($accent, .1) 0%, transparent 50%);
+      background-image: linear-gradient(to bottom right, var(--theme-color) 0%, transparent 50%);
       position: absolute;
       top: 0;
       left: 0;

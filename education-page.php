@@ -60,32 +60,32 @@ if( have_rows('feedback_step') ) { ?>
 		  <?php } ?>
 	  </section>
 
-		<section class="education-feedback" id="feedback-form">
+		<section class="contact-form" id="feedback-form">
 			<h2><?= esc_attr_x('Orange feedback note', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 
-			<form action="#" class="education-feedback__wrap"
+			<form action="#" class="contact-form__wrap"
 				style="background-color: <?php theme_color(false); ?>">
 
-					<label for="feedback" class="education__label">
+					<label for="feedback" class="contact-form__label">
 						<?= esc_attr_x('Do you have feedback about the faculty of IDE or your education?', 'feedback-form-question', 'svid-theme-domain')?>
 					</label>
 					<textarea name="feedback" id="" cols="30" rows="12"
 						placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 						style="background-color: <?php theme_color(false); ?>"
-						class="education__input-message"
+						class="contact-form__input-message"
 						required></textarea>
 
-					<div class="education__updater">
-						<p class="education__label education__label--right">
+					<div class="contact-form__updater">
+						<p class="contact-form__label contact-form__label--right">
 							<?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form', 'svid-theme-domain')?>
 						</p>
 						<input type="checkbox" name="update" value="true"
-							class="js-edu-checkbox education__toggle">
+							class="js-edu-checkbox contact-form__toggle">
 						<label for="update"
-							class="education__toggle-button js-edu-toggle"></label>
+							class="contact-form__toggle-button js-edu-toggle"></label>
 					</div>
 
-					<div class="education__hideble-fields js-edu-hidable-fields">
+					<div class="contact-form__hideble-fields js-edu-hidable-fields">
 
 						<?php
 							if (is_user_logged_in()) {
@@ -98,18 +98,18 @@ if( have_rows('feedback_step') ) { ?>
 							}
 						?>
 
-						<label for="feedback" class="education__label">
+						<label for="feedback" class="contact-form__label">
 							<?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input name="name" type="text" class="education__input-short"
+						<input name="name" type="text" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							style="background-color: <?php theme_color(false); ?>"
 							value="<?=$current_name?>">
 
-						<label for="feedback" class="education__label">
+						<label for="feedback" class="contact-form__label">
 							<?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input type="email" name="email" class="education__input-short"
+						<input type="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							style="background-color: <?php theme_color(false); ?>"
 							value="<?=$current_email?>">
@@ -117,7 +117,7 @@ if( have_rows('feedback_step') ) { ?>
 					</div>
 
 
-					<div class="education__validate-and-send">
+					<div class="contact-form__validate-and-send">
 
 						<input type="hidden" name="action" value="education_input">
 
@@ -125,7 +125,7 @@ if( have_rows('feedback_step') ) { ?>
 							data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
 						</div>
 
-						<button type="submit" class="button education__submit">
+						<button type="submit" class="button contact-form__submit">
 							<?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
 						</button>
 

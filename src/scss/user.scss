@@ -20,19 +20,16 @@
 	User page top
 \*-------------------------------------*/
 .user {
+  background: var(--theme-color);
+
   &__top,
   &__mid {
-		padding: .1rem 5%;
+		padding: .1rem 5% 1em;
 		margin: 0;
 	}
 
-  &__top {
-    background: $accent;
-  }
-
   &__info {
     color: white;
-    margin: 1rem 0.4rem 0.4rem 0px;
     display: flex;
     flex-flow: wrap row;
 
@@ -80,9 +77,8 @@
 
     &__input {
       color: white;
-      background: $accent;
+      background: var(--theme-color);
       border: none;
-      outline: none;
       font-family: $font--light;
       font-size: 1em;
       margin: .25rem 0 1rem 0;
@@ -161,7 +157,7 @@
 
 
   &__mid {
-    background: darken($accent, 18%);
+    background: rgba(0, 0, 0, 0.3);
   }
 
   &__heading {
@@ -193,14 +189,14 @@
   @media (min-width: $brk--phone) {
 		&__top,
     &__mid {
-			padding: .1rem 8%;
+			padding: .1rem 8% 1.5em;
 		}
   }
 
   @media (min-width: $brk--tablet) {
 		&__top,
     &__mid {
-			padding: 4rem 10%;
+			padding: 4rem 10% 2em;
 		}
   }
 }

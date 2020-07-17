@@ -17,7 +17,7 @@
 .archive__title {
 
   &__parent {
-    background-color: $accent;
+    background-color: var(--theme-color);
     padding: 2rem .8em 2rem;
   }
 
@@ -45,7 +45,7 @@
 \*-------------------------------------*/
 .ttp-issue {
 	&__header {
-		background: $accent;
+		background: var(--theme-color);
 		text-align: center;
 		padding: .1rem;
 		font-size: 1.1em;

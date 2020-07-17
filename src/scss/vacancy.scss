@@ -58,7 +58,7 @@
 	}
 
 	&__context {
-		background: $accent;
+		background: var(--theme-color);
 		color: white;
 		overflow: hidden;
 
@@ -119,7 +119,7 @@
 
 	&__header {
 		text-align: center;
-		background: $accent;
+		background: var(--theme-color);
 		padding: 1rem;
 
 		@media (min-width: $brk--phone) {

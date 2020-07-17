@@ -27,7 +27,7 @@
 	&__top {
 		padding: .1rem 5%;
 		margin: 0 0 5rem;
-		background: $accent;
+		background: var(--theme-color);
 	}
 
 	&__title {
@@ -93,7 +93,7 @@
 
 	&__jump {
 		text-align: center;
-		background: $accent;
+		background: var(--theme-color);
 		margin: 3em 5%;
 		padding: 1em;
 		color: $background--light;
@@ -238,8 +238,8 @@ $groups:
 
 
 .comm-group {
-	background: $accent;
-	border-top: .44em solid $accent;
+	background: var(--theme-color);
+	border-top: .44em solid var(--theme-color);
 
 	&__name {
 		margin: 0;
@@ -348,7 +348,7 @@ $groups:
 
 	&__link {
 		text-decoration: none;
-		color: $accent;
+		color: var(--theme-color);
 
 		&:hover {
 			text-decoration: underline;
@@ -394,7 +394,7 @@ $groups:
 
 	&__link {
 		text-decoration: none;
-		color: $accent;
+		color: var(--theme-color);
 
 		&:hover {
 			text-decoration: underline;
@@ -419,7 +419,7 @@ $groups:
 	}
 
 	&--page {
-		background: $accent;
+		background: var(--theme-color);
 		padding: 1em;
 
 		&__avatar {

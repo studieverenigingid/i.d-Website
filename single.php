@@ -7,8 +7,7 @@
 ?>
 
 	<header id="site-content" class="news-item__header
-		<?php if ( !has_post_thumbnail() ) echo 'news-item__header--short-header'; ?>"
-		style="background-color: <?php theme_color(false); ?>;">
+		<?php if ( !has_post_thumbnail() ) echo 'news-item__header--short-header'; ?>">
 
 		<h1 class="news-item__title--large"><?php the_title(); ?></h1>
 

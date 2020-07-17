@@ -20,7 +20,7 @@
 	Login Page
 \*-------------------------------------*/
 .login {
-  background: $accent;
+  background: var(--theme-color);
   margin-bottom: 0;
   position: relative;
 
@@ -70,7 +70,6 @@
     font-family: $font--light;
     font-size: 1em;
     color: $background--light;
-    outline: none;
     appearance: none;
     background: none;
 
@@ -86,75 +85,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 1.7em 0;
-  }
-
-  &__toggle-button {
-		outline: 0;
-		display: block;
-		width: 3.25em;
-		height: 2em;
-		position: relative;
-		cursor: pointer;
-    user-select: none;
-    padding: 2px;
-		transition: all .2s ease;
-		border: 4px solid #f2f2f2;
-		border-radius: 2em;
-    flex-grow: 0;
-    margin-left: 1em;
-
-    @media (min-width: $brk--tablet) {
-      height: 1.9em;
-    }
-
-		&:after,
-    &:before {
-			position: relative;
-			display: block;
-			content: "";
-			width: 50%;
-			height: 100%;
-		}
-
-		&:after {
-			left: 0;
-      transition: all .2s ease;
-      background: $accent;
-      box-sizing: border-box;
-			border: .62em solid $background--light;
-			content: "";
-      text-align: center;
-			border-radius: 1em;
-      clear: both;
-
-      @media (min-width: $brk--tablet) {
-        border-width: .63em;
-      }
-		}
-
-		&:before {
-			display: none;
-		}
-	}
-
-  &__toggle {
-    display: none;
-
-    &:checked + .login__toggle-button {
-      background: transparentize($background--light, .5);
-
-      &:after {
-        left: 50%;
-        border-width: .3em;
-      }
-
-      &:before {
-        display: block;
-        position: absolute;
-        font-size: .7em;
-        margin: .1em .2em;
-      }
-    }
   }
 
   &__form {
@@ -215,7 +145,7 @@
     margin: -2.2em auto 1em;
     display: block;
     width: 2em;
-    background: $accent;
+    background: var(--theme-color);
 
     @media (min-width: $brk--phone) {
       margin-top: -3.2em;

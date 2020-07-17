@@ -5,11 +5,9 @@
 
 
 	<header id="site-content" class="event--page__header
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>"
-		style="background-color: <?php theme_color(false); ?>;">
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>">
 
-		<div class="event--page__short-info event--page__short-info--short-header"
-			style="background:<?php theme_color(false);?>">
+		<div class="event--page__short-info event--page__short-info--short-header">
 
 			<h1 class="event--page__name"><?php the_title(); ?></h1>
 
@@ -52,14 +50,6 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<style media="screen">
-					.event--page__thumb:before {
-						background-image: linear-gradient(
-							to bottom right, <?php theme_color(true); ?>,
-							transparent 50%
-						);
-					}
-				</style>
 				<div class="event--page__thumb">
 					<?php
 					the_post_thumbnail(

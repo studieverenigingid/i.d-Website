@@ -46,19 +46,12 @@ $background--light: #fafafa;
 $background--dark: #11417e;
 $background--gray: #222;
 $text: #222;
-$hex-education: #f58220;
-$hex-kafee: #6dadb6;
 
 $social:
 	(insta, #e1306c),
 	(facebook, #3b5998),
 	(flickr, #ff0084),
-	(vimeo, #1ab7ea),
-	(medium, #00ab6c),
-	(messenger, #0084ff),
-	(maps, #fbbc05),
-	(mail, red),
-	(call, #1dcc00);
+	(vimeo, #1ab7ea);
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -80,6 +73,7 @@ body {
 	font-family: $font--light;
 	font-size: 16px;
 	overflow-x: hidden;
+	--theme-color: $accent;
 
 	@media (min-width: $brk--tablet) {
 		font-size: 18px;
@@ -162,15 +156,7 @@ blockquote {
 
 .news--page__content{
 	a {
-		color: $accent;
-
-		&:visited {
-			color: darken($accent, 10%);
-		}
-
-		&:hover {
-			color: darken($accent, 15%);
-		}
+		color: var(--theme-color);
 	}
 
 	li {
@@ -185,18 +171,6 @@ blockquote {
 /*-------------------------------------*\
 	Buttons
 \*-------------------------------------*/
-@mixin button-background($color) {
-	background: $color;
-
-	&:hover {
-		background: darken($color, 10%);
-	}
-
-	&:focus {
-		background: darken($color, 15%);
-	}
-}
-
 .button {
 	display: inline-block;
 	padding: .7em 1.4em;
@@ -207,16 +181,16 @@ blockquote {
 	border: none;
 	font-size: 1em;
 	font-family: $font--light;
-	@include button-background($accent);
+	background: var(--theme-color);
 
 	&:hover, &:focus {
-		outline: none;
+		filter: brightness(.9);
 	}
 
 	&--light {
 		background: none;
-		border: 1px solid $accent;
-		color: $accent;
+		border: 1px solid var(--theme-color);
+		color: var(--theme-color);
 
 		&:hover,
 		&:focus {
@@ -231,14 +205,14 @@ blockquote {
 
 		&:hover,
 		&:focus {
-			color: $accent;
+			color: var(--theme-color);
 			background: white;
 		}
 	}
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
-			@include button-background($color);
+			background: $color;
 		}
 	}
 }
@@ -312,7 +286,7 @@ td {
 // Holy bies
 .bies {
 	width: 100%;
-	background: $accent;
+	background: var(--theme-color);
 	position: relative;
 	padding-bottom: 1em;
 
@@ -655,7 +629,7 @@ td {
 	Primary content
 \*-------------------------------------*/
 .not-found {
-	background: $accent;
+	background: var(--theme-color);
 	padding: 10%;
 	color: $background--light;
 	position: relative;
@@ -1042,12 +1016,8 @@ $ajax-load-size: 44px;
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
-	background-color: $accent;
+	background-color: var(--theme-color);
 	color: white;
-
-	&:focus, &:hover {
-		background-color: darken($accent, 15%);
-	}
 
 	@media (max-width: $brk--phone){
 		display: block;

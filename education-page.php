@@ -8,7 +8,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main id="site-content" class="education__top" style="background-color: <?php theme_color(false); ?>">
+<main id="site-content" class="education__top">
 
 	<h1 class="education__title">
     <?php the_title(); ?>
@@ -63,15 +63,13 @@ if( have_rows('feedback_step') ) { ?>
 		<section class="contact-form" id="feedback-form">
 			<h2><?= esc_attr_x('Orange feedback note', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 
-			<form action="#" class="contact-form__wrap"
-				style="background-color: <?php theme_color(false); ?>">
+			<form action="#" class="contact-form__wrap">
 
 					<label for="feedback" class="contact-form__label">
 						<?= esc_attr_x('Do you have feedback about the faculty of IDE or your education?', 'feedback-form-question', 'svid-theme-domain')?>
 					</label>
 					<textarea name="feedback" id="" cols="30" rows="12"
 						placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-						style="background-color: <?php theme_color(false); ?>"
 						class="contact-form__input-message"
 						required></textarea>
 
@@ -103,7 +101,6 @@ if( have_rows('feedback_step') ) { ?>
 						</label>
 						<input name="name" type="text" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-							style="background-color: <?php theme_color(false); ?>"
 							value="<?=$current_name?>">
 
 						<label for="feedback" class="contact-form__label">
@@ -111,7 +108,6 @@ if( have_rows('feedback_step') ) { ?>
 						</label>
 						<input type="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-							style="background-color: <?php theme_color(false); ?>"
 							value="<?=$current_email?>">
 
 					</div>
@@ -125,7 +121,7 @@ if( have_rows('feedback_step') ) { ?>
 							data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
 						</div>
 
-						<button type="submit" class="button contact-form__submit">
+						<button type="submit" class="button button--white contact-form__submit">
 							<?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
 						</button>
 

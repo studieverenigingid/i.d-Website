@@ -88,27 +88,32 @@
 
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {
+
 		$page_color = get_field('page_color');
 		$in_memoriam = !empty(get_theme_mod('in_memoriam_title'))
 			&& !empty(get_theme_mod('in_memoriam_body'));
+
 		if ($in_memoriam) {
 			echo "#000000";
 		} elseif (date('W') === '44') {
-			echo '#ef686c';
-		} elseif (is_front_page()) {
+			echo '#ef686c'; // mooi koraalroze
+
+		} elseif (is_front_page() ||
+			is_post_type_archive('event')) { // use color from upcoming event
 			$today = date('Ymd');
 			$upcoming_loop = new WP_Query( array(
 			  'post_type' => 'event',
 			  'posts_per_page' => 1,
 			  'meta_query' => array(
-				array(
-				  'key'     => 'start_datetime',
-				  'compare' => '>=',
-				  'value'   => $today,
-				  'type'    => 'DATE'
-				),
+					array(
+					  'key'     => 'end_datetime',
+					  'compare' => '>=',
+					  'value'   => $today,
+					  'type'    => 'DATE'
+					),
 			  ),
-			  'orderby' => 'start_datetime',
+			  'orderby' => 'meta_value',
+			  'meta_key' => 'start_datetime',
 			  'order' => 'ASC',
 			) );
 			if ($upcoming_loop->have_posts()) :
@@ -118,24 +123,24 @@
 					echo get_field('page_color');
 				endwhile;
 			endif;
-		} elseif (is_post_type_archive('turnthepage')) {
+
+		} elseif (is_post_type_archive('turnthepage')) { // Last TTP
 			$fp = get_posts("post_type=turnthepage&numberposts=1");
 			echo get_field("page_color", $fp[0]->ID);
-		} elseif(is_post_type_archive('board')) {
+		} elseif(is_post_type_archive('board')) { // Last Board
 			$fp = get_posts("post_type=board&numberposts=1");
 			echo get_field("page_color", $fp[0]->ID);
+
 		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&
 				!is_archive() &&
-				!is_home()) {
-			echo get_field('page_color');
-		} elseif (is_page_template('page-kafee.php')) {
-			echo "#6dadb6";
-		} elseif (is_page_template('education-page.php')) {
-			echo "#f58220";
+				!is_home() &&
+				!is_404()) {
+			echo $page_color;
 		} elseif ($default){
 			echo "#55ccbb";
 		}
+
 	}
 
 

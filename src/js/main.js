@@ -9,7 +9,6 @@ function onDocReady () {
 	menuToggler();
 	menuSticky();
 	fixVHAfterLoad();
-	scrollIndicator();
 	closeInMemoriam();
 	openingHours();
 
@@ -28,6 +27,9 @@ function onDocReady () {
 
 	// filters.js
 	registerFilters();
+
+	// kafee.js
+	if (!!document.getElementById('isitkafee')) aftellen();
 }
 
 function menuToggler () {

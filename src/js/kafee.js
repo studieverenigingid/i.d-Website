@@ -103,6 +103,3 @@ function aftellen() {
   /* we gaan elke seconde verversen */
   setTimeout("aftellen()", 1000)
 }
-
-/* run the magic*/
-aftellen();

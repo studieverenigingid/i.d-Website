@@ -32,12 +32,6 @@
 	&__link {
 		font-size: 0; // remove spaces between posts
 		vertical-align: text-bottom; // removes weird space at bottom
-
-		&:last-of-type {
-			@media (min-width: $brk--phone) {
-				margin-right: 3em;
-			}
-		}
 	}
 
 
@@ -93,11 +87,6 @@
 			margin: 0 2em;
 			box-shadow: 0 0 0 2em var(--theme-color);
 			background: var(--theme-color);
-
-			@media (min-width: $brk--phone) {
-				margin-right: 4em;
-				box-shadow: 1em 0 0 3em var(--theme-color);
-			}
 		}
 	}
 

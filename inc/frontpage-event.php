@@ -42,14 +42,6 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-			<style media="screen">
-				.event--page__thumb:before {
-					background-image: linear-gradient(
-						to bottom right, <?php theme_color(true); ?>,
-						transparent 50%
-					);
-				}
-			</style>
 			<div class="event--page__thumb event--frontpage__thumb">
 				<?php
 				the_post_thumbnail(

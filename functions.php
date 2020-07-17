@@ -95,7 +95,8 @@
 			echo "#000000";
 		} elseif (date('W') === '44') {
 			echo '#ef686c';
-		} elseif (is_front_page()) {
+		} elseif (is_front_page() ||
+			is_post_type_archive('event')) {
 			$today = date('Ymd');
 			$upcoming_loop = new WP_Query( array(
 			  'post_type' => 'event',

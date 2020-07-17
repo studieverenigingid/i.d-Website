@@ -43,7 +43,7 @@
     margin: 1em 0 .5em;
     display: block;
     color: $background--light;
-    font-family: $font--heavy;
+    font-weight: $bold-weight;
 
     &--right {
       flex-grow: 1;
@@ -56,7 +56,7 @@
 
   &__label-supplement {
     opacity: .9;
-    font-family: $font--light;
+    font-weight: 300;
   }
 
   &__input {
@@ -67,7 +67,6 @@
     border-radius: 4px;
     transition: transform .25s ease,
       opacity .25s ease-out;
-    font-family: $font--light;
     font-size: 1em;
     color: $background--light;
     appearance: none;
@@ -179,7 +178,7 @@
     }
 
     &-name {
-      font-family: $font--heavy;
+      font-weight: $bold-weight;
     }
   }
 

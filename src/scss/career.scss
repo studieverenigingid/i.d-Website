@@ -244,7 +244,7 @@
 
   a {
     color: black;
-    font-weight: bold;
+    font-weight: $bold-weight;
     text-decoration-color: var(--theme-color);
   }
 }

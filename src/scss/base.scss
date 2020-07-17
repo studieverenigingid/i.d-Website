@@ -38,8 +38,8 @@
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-$font--heavy: 'Muli', sans-serif;
-$font--light: 'Muli', sans-serif;
+$font: 'Muli', sans-serif;
+$bold-weight: 700;
 $accent: #55ccbb;
 $background--light: #fafafa;
 $background--dark: #11417e;
@@ -69,7 +69,7 @@ html {
 body {
 	margin: 0;
 	background: $background--light;
-	font-family: $font--light;
+	font-family: $font;
 	font-size: 16px;
 	overflow-x: hidden;
 	--theme-color: $accent;
@@ -96,8 +96,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font--heavy;
-	font-weight: 700;
+	font-weight: $bold-weight;
 }
 
 h1 {
@@ -129,6 +128,11 @@ blockquote {
 	margin: 1em 0;
 	padding-left: 1.5em;
 	border-left: .7em solid #eee;
+}
+
+input,
+textarea {
+	font-family: inherit;
 }
 
 .section__title {
@@ -179,7 +183,7 @@ blockquote {
 	text-decoration: none;
 	border: none;
 	font-size: 1em;
-	font-family: $font--light;
+	font-family: inherit;
 	background: var(--theme-color);
 
 	&:hover, &:focus {
@@ -261,7 +265,7 @@ td {
 	color: black;
 	display: block;
 	font-size: 1rem;
-	font-weight: bold;
+	font-weight: $bold-weight;
 	line-height: 1;
 	padding: 1em;
 	position: absolute;
@@ -388,7 +392,6 @@ td {
 
 .primary-menu {
 	width: 100%;
-	font-family: $font--light;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -407,7 +410,7 @@ td {
 	justify-content: space-between;
 
 	.current-menu-item {
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 
 	&__list {
@@ -714,7 +717,7 @@ $ajax-load-size: 44px;
 
 		a {
 			color: white;
-			font-family: $font--heavy;
+			font-weight: $bold-weight;
 		}
 	}
 }
@@ -816,10 +819,6 @@ $ajax-load-size: 44px;
 	&__logo {
 		max-width: 16rem;
 		margin: 2rem 0 .8rem;
-	}
-
-	&__name {
-		font-family: $font--heavy;
 	}
 
 	&__link {
@@ -928,7 +927,7 @@ $ajax-load-size: 44px;
 	}
 
 	&__current {
-		font-weight: bold;
+		font-weight: $bold-weight;
 	}
 }
 

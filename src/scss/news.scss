@@ -152,7 +152,7 @@
 
 	&__category {
 		color: white;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 
 	&__thumb--large {
@@ -181,8 +181,7 @@
 	border: none;
 	border-radius: 0;
 	color: $text;
-	font-family: $font--heavy;
-	font-weight: 700;
+	font-weight: $bold-weight;
 	margin-top: .4em;
 	text-decoration: none;
 	transition: padding 0.3s $transition--cubic;

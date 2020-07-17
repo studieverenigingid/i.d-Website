@@ -163,7 +163,7 @@
 
 	&__indication {
 		margin: .5em;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 		opacity: .5;
 	}
 
@@ -222,7 +222,7 @@
 		width: 16rem;
 		max-width: 100%;
 		text-align: center;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 }
 

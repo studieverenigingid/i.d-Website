@@ -79,13 +79,12 @@
       color: white;
       background: var(--theme-color);
       border: none;
-      font-family: $font--light;
       font-size: 1em;
       margin: .25rem 0 1rem 0;
 
       &--name {
         color: white;
-        font-family: $font--heavy;
+        font-weight: $bold-weight;
         font-size: 2.4em;
       }
 

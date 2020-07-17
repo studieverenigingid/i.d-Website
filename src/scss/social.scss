@@ -89,7 +89,7 @@
 
 		&--more {
 			@extend .social__container--insta;
-			font-family: $font--heavy;
+			font-weight: $bold-weight;
 			margin: 0 2em;
 			box-shadow: 0 0 0 2em var(--theme-color);
 			background: var(--theme-color);
@@ -105,7 +105,6 @@
 		display: inline-block;
 		position: absolute;
 		padding: .6em;
-		font-family: $font--light;
 		color: white;
 		bottom: 0;
 		font-size: .8em;

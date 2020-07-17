@@ -111,7 +111,7 @@
 
 	&__anchor {
 		text-decoration: none;
-		color: #000;
+		color: $text;
 
 		&:hover, &:focus {
 			text-decoration: underline;

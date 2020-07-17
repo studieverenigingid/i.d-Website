@@ -13,7 +13,7 @@
 }
 
 @mixin social-background($color) {
-	color: white;
+	color: $background--light;
 	background: $color;
 
 	&:hover,
@@ -105,7 +105,7 @@
 		display: inline-block;
 		position: absolute;
 		padding: .6em;
-		color: white;
+		color: $background--light;
 		bottom: 0;
 		font-size: .8em;
 		max-width: 100%;
@@ -113,7 +113,7 @@
 		@media (min-width: $brk--phone) {
 			font-size: 1em;
 			padding: .8em;
-			color: white;
+			color: $background--light;
 			overflow: hidden;
 		}
 
@@ -141,7 +141,7 @@
 	}
 
 	&__ico {
-		color: white;
+		color: $background--light;
 	}
 
 	&__more-button {

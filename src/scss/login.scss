@@ -25,7 +25,7 @@
   position: relative;
 
   &__title {
-    color: white;
+    color: $background--light;
   }
 
   &__wrap {
@@ -73,7 +73,7 @@
     background: none;
 
     &::placeholder {
-      color: white;
+      color: $background--light;
       opacity: .8;
     }
   }
@@ -91,11 +91,11 @@
     position: relative;
 
     &--success {
-      border: 2px solid white;
+      border: 2px solid $background--light;
       padding: 1em;
       margin: .5em 0;
       background: transparentize(black, 0.9);
-      color: white;
+      color: $background--light;
     }
 
     &--failed {
@@ -106,7 +106,7 @@
     }
 
     &__message--success {
-      color: white;
+      color: $background--light;
     }
   }
 
@@ -174,7 +174,7 @@
   &__netid {
     &:hover {
       background: #00a6d6;
-      color: white;
+      color: $background--light;
     }
 
     &-name {
@@ -184,7 +184,7 @@
 
   &__information {
     text-align: left;
-    color: white;
+    color: $background--light;
     max-width: 36rem;
   }
 }

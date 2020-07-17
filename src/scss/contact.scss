@@ -327,7 +327,7 @@
     background: transparent;
 
     &::placeholder {
-      color: white;
+      color: $background--light;
       opacity: .8;
     }
   }
@@ -467,7 +467,7 @@
   }
 
   &__message--success {
-    background: green;
+    background: $success-color;
   }
 
   &__message--failed {
@@ -475,10 +475,10 @@
   }
 
   &__link {
-    color: white;
+    color: $background--light;
   }
 
 	&__comment {
-		color: white;
+		color: $background--light;
 	}
 }

@@ -197,18 +197,14 @@
 
 
 
-$no-color: #b01010;
-$yes-color: #3d662c;
-$beer-background: #fff;
-$beer-text: $text;
 
 .isitkafee {
-  background: $beer-background;
-  color: $beer-text;
+  background: $background--light;
+  color: $text;
   text-align: center;
 
   &__question {
-    color: $beer-text;
+    color: $text;
   }
 
   &__answer {
@@ -222,11 +218,11 @@ $beer-text: $text;
   }
 
   &--no &__answer {
-    color: $no-color;
+    color: $error-color;
   }
 
   &--yes &__answer {
-    color: $yes-color;
+    color: $success-color;
   }
 
   &__disclaimer {

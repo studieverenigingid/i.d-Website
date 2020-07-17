@@ -41,7 +41,7 @@
 		margin-bottom: 2em;
 
 		a {
-			color: #000;
+			color: $text;
 			text-decoration: none;
 
 			&:focus, &:hover {
@@ -97,7 +97,7 @@
 
 	&__link {
 		text-decoration: none;
-		color: black;
+		color: $text;
 
 		&:hover {
 			text-decoration: underline;
@@ -151,7 +151,7 @@
 	}
 
 	&__category {
-		color: white;
+		color: $background--light;
 		font-weight: $bold-weight;
 	}
 

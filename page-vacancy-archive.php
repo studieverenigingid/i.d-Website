@@ -11,7 +11,7 @@ get_header(); ?>
 	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 
 	<h1 class="archive__title archive__title--vacancies">
-		<?php echo esc_attr_x( 'Career', 'archive title', 'svid-theme-domain'); ?>
+		<?php echo esc_attr_x( 'Vacancies', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
 	<div class="vacancies__context">

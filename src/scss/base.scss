@@ -138,6 +138,10 @@ blockquote {
 	border-left: .7em solid #eee;
 }
 
+iframe {
+	max-width: 100%;
+}
+
 .section__title {
 	flex: 0 0 100%;
 	margin-left: 20px;

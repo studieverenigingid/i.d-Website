@@ -128,6 +128,17 @@
 		} elseif(is_post_type_archive('board')) { // Last Board
 			$fp = get_posts("post_type=board&numberposts=1");
 			echo get_field("page_color", $fp[0]->ID);
+		} elseif(is_singular('committee')) {
+			$groups = wp_get_post_terms(get_the_ID(), 'committee-group');
+			foreach ($groups as $key => $group) {
+				$group_slug = $group->slug;
+				if($group_slug === 'trips') $page_color = "#50b848";
+				if($group_slug === 'social') $page_color = "#ec008c";
+				if($group_slug === 'skills') $page_color = "#fbe309";
+				if($group_slug === 'education') $page_color = "#f58220";
+				if($group_slug === 'career') $page_color = "#00aeef";
+			}
+			echo $page_color;
 
 		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&

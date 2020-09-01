@@ -56,9 +56,9 @@ add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 function complete_redirect($redirect_to, $request, $user) {
   if (!empty($_GET['redirect_to'])) {
-    wp_redirect($_GET['redirect_to']);
+    return $_GET['redirect_to'];
   } else {
-    wp_redirect(home_url());
+    return home_url();
   }
 }
 add_filter('login_redirect', 'complete_redirect', 10, 3);

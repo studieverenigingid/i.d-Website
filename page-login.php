@@ -48,6 +48,11 @@ get_header();
 						esc_url( home_url('create_account') )
 				);
 				?>
+				<?php echo sprintf(
+						__('Forgot your password? <a href="%s" class="login__reg-link" target="_blank">Reset it here!</a>', 'svid-theme-domain' ),
+						esc_url( "https://id.lassie.cloud/auth/forgot_password" )
+				);
+				?>
 			</div>
 			<?php
 			/**

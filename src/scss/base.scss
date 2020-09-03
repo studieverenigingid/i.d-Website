@@ -164,7 +164,7 @@ iframe {
 }
 
 .news--page__content{
-	a {
+	a:not(.button) {
 		color: var(--theme-color);
 	}
 

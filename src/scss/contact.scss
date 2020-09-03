@@ -263,6 +263,7 @@
 
 .faq {
 	width: 440px;
+  max-width: 900px;
 	flex-grow: 1;
 }
 
@@ -277,6 +278,7 @@
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact-form {
@@ -284,14 +286,15 @@
   position: relative;
   text-align: center;
   width: 440px;
-  max-width: 100%;
+  max-width: 650px;
 
   &__wrap {
     display: inline-block;
-    margin-top: 1em;
+    margin: 1em 0 3em;
     padding: 10px 30px;
     border-radius: 1rem;
     max-width: 36rem;
+    width: 90%;
 		background-color: var(--theme-color, $background--dark);
   }
 

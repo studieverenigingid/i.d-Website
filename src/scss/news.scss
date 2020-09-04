@@ -41,7 +41,7 @@
 		margin-bottom: 2em;
 
 		a {
-			color: #000;
+			color: $text;
 			text-decoration: none;
 
 			&:focus, &:hover {
@@ -90,13 +90,14 @@
 	&__thumb {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 244px;
+		object-fit: cover;
 		margin-bottom: 1.5em;
 	}
 
 	&__link {
 		text-decoration: none;
-		color: black;
+		color: $text;
 
 		&:hover {
 			text-decoration: underline;
@@ -109,7 +110,7 @@
 
 	&__meta {
 		a {
-			color: $accent;
+			color: var(--theme-color);
 			text-decoration: none;
 
 			&:hover {
@@ -128,7 +129,7 @@
 \*-------------------------------------*/
 .news-item {
 	&__header {
-		background: $accent;
+		background: var(--theme-color);
 		text-align: center;
 		padding: .1rem;
 		font-size: 1.1em;
@@ -150,8 +151,8 @@
 	}
 
 	&__category {
-		color: white;
-		font-family: $font--heavy;
+		color: $background--light;
+		font-weight: $bold-weight;
 	}
 
 	&__thumb--large {
@@ -180,8 +181,7 @@
 	border: none;
 	border-radius: 0;
 	color: $text;
-	font-family: $font--heavy;
-	font-weight: 700;
+	font-weight: $bold-weight;
 	margin-top: .4em;
 	text-decoration: none;
 	transition: padding 0.3s $transition--cubic;

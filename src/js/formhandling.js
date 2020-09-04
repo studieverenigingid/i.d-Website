@@ -1,21 +1,25 @@
 function formFails(form, data) {
 	// show error message
-	form.addClass('education-feedback--failed');
+	form.addClass('contact-form--failed');
 	var errorMessage = $('<div>');
-	errorMessage.addClass('education-feedback__message education-feedback__message--failed');
+	errorMessage.addClass('contact-form__message contact-form__message--failed');
 	errorMessage.text(data['error']);
-	form.prepend(errorMessage);
-	form.removeClass('education-feedback--sending');
+	form.append(errorMessage);
+	form.removeClass('contact-form--sending');
 }
 
 function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
-	form.addClass('education-feedback--success');
-	form.removeClass('education-feedback--sending');
+	form.addClass('contact-form--success');
+	var errorMessage = $('<div>');
+	errorMessage.addClass('contact-form__message contact-form__message--success');
+	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
+	form.append(errorMessage);
+	form.removeClass('contact-form--sending');
 }
 
 function ajaxFeedbackForm() {
-	$(document).on('submit' , 'form.education-feedback__wrap', function(e) {
+	$(document).on('submit' , 'form.contact-form__wrap', function(e) {
 
 		// prevent the browser from going to the method url
 		e.preventDefault();
@@ -23,7 +27,7 @@ function ajaxFeedbackForm() {
 		var form = $(this);
 
 		// show the user the browser and server are sending the message
-		form.addClass('education-feedback--sending');
+		form.addClass('contact-form--sending');
 
 		// put the form data into parameter string
 		var data = form.serialize();
@@ -52,8 +56,8 @@ function ajaxFeedbackForm() {
 
 function resetForm() {
 	// reset the form to allow for more feedback to be submitted
-	$('.education-feedback__wrap').removeClass('education-feedback--success');
-	$('.education__input-message').val('');
+	$('.contact-form__wrap').removeClass('contact-form--success');
+	$('.contact-form__input-message').val('');
 	grecaptcha.reset();
 }
 

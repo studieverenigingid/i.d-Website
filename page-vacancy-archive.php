@@ -10,13 +10,11 @@ get_header(); ?>
 
 	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 
-	<h1 class="archive__title archive__title--vacancies"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title archive__title--vacancies">
 		<?php echo esc_attr_x( 'Vacancies', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
-	<div class="vacancies__context"
-		style="background-color: <?php theme_color(false); ?>;">
+	<div class="vacancies__context">
 		<?php the_content(); ?>
 	</div>
 

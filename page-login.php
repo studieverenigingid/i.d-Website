@@ -6,8 +6,7 @@
 
 get_header();
 ?>
-  <main id="site-content" class="about__top login"
-		style="background-color: <?php theme_color(false); ?>;">
+  <main id="site-content" class="about__top login">
 		<h1 class="login__title">
 	    <?php the_title(); ?>
 	  </h1>

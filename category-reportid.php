@@ -2,8 +2,7 @@
 
 <main id="site-content">
 
-	<h1 class="archive__title"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title">
 		<?php single_cat_title(); ?>
 	</h1>
 

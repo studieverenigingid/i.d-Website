@@ -5,8 +5,8 @@
   /*
     Inputs possible (* if required):
 		- *input
-    - name
-    - email
+    - about
+    - relation
   */
 
 	/**
@@ -15,11 +15,11 @@
 	 * @param string $input, string $name, string $email
 	 * @return bool
 	 */
-  function send_mail($input, $name, $email) {
+  function send_mail($input, $about, $relation) {
 
 		$options = get_option('id_settings');
-    $receiver = $options['id_education_email_addresses_field'];
-		$subject = 'Education input form website';
+    $receiver = $options['id_anonymous_email_addresses_field'];
+		$subject = 'Anonymous input form website';
 
     $message = "<!DOCTYPE html>
         <html>
@@ -29,19 +29,15 @@
           <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         </head>";
     $message .= "<body><i>Sent using the contact form at " . get_site_url() .
-      "</i><br><br>" . esc_html($input);
+      "</i><br><br>" . esc_html($input) .
+      "<br><br>About: " . esc_html($about) .
+      "<br><br>Relation: " . esc_html($relation);
     $message .= "</body>";
     $message .= "</html>";
 
     $message = wordwrap($message, 70);
 
-		if($email !== '') {
-			$sender = "$name <$email>";
-		} else {
-			$sender = "Anonymous <anonymous@svid.nl>";
-		}
-
-		$headers = "From: $sender\r\n";
+		$headers = "From: Anonymous <anonymous@svid.nl>\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
@@ -58,14 +54,14 @@
     if ($reCaptchaResponse) {
 
 			$input = $_POST['feedback'];
-	    $name = $_POST['name'];
-	    $email = $_POST['email'];
+	    $about = $_POST['about'];
+	    $relation = $_POST['relation'];
 
       /* VALIDATE INPUT */
       $all_valid = true; // If this value isn't changed to false, it will send. Else it will be reported to the user.
 
       if(!empty($input)) {
-        $send_return = send_mail($input, $name, $email);
+        $send_return = send_mail($input, $about, $relation);
         if($send_return) {
           $response['success'] = true;
         } else {

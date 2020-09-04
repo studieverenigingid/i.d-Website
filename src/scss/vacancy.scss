@@ -58,7 +58,7 @@
 	}
 
 	&__context {
-		background: $accent;
+		background: var(--theme-color);
 		color: white;
 		overflow: hidden;
 
@@ -119,7 +119,7 @@
 
 	&__header {
 		text-align: center;
-		background: $accent;
+		background: var(--theme-color);
 		padding: 1rem;
 
 		@media (min-width: $brk--phone) {
@@ -202,7 +202,7 @@
 	}
 
 	&__company {
-		font-weight: bold;
+		font-weight: $bold-weight;
 	}
 
 	&__link {
@@ -269,7 +269,7 @@
 		text-decoration: none;
 		color: $background--dark;
 		padding: 1em;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 		font-size: 1.8em;
 
 		&:hover,

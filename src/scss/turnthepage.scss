@@ -17,7 +17,7 @@
 .archive__title {
 
   &__parent {
-    background-color: $accent;
+    background-color: var(--theme-color);
     padding: 2rem .8em 2rem;
   }
 
@@ -45,7 +45,7 @@
 \*-------------------------------------*/
 .ttp-issue {
 	&__header {
-		background: $accent;
+		background: var(--theme-color);
 		text-align: center;
 		padding: .1rem;
 		font-size: 1.1em;
@@ -69,8 +69,8 @@
 	}
 
 	&__category {
-		color: white;
-		font-family: $font--heavy;
+		color: $background--light;
+		font-weight: $bold-weight;
 	}
 
 	&__thumb--large {
@@ -130,9 +130,10 @@
     display: table;
     padding: 1rem 1.4rem;
     background-color: black;
+
 		a {
 			text-decoration: none;
-			color: white;
+			color: $background--light;
 
 			&:hover{
 				text-decoration: underline;
@@ -144,12 +145,12 @@
     display: table;
     padding: 1rem 1.4rem;
     background-color: black;
-    color: white;
+    color: $background--light;
 	}
 
   &__excerpt {
     display: table;
-    color: white;
+    color: $background--light;
     padding: 1rem 1.4rem;
     background-color: black;
   }

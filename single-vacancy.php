@@ -6,8 +6,7 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header id="site-content" class="vacancy__header"
-		style="background-color: <?php theme_color(true); ?>;">
+	<header id="site-content" class="vacancy__header">
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="vacancy__logo-box">

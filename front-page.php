@@ -244,10 +244,10 @@ wp_reset_postdata();
 <!-- BLOG -->
 <!-- **** -->
 <section class="news">
-  <h2 class="section__title news__section-title"><?php echo esc_attr_x('News and blog', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
+  <h2 class="section__title news__section-title"><?php echo esc_attr_x('Updates', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
   <h3 class="news__archive-link">
     <a href="<?php echo get_post_type_archive_link('post'); ?>">
-      <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage', 'svid-theme-domain'); ?> →
+      <?php echo esc_attr_x('All updates', 'Link to blog on homepage', 'svid-theme-domain'); ?> →
     </a>
   </h3>
 	<?php
@@ -259,6 +259,98 @@ wp_reset_postdata();
 		endwhile; endif;
 		wp_reset_postdata();
 	?>
+</section>
+
+
+
+
+
+<!-- ************** -->
+<!-- CALL TO ACTION -->
+<!-- ************** -->
+<section class="call-to-action">
+  <header class="call-to-action__head">
+    <h2 class="call-to-action__question">What’s up next?</h2>
+  </header>
+
+  <div class="call-to-action__group call-to-action__group--social">
+    <h3 class="call-to-action__group-name">
+      For members
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_post_type_archive_link('committee'); ?>">
+          Take a look at our committees
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_post_type_archive_link('post'); ?>">
+          Read the latest news
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'user'); ?>">
+          Update your information
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_post_type_archive_link('event'); ?>">
+      Join an upcoming event
+    </a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--education">
+    <h3 class="call-to-action__group-name">
+      For (IDE) students
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_home_url(null, 'about'); ?>">
+          Check out who we are
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Find a job or internship
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'education'); ?>">
+          Give feedback about IDE education
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_home_url(null, 'contact'); ?>">
+      Ask us anything
+    </a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--career">
+    <h3 class="call-to-action__group-name">
+      For businesses
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/alumni'); ?>">
+          Get to know our alumni
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/partner-companies'); ?>">
+          Become a partner
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Check out our vacancy page
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_home_url(null, 'career/collaborate-with-id'); ?>">
+      See what we can do for you
+    </a>
+  </div>
+
 </section>
 
 

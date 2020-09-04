@@ -10,12 +10,10 @@ get_header(); ?>
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 <header id="site-content" class="kafee--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>"
-	style="background-color: <?php theme_color(false); ?>;">
+	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>">
 
 	<div class="kafee--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>"
-		style="background-color: <?php theme_color(false); ?>;">
+		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>">
 
 		<h1 class="kafee--page__name"><?php the_title(); ?></h1>
 
@@ -41,7 +39,7 @@ get_header(); ?>
 
 
 
-<p class="career__jump" style="background-color: <?php theme_color(false); ?>;">
+<p class="career__jump">
 	Jump to our:
 	<a class="about__jump-link" href="#partner-companies">
 		<?php echo esc_attr_x('partner companies',

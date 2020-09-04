@@ -27,7 +27,7 @@
 	&__top {
 		padding: .1rem 5%;
 		margin: 0 0 5rem;
-		background: $accent;
+		background: var(--theme-color);
 	}
 
 	&__title {
@@ -93,7 +93,7 @@
 
 	&__jump {
 		text-align: center;
-		background: $accent;
+		background: var(--theme-color);
 		margin: 3em 5%;
 		padding: 1em;
 		color: $background--light;
@@ -163,7 +163,7 @@
 
 	&__indication {
 		margin: .5em;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 		opacity: .5;
 	}
 
@@ -222,7 +222,7 @@
 		width: 16rem;
 		max-width: 100%;
 		text-align: center;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 }
 
@@ -238,8 +238,8 @@ $groups:
 
 
 .comm-group {
-	background: $accent;
-	border-top: .44em solid $accent;
+	background: var(--theme-color);
+	border-top: .44em solid var(--theme-color);
 
 	&__name {
 		margin: 0;
@@ -311,7 +311,7 @@ $groups:
 
 .all-committees-link {
 	font-size: 1rem;
-	color: white;
+	color: $background--light;
 
 	&:before {
 		content: "←";
@@ -348,7 +348,7 @@ $groups:
 
 	&__link {
 		text-decoration: none;
-		color: $accent;
+		color: var(--theme-color);
 
 		&:hover {
 			text-decoration: underline;
@@ -394,7 +394,7 @@ $groups:
 
 	&__link {
 		text-decoration: none;
-		color: $accent;
+		color: var(--theme-color);
 
 		&:hover {
 			text-decoration: underline;
@@ -414,12 +414,13 @@ $groups:
 
 	&__type {
 		margin-top: 0;
-		color: #555;
+		color: $text;
 		font-size: .9em;
+		opacity: .7;
 	}
 
 	&--page {
-		background: $accent;
+		background: var(--theme-color);
 		padding: 1em;
 
 		&__avatar {
@@ -440,7 +441,7 @@ $groups:
 		}
 
 		&__descr {
-			background: white;
+			background: $background--light;
 			padding: 1.5em 2em;
 			z-index: 2;
 			position: relative;

@@ -6,18 +6,15 @@
 
 get_header(); ?>
 
-<main id="site-content" class="partner-intro"
-	style="background-color: <?php theme_color(false); ?>;">
+<main id="site-content" class="partner-intro">
 
 	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 
-	<h1 class="archive__title archive__title--vacancies"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title archive__title--vacancies">
 		<?php the_title(); ?>
 	</h1>
 
-	<div class="vacancies__context"
-		style="background-color: <?php theme_color(false); ?>;">
+	<div class="vacancies__context">
 		<?php the_content(); ?>
 	</div>
 

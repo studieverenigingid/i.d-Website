@@ -15,8 +15,7 @@ get_header(); ?>
 	$content_before = apply_filters( 'get_the_content', $explode_content[0] );
 	$content_after = apply_filters( 'the_content', $explode_content[1] );
 ?>
-<main id="site-content" class="about__top"
-	style="background-color: <?php theme_color(false); ?>;">
+<main id="site-content" class="about__top">
 
 	<h1 class="about__title"><?php the_title(); ?></h1>
 	<p class="about__descr"><?php echo $content_before; ?></p>

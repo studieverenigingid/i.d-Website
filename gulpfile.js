@@ -126,6 +126,6 @@ gulp.task('build', gulp.parallel('scripts', 'sass', 'images', 'fonts'));
 
 gulp.task('clear', function() {
 	// Still pass the files to clear cache for
-	gulp.src('images/**')
+	return gulp.src('images/**')
 		.pipe(cache.clear());
 });

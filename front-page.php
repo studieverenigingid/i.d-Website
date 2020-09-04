@@ -346,7 +346,7 @@ wp_reset_postdata();
         </a>
       </li>
     </ul>
-    <a class="button" href="<?php echo get_home_url(null, 'career/collaborate-with-id'); ?>">
+    <a class="button" href="<?php echo get_home_url(null, 'career/collaborate'); ?>">
       See what we can do for you
     </a>
   </div>

@@ -43,7 +43,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 </header>
 
 <?php if( have_rows('board_members') ): ?>
-	<section class="board-members contact--page__container">
+	<section class="board-members contact--page__container" id="board">
 		<h2 class="board-members__title contact--page__blocktitle">
 			Send one of our board members an email
 		</h2>
@@ -87,7 +87,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 
 		 	// loop through the rows of data
 		    while ( have_rows('contact_page_block') ) : the_row(); ?>
-					<article class="contact--page__container">
+					<article class="contact--page__container"
+						id="<?php echo strtolower(get_sub_field('contact_block_title')) ?>">
 						<h2 class="contact--page__blocktitle">
 							<?php the_sub_field('contact_block_title'); ?>
 						</h2>
@@ -104,7 +105,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 	<section class="contact-form">
 		<h2><?= esc_attr_x('Anonymous feedback', '', 'svid-theme-domain')?></h2>
 
-		<form action="#" class="contact-form__wrap">
+		<form action="#" class="contact-form__wrap" id="anonymous-input">
 
 				<label for="feedback" class="contact-form__label">
 					<?= esc_attr_x('We would like to hear what you think about ID as an association and about the current board of ID. Do you have any feedback?', 'feedback-form-question', 'svid-theme-domain')?>

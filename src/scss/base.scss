@@ -164,7 +164,7 @@ iframe {
 }
 
 .news--page__content{
-	a {
+	a:not(.button) {
 		color: var(--theme-color);
 	}
 
@@ -200,11 +200,6 @@ iframe {
 		background: none;
 		border: 1px solid var(--theme-color);
 		color: var(--theme-color);
-
-		&:hover,
-		&:focus {
-			color: $background--light;
-		}
 	}
 
 	&--white {

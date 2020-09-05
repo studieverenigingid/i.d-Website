@@ -10,7 +10,7 @@ if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
       <?= esc_attr_x('Username or Email Address', 'Username value on login page', 'svid-theme-domain')?>
     </label>
     <input type="text" name="log" class="login__input" id="login-name"
-      required autocomplete="username"
+      required autocomplete="username" autofocus
       placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>">
   </div>
 

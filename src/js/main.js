@@ -9,7 +9,8 @@ function onDocReady () {
 	menuToggler();
 	menuSticky();
 	fixVHAfterLoad();
-	scrollIndicator();
+	closeInMemoriam();
+	openingHours();
 
 	// formhandling.js
 	ajaxFeedbackForm();
@@ -27,6 +28,9 @@ function onDocReady () {
 
 	// filters.js
 	registerFilters();
+
+	// kafee.js
+	if (!!document.getElementById('isitkafee')) aftellen();
 }
 
 function menuToggler () {
@@ -79,32 +83,20 @@ function notFound($) {
 	}, 44 * 444);
 }
 
-function scrollIndicator() {
-	var theIndicator = $('.scroll-indicator');
+function closeInMemoriam() {
+	$('.in-memoriam__link').click(function(e) {
+		e.preventDefault();
+		$('.in-memoriam').remove();
+	});
+}
 
-	// Only start listening if the element is on the page
-	if (theIndicator) {
-		// Show the indicator after 3 seconds
-		setTimeout(showIndicator, 3000);
-	}
-
-	function showIndicator() {
-		// only show if there is room (and people are less likely to scroll)
-		if ($(window).width() > 768
-			// only show if the user hasn’t scrolled much
-			&& $(window).scrollTop() < 100) {
-			// fade the cutie in
-			$('.scroll-indicator').fadeIn(200);
-		}
-
-		// start listening for scrolling
-		$(window).scroll(function() {
-			// if the user has scrolled enough, we can hide it again
-			if ($(window).scrollTop() > 500) {
-				$('.scroll-indicator').fadeOut(200);
-			}
-		});
-	}
+function openingHours() {
+	let hoursList = $('.opening_hours__full-list');
+	hoursList.addClass('closed');
+	$('.opening_hours__link').click(function(e) {
+		e.preventDefault();
+		hoursList.toggleClass('closed');
+	})
 }
 
 // Polyfill from the lovely Brian Blakely (don’t know him but his polyfill is

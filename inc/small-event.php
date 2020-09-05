@@ -20,10 +20,7 @@
 
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
-				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
-
 				$end = new DateTime(get_field('end_datetime'));
-				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
 				$event_duration = $start->diff($end);
 
@@ -31,8 +28,6 @@
 					$start_to_end = $start->format('F jS') . $end->format(' – F jS');
 				} else {
 					$start_to_end = $start->format('F jS, H:i') . $end->format(' – H:i');
-					// TODO: make a language adaptive version of this; Dutch needs another
-					// date and time representation, like j F, H:i – H:i.
 				}
 
 				echo $start_to_end;

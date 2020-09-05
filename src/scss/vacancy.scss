@@ -29,15 +29,13 @@
 
 	&--archive {
 		margin-bottom: 2rem;
+		background: white;
 
 		@media (min-width: $brk--phone) {
 			width: 80%;
-			max-width: 50rem;
+			max-width: 52rem;
 			padding: 0;
-			margin: -3.5rem auto 2rem;
-			background: $background--light;
-			overflow: hidden;
-			border: 1px solid rgba(0, 0, 0, 0.08);
+			margin: 1.5rem auto 2rem;
 		}
 	}
 
@@ -60,7 +58,7 @@
 	}
 
 	&__context {
-		background: $accent;
+		background: var(--theme-color);
 		color: white;
 		overflow: hidden;
 
@@ -71,7 +69,7 @@
 		}
 
 		@media (min-width: $brk--phone) {
-			padding-bottom: 5rem;
+			padding-bottom: 2rem;
 		}
 	}
 }
@@ -114,14 +112,14 @@
 	}
 
 	&--archive {
-		margin: 0;
-		padding: 2rem;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+		padding: 1.5rem 2rem 1.5rem;
+		border-radius: .5em;
+		box-shadow: 0 .2rem .6rem transparentize(black, .7);
 	}
 
 	&__header {
 		text-align: center;
-		background: $accent;
+		background: var(--theme-color);
 		padding: 1rem;
 
 		@media (min-width: $brk--phone) {
@@ -133,10 +131,11 @@
 		flex-grow: 0;
 		flex-shrink: 0;
 		margin: 0 auto 1rem;
-		width: 150px;
+		width: 250px;
 
-		@media (min-width: 494px) {
+		@media (min-width: 540px) {
 			margin: 0 1.5rem 0 0;
+			width: 150px;
 		}
 
 		@media (min-width: $brk--tablet) {
@@ -195,10 +194,15 @@
 			opacity: .85;
 			font-size: 1.2em;
 		}
+
+		&--small {
+			margin-top: .5rem;
+			opacity: 1;
+		}
 	}
 
 	&__company {
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 
 	&__link {
@@ -236,10 +240,24 @@
 			opacity: .85;
 			font-size: 1.2em;
 		}
+
+		&--archive {
+			margin: -1.5rem -2rem 1.5rem;
+			background: #eee;
+			padding: 1.55rem 2rem;
+			line-height: 1.3;
+			font-size: 1rem;
+			width: 100%;
+			box-sizing: content-box;
+		}
 	}
 
 	&__tag {
 		display: inline-block;
+	}
+
+	&__separator {
+		margin: 0 .35em;
 	}
 
 	&__archivelink {
@@ -251,7 +269,7 @@
 		text-decoration: none;
 		color: $background--dark;
 		padding: 1em;
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 		font-size: 1.8em;
 
 		&:hover,

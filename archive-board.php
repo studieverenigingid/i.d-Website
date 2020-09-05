@@ -4,10 +4,9 @@
 
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
-	<h1 class="archive__title"
-		style="background-color:<?php the_field("page_color", $fp[0]->ID); ?>;">
+	<h1 class="archive__title">
 		<?php echo esc_attr_x('Our boards', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 

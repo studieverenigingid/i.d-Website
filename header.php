@@ -32,7 +32,7 @@ global $img_folder;
 		<?php $theme_info = wp_get_theme(); ?>
 
 		<?php wp_enqueue_style('muli',
-		'https://fonts.googleapis.com/css?family=Muli:300,800');
+		'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
 		wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
@@ -53,9 +53,14 @@ global $img_folder;
 		<?php wp_head(); ?>
 
 	</head>
-	<body<?php if(is_home()) { echo ' class="home"'; } ?>>
+	<body<?php if(is_home()) { echo ' class="home"'; } ?>
+		style="--theme-color: <?php theme_color(true); ?>;">
 
-		<header class="bies" style="background:<?php theme_color(false);?>">
+		<a href="#site-content" class="skip">
+			<?php echo esc_attr_x('Skip to content', 'Accessibility skip to content element', 'svid-theme-domain');?>
+		</a>
+
+		<header class="bies">
 
 			<?php
 			$wpml_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
@@ -76,8 +81,6 @@ global $img_folder;
 					'theme_location' => 'primary-menu',
 					'container' => false,
 					'menu_class' => 'primary-menu__list' ) ); ?>
-
-					<?php custom_language_switcher(); ?>
 			</nav>
 
 		</header>

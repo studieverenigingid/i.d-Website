@@ -6,7 +6,7 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<header class="vacancy__header" style="background-color: <?php theme_color(true); ?>;">
+	<header id="site-content" class="vacancy__header">
 
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="vacancy__logo-box">
@@ -23,11 +23,21 @@
 			<span class="vacancy__company"><?=$company?></span> <?php echo esc_attr_x('is looking for a', 'vacancy <company> is looking for string', 'svid-theme-domain');?>
 		</p>
 
-		<h1 class="vacancy__title  vacancy__title--large"><?php the_title(); ?></h1>
+		<h1 class="vacancy__title  vacancy__title--large">
+			<?php
+				$title = get_the_title();
+				if (strpos($title, "–")) {
+					echo substr($title, 0, strpos($title, "–"));
+				} else {
+					echo $title;
+				}
+			?>
+		</h1>
 
 		<p class="vacancy__details  vacancy__details--large">
 			<?php
 				$location = get_field('location');
+				$duration = get_field('duration');
 				$categories = get_the_category();
 
 				if ( !empty($location) ) { ?>
@@ -36,8 +46,21 @@
 					</span>
 			<?php	} ?>
 
-			<?php if ( !empty($location) && !empty($categories) ): ?>
-				&bull;
+			<?php if ( !empty($location) && !empty($duration || $categories) ): ?>
+				<span class="vacancy__separator">
+					&bull;</span>
+			<?php endif; ?>
+
+			<?php if ( !empty($duration) ) { ?>
+				<span class="vacancy__tag  vacancy__duration">
+					<i class="fa fa-calendar-o"></i> <?=$duration?>
+				</span>
+			<?php	} ?>
+
+
+			<?php if ( !empty($duration) && !empty($categories) ): ?>
+				<span class="vacancy__separator">
+					&bull;</span>
 			<?php endif; ?>
 
 			<?php

@@ -1,0 +1,250 @@
+/*-------------------------------------*\
+
+	ID WEBSITE WORDPRESS THEME: CAREER
+
+	See style.css for the WP info.
+
+	- Nils Westhoff
+	- Floris Jansen, id@fmjansen.nl
+
+	career.scss:
+  + Career page
+	+ Partner companies
+  + RSS feed
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Career page
+\*-------------------------------------*/
+.career {
+  &__header + hr {
+    opacity: 0;
+  }
+
+  &__jump {
+    @extend .about__jump;
+    background: var(--theme-color);
+    margin-top: 8em;
+  }
+
+  &__block {
+    margin: 7% 0;
+  }
+
+  &__description {
+    @extend .primary-content;
+    text-align: left;
+    padding: 1em 0;
+
+    p {
+      line-height: 1.6;
+    }
+
+    &--wide {
+      max-width: none;
+
+      img {
+        display: block;
+        margin: auto;
+      }
+
+      p {
+        max-width: 36em;
+        margin: 1em auto;
+      }
+    }
+  }
+
+  &__small-vacancy {
+    margin: 0 auto 2em;
+    max-width: 52rem;
+    width: 80%;
+  }
+
+  &__small-heading {
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  &__collab-image {
+    display: block;
+    margin: 2em auto;
+    max-width: 52rem;
+    padding: 0 1rem;
+    width: 80%;
+
+    @media (min-width: $brk--phone) {
+      padding: 0 1.5rem;
+    }
+
+    img {
+      box-shadow: 0 .2rem 1rem transparentize(black, .7);
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &__embed {
+    height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Partner companies
+\*-------------------------------------*/
+.partner-intro {
+  padding-bottom: 5vw;
+}
+
+
+
+.partner-companies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: -5vw;
+  padding: 0 5vw 5vw;
+
+  &--career {
+    justify-content: center;
+    margin: 1.5em 0;
+    padding: 0;
+  }
+}
+
+
+
+.partner-company {
+  background: white;
+  border-radius: .5em;
+  box-shadow: 0 .2rem 1rem transparentize(black, .7);
+  flex-grow: 1;
+  margin: 1.5vw;
+  overflow: hidden;
+  width: 260px;
+  max-width: 28em;
+
+  &__visual {
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1px;
+  }
+
+  &__logo-bubble {
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 .1rem .3rem transparentize(black, .7);
+    display: flex;
+    height: 125px;
+    justify-content: center;
+    margin: 10%;
+    transition: box-shadow .2s $transition--cubic;
+    width: 125px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 .2rem 1rem transparentize(black, .5);
+    }
+
+    &--career {
+      height: 100px;
+      margin: 0 .5em;
+      width: 100px;
+      font-size: 1rem;
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 .1rem .3rem transparentize(black, .7);
+      }
+    }
+  }
+
+  &__logo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-height: 70%;
+    max-width: 70%;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    margin: 1em 1.5rem .5rem;
+  }
+
+  &__tagline {
+    font-style: italic;
+    margin: .5rem 1.5rem -.5rem;
+    opacity: .8;
+  }
+
+  &__description {
+    font-size: 1rem;
+    margin: 0 1.5rem;
+  }
+
+  &__website {
+    display: block;
+    margin: 1em 0 1.5em;
+  }
+}
+
+
+
+
+
+/*-------------------------------------*\
+	RSS Feed
+\*-------------------------------------*/
+.rss-feed {
+  &__item {
+    align-items: flex-start;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    padding: 1.5em 0 1em;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  &__image {
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 1.5em;
+  }
+
+  &__head {
+    margin-top: 0;
+  }
+
+  a {
+    color: $text;
+    font-weight: $bold-weight;
+    text-decoration-color: var(--theme-color);
+  }
+}

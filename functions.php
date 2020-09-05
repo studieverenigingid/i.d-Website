@@ -2,6 +2,8 @@
 
 	include( 'inc/color-custom-fields.php' );
 
+	include( 'inc/customize-controls.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 
@@ -21,13 +23,16 @@
 
 	include( 'inc/kafee-custom-fields.php' );
 
+	include( 'inc/partner-company-custom-fields.php' );
+	include( 'inc/career-custom-fields.php' );
+	include( 'inc/career-blocks-custom-fields.php' );
+	include( 'inc/ide-feeds.php' );
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );
 
 	include( 'inc/custom-menu-functions.php');
-
-	include( 'inc/custom-language-switcher.php' );
 
 	include( 'inc/samltud-helper.php' );
 
@@ -43,6 +48,8 @@
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
 	add_action( 'wp_ajax_education_input', 'education_input' );
+	add_action( 'wp_ajax_nopriv_anonymous_input', 'anonymous_input' );
+	add_action( 'wp_ajax_anonymous_input', 'anonymous_input' );
 	add_action( 'wp_ajax_user_update', 'user_update');
 	add_action( 'wp_ajax_user_password', 'user_password');
 	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
@@ -72,7 +79,7 @@
 		if (!is_admin()) {
 			wp_deregister_script('jquery');
 			wp_register_script('jquery',
-				'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js',
+				'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
 				false, '3.1.1', true);
 			wp_enqueue_script('jquery');
 		}
@@ -80,23 +87,32 @@
 
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {
+
 		$page_color = get_field('page_color');
-		if (date('W') === '44') {
-			echo '#ef686c';
-		} elseif (is_front_page()) {
+		$in_memoriam = !empty(get_theme_mod('in_memoriam_title'))
+			&& !empty(get_theme_mod('in_memoriam_body'));
+
+		if ($in_memoriam) {
+			echo "#000000";
+		} elseif (date('W') === '44') {
+			echo '#ef686c'; // mooi koraalroze
+
+		} elseif (is_front_page() ||
+			is_post_type_archive('event')) { // use color from upcoming event
 			$today = date('Ymd');
 			$upcoming_loop = new WP_Query( array(
 			  'post_type' => 'event',
 			  'posts_per_page' => 1,
 			  'meta_query' => array(
-				array(
-				  'key'     => 'start_datetime',
-				  'compare' => '>=',
-				  'value'   => $today,
-				  'type'    => 'DATE'
-				),
+					array(
+					  'key'     => 'end_datetime',
+					  'compare' => '>=',
+					  'value'   => $today,
+					  'type'    => 'DATE'
+					),
 			  ),
-			  'orderby' => 'start_datetime',
+			  'orderby' => 'meta_value',
+			  'meta_key' => 'start_datetime',
 			  'order' => 'ASC',
 			) );
 			if ($upcoming_loop->have_posts()) :
@@ -106,24 +122,35 @@
 					echo get_field('page_color');
 				endwhile;
 			endif;
-		} elseif (is_post_type_archive('turnthepage')) {
+
+		} elseif (is_post_type_archive('turnthepage')) { // Last TTP
 			$fp = get_posts("post_type=turnthepage&numberposts=1");
 			echo get_field("page_color", $fp[0]->ID);
-		} elseif(is_post_type_archive('board')) {
+		} elseif(is_post_type_archive('board')) { // Last Board
 			$fp = get_posts("post_type=board&numberposts=1");
 			echo get_field("page_color", $fp[0]->ID);
+		} elseif(is_singular('committee')) {
+			$groups = wp_get_post_terms(get_the_ID(), 'committee-group');
+			foreach ($groups as $key => $group) {
+				$group_slug = $group->slug;
+				if($group_slug === 'trips') $page_color = "#50b848";
+				if($group_slug === 'social') $page_color = "#ec008c";
+				if($group_slug === 'skills') $page_color = "#fbe309";
+				if($group_slug === 'education') $page_color = "#f58220";
+				if($group_slug === 'career') $page_color = "#00aeef";
+			}
+			echo $page_color;
+
 		} elseif ($page_color !== '#55ccbb' &&
 				$page_color !== '' &&
 				!is_archive() &&
-				!is_home()) {
-			echo get_field('page_color');
-		} elseif (is_page_template('page-kafee.php')) {
-			echo "#6dadb6";
-		} elseif (is_page_template('education-page.php')) {
-			echo "#f58220";
+				!is_home() &&
+				!is_404()) {
+			echo $page_color;
 		} elseif ($default){
 			echo "#55ccbb";
 		}
+
 	}
 
 
@@ -202,6 +229,11 @@
 		wp_die();
 	}
 
+	function anonymous_input() {
+		include 'inc/send-anonymous.php';
+		wp_die();
+	}
+
 	function buy_ticket() {
 		include 'inc/buy-ticket.php';
 	}
@@ -256,6 +288,42 @@
 		$show_text = esc_attr('Show', 'svid-theme-domain');
 		echo "<div class='show-password show-password--show' data-other='$hide_text'>$show_text</div>";
 	}
+
+
+
+	function change_color_palette() { ?>
+	<script type="text/javascript">
+		(function($) {
+			acf.add_filter('color_picker_args', function( args, field ){
+		    args.palettes = ['#ec008c', '#00aeef', '#f58220', '#50b848', '#ffe501']
+		    return args;
+			});
+		})(jQuery);
+	</script>
+	<?php }
+	add_action('acf/input/admin_footer', 'change_color_palette');
+
+
+
+	/* Remove comment support */
+  // Removes from admin menu
+  add_action( 'admin_menu', 'custom_admin_menus' );
+  function custom_admin_menus() {
+      remove_menu_page( 'edit-comments.php' );
+  }
+  // Removes from post and pages
+  add_action('init', 'remove_comment_support', 100);
+
+  function remove_comment_support() {
+      remove_post_type_support( 'post', 'comments' );
+      remove_post_type_support( 'page', 'comments' );
+  }
+  // Removes from admin bar
+  function custom_admin_bar_render() {
+      global $wp_admin_bar;
+      $wp_admin_bar->remove_menu('comments');
+  }
+  add_action( 'wp_before_admin_bar_render', 'custom_admin_bar_render' );
 
 
 

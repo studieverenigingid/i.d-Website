@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
-	<h1 class="archive__title"><?php single_cat_title(); ?></h1>
+	<h1 class="archive__title">
+		<?php single_cat_title(); ?>
+	</h1>
 
 	<div class="news">
 

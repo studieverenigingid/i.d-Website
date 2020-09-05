@@ -24,6 +24,7 @@
 	&__header {
 		padding: .1rem 0 4rem;
 		margin-bottom: 34%;
+		background: var(--theme-color);
 
 		@media (min-width: 550px) {
 			margin-bottom: 30%;
@@ -60,16 +61,8 @@
 
 		&--short-header {
 			margin-bottom: -4em;
-			background: $hex-kafee;
+			background: var(--theme-color);
 		}
-	}
-
-	&__indication {
-		line-height: 2rem;
-		color: $background--light;
-		text-transform: uppercase;
-		font-size: .8em;
-		font-family: $font--heavy;
 	}
 
 	&__name {
@@ -119,7 +112,7 @@
 			content: "";
 			width: 10em;
 			height: 10em;
-			background-image: linear-gradient(to bottom right, transparentize($hex-kafee, .1) 0%, transparent 50%);
+			background-image: linear-gradient(to bottom right, var(--theme-color) 0%, transparent 50%);
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -199,4 +192,42 @@
 			padding-top: 6rem;
 		}
 	}
+}
+
+
+
+
+
+.isitkafee {
+  background: $background--light;
+  color: $text;
+  text-align: center;
+
+  &__question {
+    color: $text;
+  }
+
+  &__answer {
+    font-size: 3em;
+    font-weight: $bold-weight;
+    margin: .2em 0 0;
+  }
+
+  &__countdown {
+    text-align: center;
+  }
+
+  &--no &__answer {
+    color: var(--theme-color);
+  }
+
+  &--yes &__answer {
+    color: $success-color;
+  }
+
+  &__disclaimer {
+    font-size: .8em;
+		margin-bottom: 0;
+    opacity: .7;
+  }
 }

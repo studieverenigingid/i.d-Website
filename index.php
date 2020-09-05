@@ -1,9 +1,8 @@
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
-	<h1 class="archive__title"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title">
 		<?php echo apply_filters( 'the_title', get_the_title( get_option( 'page_for_posts' ) ) ); ?>
 	</h1>
 

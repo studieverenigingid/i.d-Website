@@ -1,9 +1,8 @@
 <?php get_header(); ?>
 
-<main>
+<main id="site-content">
 
-	<h1 class="archive__title"
-		style="background-color: <?php theme_color(false); ?>;">
+	<h1 class="archive__title">
 		<?php the_archive_title(); ?>
 	</h1>
 

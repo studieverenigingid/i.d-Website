@@ -1,7 +1,7 @@
 {
-  "name": "i.d-website",
-  "version": "0.0.1",
-  "description": "Gulp environment for Wordpress theme id.tudelft.nl",
+  "name": "i.d-Website",
+  "version": "0.0.2",
+  "description": "Gulp environment for Wordpress theme svid.nl",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,18 +17,18 @@
   },
   "homepage": "https://github.com/studieverenigingid/i.d-Website#readme",
   "devDependencies": {
+    "ansi-colors": "*",
     "browser-sync": "*",
+    "fancy-log": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-cache": "*",
     "gulp-concat": "*",
     "gulp-imagemin": "*",
-    "gulp-livereload": "*",
     "gulp-plumber": "*",
+    "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-sourcemaps": "*",
-    "gulp-uglify": "*",
-    "gulp-util": "*",
-    "gulp-rename": "*"
+    "gulp-terser": "*"
   }
 }

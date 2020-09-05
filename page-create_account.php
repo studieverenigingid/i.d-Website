@@ -7,8 +7,7 @@
 get_header();
 wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
-  <main class="about__top login login--create-account"
-		style="background-color: <?php theme_color(false); ?>;">
+  <main id="site-content" class="about__top login login--create-account">
 
 		<h1 class="login__title">
 	    <?php the_title(); ?>

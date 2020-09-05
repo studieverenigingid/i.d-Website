@@ -12,7 +12,6 @@ Want to contribute? Setup your development environment:
 5. Generate or create fake posts (e.g. using [FakerPress](https://wordpress.org/plugins/fakerpress/))*
 6. Download the [Vimeo PHP library](https://github.com/vimeo/vimeo.php/releases), rename the `vimeo.php-X.X.X` folder to `vimeo` and put it in `/inc/API`
 7. Register a (test-)app at [Vimeo](https://developer.vimeo.com/apps)
-8. Register a (test-)app at [Instagram](https://www.instagram.com/developer/register/)
 8. Register a (test-)app at [Flickr](https://www.flickr.com/services/apps/create/apply/)
 9. Put the app ID’s and secrets in the admin at `https://[your-wp-installation]/wp-admin/options-general.php?page=ID-website_settings`
 

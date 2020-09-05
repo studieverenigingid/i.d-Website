@@ -4,21 +4,16 @@
 
 
 
-	<header class="event--page__header
-		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>"
-		style="background-color: <?php theme_color(false); ?>;">
+	<header id="site-content" class="event--page__header
+		<?php if ( !has_post_thumbnail() ) echo 'event--page__header--short-header'; ?>">
 
-		<div class="event--page__short-info event--page__short-info--short-header"
-			style="background:<?php theme_color(false);?>">
+		<div class="event--page__short-info event--page__short-info--short-header">
 
 			<h1 class="event--page__name"><?php the_title(); ?></h1>
 
 			<?php
 				$start = new DateTime(get_field('start_datetime'));
-				$start->setTimezone( new DateTimeZone('Europe/Amsterdam') );
-
 				$end = new DateTime(get_field('end_datetime'));
-				$end->setTimezone( new DateTimeZone('Europe/Amsterdam') );
 
 				$start_month = $start->format('F');
 				$start_day   = $start->format('jS');
@@ -55,14 +50,6 @@
 			</div>
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<style media="screen">
-					.event--page__thumb:before {
-						background-image: linear-gradient(
-							to bottom right, <?php theme_color(true); ?>,
-							transparent 50%
-						);
-					}
-				</style>
 				<div class="event--page__thumb">
 					<?php
 					the_post_thumbnail(
@@ -92,6 +79,20 @@
 			$buttons['tickets'] = [
 				'url' => get_field('ticket_url'),
 				'text' => esc_attr_x('Get your tickets', 'Ticket link text', 'svid-theme-domain')
+			];
+
+			$start->setTimezone(new DateTimeZone('UTC'));
+			$end->setTimezone(new DateTimeZone('UTC'));
+			$google_cal_url = "https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml";
+			$google_cal_url .= "&text=" . urlencode(get_the_title());
+			$google_cal_url .= "&dates=" . $start->format('Ymd\THis\Z') .
+				"/" . $end->format('Ymd\THis\Z');
+			$google_cal_url .= "&location=" . urlencode($location_name);
+			$google_cal_url .= "&details=" . urlencode(get_the_excerpt());
+
+			$buttons['add-to-google'] = [
+				'url' => $google_cal_url,
+				'text' => esc_attr_x('Add to Google Calendar', 'Google Calendar link', 'svid-theme-domain')
 			];
 
 			foreach ($buttons as $key => $butt) {

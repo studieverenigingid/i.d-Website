@@ -4,10 +4,47 @@
 
 
 
+<?php
+  $in_memoriam_title = get_theme_mod('in_memoriam_title');
+  $in_memoriam_body = get_theme_mod('in_memoriam_body');
+  $in_memoriam_photo = get_theme_mod('in_memoriam_photo');
+  $in_memoriam = !empty($in_memoriam_title)
+    && !empty($in_memoriam_body);
+  if ($in_memoriam): ?>
+  <!-- *********** -->
+  <!-- IN MEMORIAM -->
+  <!-- *********** -->
+  <section id="site-content" class="in-memoriam">
+    <div class="in-memoriam__flex">
+
+      <a class="in-memoriam__link" href="#continue">
+        <?php echo esc_attr_x( 'Continue to website', 'in memoriam continue link', 'svid-theme-domain' ) ?>
+      </a>
+
+      <?php if (!empty($in_memoriam_photo)) { ?>
+        <img class="in-memoriam__photo"
+          src="<?php echo $in_memoriam_photo; ?>"
+          alt="<?php echo $in_memoriam_title; ?>">
+      <?php } ?>
+
+      <div class="in-memoriam__text">
+        <h1 class="in-memoriam__title"><?php echo $in_memoriam_title; ?></h1>
+        <p class="in-memoriam__body"><?php echo $in_memoriam_body; ?></p>
+      </div>
+
+    </div>
+  </section>
+<?php endif; ?>
+
+
+
+
+
 <!-- ****** -->
 <!-- EVENTS -->
 <!-- ****** -->
-<section class="events--frontpage">
+<section class="events--frontpage"
+  <?php if (!$in_memoriam) echo 'id="site-content"'; ?>>
 
 <?php
 
@@ -18,13 +55,14 @@ $upcoming_loop = new WP_Query( array(
   'posts_per_page' => 4,
   'meta_query' => array(
 	array(
-	  'key'     => 'start_datetime',
+	  'key'     => 'end_datetime',
 	  'compare' => '>=',
 	  'value'   => $today,
 	  'type'    => 'DATE'
 	),
   ),
-  'orderby' => 'start_datetime',
+  'orderby' => 'meta_value',
+  'meta_key' => 'start_datetime',
   'order' => 'ASC',
 ) );
 
@@ -176,7 +214,7 @@ wp_reset_postdata();
 	</div>
 
   <template id="js-social-post">
-    <a class="social__link" target="_blank">
+    <a class="social__link" target="_blank" rel="noreferrer">
   		<div class="social__container">
   		  <div class="social__title">
   		    <i class="social__ico fa"></i>
@@ -206,10 +244,10 @@ wp_reset_postdata();
 <!-- BLOG -->
 <!-- **** -->
 <section class="news">
-  <h2 class="section__title news__section-title"><?php echo esc_attr_x('News and blog', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
+  <h2 class="section__title news__section-title"><?php echo esc_attr_x('Updates', 'frontpage news and blog title', 'svid-theme-domain');?></h2>
   <h3 class="news__archive-link">
     <a href="<?php echo get_post_type_archive_link('post'); ?>">
-      <?php echo esc_attr_x('All news items and blog posts', 'Link to blog on homepage', 'svid-theme-domain'); ?> →
+      <?php echo esc_attr_x('All updates', 'Link to blog on homepage', 'svid-theme-domain'); ?> →
     </a>
   </h3>
 	<?php
@@ -221,6 +259,98 @@ wp_reset_postdata();
 		endwhile; endif;
 		wp_reset_postdata();
 	?>
+</section>
+
+
+
+
+
+<!-- ************** -->
+<!-- CALL TO ACTION -->
+<!-- ************** -->
+<section class="call-to-action">
+  <header class="call-to-action__head">
+    <h2 class="call-to-action__question">What’s up next?</h2>
+  </header>
+
+  <div class="call-to-action__group call-to-action__group--social">
+    <h3 class="call-to-action__group-name">
+      For members
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_post_type_archive_link('committee'); ?>">
+          Take a look at our committees
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_post_type_archive_link('post'); ?>">
+          Read the latest news
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'user'); ?>">
+          Update your information
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_post_type_archive_link('event'); ?>">
+      Join an upcoming event
+    </a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--education">
+    <h3 class="call-to-action__group-name">
+      For (IDE) students
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_home_url(null, 'about'); ?>">
+          Check out who we are
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Find a job or internship
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'education'); ?>">
+          Give feedback about IDE education
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_home_url(null, 'contact'); ?>">
+      Ask us anything
+    </a>
+  </div>
+
+  <div class="call-to-action__group call-to-action__group--career">
+    <h3 class="call-to-action__group-name">
+      For businesses
+    </h3>
+    <ul class="call-to-action__options">
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/alumni'); ?>">
+          Get to know our alumni
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/partner-companies'); ?>">
+          Become a partner
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo get_home_url(null, 'career/vacancies'); ?>">
+          Check out our vacancy page
+        </a>
+      </li>
+    </ul>
+    <a class="button" href="<?php echo get_home_url(null, 'career/collaborate'); ?>">
+      See what we can do for you
+    </a>
+  </div>
+
 </section>
 
 

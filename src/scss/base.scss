@@ -14,7 +14,6 @@
 	+ Paragraph styles
 	+ Bies
 	+ Menu
-	+ Scroll indicator
 	+ Primary content
 	+ Footer
 	+ Imports
@@ -39,26 +38,21 @@
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-$font--heavy: 'Muli', sans-serif;
-$font--light: 'Muli', sans-serif;
+$font: 'Muli', sans-serif;
+$bold-weight: 700;
 $accent: #55ccbb;
 $background--light: #fafafa;
 $background--dark: #11417e;
 $background--gray: #222;
+$error-color: #b01010;
+$success-color: #398818;
 $text: #222;
-$hex-education: #f58220;
-$hex-kafee: #6dadb6;
 
 $social:
 	(insta, #e1306c),
 	(facebook, #3b5998),
 	(flickr, #ff0084),
-	(vimeo, #1ab7ea),
-	(medium, #00ab6c),
-	(messenger, #0084ff),
-	(maps, #fbbc05),
-	(mail, red),
-	(call, #1dcc00);
+	(vimeo, #1ab7ea);
 
 $transition--cubic: cubic-bezier(0.77, 0, 0.175, 1);
 
@@ -77,9 +71,10 @@ html {
 body {
 	margin: 0;
 	background: $background--light;
-	font-family: $font--light;
+	font-family: $font;
 	font-size: 16px;
 	overflow-x: hidden;
+	--theme-color: $accent;
 
 	@media (min-width: $brk--tablet) {
 		font-size: 18px;
@@ -103,8 +98,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font--heavy;
-	font-weight: 700;
+	font-weight: $bold-weight;
 }
 
 h1 {
@@ -138,6 +132,15 @@ blockquote {
 	border-left: .7em solid #eee;
 }
 
+input,
+textarea {
+	font-family: inherit;
+}
+
+iframe {
+	max-width: 100%;
+}
+
 .section__title {
 	flex: 0 0 100%;
 	margin-left: 20px;
@@ -154,6 +157,22 @@ blockquote {
 	}
 }
 
+.wp-block-separator {
+	border-width: 1px 0 0 0;
+	border-color: $background--light;
+	border-style: dotted;
+}
+
+.news--page__content{
+	a:not(.button) {
+		color: var(--theme-color);
+	}
+
+	li {
+		margin-bottom: 1em;
+	}
+}
+
 
 
 
@@ -161,60 +180,44 @@ blockquote {
 /*-------------------------------------*\
 	Buttons
 \*-------------------------------------*/
-@mixin button-background($color) {
-	background: $color;
-
-	&:hover {
-		background: darken($color, 10%);
-	}
-
-	&:focus {
-		background: darken($color, 15%);
-	}
-}
-
 .button {
 	display: inline-block;
 	padding: .7em 1.4em;
 	margin: 5px 0;
 	border-radius: 50px;
-	color: white;
+	color: $background--light;
 	text-decoration: none;
 	border: none;
 	font-size: 1em;
-	font-family: $font--light;
-	@include button-background($accent);
+	font-family: inherit;
+	background: var(--theme-color);
 
 	&:hover, &:focus {
-		outline: none;
+		filter: brightness(.9);
 	}
 
 	&--light {
 		background: none;
-		border: 1px solid $accent;
-		color: $accent;
-
-		&:hover,
-		&:focus {
-			color: $background--light;
-		}
+		border: 1px solid var(--theme-color);
+		color: var(--theme-color);
 	}
 
 	&--white {
 		background: none;
-		border: 1px solid white;
-		color: white;
+		border: 1px solid $background--light;
+		color: $background--light;
 
 		&:hover,
 		&:focus {
-			color: $accent;
-			background: white;
+			color: var(--theme-color);
+			background: $background--light;
+			filter: none;
 		}
 	}
 
 	@each $socialnetwork, $color in $social {
 		&--#{$socialnetwork} {
-			@include button-background($color);
+			background: $color;
 		}
 	}
 }
@@ -256,12 +259,39 @@ td {
 
 
 /*-------------------------------------*\
+	Skip to content
+\*-------------------------------------*/
+.skip {
+	background: $background--light;
+	border: 1px solid black;
+	color: $text;
+	display: block;
+	font-size: 1rem;
+	font-weight: $bold-weight;
+	line-height: 1;
+	padding: 1em;
+	position: absolute;
+	text-decoration: none;
+	top: -5em;
+
+	&:focus {
+		left: 5px;
+		top: 5px;
+		z-index: 100000;
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
 	Bies
 \*-------------------------------------*/
 // Holy bies
 .bies {
 	width: 100%;
-	background: $accent;
+	background: var(--theme-color);
 	position: relative;
 	padding-bottom: 1em;
 
@@ -305,7 +335,7 @@ td {
 	padding-right: 1rem;
 	line-height: 3.1rem;
 	text-align: left;
-	color: white;
+	color: $background--light;
 	z-index: 11;
 	cursor: pointer;
 	transition: width 200ms ease-out;
@@ -321,8 +351,8 @@ td {
 		content: "";
 		width: 1.6rem;
 		height: 5px;
-		box-shadow: 0 11px 0 0 white;
-		background: white;
+		box-shadow: 0 11px 0 0 $background--light;
+		background: $background--light;
 		position: absolute;
 		right: -.9rem;
 		top: 12px;
@@ -352,7 +382,7 @@ td {
 .menu-item { // This deviates from our naming style guide because of Wordpress
 	a {
 		text-decoration: none;
-		color: white;
+		color: $background--light;
 		padding: .8rem 1.4rem;
 		display: block;
 
@@ -364,13 +394,12 @@ td {
 
 .primary-menu {
 	width: 100%;
-	font-family: $font--light;
 	position: fixed;
 	left: 0;
 	top: 0;
 	bottom: 0;
 	background: $background--gray;
-	color: white;
+	color: $background--light;
 	transform: translateX(100%);
 	transition: transform 200ms $transition--cubic;
 	z-index: 10;
@@ -383,21 +412,10 @@ td {
 	justify-content: space-between;
 
 	.current-menu-item {
-		font-family: $font--heavy;
+		font-weight: $bold-weight;
 	}
 
-	.menu-item {
-		&--language-switch {
-			a {
-				text-transform: uppercase;
-				padding: 1rem 0;
-				display: inline-block;
-			}
-		}
-	}
-
-	&__list,
-	&__language-switch {
+	&__list {
 		margin: 0;
 		padding: 3rem 0 0;
 		list-style: none;
@@ -407,23 +425,6 @@ td {
 		&__list {
 			flex-basis: 100%;
 			height: 100%;
-		}
-
-		&__language-switch {
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: block;
-			padding: 0 1em 0 0;
-			font-size: .9rem;
-
-			&__context {
-				padding: .8rem 0 .8rem 1.4rem;
-			}
-
-			&__link {
-				font-weight: 900;
-			}
 		}
 
 		&.opened {
@@ -444,27 +445,8 @@ td {
 		padding-right: 2.5em;
 		overflow-y: visible;
 
-		&__list, &__language-switch {
+		&__list {
 			padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-		}
-
-		&__language-switch {
-			font-size: 1em;
-			position: absolute;
-			right: 0;
-
-			&__context {
-				display: none;
-				padding: 0;
-			}
-
-			&:hover {
-				background: $background--gray;
-			}
-
-			&:hover &__context {
-				display: inline-block;
-			}
 		}
 
 		.menu-item {
@@ -473,13 +455,6 @@ td {
 
 			a {
 				padding: .3em .6em;
-			}
-
-			&--language-switch {
-				a {
-					padding: .4rem 0;
-					display: inline-block;
-				}
 			}
 		}
 
@@ -517,7 +492,7 @@ td {
 .sub-menu {
 	list-style: none;
 	padding: 0;
-	border-left: 1px solid white;
+	border-left: 1px solid $background--light;
 	margin-left: 1.4rem;
 	font-size: .9em;
 
@@ -549,28 +524,10 @@ td {
 	pointer-events: inherit;
 }
 
-
-
-
-
-/*-------------------------------------*\
-	Scroll indicator
-\*-------------------------------------*/
-.scroll-indicator {
-	width: 100px;
-	display: none;
-
-	float: right;
-	transform: translateY(80px);
-
-	@media (min-width: $brk--tablet) {
-		transform: translateY(120px);
-		width: 136px;
-	}
-
-	@media (min-width: $brk--large-desktop) {
-		transform: translate(-120px, 200px);
-	}
+.menu-item--external a::after {
+	content: "\f08e";
+	font-family: FontAwesome;
+	margin-left: 5px;
 }
 
 
@@ -622,7 +579,7 @@ td {
 	Primary content
 \*-------------------------------------*/
 .not-found {
-	background: $accent;
+	background: var(--theme-color);
 	padding: 10%;
 	color: $background--light;
 	position: relative;
@@ -696,7 +653,7 @@ $ajax-load-size: 44px;
 		margin-top: 6px;
 
 		&--white {
-			background: white;
+			background: $background--light;
 		}
 
 		@for $i from 1 through 3 {
@@ -741,9 +698,9 @@ $ajax-load-size: 44px;
 	margin: .5em 0;
 
 	&--success {
-		border: 2px solid white;
+		border: 2px solid $background--light;
 		background: transparentize(black, 0.9);
-		color: white;
+		color: $background--light;
 
 		&--dark {
 			background: transparentize(black, 0.3);
@@ -756,13 +713,77 @@ $ajax-load-size: 44px;
 	}
 
 	&--info {
-		border: 2px solid white;
+		border: 2px solid $background--light;
 		background: transparentize(black, 0.9);
-		color: white;
+		color: $background--light;
 
 		a {
-			color: white;
-			font-family: $font--heavy;
+			color: $background--light;
+			font-weight: $bold-weight;
+		}
+	}
+}
+
+
+
+
+
+/*-------------------------------------*\
+	In Memoriam
+\*-------------------------------------*/
+.in-memoriam {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	background: #000;
+	padding: 10vw;
+	box-sizing: border-box;
+	z-index: 20;
+	color: $background--light;
+	overflow-y: auto;
+
+	&__flex {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+	}
+
+	&__photo {
+		max-height: 60vh;
+		flex-grow: 0;
+		width: 100%;
+		align-self: center;
+	}
+
+	&__title {
+		color: $background--light;
+		margin-bottom: 0;
+	}
+
+	&__link {
+		color: $background--light;
+		opacity: .8;
+		text-align: center;
+		margin-bottom: 2em;
+		width: 100%;
+		flex-shrink: 0;
+	}
+
+	@media (min-width: $brk--phone) {
+		&__flex {
+			flex-flow: row;
+			flex-wrap: wrap;
+		}
+
+		&__text {
+			max-width: 35rem;
+			padding: 0 5vw;
+		}
+
+		&__photo {
+			width: auto;
+			height: 60vh;
 		}
 	}
 }
@@ -802,10 +823,6 @@ $ajax-load-size: 44px;
 		margin: 2rem 0 .8rem;
 	}
 
-	&__name {
-		font-family: $font--heavy;
-	}
-
 	&__link {
 		color: $background--light;
 		text-decoration: none;
@@ -840,6 +857,80 @@ $ajax-load-size: 44px;
 		width: 2rem;
 		margin: 1.8rem 0;
 	}
+
+	@media (max-width: 583px) {
+		&__association,
+		&__sitemap {
+			order: 2;
+		}
+		&__paragraph {
+			order: 1;
+		}
+	}
+}
+
+.opening_hours {
+	&__link {
+		display: block;
+		color: $background--light;
+		text-decoration-color: transparentize($background--light, 0.5);
+		text-align: center;
+
+		&-text {
+			background: $text;
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+
+		&:before {
+			height: 1px;
+			background: $background--light;
+			width: 100%;
+			content: "";
+			display: block;
+			margin-top: .8em;
+			margin-bottom: -.8em;
+		}
+
+		&:hover {
+			text-decoration-color: $background--light;
+		}
+	}
+
+	&__full-list {
+		width: 100%;
+		border: none;
+		background: transparentize($background--light, 0.9);
+		border-radius: .3em;
+		display: block;
+		height: 21.4em;
+    padding: .4em 0;
+		margin-bottom: 2em;
+		margin-top: -.5em;
+		font-size: 1rem;
+		overflow: hidden;
+		transition: all 300ms ease-out;
+		box-sizing: border-box;
+
+		&.closed {
+			height: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		tr {
+			vertical-align: top;
+		}
+
+		td {
+			border: none;
+			padding: .4em .8em;
+		}
+	}
+
+	&__current {
+		font-weight: $bold-weight;
+	}
 }
 
 
@@ -871,12 +962,8 @@ $ajax-load-size: 44px;
 	position: fixed;
 	bottom: 1em;
 	right: 1em;
-	background-color: $accent;
-	color: white;
-
-	&:focus, &:hover {
-		background-color: darken($accent, 15%);
-	}
+	background-color: var(--theme-color);
+	color: $background--light;
 
 	@media (max-width: $brk--phone){
 		display: block;
@@ -931,8 +1018,11 @@ template {
 // User
 @import "user";
 
-// Smoelenboek
-@import "smoelenboek";
+// Career
+@import "career";
 
 // Filters
 @import "filters";
+
+// Call to action
+@import "cta";

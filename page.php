@@ -1,6 +1,6 @@
 <?php get_header(); if(have_posts()) : while(have_posts()) : the_post(); ?>
 
-	<h1 class="archive__title">
+	<h1 id="site-content" class="archive__title">
 		<?php the_title(); ?>
 	</h1>
 

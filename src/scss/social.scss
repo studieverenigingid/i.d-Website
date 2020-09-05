@@ -13,7 +13,7 @@
 }
 
 @mixin social-background($color) {
-	color: white;
+	color: $background--light;
 	background: $color;
 
 	&:hover,
@@ -32,12 +32,6 @@
 	&__link {
 		font-size: 0; // remove spaces between posts
 		vertical-align: text-bottom; // removes weird space at bottom
-
-		&:last-of-type {
-			@media (min-width: $brk--phone) {
-				margin-right: 3em;
-			}
-		}
 	}
 
 
@@ -89,15 +83,10 @@
 
 		&--more {
 			@extend .social__container--insta;
-			font-family: $font--heavy;
+			font-weight: $bold-weight;
 			margin: 0 2em;
-			box-shadow: 0 0 0 2em $accent;
-			background: $accent;
-
-			@media (min-width: $brk--phone) {
-				margin-right: 4em;
-				box-shadow: 1em 0 0 3em $accent;
-			}
+			box-shadow: 0 0 0 2em var(--theme-color);
+			background: var(--theme-color);
 		}
 	}
 
@@ -105,8 +94,7 @@
 		display: inline-block;
 		position: absolute;
 		padding: .6em;
-		font-family: $font--light;
-		color: white;
+		color: $background--light;
 		bottom: 0;
 		font-size: .8em;
 		max-width: 100%;
@@ -114,13 +102,18 @@
 		@media (min-width: $brk--phone) {
 			font-size: 1em;
 			padding: .8em;
-			color: white;
+			color: $background--light;
 			overflow: hidden;
 		}
 
 		@each $socialnetwork, $color in $social {
 			&--#{$socialnetwork} {
-				@include button-background($color);
+				background: $color;
+
+				&:hover,
+				&:focus {
+					filter: brightness(.9);
+				}
 			}
 
 			&--#{$socialnetwork}:after {
@@ -137,7 +130,7 @@
 	}
 
 	&__ico {
-		color: white;
+		color: $background--light;
 	}
 
 	&__more-button {

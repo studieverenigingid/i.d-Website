@@ -10,7 +10,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 <main id="site-content" class="page-top">
 
-	<h1 class="education__title">
+	<h1 class="page-top__title">
     <?php the_title(); ?>
   </h1>
 

@@ -72,3 +72,20 @@ class Walker_Sitemap extends Walker_Nav_Menu
 		$output .= '</li>';
 	}
 }
+
+
+
+class Walker_Primary extends Walker_Nav_Menu
+{
+	/**
+	 * @see Walker::start_lvl()
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return void
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() )
+	{
+		$output .= '<div class="sub-menu-toggle js-sub-menu-toggle">+</div>';
+		$output .= '<ul class="sub-menu">';
+	}
+}

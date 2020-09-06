@@ -80,7 +80,8 @@ global $img_folder;
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary-menu',
 					'container' => false,
-					'menu_class' => 'primary-menu__list' ) ); ?>
+					'menu_class' => 'primary-menu__list',
+				 	'walker' => new Walker_Primary() ) ); ?>
 			</nav>
 
 		</header>

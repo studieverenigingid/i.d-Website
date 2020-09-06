@@ -606,6 +606,74 @@ td {
 	}
 }
 
+.page-top {
+  background: var(--theme-color);
+  margin: 0 0 5rem;
+  padding: .1rem 5%;
+
+	&__title {
+		color: $background--light;
+		max-width: 30rem;
+	}
+
+  &__descr {
+    color: $background--light;
+    font-size: 1.1em;
+    max-width: 30rem;
+  }
+
+	a {
+		color: $background--light;
+	}
+
+  &__thumb {
+    margin-bottom: -3rem;
+  }
+
+  &__img {
+    height: auto;
+    width: 100%;
+  }
+
+	@media (min-width: $brk--phone) {
+		padding: .1rem 8%;
+
+		&__thumb {
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
+			}
+
+			&--overlap {
+				margin-top: -7.5rem;
+			}
+		}
+
+		&__img {
+			width: 60%;
+			float: right;
+		}
+	}
+
+	@media (min-width: $brk--tablet) {
+		padding: 1rem 10% 4rem;
+
+		&__descr,
+		&__title {
+			max-width: 36rem;
+		}
+
+		&__thumb {
+			margin-bottom: -7rem;
+
+			&--overlap {
+				margin-top: -12.5rem;
+			}
+		}
+	}
+}
+
 
 
 

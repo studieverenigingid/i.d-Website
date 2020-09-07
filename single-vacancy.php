@@ -42,7 +42,7 @@
 
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
-			    	<i class="fa fa-map-marker"></i> <?=$location?>
+			    	<i class="fas fa-map-marker-alt"></i> <?=$location?>
 					</span>
 			<?php	} ?>
 
@@ -53,7 +53,7 @@
 
 			<?php if ( !empty($duration) ) { ?>
 				<span class="vacancy__tag  vacancy__duration">
-					<i class="fa fa-calendar-o"></i> <?=$duration?>
+					<i class="fas fa-calendar"></i> <?=$duration?>
 				</span>
 			<?php	} ?>
 
@@ -82,7 +82,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
+						<i class="fas fa-file-alt"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -91,7 +91,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
+					<i class="fas fa-paper-plane"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>
@@ -103,7 +103,7 @@
 				if ( $file ): ?>
 					<a target="_blank" class="button  button--light  vacancy__button"
 						href="<?php echo $file['url']; ?>">
-						<i class="fa fa-file-text-o"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
+						<i class="fas fa-file-alt"></i> <?php echo esc_attr_x('Download this description', 'Download vacancy description button text', 'svid-theme-domain');?>
 					</a>
 			<?php endif; ?>
 
@@ -111,7 +111,7 @@
 				if ( $apply ): ?>
 				<a target="_blank" class="button  vacancy__button"
 					href="<?php echo $apply ?>">
-					<i class="fa fa-send"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
+					<i class="fas fa-paper-plane"></i> <?php echo esc_attr_x('Apply directly', 'Apply for vacancy button text', 'svid-theme-domain');?>
 				</a>
 			<?php endif; ?>
 		</div>

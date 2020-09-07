@@ -34,11 +34,12 @@ global $img_folder;
 		<?php
 		wp_enqueue_style('muli',
 			'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
-		wp_enqueue_style('fontawesome',
-			'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
+
+		<script src="https://kit.fontawesome.com/82730669d1.js"
+			async crossorigin="anonymous"></script>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',

@@ -78,8 +78,8 @@
 		if (!is_admin()) {
 			wp_deregister_script('jquery');
 			wp_register_script('jquery',
-				'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
-				false, '3.1.1', true);
+				'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+				false, '3.5.1', true);
 			wp_enqueue_script('jquery');
 		}
 	}

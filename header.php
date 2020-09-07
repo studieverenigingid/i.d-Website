@@ -65,7 +65,7 @@ global $img_folder;
 			?>
 
 			<a href="<?php echo $wpml_home_url; ?>">
-				<picture>
+				<picture class="bies__picture">
 					<source srcset="<?=$img_folder?>logo-mark.svg" type="image/svg+xml">
 					<img class="bies__image" alt="ID"
 						srcset="<?=$img_folder?>logo-mark.png 1x,

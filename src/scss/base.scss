@@ -295,6 +295,12 @@ td {
 	position: relative;
 	padding-bottom: 1em;
 
+	&__picture {
+		@media (min-width: $brk--tablet) {
+			display: inline-block;
+		}
+	}
+
 	&__image {
 		height: 80px;
 		position: relative;

@@ -295,6 +295,12 @@ td {
 	position: relative;
 	padding-bottom: 1em;
 
+	&__picture {
+		@media (min-width: $brk--tablet) {
+			display: inline-block;
+		}
+	}
+
 	&__image {
 		height: 80px;
 		position: relative;
@@ -442,7 +448,6 @@ td {
 		transition: padding 200ms ease-out,
 			background 200ms ease-out;
 		padding-left: 140px;
-		padding-right: 2.5em;
 		overflow-y: visible;
 
 		&__list {
@@ -1049,6 +1054,7 @@ $ajax-load-size: 44px;
 
 	&__link {
 		padding: .2rem 0;
+		margin: 8px 0;
 		display: block;
 	}
 }

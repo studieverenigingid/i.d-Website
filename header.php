@@ -34,11 +34,12 @@ global $img_folder;
 		<?php
 		wp_enqueue_style('muli',
 			'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
-		wp_enqueue_style('fontawesome',
-			'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
+
+		<script src="https://kit.fontawesome.com/82730669d1.js"
+			async crossorigin="anonymous"></script>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
@@ -64,7 +65,7 @@ global $img_folder;
 			?>
 
 			<a href="<?php echo $wpml_home_url; ?>">
-				<picture>
+				<picture class="bies__picture">
 					<source srcset="<?=$img_folder?>logo-mark.svg" type="image/svg+xml">
 					<img class="bies__image" alt="ID"
 						srcset="<?=$img_folder?>logo-mark.png 1x,

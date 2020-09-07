@@ -27,7 +27,7 @@
 				$location = get_field('location');
 				if ( !empty($location) ) { ?>
 					<span class="vacancy__tag  vacancy__location">
-			    	<i class="fa fa-map-marker"></i> <?=$location?>
+			    	<i class="fas fa-map-marker-alt"></i> <?=$location?>
 					</span>
 			<?php	} ?>
 

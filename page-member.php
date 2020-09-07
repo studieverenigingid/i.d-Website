@@ -59,7 +59,7 @@ if ( have_rows('file_list') ): ?>
     <a class="event__file" target="_blank"
       href="/download/?id=<?=$file['id']?>">
       <h3 class="event__file-name">
-        <i class="fa fa-file-text-o"></i>
+        <i class="fas fa-file-alt"></i>
         <?=$file_name?>
       </h3>
     </a>

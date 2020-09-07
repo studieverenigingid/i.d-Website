@@ -6,7 +6,7 @@
 
 get_header();
 ?>
-  <main id="site-content" class="about__top login">
+  <main id="site-content" class="page-top login">
 		<h1 class="login__title">
 	    <?php the_title(); ?>
 	  </h1>

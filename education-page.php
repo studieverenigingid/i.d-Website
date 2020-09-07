@@ -8,13 +8,13 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main id="site-content" class="about__top">
+<main id="site-content" class="page-top">
 
-	<h1 class="education__title">
+	<h1 class="page-top__title">
     <?php the_title(); ?>
   </h1>
 
-	<div class="education__content">
+	<div class="page-top__descr">
 		<?php
 			if(have_posts()) : while(have_posts()) :
 				the_post();
@@ -23,9 +23,9 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	</div>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="about__thumb">
+		<div class="page-top__thumb">
 			<?php the_post_thumbnail('post-thumbnail',
-				array( 'class' => 'about__img')
+				array( 'class' => 'page-top__img')
 			); ?>
 		</div>
 	<?php endif; ?>

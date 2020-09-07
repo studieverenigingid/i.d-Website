@@ -295,6 +295,12 @@ td {
 	position: relative;
 	padding-bottom: 1em;
 
+	&__picture {
+		@media (min-width: $brk--tablet) {
+			display: inline-block;
+		}
+	}
+
 	&__image {
 		height: 80px;
 		position: relative;
@@ -442,7 +448,6 @@ td {
 		transition: padding 200ms ease-out,
 			background 200ms ease-out;
 		padding-left: 140px;
-		padding-right: 2.5em;
 		overflow-y: visible;
 
 		&__list {
@@ -489,12 +494,42 @@ td {
 	}
 }
 
+.menu-item-has-children {
+	position: relative;
+
+	@media (min-width: $brk--tablet) {
+		position: static;
+	}
+}
+
+.sub-menu-toggle {
+  border-left: 1px solid $background--light;
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: .8rem 1.4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @media (min-width: $brk--tablet) {
+    display: none;
+	}
+
+	&.opened {
+		background: $background--light;
+		color: $background--gray;
+	}
+}
+
 .sub-menu {
 	list-style: none;
 	padding: 0;
 	border-left: 1px solid $background--light;
 	margin-left: 1.4rem;
 	font-size: .9em;
+	height: 0;
+	overflow: hidden;
 
 	@media (min-width: $brk--tablet) {
 		position: absolute;
@@ -507,6 +542,7 @@ td {
 		transform: translateY(-30%);
 		transition: all ease-out 200ms;
 		pointer-events: none;
+		height: auto;
 
 		.menu-item a {
 			padding: 1em;
@@ -515,6 +551,10 @@ td {
 
 	@media (min-width: $brk--desktop) {
 		top: 2.6em;
+	}
+
+	&.opened {
+		height: auto;
 	}
 }
 
@@ -568,6 +608,74 @@ td {
 
 	&--light {
 		border-color: transparentize($background--light, 0.3);
+	}
+}
+
+.page-top {
+  background: var(--theme-color);
+  margin: 0 0 5rem;
+  padding: .1rem 5%;
+
+	&__title {
+		color: $background--light;
+		max-width: 30rem;
+	}
+
+  &__descr {
+    color: $background--light;
+    font-size: 1.1em;
+    max-width: 30rem;
+  }
+
+	a {
+		color: $background--light;
+	}
+
+  &__thumb {
+    margin-bottom: -3rem;
+  }
+
+  &__img {
+    height: auto;
+    width: 100%;
+  }
+
+	@media (min-width: $brk--phone) {
+		padding: .1rem 8%;
+
+		&__thumb {
+			&:after {
+				display: block;
+				content: "";
+				clear: both;
+			}
+
+			&--overlap {
+				margin-top: -7.5rem;
+			}
+		}
+
+		&__img {
+			width: 60%;
+			float: right;
+		}
+	}
+
+	@media (min-width: $brk--tablet) {
+		padding: 1rem 10% 4rem;
+
+		&__descr,
+		&__title {
+			max-width: 36rem;
+		}
+
+		&__thumb {
+			margin-bottom: -7rem;
+
+			&--overlap {
+				margin-top: -12.5rem;
+			}
+		}
 	}
 }
 
@@ -946,6 +1054,7 @@ $ajax-load-size: 44px;
 
 	&__link {
 		padding: .2rem 0;
+		margin: 8px 0;
 		display: block;
 	}
 }

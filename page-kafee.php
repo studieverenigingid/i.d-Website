@@ -6,38 +6,28 @@
 
 get_header(); ?>
 
-<header id="site-content" class="kafee--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'kafee--page__header--short-header'; ?>">
+<header id="site-content" class="page-top">
 
-	<div class="kafee--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'kafee--page__short-info--short-header'; ?>">
+	<h1 class="page-top__title"><?php the_title(); ?></h1>
 
-		<h1 class="kafee--page__name"><?php the_title(); ?></h1>
-
+	<div class="page-top__descr">
 		<?php
-		    // TO SHOW THE PAGE CONTENTS
-		    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-		        <div class="kafee--page__kafee">
-		            <?php the_content(); ?> <!-- Page Content -->
-		        </div><!-- .entry-content-page -->
-
-		    <?php
-		    endwhile; //resetting the page loop
-		    wp_reset_query(); //resetting the page query
-		?>
-
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="kafee--page__thumb">
-				<?php
-				the_post_thumbnail(
-					'large',
-					array('class' => 'kafee--page__img')
-				);
-				?>
-			</div>
-		<?php endif; ?>
-
+			if(have_posts()) : while(have_posts()) :
+				the_post();
+				the_content();
+			endwhile; endif; ?>
 	</div>
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="page-top__thumb">
+			<?php
+			the_post_thumbnail(
+				'large',
+				array('class' => 'page-top__img')
+			);
+			?>
+		</div>
+	<?php endif; ?>
 
 </header>
 

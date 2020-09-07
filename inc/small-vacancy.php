@@ -12,7 +12,7 @@ $categories = get_the_category();
 
 			if ( !empty($location) ) { ?>
 				<span class="vacancy__tag  vacancy__location">
-					<i class="fa fa-map-marker"></i> <?=$location?>
+					<i class="fas fa-map-marker-alt"></i> <?=$location?>
 				</span>
 		<?php	} ?>
 
@@ -23,7 +23,7 @@ $categories = get_the_category();
 
 		<?php if ( !empty($duration) ) { ?>
 			<span class="vacancy__tag  vacancy__duration">
-				<i class="fa fa-calendar-o"></i> <?=$duration?>
+				<i class="fas fa-calendar"></i> <?=$duration?>
 			</span>
 		<?php	} ?>
 

@@ -35,11 +35,17 @@ function onDocReady () {
 function menuToggler () {
 
 	var menuToggle = $('.js-menu-toggle'),
-		menu = $('.primary-menu');
+		menu = $('.primary-menu'),
+		subMenuToggle = $('.js-sub-menu-toggle');
 
 	menuToggle.click(function () {
 		menu.toggleClass('opened');
 		menuToggle.toggleClass('opened');
+	});
+
+	subMenuToggle.click(function () {
+		$(this).next().toggleClass('opened');
+		$(this).toggleClass('opened');
 	});
 
 }

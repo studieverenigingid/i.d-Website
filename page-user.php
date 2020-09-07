@@ -72,9 +72,9 @@ if (!is_user_logged_in()) {
         <input name="address_country" class="user__info__input user__info__input--editable" id="address_country" type="text" placeholder="<?php echo esc_attr_x('Country', 'User page address_country label', 'svid-theme-domain');?>" value="<?=$address_country?>" readonly>
 
         <div class="user__info__column--bottom">
-          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fa fa-pencil"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>
-          <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fa fa-save"></i> <?php echo esc_attr_x('Save', 'User page save button label', 'svid-theme-domain');?></button>
-          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fa fa-ban"></i> <?php echo esc_attr_x('Cancel', 'User page cancel button label', 'svid-theme-domain');?></button>
+          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--edit"><i class="fas fa-pencil-alt"></i> <?php echo esc_attr_x('Edit', 'User page edit button label', 'svid-theme-domain');?></button>
+          <button href="#" type="submit" class="button button--white user__info__edit user__info__edit--save hidden"><i class="fas fa-save"></i> <?php echo esc_attr_x('Save', 'User page save button label', 'svid-theme-domain');?></button>
+          <button href="#" type="button" class="button button--white user__info__edit user__info__edit--cancel hidden"><i class="fas fa-ban"></i> <?php echo esc_attr_x('Cancel', 'User page cancel button label', 'svid-theme-domain');?></button>
         </div>
       </div>
 
@@ -113,7 +113,7 @@ if (!is_user_logged_in()) {
 
         <button href="#" type="submit"
           class="button button--white user__info__edit user__info__edit--change-password">
-          <i class="fa fa-lock"></i>
+          <i class="fas fa-lock"></i>
           <?php echo esc_attr_e('Save new password', 'svid-theme-domain');?>
         </button>
 

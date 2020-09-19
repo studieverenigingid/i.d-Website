@@ -16,7 +16,7 @@ global $img_folder;
 		<link rel="icon" type="image/png" sizes="16x16"
 			href="/favicon-16x16.png?v=<?php echo $theme_info->version; ?>">
 		<link rel="manifest" href="/manifest.json">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55ccbb">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f6b632">
 
 		<?php
 			if ( ! function_exists( '_wp_render_title_tag' ) ) :

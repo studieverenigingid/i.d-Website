@@ -66,7 +66,7 @@ get_header();
         if ( $SAML_Client->settings->get_enabled() ) {
           $saml_url = site_url('wp-login.php?use_sso=true');
           if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
-            $saml_url .= '?redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
+            $saml_url .= '&redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
           } ?>
 			<a href="<?php echo $saml_url; ?>"
 				class="login__netid button button--white">

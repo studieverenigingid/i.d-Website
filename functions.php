@@ -140,14 +140,14 @@
 			}
 			echo $page_color;
 
-		} elseif ($page_color !== '#55ccbb' &&
+		} elseif ($page_color !== '#f6b632' &&
 				$page_color !== '' &&
 				!is_archive() &&
 				!is_home() &&
 				!is_404()) {
 			echo $page_color;
 		} elseif ($default){
-			echo "#55ccbb";
+			echo "#f6b632";
 		}
 
 	}

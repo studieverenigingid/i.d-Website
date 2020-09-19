@@ -42,20 +42,6 @@ get_header();
 		<div class="login__right-column">
 			<hr class="divider divider--light login__divider">
 			<span class="login__divider-text">or</span>
-			<div class="login__reg-text">
-				<?php echo sprintf(
-						__('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
-						esc_url( home_url('create_account') )
-				);
-				?>
-      </div>
-      <div class="login__reg-text">
-				<?php echo sprintf(
-						__('Forgot your password? <a href="%s" class="login__reg-link" target="_blank">Reset it here!</a>', 'svid-theme-domain' ),
-						esc_url( "https://id.lassie.cloud/auth/forgot_password" )
-				);
-				?>
-			</div>
 			<?php
 			/**
 			 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
@@ -75,6 +61,19 @@ get_header();
 			</a>
 		<?php } } ?>
 		</div>
+
+    <div class="login__reg-text">
+      <p>
+        <?php echo sprintf(
+          __('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
+          esc_url( home_url('create_account') ) ); ?>
+      </p>
+      <p>
+        <?php echo sprintf(
+          __('Forgot your password? <a href="%s" class="login__reg-link" target="_blank">Reset it here!</a>', 'svid-theme-domain' ),
+          esc_url( "https://id.lassie.cloud/auth/forgot_password" ) ); ?>
+      </p>
+    </div>
 
 
 	</main>

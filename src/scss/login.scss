@@ -116,7 +116,7 @@
 
     @media (min-width: $brk--desktop) {
       position: absolute;
-      top: 10.6em;
+      top: 10em;
       left: 10%;
       transform: translate(36rem, 0);
       padding-left: 4rem;
@@ -128,7 +128,7 @@
   &__divider {
     @media (min-width: $brk--desktop) {
       border-width: 0 0 0 1px;
-      height: 16rem;
+      height: 14rem;
       width: 0;
       margin: 0;
       display: block;
@@ -155,7 +155,7 @@
     }
 
     @media (min-width: $brk--desktop) {
-      margin-top: 7.5rem;
+      margin-top: 6.5rem;
       margin-left: -4.1em;
       position: absolute;
       padding-bottom: .2em;
@@ -163,12 +163,13 @@
   }
 
   &__reg-text,
-  &__reg-link {
-    color: $background--light;
+  &__reg-link[href] {
+    color: $text;
   }
 
   &__reg-text {
-    margin-bottom: 2.2rem;
+    font-size: .85em;
+    margin: 2.2rem 0;
   }
 
   &__netid {

@@ -54,20 +54,6 @@ if($loop->have_posts()) : ?>
 if( have_rows('feedback_step') ) { ?>
 	<div class="form-cols">
 
-		<section class="education-process" id="feedback-process">
-	    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
-	    <?php while( have_rows('feedback_step') ) {
-	      the_row();
-	      $img_url = get_sub_field('image')['sizes']['medium']; ?>
-	      <div class="education-process__item-wrap">
-	        <div class="education-process__item"
-	          style="background-image: url('<?= $img_url ?>')">
-	        </div>
-	        <h3 class="education-process__item-title"><?= get_sub_field('sub_title') ?></h3>
-	      </div>
-		  <?php } ?>
-	  </section>
-
 		<section class="contact-form" id="feedback-form">
 			<h2><?= esc_attr_x('Orange feedback note', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
 
@@ -137,6 +123,20 @@ if( have_rows('feedback_step') ) { ?>
 
 			</form>
 		</section>
+
+		<section class="education-process" id="feedback-process">
+	    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
+	    <?php while( have_rows('feedback_step') ) {
+	      the_row();
+	      $img_url = get_sub_field('image')['sizes']['medium']; ?>
+	      <div class="education-process__item-wrap">
+	        <div class="education-process__item"
+	          style="background-image: url('<?= $img_url ?>')">
+	        </div>
+	        <h3 class="education-process__item-title"><?= get_sub_field('sub_title') ?></h3>
+	      </div>
+		  <?php } ?>
+	  </section>
 
 	</div>
 <?php } ?>

@@ -113,6 +113,7 @@ h1 {
 h2 {
 	font-size: 2.4em;
 	color: $background--dark;
+	line-height: 1.1;
 	margin: 1.5em (2 * $pad) .5em;
 }
 
@@ -675,6 +676,13 @@ td {
 			&--overlap {
 				margin-top: -12.5rem;
 			}
+		}
+	}
+
+	@media (min-width: $brk--large-desktop) {
+		&__thumb,
+		&__thumb--overlap {
+			margin-top: -20rem;
 		}
 	}
 }

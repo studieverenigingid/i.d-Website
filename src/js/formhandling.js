@@ -16,6 +16,7 @@ function formSucceeds(form, data) {
 	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
 	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
+	resetFormLink();
 }
 
 function ajaxFeedbackForm() {

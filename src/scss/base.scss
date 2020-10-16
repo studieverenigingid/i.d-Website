@@ -678,6 +678,13 @@ td {
 			}
 		}
 	}
+
+	@media (min-width: $brk--large-desktop) {
+		&__thumb,
+		&__thumb--overlap {
+			margin-top: -20rem;
+		}
+	}
 }
 
 

@@ -337,7 +337,7 @@ wp_reset_postdata();
       </li>
       <li>
         <a href="<?php echo get_home_url(null, 'career/partner-companies'); ?>">
-          Become a partner
+          Our partners
         </a>
       </li>
       <li>

@@ -5,25 +5,25 @@ var offset = 1,
 
 
 
-$(document).on('click', '.social__more-button', function() {
+jQuery(document).on('click', '.social__more-button', function() {
 	// replace the button with a spinner/loader...
-	$(this).parent().html(socialLoaderEl.clone());
+	jQuery(this).parent().html(socialLoaderEl.clone());
 	// ...and start the loading
 	socialFeed();
 });
 
-$('.social__wrapper').scroll(function() {
-	var wrapper = $(this),
-		autoMore = $('.js-social-auto-more');
+jQuery('.social__wrapper').scroll(function() {
+	var wrapper = jQuery(this),
+		autoMore = jQuery('.js-social-auto-more');
 
 	// if the social feed contains the auto loader (which appears after the
 	// more button is clicked)...
-	if ( $.contains( wrapper[0], autoMore[0] ) ) {
+	if ( jQuery.contains( wrapper[0], autoMore[0] ) ) {
 
 		// ...check if we’re already seeing the auto loader (which means we are
 		// so far right we want to load the next posts) AND if we are actually
 		// waiting for a new auto load
-		if ( autoMore.position().left < $(window).width() &&
+		if ( autoMore.position().left < jQuery(window).width() &&
 			waitingForAutoLoad ) {
 			// we are going to start an auto load, so until that is completed,
 			// we are not waiting for a new one, so make that false...
@@ -39,7 +39,7 @@ $('.social__wrapper').scroll(function() {
 // handle an failed GET request
 function socialFaultyResponse( jqXHR, textStatus, errorThrown ) {
 	// The server/connection failed us, so remove the social section
-	$('.social').remove();
+	jQuery('.social').remove();
 	console.error(textStatus, errorThrown)
 }
 
@@ -56,9 +56,9 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	}
 
 	// get the template for the posts and the wrapper to put them in
-	var template = $('#js-social-post'),
+	var template = jQuery('#js-social-post'),
 		socialPost = template[0].content,
-		socialWrapper = $('.social__wrapper');
+		socialWrapper = jQuery('.social__wrapper');
 
 	// remove the spinner and put it in a var to reuse
 	if (offset === 1) {
@@ -76,7 +76,7 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	data['posts'].forEach( function(post) {
 
 		// make a copy of the post template to fill for this post
-		var socialPostLink = $(socialPost.children).clone();
+		var socialPostLink = jQuery(socialPost.children).clone();
 
 		// add the right data to the copied post template
 		socialPostLink.attr('href', post['link'])
@@ -98,15 +98,15 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 	if (offset === 1) {
 
 		// add the load more button at the end of the feed
-		var socialMoreTemplate = $('#js-more-social')[0].content,
-			socialMoreButton = $(socialMoreTemplate.children).clone();
+		var socialMoreTemplate = jQuery('#js-more-social')[0].content,
+			socialMoreButton = jQuery(socialMoreTemplate.children).clone();
 		socialWrapper.append(socialMoreButton);
 
 	} else {
 
 		// get the end of feed template
-		var socialMoreTemplate = $('#js-more-social')[0].content,
-			socialMoreLoader = $(socialMoreTemplate.children).clone();
+		var socialMoreTemplate = jQuery('#js-more-social')[0].content,
+			socialMoreLoader = jQuery(socialMoreTemplate.children).clone();
 
 		// change the button to a loader
 		socialMoreLoader.addClass('js-social-auto-more')
@@ -130,8 +130,8 @@ function socialFeedReceived( data, textStatus, jqXHR ) {
 
 // send a GET request to get the list of social posts and handle the response
 function socialFeed() {
-	if (!$.contains( $('body')[0], $('.social')[0] )) return;
-	$.ajax({
+	if (!jQuery.contains( jQuery('body')[0], jQuery('.social')[0] )) return;
+	jQuery.ajax({
 		type: "GET",
 		url: ajaxurl,
 		data: {

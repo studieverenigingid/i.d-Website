@@ -18,28 +18,21 @@ global $img_folder;
 		<link rel="manifest" href="/manifest.json">
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f6b632">
 
-		<?php
-			if ( ! function_exists( '_wp_render_title_tag' ) ) :
-			function spi_render_title() {
-		?>
-			<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-			}
-			add_action( 'wp_head', 'spi_render_title' );
-			endif;
-		?>
-
 		<?php $theme_info = wp_get_theme(); ?>
 
-		<?php
-		wp_enqueue_style('muli',
-			'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
-		wp_enqueue_style('main',
+		<?php wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
 
-		<script src="https://kit.fontawesome.com/82730669d1.js"
-			async crossorigin="anonymous"></script>
+		<?php wp_enqueue_style('fa',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/fontawesome.min.css',
+			[], false ); ?>
+		<?php wp_enqueue_style('fa-brands',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/brands.min.css',
+			['fa'], false ); ?>
+		<?php wp_enqueue_style('fa-solid',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/solid.min.css',
+			['fa'], false ); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',

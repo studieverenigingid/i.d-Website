@@ -20,10 +20,7 @@ global $img_folder;
 
 		<?php $theme_info = wp_get_theme(); ?>
 
-		<?php
-		wp_enqueue_style('muli',
-			'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
-		wp_enqueue_style('main',
+		<?php wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
 

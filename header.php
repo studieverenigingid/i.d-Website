@@ -18,17 +18,6 @@ global $img_folder;
 		<link rel="manifest" href="/manifest.json">
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f6b632">
 
-		<?php
-			if ( ! function_exists( '_wp_render_title_tag' ) ) :
-			function spi_render_title() {
-		?>
-			<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-			}
-			add_action( 'wp_head', 'spi_render_title' );
-			endif;
-		?>
-
 		<?php $theme_info = wp_get_theme(); ?>
 
 		<?php

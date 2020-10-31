@@ -24,8 +24,15 @@ global $img_folder;
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
 
-		<script src="https://kit.fontawesome.com/82730669d1.js"
-			async crossorigin="anonymous"></script>
+		<?php wp_enqueue_style('fa',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/fontawesome.min.css',
+			[], false ); ?>
+		<?php wp_enqueue_style('fa-brands',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/brands.min.css',
+			['fa'], false ); ?>
+		<?php wp_enqueue_style('fa-solid',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/solid.min.css',
+			['fa'], false ); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',

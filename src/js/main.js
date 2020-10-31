@@ -2,7 +2,6 @@ var ajaxurl;
 jQuery(document).ready(onDocReady);
 
 function onDocReady () {
-	var $ = jQuery;
 
 	ajaxurl = document.head.querySelector("[name=ajaxurl]").content;
 
@@ -34,9 +33,9 @@ function onDocReady () {
 
 function menuToggler () {
 
-	var menuToggle = $('.js-menu-toggle'),
-		menu = $('.primary-menu'),
-		subMenuToggle = $('.js-sub-menu-toggle');
+	var menuToggle = jQuery('.js-menu-toggle'),
+		menu = jQuery('.primary-menu'),
+		subMenuToggle = jQuery('.js-sub-menu-toggle');
 
 	menuToggle.click(function () {
 		menu.toggleClass('opened');
@@ -44,19 +43,19 @@ function menuToggler () {
 	});
 
 	subMenuToggle.click(function () {
-		$(this).next().toggleClass('opened');
-		$(this).toggleClass('opened');
+		jQuery(this).next().toggleClass('opened');
+		jQuery(this).toggleClass('opened');
 	});
 
 }
 
 function menuSticky() {
-	var primaryMenu = $('.primary-menu');
-	var biesImage = $('.bies__image');
+	var primaryMenu = jQuery('.primary-menu');
+	var biesImage = jQuery('.bies__image');
 	var posFromTop = primaryMenu.offset().top + 80;
 
-	$(window).scroll(function() {
-		var scroll = $(window).scrollTop();
+	jQuery(window).scroll(function() {
+		var scroll = jQuery(window).scrollTop();
 
 		if (scroll > posFromTop) {
 	    	primaryMenu.addClass("primary-menu--sticky");
@@ -70,16 +69,16 @@ function menuSticky() {
 }
 
 function fixVHAfterLoad() {
-	$('.fix-me').height($('.fix-me').height());
+	jQuery('.fix-me').height(jQuery('.fix-me').height());
 }
 
-function notFound($) {
+function notFound(jQuery) {
 	setTimeout(function() {
-		var container = $('.not-found');
-		$('.bies, .not-found').css('background-color', '#ef686c');
-		$('h1').html($('h1').text().replace('404', '4<span style="font-size: 0.44rem">0</span>4'));
+		var container = jQuery('.not-found');
+		jQuery('.bies, .not-found').css('background-color', '#ef686c');
+		jQuery('h1').html(jQuery('h1').text().replace('404', '4<span style="font-size: 0.44rem">0</span>4'));
 		setInterval(function() {
-			$('<div>44</div>').appendTo('.not-found')
+			jQuery('<div>44</div>').appendTo('.not-found')
 				.offset({
 					top: Math.floor(Math.random() * container.height()),
 					left: Math.floor(Math.random() * container.width())
@@ -89,16 +88,16 @@ function notFound($) {
 }
 
 function closeInMemoriam() {
-	$('.in-memoriam__link').click(function(e) {
+	jQuery('.in-memoriam__link').click(function(e) {
 		e.preventDefault();
-		$('.in-memoriam').remove();
+		jQuery('.in-memoriam').remove();
 	});
 }
 
 function openingHours() {
-	let hoursList = $('.opening_hours__full-list');
+	let hoursList = jQuery('.opening_hours__full-list');
 	hoursList.addClass('closed');
-	$('.opening_hours__link').click(function(e) {
+	jQuery('.opening_hours__link').click(function(e) {
 		e.preventDefault();
 		hoursList.toggleClass('closed');
 	})

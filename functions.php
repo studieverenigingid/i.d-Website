@@ -43,7 +43,6 @@
 
 
 	add_action( 'after_setup_theme', 'custom_theme_setup' );
-	add_action( 'wp_enqueue_scripts', 'modify_jquery' );
 	add_action( 'wp_ajax_nopriv_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_social_feed_ajax_request', 'social_feed_ajax_request' );
 	add_action( 'wp_ajax_nopriv_education_input', 'education_input' );
@@ -71,18 +70,6 @@
 	/* Add thumbnail size */
 	add_image_size( 'thumb--vacancy', 860, 500, array( 'center', 'center' ) );
 	add_image_size( 'thumb--news', 500, 350, array( 'center', 'center' ) );
-
-	/* Replace Wordpress’s version of jQuery with Google API version, since most
-		 browsers will have it in their cache. */
-	function modify_jquery() {
-		if (!is_admin()) {
-			wp_deregister_script('jquery');
-			wp_register_script('jquery',
-				'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
-				false, '3.5.1', true);
-			wp_enqueue_script('jquery');
-		}
-	}
 
 	// Echo page color (used in theme-color meta and header)
 	function theme_color($default) {

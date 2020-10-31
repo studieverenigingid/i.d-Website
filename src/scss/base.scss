@@ -30,6 +30,7 @@
 	Dependencies
 \*-------------------------------------*/
 @import 'grid';
+@import 'fonts';
 
 
 
@@ -38,8 +39,8 @@
 /*-------------------------------------*\
 	Variables (colors and fonts)
 \*-------------------------------------*/
-$font: 'Muli', sans-serif;
-$bold-weight: 700;
+$font: 'Mulish', sans-serif;
+$bold-weight: 800;
 $accent: #f6b632;
 $background--light: #fafafa;
 $background--dark: #11417e;

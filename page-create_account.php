@@ -7,7 +7,7 @@
 get_header();
 wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
-  <main id="site-content" class="about__top login login--create-account">
+  <main id="site-content" class="page-top login login--create-account">
 
 		<h1 class="login__title">
 	    <?php the_title(); ?>

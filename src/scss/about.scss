@@ -24,17 +24,6 @@
 \*-------------------------------------*/
 .about {
 
-	&__top {
-		padding: .1rem 5%;
-		margin: 0 0 5rem;
-		background: var(--theme-color);
-	}
-
-	&__title {
-		color: $background--light;
-		max-width: 30rem;
-	}
-
 	&__sub-title {
 		margin-top: .2em;
 		text-align: center;
@@ -42,21 +31,6 @@
 		&--light {
 			color: $background--light;
 		}
-	}
-
-	&__descr {
-		color: $background--light;
-		font-size: 1.3em;
-		max-width: 30rem;
-	}
-
-	&__thumb {
-		margin-bottom: -3rem;
-	}
-
-	&__img {
-		width: 100%;
-		height: auto;
 	}
 
 	&__descr-rest {
@@ -108,40 +82,6 @@
 
 		@media (min-width: $brk--tablet) {
 			margin: 5em 10%;
-		}
-	}
-
-	@media (min-width: $brk--phone) {
-		&__top {
-			padding: .1rem 8%;
-		}
-
-		&__thumb {
-			&:after {
-				display: block;
-				content: "";
-				clear: both;
-			}
-		}
-
-		&__img {
-			width: 70%;
-			float: right;
-		}
-	}
-
-	@media (min-width: $brk--tablet) {
-		&__top {
-			padding: 4rem 10%;
-		}
-
-		&__descr,
-		&__title {
-			max-width: 36rem;
-		}
-
-		&__thumb {
-			margin-bottom: -7rem;
 		}
 	}
 }

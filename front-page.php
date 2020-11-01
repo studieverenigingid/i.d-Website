@@ -217,7 +217,7 @@ wp_reset_postdata();
     <a class="social__link" target="_blank" rel="noreferrer">
   		<div class="social__container">
   		  <div class="social__title">
-  		    <i class="social__ico fa"></i>
+  		    <i class="social__ico fab"></i>
           <span class="social__text"></span>
   		  </div>
       </div>
@@ -337,7 +337,7 @@ wp_reset_postdata();
       </li>
       <li>
         <a href="<?php echo get_home_url(null, 'career/partner-companies'); ?>">
-          Become a partner
+          Our partners
         </a>
       </li>
       <li>

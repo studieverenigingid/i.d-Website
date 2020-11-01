@@ -9,34 +9,8 @@
 
 
 .education {
-  &__top {
-    background: var(--theme-color);
-    margin: 0;
-		padding: .1rem 5% 1rem;
-	}
-
-  @media (min-width: $brk--phone) {
-		&__top {
-			padding: .1rem 8% 1rem;
-		}
-  }
-
-  &__title {
-    color: $background--light;
-    font-size: 3em;
-    margin: 0;
-
-    &--light {
-      opacity: .7;
-    }
-  }
-
-  &__content {
-		color: $background--light;
-		max-width: 30rem;
-  }
-
-  &-process, &-news {
+  &-process,
+  &-news {
     h2 {
       text-align: center;
       color: $background--dark;

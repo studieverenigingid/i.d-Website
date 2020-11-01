@@ -1,7 +1,7 @@
 function formFails(form, data) {
 	// show error message
 	form.addClass('contact-form--failed');
-	var errorMessage = $('<div>');
+	var errorMessage = jQuery('<div>');
 	errorMessage.addClass('contact-form__message contact-form__message--failed');
 	errorMessage.text(data['error']);
 	form.append(errorMessage);
@@ -11,20 +11,21 @@ function formFails(form, data) {
 function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
 	form.addClass('contact-form--success');
-	var errorMessage = $('<div>');
+	var errorMessage = jQuery('<div>');
 	errorMessage.addClass('contact-form__message contact-form__message--success');
 	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
 	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
+	resetFormLink();
 }
 
 function ajaxFeedbackForm() {
-	$(document).on('submit' , 'form.contact-form__wrap', function(e) {
+	jQuery(document).on('submit' , 'form.contact-form__wrap', function(e) {
 
 		// prevent the browser from going to the method url
 		e.preventDefault();
 
-		var form = $(this);
+		var form = jQuery(this);
 
 		// show the user the browser and server are sending the message
 		form.addClass('contact-form--sending');
@@ -34,7 +35,7 @@ function ajaxFeedbackForm() {
 		data += '&submit=true';
 
 		// send the request to the server
-		$.ajax({
+		jQuery.ajax({
 			url: ajaxurl,
 			type: 'POST',
 			dataType: 'json',
@@ -56,14 +57,14 @@ function ajaxFeedbackForm() {
 
 function resetForm() {
 	// reset the form to allow for more feedback to be submitted
-	$('.contact-form__wrap').removeClass('contact-form--success');
-	$('.contact-form__input-message').val('');
+	jQuery('.contact-form__wrap').removeClass('contact-form--success');
+	jQuery('.contact-form__input-message').val('');
 	grecaptcha.reset();
 }
 
 function resetFormLink() {
 	// make the link trigger the reset
-	var resetLink = $('.js-reset-link');
+	var resetLink = jQuery('.js-reset-link');
 
 	resetLink.click(function(e) {
 		resetForm();
@@ -73,9 +74,9 @@ function resetFormLink() {
 function hideUpdateFields() {
 	// hide the fields for if the user wants updates about their feedback and
 	// toggle them with the checkbox in the form
-	var fields = $('.js-edu-hidable-fields'),
-		checkbox = $('.js-edu-checkbox'),
-		toggle = $('.js-edu-toggle');
+	var fields = jQuery('.js-edu-hidable-fields'),
+		checkbox = jQuery('.js-edu-checkbox'),
+		toggle = jQuery('.js-edu-toggle');
 
 	fields.hide();
 
@@ -86,18 +87,18 @@ function hideUpdateFields() {
 	checkbox.change(function() {
 		fields.toggle();
 		fields.children('input').each(function() {
-			if ($(this).attr('required')) {
-		        $(this).removeAttr('required');
+			if (jQuery(this).attr('required')) {
+		        jQuery(this).removeAttr('required');
 		    } else {
-		        $(this).attr('required', true);
+		        jQuery(this).attr('required', true);
 		    }
 		});
 	});
 }
 
 function rememberLoginToggle() {
-	var checkbox = $('.js-login-checkbox'),
-	toggle = $('.js-login-toggle');
+	var checkbox = jQuery('.js-login-checkbox'),
+	toggle = jQuery('.js-login-toggle');
 
 	toggle.click(function() {
 		checkbox.click();
@@ -107,8 +108,8 @@ function rememberLoginToggle() {
 
 
 function showHidePassword() {
-	$('.show-password').click(function() {
-		var toggle = $(this),
+	jQuery('.show-password').click(function() {
+		var toggle = jQuery(this),
 			field = toggle.prev('input'),
 			current = toggle.text();
 			other = toggle.attr('data-other');
@@ -150,16 +151,16 @@ function listenToForm(formId) {
 			return;
 		}
 
-		$(formId).removeClass(workingClass);
+		jQuery(formId).removeClass(workingClass);
 
 		// Otherwise tell it’s done...
-		var noti = $(notification)
+		var noti = jQuery(notification)
 			.addClass('notification--success')
 			.html(response['data']['message'])
 			.prependTo(formId);
 
 		// ...and reset the form
-		$(formId)[0].reset();
+		jQuery(formId)[0].reset();
 	}
 
 
@@ -179,11 +180,11 @@ function listenToForm(formId) {
 		} else {
 			userError = 'There has been an error we don’t even understand :/';
 		}
-		$(notification)
+		jQuery(notification)
 			.addClass('notification--failed')
 			.text(userError)
 			.prependTo(formId);
-		$(formId).removeClass(workingClass);
+		jQuery(formId).removeClass(workingClass);
 		if(typeof grecaptcha !== 'undefined') {
 			grecaptcha.reset();
 		}
@@ -191,16 +192,16 @@ function listenToForm(formId) {
 
 
 
-	$(document).on('submit', formId, function(e) {
+	jQuery(document).on('submit', formId, function(e) {
 
 		e.preventDefault();
 
-		$('.notification').remove();
-		$(this).addClass(workingClass);
+		jQuery('.notification').remove();
+		jQuery(this).addClass(workingClass);
 
-		var formData = new FormData($(this)[0]);
+		var formData = new FormData(jQuery(this)[0]);
 
-		$.ajax({
+		jQuery.ajax({
 			url: ajaxurl,
 			type: 'POST',
 			dataType: 'JSON',

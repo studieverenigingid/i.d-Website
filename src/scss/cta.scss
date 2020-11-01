@@ -66,11 +66,13 @@
     padding-left: 1.5em;
 
     li {
-      margin: .5em 0;
+      margin: 8px 0;
     }
 
     a {
       color: $text;
+      display: block;
+      padding: .1rem 0;
       text-decoration-color: var(--group-color, var(--theme-color));
     }
   }

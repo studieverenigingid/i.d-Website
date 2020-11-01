@@ -16,32 +16,23 @@ global $img_folder;
 		<link rel="icon" type="image/png" sizes="16x16"
 			href="/favicon-16x16.png?v=<?php echo $theme_info->version; ?>">
 		<link rel="manifest" href="/manifest.json">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55ccbb">
-
-		<?php
-			if ( ! function_exists( '_wp_render_title_tag' ) ) :
-			function spi_render_title() {
-		?>
-			<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-			}
-			add_action( 'wp_head', 'spi_render_title' );
-			endif;
-		?>
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f6b632">
 
 		<?php $theme_info = wp_get_theme(); ?>
 
-		<?php wp_enqueue_style('muli',
-		'https://fonts.googleapis.com/css2?family=Muli:wght@300;800&display=swap');
-		wp_enqueue_style('main',
+		<?php wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',
 			array(), $theme_info->version ); ?>
 
-		<?php wp_enqueue_style('fontawesome',
-		'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-		wp_enqueue_style('main',
-			get_template_directory_uri() . '/static/css/main.css',
-			array(), $theme_info->version ); ?>
+		<?php wp_enqueue_style('fa',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/fontawesome.min.css',
+			[], false ); ?>
+		<?php wp_enqueue_style('fa-brands',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/brands.min.css',
+			['fa'], false ); ?>
+		<?php wp_enqueue_style('fa-solid',
+			get_template_directory_uri() . '/static/fonts/fontawesome/css/solid.min.css',
+			['fa'], false ); ?>
 
 		<?php wp_enqueue_script( 'scripts',
 			get_template_directory_uri() . '/static/js/main.js',
@@ -67,7 +58,7 @@ global $img_folder;
 			?>
 
 			<a href="<?php echo $wpml_home_url; ?>">
-				<picture>
+				<picture class="bies__picture">
 					<source srcset="<?=$img_folder?>logo-mark.svg" type="image/svg+xml">
 					<img class="bies__image" alt="ID"
 						srcset="<?=$img_folder?>logo-mark.png 1x,
@@ -80,7 +71,8 @@ global $img_folder;
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary-menu',
 					'container' => false,
-					'menu_class' => 'primary-menu__list' ) ); ?>
+					'menu_class' => 'primary-menu__list',
+				 	'walker' => new Walker_Primary() ) ); ?>
 			</nav>
 
 		</header>

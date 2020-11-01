@@ -15,14 +15,14 @@ get_header(); ?>
 	$content_before = apply_filters( 'get_the_content', $explode_content[0] );
 	$content_after = apply_filters( 'the_content', $explode_content[1] );
 ?>
-<main id="site-content" class="about__top">
+<main id="site-content" class="page-top">
 
-	<h1 class="about__title"><?php the_title(); ?></h1>
-	<p class="about__descr"><?php echo $content_before; ?></p>
+	<h1 class="page-top__title"><?php the_title(); ?></h1>
+	<p class="page-top__descr"><?php echo $content_before; ?></p>
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="about__thumb">
+		<div class="page-top__thumb">
 			<?php the_post_thumbnail('post-thumbnail',
-				array( 'class' => 'about__img')
+				array( 'class' => 'page-top__img')
 			); ?>
 		</div>
 	<?php endif; ?>

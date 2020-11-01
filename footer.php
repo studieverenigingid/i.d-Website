@@ -58,19 +58,19 @@
 				<div>
 					<a rel="noopener" href="https://www.instagram.com/IDstudyassociation/"
 						class="button button--insta">
-						<i class="fa fa-instagram"></i> Instagram
+						<i class="fab fa-instagram"></i> Instagram
 					</a>
 					<a rel="noopener" href="https://www.facebook.com/IDstudyassociation/"
 						class="button button--facebook">
-						<i class="fa fa-facebook"></i> Facebook
+						<i class="fab fa-facebook-f"></i> Facebook
 					</a>
 					<a rel="noopener" href="https://www.flickr.com/photos/svid/"
 						class="button button--flickr">
-						<i class="fa fa-flickr"></i> Flickr
+						<i class="fab fa-flickr"></i> Flickr
 					</a>
 					<a rel="noopener" href="https://vimeo.com/studieverenigingid"
 						class="button button--vimeo">
-						<i class="fa fa-vimeo"></i> Vimeo
+						<i class="fab fa-vimeo-v"></i> Vimeo
 					</a>
 				</div>
 			</div>

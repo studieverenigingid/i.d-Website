@@ -7,38 +7,28 @@
 get_header();
 wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 
-<header id="site-content" class="contact--page__header
-	<?php if ( !has_post_thumbnail() ) echo 'contact--page__header--short-header'; ?>">
+<header id="site-content" class="page-top">
 
-	<div class="contact--page__short-info
-		<?php if ( !has_post_thumbnail() ) echo 'contact--page__short-info--short-header'; ?>">
+	<h1 class="page-top__title"><?php the_title(); ?></h1>
 
-		<h1 class="contact--page__name"><?php the_title(); ?></h1>
-
+	<div class="page-top__descr">
 		<?php
-		    // TO SHOW THE PAGE CONTENTS
-		    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-		        <div class="contact--page__contact">
-		            <?php the_content(); ?> <!-- Page Content -->
-		        </div><!-- .entry-content-page -->
-
-		    <?php
-		    endwhile; //resetting the page loop
-		    wp_reset_query(); //resetting the page query
-		?>
-
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="contact--page__thumb">
-				<?php
-				the_post_thumbnail(
-					'large',
-					array('class' => 'contact--page__img')
-				);
-				?>
-			</div>
-		<?php endif; ?>
-
+			if(have_posts()) : while(have_posts()) :
+				the_post();
+				the_content();
+			endwhile; endif; ?>
 	</div>
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="page-top__thumb page-top__thumb--overlap">
+			<?php
+			the_post_thumbnail(
+				'large',
+				array('class' => 'page-top__img')
+			);
+			?>
+		</div>
+	<?php endif; ?>
 
 </header>
 

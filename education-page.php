@@ -8,13 +8,13 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
-<main id="site-content" class="about__top">
+<main id="site-content" class="page-top">
 
-	<h1 class="education__title">
+	<h1 class="page-top__title">
     <?php the_title(); ?>
   </h1>
 
-	<div class="education__content">
+	<div class="page-top__descr">
 		<?php
 			if(have_posts()) : while(have_posts()) :
 				the_post();
@@ -23,9 +23,9 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	</div>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="about__thumb">
+		<div class="page-top__thumb">
 			<?php the_post_thumbnail('post-thumbnail',
-				array( 'class' => 'about__img')
+				array( 'class' => 'page-top__img')
 			); ?>
 		</div>
 	<?php endif; ?>
@@ -53,20 +53,6 @@ if($loop->have_posts()) : ?>
 <?php
 if( have_rows('feedback_step') ) { ?>
 	<div class="form-cols">
-
-		<section class="education-process" id="feedback-process">
-	    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
-	    <?php while( have_rows('feedback_step') ) {
-	      the_row();
-	      $img_url = get_sub_field('image')['sizes']['medium']; ?>
-	      <div class="education-process__item-wrap">
-	        <div class="education-process__item"
-	          style="background-image: url('<?= $img_url ?>')">
-	        </div>
-	        <h3 class="education-process__item-title"><?= get_sub_field('sub_title') ?></h3>
-	      </div>
-		  <?php } ?>
-	  </section>
 
 		<section class="contact-form" id="feedback-form">
 			<h2><?= esc_attr_x('Orange feedback note', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
@@ -137,6 +123,20 @@ if( have_rows('feedback_step') ) { ?>
 
 			</form>
 		</section>
+
+		<section class="education-process" id="feedback-process">
+	    <h2><?= esc_attr_x('What will we do with your feedback?', 'education-what-we-do-with-it', 'svid-theme-domain')?></h2>
+	    <?php while( have_rows('feedback_step') ) {
+	      the_row();
+	      $img_url = get_sub_field('image')['sizes']['medium']; ?>
+	      <div class="education-process__item-wrap">
+	        <div class="education-process__item"
+	          style="background-image: url('<?= $img_url ?>')">
+	        </div>
+	        <h3 class="education-process__item-title"><?= get_sub_field('sub_title') ?></h3>
+	      </div>
+		  <?php } ?>
+	  </section>
 
 	</div>
 <?php } ?>

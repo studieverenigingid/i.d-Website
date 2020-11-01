@@ -6,7 +6,7 @@
 
 get_header();
 ?>
-  <main id="site-content" class="about__top login">
+  <main id="site-content" class="page-top login">
 		<h1 class="login__title">
 	    <?php the_title(); ?>
 	  </h1>
@@ -42,20 +42,6 @@ get_header();
 		<div class="login__right-column">
 			<hr class="divider divider--light login__divider">
 			<span class="login__divider-text">or</span>
-			<div class="login__reg-text">
-				<?php echo sprintf(
-						__('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
-						esc_url( home_url('create_account') )
-				);
-				?>
-      </div>
-      <div class="login__reg-text">
-				<?php echo sprintf(
-						__('Forgot your password? <a href="%s" class="login__reg-link" target="_blank">Reset it here!</a>', 'svid-theme-domain' ),
-						esc_url( "https://id.lassie.cloud/auth/forgot_password" )
-				);
-				?>
-			</div>
 			<?php
 			/**
 			 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
@@ -66,7 +52,7 @@ get_header();
         if ( $SAML_Client->settings->get_enabled() ) {
           $saml_url = site_url('wp-login.php?use_sso=true');
           if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
-            $saml_url .= '?redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
+            $saml_url .= '&redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
           } ?>
 			<a href="<?php echo $saml_url; ?>"
 				class="login__netid button button--white">
@@ -75,6 +61,19 @@ get_header();
 			</a>
 		<?php } } ?>
 		</div>
+
+    <div class="login__reg-text">
+      <p>
+        <?php echo sprintf(
+          __('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
+          esc_url( home_url('create_account') ) ); ?>
+      </p>
+      <p>
+        <?php echo sprintf(
+          __('Forgot your password? <a href="%s" class="login__reg-link" target="_blank">Reset it here!</a>', 'svid-theme-domain' ),
+          esc_url( "https://id.lassie.cloud/auth/forgot_password" ) ); ?>
+      </p>
+    </div>
 
 
 	</main>

@@ -1,0 +1,64 @@
+/*-------------------------------------*\
+
+	ID WEBSITE WORDPRESS THEME: MESSAGE BOARD
+
+	See style.css for the WP info.
+
+	- Floris Jansen, id@fmjansen.nl
+
+	comments.scss:
+	+ comment (note) form
+  + comments (notes)
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Comment (note) form
+\*-------------------------------------*/
+.comment-respond {
+  // max-width:
+}
+
+$skew-size: 5.5em;
+
+.postid-field {
+  background: var(--theme-color);
+  box-sizing: border-box;
+  margin: 0 auto $skew-size;
+  padding: 1.5em;
+  position: relative;
+  width: 18em;
+
+  &:after {
+    background: inherit;
+    bottom: -$skew-size;
+    content: "";
+    display: block;
+    height: $skew-size;
+    left: 0;
+    position: absolute;
+    transform: skewY(-16.75deg);
+    transform-origin: 0 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__label {
+    display: block;
+    font-weight: $bold-weight;
+    line-height: 1;
+    margin-bottom: .5em;
+  }
+
+  &__comment {
+    background: transparentize($background--light, .8);
+    border: 0;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+}

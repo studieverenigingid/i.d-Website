@@ -183,16 +183,17 @@ iframe {
 	Buttons
 \*-------------------------------------*/
 .button {
-	display: inline-block;
-	padding: .7em 1.4em;
-	margin: 5px 0;
+	background: var(--theme-color);
+	border: 0;
 	border-radius: 50px;
 	color: $background--light;
-	text-decoration: none;
-	border: none;
-	font-size: 1em;
+	display: inline-block;
 	font-family: inherit;
-	background: var(--theme-color);
+	font-size: 1em;
+	font-weight: $bold-weight;
+	padding: .7em 1.4em;
+	margin: 5px 0;
+	text-decoration: none;
 
 	&:hover, &:focus {
 		filter: brightness(.9);

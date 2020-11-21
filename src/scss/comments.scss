@@ -1,0 +1,126 @@
+/*-------------------------------------*\
+
+	ID WEBSITE WORDPRESS THEME: MESSAGE BOARD
+
+	See style.css for the WP info.
+
+	- Floris Jansen, id@fmjansen.nl
+
+	comments.scss:
+	+ comment (note) form
+  + comments (notes)
+
+\*-------------------------------------*/
+
+
+
+
+
+/*-------------------------------------*\
+	Comment (note) form
+\*-------------------------------------*/
+.comment-respond {
+  margin: auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+.comment-form {
+  @extend .contact-form__wrap;
+
+  --theme-color: #{$background--dark};
+  color: $background--light;
+}
+
+.logged-in-as {
+  background: transparentize($background--light, .35);
+  border-radius: (.75rem / .8) (.75rem / .8) 0 0;
+  color: $background--dark;
+  font-size: .8em;
+  margin: (-.5rem / .8) (-1.5rem / .8) 1.5rem;
+  padding: .5em;
+  text-align: center;
+}
+
+.postid-field {
+
+  &__label {
+    display: block;
+    font-weight: $bold-weight;
+    line-height: 1;
+    margin-bottom: .5em;
+  }
+}
+
+
+
+
+
+/*-------------------------------------*\
+	Comments (notes)
+\*-------------------------------------*/
+.comment-list,
+.children {
+  list-style: none;
+  margin: 1.5em auto 2em;
+  max-width: 40rem;
+  padding: 0;
+}
+
+.comment {
+  background: transparentize($text, .97);
+  border-bottom: 1px solid #ddd;
+  padding: 1.5em;
+
+  &-meta {
+    overflow: hidden;
+  }
+
+  &-author {
+    align-items: center;
+    display: flex;
+    float: left;
+    justify-content: flex-start;
+  }
+}
+
+.avatar {
+  margin-right: .75em;
+}
+
+.says {
+  display: none;
+}
+
+.comment-metadata {
+  font-size: .9em;
+  padding-top: .4em;
+  opacity: .5;
+  clear: both;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (min-width: $brk--phone) {
+    clear: none;
+    float: right;
+  }
+
+  a {
+    color: $text;
+  }
+}
+
+.reply {
+  overflow: hidden;
+}
+
+.comment-reply-link {
+  float: right;
+  opacity: .5;
+
+  &:hover {
+    opacity: 1;
+  }
+}

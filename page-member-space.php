@@ -14,6 +14,10 @@ if (!is_user_logged_in()) {
   <h1 class="news-item__title--large"><?php the_title(); ?></h1>
 </header>
 
+<main class="primary-content news--page__content">
+  <?php the_content(); ?>
+</main>
+
 <?php
   comments_template();
 	get_footer();

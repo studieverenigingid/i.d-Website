@@ -13,25 +13,26 @@ $lassie_event_id = $_POST['lassie_event_id'];
 $current_user = wp_get_current_user();
 $lassie_user_id = (int)$current_user->user_login;
 
-// $event_subscription = Lassie::getModel(
-//   'person_model',
-//   'insert_subscription',
-//   array(
-//     'event_id' => $lassie_event_id,
-//     'person_id' => $lassie_user_id
-//   )
-// );
 $LassieInstance = new Lassie2\Instance(
 	get_option('lassie_url') . '/api/v2',
 	get_user_meta(get_current_user_id(), 'api-key', true),
 	get_user_meta(get_current_user_id(), 'api-secret', true),
   true
 );
-var_dump($LassieInstance->validate());
-var_dump(Lassie2\Person\Event::pay($LassieInstance, [
-  'activity_id' => 27,
+//var_dump($LassieInstance->validate());
+
+// TODO: Error handling invalid instance
+
+$LassieResponse = Lassie2\Person\Event::pay($LassieInstance, [
+  'activity_id' => $lassie_event_id,
   'mollie_redirect_url' => 'https://demo.lassie.cloud/',
-]));
+]);
+
+// TODO: Error handling transaction
+
+var_dump($LassieResponse->transactions->mollie_transaction);
+
+// TODO: return mollie transaction URL for redirect
 
 // print_r($event_subscription);
 //

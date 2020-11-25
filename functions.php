@@ -1,5 +1,7 @@
 <?php
 
+	include( 'inc/helpers.php' );
+
 	include( 'inc/color-custom-fields.php' );
 
 	include( 'inc/customize-controls.php' );

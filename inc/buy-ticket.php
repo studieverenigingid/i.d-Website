@@ -8,37 +8,30 @@ if ( !isset( $_POST['_wpnonce'] )
 
 }
 
+// Get the event ID
 $lassie_event_id = $_POST['lassie_event_id'];
 
-$current_user = wp_get_current_user();
-$lassie_user_id = (int)$current_user->user_login;
-
+// Create Lassie instance for api calls
 $LassieInstance = new Lassie2\Instance(
 	get_option('lassie_url') . '/api/v2',
 	get_user_meta(get_current_user_id(), 'api-key', true),
 	get_user_meta(get_current_user_id(), 'api-secret', true),
-  true
+  false
 );
-//var_dump($LassieInstance->validate());
 
-// TODO: Error handling invalid instance
+// Check we can actually call the API, disappoint the user if not
+if(!$LassieInstance->validate())
+	send_failure( __( 'Our system couldn’t find you properly. Weird, right? We’re afraid you have to contact us at svid@tudelft.nl', 'svid-theme-domain' ), 403 );
 
+// Send call to Lassie to sign up for the event and create a payment instance
 $LassieResponse = Lassie2\Person\Event::pay($LassieInstance, [
   'activity_id' => $lassie_event_id,
-  'mollie_redirect_url' => 'https://demo.lassie.cloud/',
+  'mollie_redirect_url' => $_POST['event_url'] . '?return_from=mollie',
 ]);
 
-// TODO: Error handling transaction
+// TODO: Error handling transaction creation?
 
-var_dump($LassieResponse->transactions->mollie_transaction);
+$response['mollie_url'] = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;
+$response['message'] = "We’re redirecting you to our payment provider, see you soon!";
 
-// TODO: return mollie transaction URL for redirect
-
-// print_r($event_subscription);
-//
-// $response['event'] = $event_subscription;
-// $response['message'] = sprintf("you signed up user %s for event %s", $lassie_user_id, $lassie_event_id);
-// $response['user_id'] = $lassie_user_id;
-// $response['lassie_event_id'] = $lassie_event_id;
-//
-// wp_send_json_success($response);
+wp_send_json_success($response);

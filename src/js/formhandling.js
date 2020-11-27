@@ -151,13 +151,18 @@ function listenToForm(formId) {
 			return;
 		}
 
-		jQuery(formId).removeClass(workingClass);
-
 		// Otherwise tell it’s done...
 		var noti = jQuery(notification)
 			.addClass('notification--success')
 			.html(response['data']['message'])
 			.prependTo(formId);
+
+		if (response['data']['mollie_url']) {
+			// We’re working on a transaction, let’s get that dough
+			window.location = response['data']['mollie_url'];
+		}
+
+		jQuery(formId).removeClass(workingClass);
 
 		// ...and reset the form
 		jQuery(formId)[0].reset();

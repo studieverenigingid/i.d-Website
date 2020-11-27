@@ -104,55 +104,7 @@
 			}
 		?>
 
-		<?php
-			// TODO: check if members only and also show when not logged in
-			$lassie_event_id = get_field('lassie_event_id');
-			if($lassie_event_id) {
-				$lassie_event_costs = 10; // TODO: get costs from Lassie event
-			?>
-				<form class="tickets" method="post" id="buy_tickets_form"
-					action="<?=esc_url( admin_url('admin-post.php') ) ?>">
-
-					<h3 class="tickets__title">
-						<?php echo __('Get your ticket', 'ID ticket title', 'svid-theme-domain'); ?>
-					</h3>
-					<?php if(is_user_logged_in()) { ?>
-						<p class="tickets__explanation">
-							<?php echo sprintf(
-								__('To attend %s, you need to buy a ticket. They cost €%s each and you can only buy one per person, since it’s a members only event.', 'ID ticket explanation', 'svid-theme-domain'),
-								get_the_title(),
-								$lassie_event_costs
-							); ?>
-						</p>
-						<input type="hidden" name="lassie_event_id"
-							value="<?php echo $lassie_event_id; ?>">
-						<input type="hidden" name="action" value="buy_ticket">
-						<?php wp_nonce_field( $action = 'buy_ticket' ); ?>
-						<button class="button" type="submit">
-							<?php echo __('Get your ticket', 'ID ticket link text', 'svid-theme-domain'); ?>
-						</button>
-
-					<?php } else { ?>
-						<p class="tickets__explanation">
-							<?php echo sprintf(
-								__('For %s you need to buy tickets. However, since this event is for members, only, you need to log in first.', 'ID ticket explanation', 'svid-theme-domain'),
-								get_the_title()
-							); ?>
-						</p>
-						<a href="<?php echo wp_login_url( get_permalink() ); ?>" class="button">
-							Login
-						</a>
-					<?php } ?>
-
-				</form>
-		<?php
-				// echo get_field('lassie_event_id');
-				// $lassie_event = Lassie::getModel('event_model', 'get_open_events', array('public_only' => false) );
-				// print_r($lassie_event);
-				// $person = Lassie::getModel('person_model', 'get_populated_person', array('person_id' => 3106));
-				// print_r($person);
-			}
-		?>
+		<?php include('inc/lassie-event.php'); ?>
 
 		<?php the_content(); ?>
 

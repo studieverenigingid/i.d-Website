@@ -53,6 +53,9 @@ if (is_user_logged_in()) {
   // $LassieTransaction = Lassie2\Transaction::getTransaction($LassieModelInstance, [
   //   'transaction_id' => $eventSubscription->transaction_id
   // ]);
+  // $LassieTransaction = Lassie2\Model\TransactionModel::get_transaction_by_id($LassieModelInstance, [
+  //   'transaction_id' => $eventSubscription->transaction_id
+  // ]);
   // var_dump($LassieTransaction);
 }
 ?>

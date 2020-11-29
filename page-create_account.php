@@ -74,7 +74,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 				</div>
 
 				<p class="form-group">
-					<input type="hidden" name="language" value="<?=constant('ICL_LANGUAGE_CODE')?>">
 					<input type="hidden" name="action" value="user_create_account">
 					<?php wp_nonce_field( $action = 'user_create_account' ); ?>
 

@@ -821,8 +821,7 @@ $ajax-load-size: 44px;
 	margin: .5em 0;
 
 	&--success {
-		border: 2px solid $background--light;
-		background: transparentize(black, 0.9);
+		background: $success-color;
 		color: $background--light;
 
 		&--dark {
@@ -831,7 +830,7 @@ $ajax-load-size: 44px;
 	}
 
 	&--failed {
-		background: #ca1414;
+		background: $error-color;
 		color: $background--light;
 	}
 

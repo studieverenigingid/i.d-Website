@@ -64,6 +64,9 @@ get_header();
 
     <div class="login__reg-text">
       <p>
+        <?php echo __('<strong>Do you want to become a member?</strong> Cool! For identification purposes, you should come by the counter at the faculty of IDE. Trust us, it’s worth it.', 'svid-theme-domain' ); ?>
+      </p>
+      <p>
         <?php echo sprintf(
           __('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),
           esc_url( home_url('create_account') ) ); ?>

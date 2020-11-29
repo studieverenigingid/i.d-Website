@@ -76,13 +76,6 @@
 			</div>
 
 		</footer>
-		<?php if (current_user_can('administrator')) { ?>
-			<a href="javascript:location.reload(true);">
-				<div class="force-refresh-button">
-					<i class="fa fa-refresh" aria-hidden="true"></i>
-				</div>
-			</a>
-		<?php } ?>
 
 		<?php wp_footer(); ?>
 

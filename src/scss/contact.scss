@@ -303,14 +303,6 @@
     max-width: 33.3rem;
   }
 
-  &__message--success {
-    background: $success-color;
-  }
-
-  &__message--failed {
-    background: #ca1414;
-  }
-
   &__link {
     color: $background--light;
   }

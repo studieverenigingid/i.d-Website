@@ -31,7 +31,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 						$message,
 						esc_url( home_url('login') )
 					);
-					echo '<h4 class="login__form--success">'.$message.'</h4>';
+					echo '<h4 class="notification notification--success">'.$message.'</h4>';
 				}
 			}
 			?>

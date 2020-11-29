@@ -81,10 +81,6 @@
     background: var(--group-color, var(--theme-color));
     text-align: center;
     width: 100%;
-
-    &:hover {
-      filter: contrast(85%);
-    }
   }
 
   & + .pri-footer {

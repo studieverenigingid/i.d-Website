@@ -1,4 +1,4 @@
-var notification = '<h4 class="notification"></h4>',
+var notification = '<p class="notification"></p>',
 	working;
 
 function userInfoEdit() {

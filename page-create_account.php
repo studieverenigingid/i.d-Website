@@ -14,9 +14,9 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 	  </h1>
 
     <?php if (is_user_logged_in()): ?>
-		<h4 class="notification notification--failed">
+		<p class="notification notification--failed">
 			<?php echo esc_attr_e('It appears you are already logged in. Use the menu to see a whole new world! ✨', 'svid-theme-domain'); ?>
-		</h4></main>
+		</p></main>
 		<?php else: ?>
 
 		<div class="login__form">
@@ -31,7 +31,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 						$message,
 						esc_url( home_url('login') )
 					);
-					echo '<h4 class="login__form--success">'.$message.'</h4>';
+					echo '<p class="notification notification--success">'.$message.'</p>';
 				}
 			}
 			?>
@@ -74,7 +74,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 				</div>
 
 				<p class="form-group">
-					<input type="hidden" name="language" value="<?=constant('ICL_LANGUAGE_CODE')?>">
 					<input type="hidden" name="action" value="user_create_account">
 					<?php wp_nonce_field( $action = 'user_create_account' ); ?>
 

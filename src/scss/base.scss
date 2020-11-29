@@ -187,6 +187,7 @@ iframe {
 	border: 0;
 	border-radius: 50px;
 	color: $background--light;
+	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
 	font-size: 1em;
@@ -194,15 +195,19 @@ iframe {
 	padding: .7em 1.4em;
 	margin: 5px 0;
 	text-decoration: none;
+	text-shadow: 0 .05em .05em transparentize(black, .8);
 
-	&:hover, &:focus {
-		filter: brightness(.9);
+	&:hover,
+	&:focus {
+		box-shadow: 0 .1em .1em transparentize(black, .8);
+		transform: translateY(-.05em);
 	}
 
 	&--light {
 		background: none;
 		border: 1px solid var(--theme-color);
 		color: var(--theme-color);
+		text-shadow: none;
 	}
 
 	&--white {
@@ -212,9 +217,9 @@ iframe {
 
 		&:hover,
 		&:focus {
-			color: var(--theme-color);
 			background: $background--light;
-			filter: none;
+			color: var(--theme-color);
+			text-shadow: none;
 		}
 	}
 
@@ -568,8 +573,8 @@ td {
 }
 
 .menu-item--external a::after {
-	content: "\f08e";
-	font-family: FontAwesome;
+	content: "\f35d";
+	font-family: "Font Awesome 5 Free";
 	margin-left: 5px;
 }
 
@@ -816,8 +821,7 @@ $ajax-load-size: 44px;
 	margin: .5em 0;
 
 	&--success {
-		border: 2px solid $background--light;
-		background: transparentize(black, 0.9);
+		background: $success-color;
 		color: $background--light;
 
 		&--dark {
@@ -826,7 +830,7 @@ $ajax-load-size: 44px;
 	}
 
 	&--failed {
-		background: #ca1414;
+		background: $error-color;
 		color: $background--light;
 	}
 

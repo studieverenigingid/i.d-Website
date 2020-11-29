@@ -284,31 +284,11 @@
     }
   }
 
-  &--success {
-    .contact-form__message--failed {
-      opacity: 0;
-    }
-  }
-
-  &--failed {
-    .contact-form__message--success {
-      opacity: 0;
-    }
-  }
-
   &__message {
     color: $background--light;
     margin: .5em auto;
     padding: 1em;
     max-width: 33.3rem;
-  }
-
-  &__message--success {
-    background: $success-color;
-  }
-
-  &__message--failed {
-    background: #ca1414;
   }
 
   &__link {

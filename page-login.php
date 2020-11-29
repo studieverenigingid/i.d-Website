@@ -12,9 +12,9 @@ get_header();
 	  </h1>
 
 		<?php if (is_user_logged_in()): ?>
-		<h4 class="notification notification--failed">
+		<p class="notification notification--failed">
 			<?php echo esc_attr_e('It appears you are already logged in. Use the menu to see a whole new world! ✨', 'svid-theme-domain'); ?>
-		</h4></main>
+		</p></main>
 		<?php else: ?>
 
 		<div class="login__form">
@@ -24,13 +24,13 @@ get_header();
 					$login = $_GET['login'];
 
 					if ( $login === "failed" ) {
-					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Invalid username and/or password.', 'Invalid username and/or password error', 'svid-theme-domain').'</h4>';
+					  echo '<p class="notification notification--failed">'.esc_attr_x('Invalid username and/or password.', 'Invalid username and/or password error', 'svid-theme-domain').'</p>';
           } elseif ( $login === "empty" ) {
-					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Username and/or password is empty.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
+					  echo '<p class="notification notification--failed">'.esc_attr_x('Username and/or password is empty.', 'Username and/or password is empty error', 'svid-theme-domain').'</p>';
           } elseif ( $login === "unknown_netid" ) {
-					  echo '<h4 class="notification notification--failed">'.esc_attr_x('Your NetID is not connected to an account on this website. Please try logging in with your username and password; this functionality should work afterwards. If you do not have a password, please register. If those actions do not help, please verify with us that your NetID is known to us.', 'Username and/or password is empty error', 'svid-theme-domain').'</h4>';
+					  echo '<p class="notification notification--failed">'.esc_attr_x('Your NetID is not connected to an account on this website. Please try logging in with your username and password; this functionality should work afterwards. If you do not have a password, please register. If those actions do not help, please verify with us that your NetID is known to us.', 'Username and/or password is empty error', 'svid-theme-domain').'</p>';
 					} elseif ( $login === "false" ) {
-					  echo '<h4 class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</h4>';
+					  echo '<p class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</p>';
 					}
 				}
 			?>
@@ -63,6 +63,9 @@ get_header();
 		</div>
 
     <div class="login__reg-text">
+      <p>
+        <?php echo __('<strong>Do you want to become a member?</strong> Cool! For identification purposes, you should come by the counter at the faculty of IDE. Trust us, it’s worth it.', 'svid-theme-domain' ); ?>
+      </p>
       <p>
         <?php echo sprintf(
           __('Don’t have an account yet? <a href="%s" class="login__reg-link">Create it here!</a>', 'svid-theme-domain' ),

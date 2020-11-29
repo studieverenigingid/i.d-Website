@@ -360,7 +360,7 @@ $groups:
 	}
 
 	&--page {
-		background: var(--theme-color);
+		background: var(--theme-color, $accent);
 		padding: 1em;
 
 		&__avatar {

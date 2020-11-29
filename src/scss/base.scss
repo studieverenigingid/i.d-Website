@@ -195,15 +195,19 @@ iframe {
 	padding: .7em 1.4em;
 	margin: 5px 0;
 	text-decoration: none;
+	text-shadow: 0 .05em .05em transparentize(black, .8);
 
-	&:hover, &:focus {
-		filter: brightness(.9);
+	&:hover,
+	&:focus {
+		box-shadow: 0 .1em .1em transparentize(black, .8);
+		transform: translateY(-.05em);
 	}
 
 	&--light {
 		background: none;
 		border: 1px solid var(--theme-color);
 		color: var(--theme-color);
+		text-shadow: none;
 	}
 
 	&--white {
@@ -213,9 +217,9 @@ iframe {
 
 		&:hover,
 		&:focus {
-			color: var(--theme-color);
 			background: $background--light;
-			filter: none;
+			color: var(--theme-color);
+			text-shadow: none;
 		}
 	}
 

@@ -12,10 +12,11 @@ function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
 	form.addClass('contact-form--success');
 	var errorMessage = jQuery('<div>');
-	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
-	form.append(errorMessage);
 	errorMessage.addClass('notification notification--success');
+	errorMessage.html('Your input was sent, thanks! <a href="./#feedback-form" class="contact-form__link">I have even more feedback.</a>');
+	form.html(errorMessage);
 	form.removeClass('contact-form--sending');
+	window.location.hash = "feedback-form";
 	resetFormLink();
 }
 

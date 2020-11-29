@@ -111,7 +111,7 @@ gulp.task('serve', function() {
     browserSync.init({
         files: ['_site/**'],
         port: 3000,
-        proxy: '127.0.0.1:8080'
+        proxy: 'https://id.local'
     });
 
     gulp.watch(src + "scss/*.scss", gulp.series('sassDev'));

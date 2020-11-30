@@ -29,13 +29,13 @@ $LassieEvent = Lassie2\Model\EventModel::get_event_by_id($LassieModelInstance, [
 
 
 
+$user_has_tickets = false;
 if (is_user_logged_in()) {
   // Get event subscriptions for person
   $lassie_user_id = (int)$current_user->user_login;
   $LassieEventSubscriptions = Lassie2\Model\PersonModel::get_events_by_person_id($LassieModelInstance, [
     'person_id' => $lassie_user_id
   ]);
-  $user_has_tickets = ($LassieEventSubscriptions->$lassie_event_id) ? true : false;
   // var_dump($LassieEventSubscriptions);
 
   // Get subscriptions for person
@@ -51,7 +51,10 @@ if (is_user_logged_in()) {
     'transaction_id' => $eventSubscription->transaction_id,
     'module_name' => 'finance'
   ]);
-  var_dump($LassieTransaction);
+  $user_has_tickets = (bool)$LassieEventSubscriptions->$lassie_event_id &&
+    (bool)$LassieTransaction->active;
+  $transaction_info = $LassieTransaction->extra_info;
+  // var_dump($LassieTransaction);
 }
 ?>
 
@@ -68,13 +71,12 @@ if (is_user_logged_in()) {
 <?php
 // Did we return from Mollie?
 if ($_GET['return_from'] == 'mollie'): // yes
+  // Does Lassie say there’s a subscription?
   if ($user_has_tickets):
-    // transaction_id get_transaction_by_id
     notification( "<strong>Yeah!</strong> Thanks for buying your ticket to $LassieEvent->name!",
       'success' );
-      // TODO: catch failed transactions
   else:
-    notification( "<strong>The payment didn’t come through.</strong> Well this is shitty, either you didn’t pay or our system screwed up considerably. In case it’s the latter, please contact us at svid@tudelft.nl and we’ll try to sort it out.",
+    notification( "<strong>Payment didn’t come through.</strong> Well this is shitty, either you didn’t pay or our system screwed up (it says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
       'failed' );
   endif;
   // TODO: check if suscription succeeded for non-members
@@ -183,8 +185,13 @@ else: // yes
           // If the event is members only, is the user logged in (and thus member)?
           else: // yes
 
+            // Is the user logged in?
+            if (!is_user_logged_in()):
+              notification( "We’re terribly sorry, but right now our ticket system only works for members.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button'>Login</a>",
+                'info' );
+
             // Did the user already buy a ticket?
-            if ($user_has_tickets): // yes
+            elseif ($user_has_tickets): // yes
               // Display ticket
               $buyingMoment = new DateTime($eventSubscription->create_timestamp); ?>
               <div class="ticket">

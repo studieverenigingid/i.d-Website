@@ -29,8 +29,8 @@ $LassieEvent = Lassie2\Model\EventModel::get_event_by_id($LassieModelInstance, [
 
 
 
-// Get event subscriptions if logged in
 if (is_user_logged_in()) {
+  // Get event subscriptions for person
   $lassie_user_id = (int)$current_user->user_login;
   $LassieEventSubscriptions = Lassie2\Model\PersonModel::get_events_by_person_id($LassieModelInstance, [
     'person_id' => $lassie_user_id
@@ -38,6 +38,7 @@ if (is_user_logged_in()) {
   $user_has_tickets = ($LassieEventSubscriptions->$lassie_event_id) ? true : false;
   // var_dump($LassieEventSubscriptions);
 
+  // Get subscriptions for person
   $LassiePersonSubscriptions = Lassie2\Model\PersonModel::get_subscriptions_by_person_id($LassieModelInstance, [
     'person_id' => $lassie_user_id
   ]);
@@ -45,7 +46,7 @@ if (is_user_logged_in()) {
   $eventSubscription = $LassiePersonSubscriptions->$subscriptionId;
   // var_dump($eventSubscription);
 
-  // TODO: get transaction to retrieve status
+  // Get transaction to retrieve status based on event subscription
   $LassieTransaction = Lassie2\Model\TransactionModel::getTransactionById($LassieModelInstance, [
     'transaction_id' => $eventSubscription->transaction_id,
     'module_name' => 'finance'

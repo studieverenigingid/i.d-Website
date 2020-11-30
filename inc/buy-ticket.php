@@ -12,19 +12,14 @@ if ( !isset( $_POST['_wpnonce'] )
 $lassie_event_id = $_POST['lassie_event_id'];
 
 // Create Lassie instance for api calls
-$LassieInstance = new Lassie2\Instance(
-	get_option('lassie_url') . '/api/v2',
-	get_user_meta(get_current_user_id(), 'api-key', true),
-	get_user_meta(get_current_user_id(), 'api-secret', true),
-  false
-);
+$personInstance = Lassie::getPersonApi();
 
 // Check we can actually call the API, disappoint the user if not
-if(!$LassieInstance->validate())
+if(!$personInstance->validate())
 	send_failure( __( 'Our system couldn’t find you properly. Weird, right? We’re afraid you have to contact us at svid@tudelft.nl', 'svid-theme-domain' ), 403 );
 
 // Send call to Lassie to sign up for the event and create a payment instance
-$LassieResponse = Lassie2\Person\Event::pay($LassieInstance, [
+$LassieResponse = Lassie\Person\Event::pay($personInstance, [
   'activity_id' => $lassie_event_id,
   'mollie_redirect_url' => $_POST['event_url'] . '?return_from=mollie',
 ]);

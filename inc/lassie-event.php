@@ -15,13 +15,8 @@ function notification($message, $status = 'failed') {
 
 
 // Prepare Lassie Model Instance, then get event data
-$LassieModelInstance = new Lassie2\Instance(
-	get_option('lassie_url') . '/api/v2',
-	get_option('lassie_api_model_key'),
-	get_option('lassie_api_model_secret'),
-  false
-);
-$LassieEvent = Lassie2\Model\EventModel::get_event_by_id($LassieModelInstance, [
+$LassieModelInstance = Lassie::getLassieApi();
+$LassieEvent = Lassie\Model\EventModel::get_event_by_id($LassieModelInstance, [
   'id' => $lassie_event_id,
 ]);
 // var_dump($LassieEvent);
@@ -33,13 +28,14 @@ $user_has_tickets = false;
 if (is_user_logged_in()) {
   // Get event subscriptions for person
   $lassie_user_id = (int)$current_user->user_login;
-  $LassieEventSubscriptions = Lassie2\Model\PersonModel::get_events_by_person_id($LassieModelInstance, [
+  $LassieEventSubscriptions = Lassie\Model\PersonModel::get_events_by_person_id($LassieModelInstance, [
     'person_id' => $lassie_user_id
   ]);
+  $user_has_subscription = (bool)$LassieEventSubscriptions->$lassie_event_id;
   // var_dump($LassieEventSubscriptions);
 
   // Get subscriptions for person
-  $LassiePersonSubscriptions = Lassie2\Model\PersonModel::get_subscriptions_by_person_id($LassieModelInstance, [
+  $LassiePersonSubscriptions = Lassie\Model\PersonModel::get_subscriptions_by_person_id($LassieModelInstance, [
     'person_id' => $lassie_user_id
   ]);
   $subscriptionId = $LassieEventSubscriptions->$lassie_event_id->persons_events_id;
@@ -47,12 +43,12 @@ if (is_user_logged_in()) {
   // var_dump($eventSubscription);
 
   // Get transaction to retrieve status based on event subscription
-  $LassieTransaction = Lassie2\Model\TransactionModel::getTransactionById($LassieModelInstance, [
+  $LassieTransaction = Lassie\Model\TransactionModel::get_transaction_by_id($LassieModelInstance, [
     'transaction_id' => $eventSubscription->transaction_id,
     'module_name' => 'finance'
   ]);
-  $user_has_tickets = (bool)$LassieEventSubscriptions->$lassie_event_id &&
-    (bool)$LassieTransaction->active;
+  $user_has_paid = (bool)$LassieTransaction->active;
+  $user_has_tickets = $user_has_subscription && $user_has_paid;
   $transaction_info = $LassieTransaction->extra_info;
   // var_dump($LassieTransaction);
 }
@@ -71,15 +67,20 @@ if (is_user_logged_in()) {
 <?php
 // Did we return from Mollie?
 if ($_GET['return_from'] == 'mollie'): // yes
-  // Does Lassie say there’s a subscription?
-  if ($user_has_tickets):
+  // Did the user buy tickets?
+  if ($user_has_tickets): // yes
     notification( "<strong>Yeah!</strong> Thanks for buying your ticket to $LassieEvent->name!",
       'success' );
-  else:
+  // Did the user buy tickets?
+  else: // no
     notification( "<strong>Payment didn’t come through.</strong> Well this is shitty, either you didn’t pay or our system screwed up (it says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
       'failed' );
-  endif;
+  endif; // Did the user buy tickets?
   // TODO: check if suscription succeeded for non-members
+// Did we return from Mollie?
+elseif($user_has_subscription && !$user_has_paid): // no, but the user has an unpaid subscription
+  notification( "It looks like you tried to buy a ticket recently, but the payment didn’t come through. (The system says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
+    'info' );
 endif; // Did we return from Mollie?
 
 

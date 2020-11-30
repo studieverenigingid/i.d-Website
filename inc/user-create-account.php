@@ -57,10 +57,11 @@ if (!$success_status) {
 * @return $result_arr array|bool
 */
 function createAccount($username, $password) {
-	$result_arr = Lassie::getPersonAuthApi()->post('person_create_login', array(
+	$lassieInstance = Lassie::getLassieApi();
+	$result_arr = $lassieInstance->performRequest('POST', 'auth/login/create', [
 		'username' => $username,
 		'password' => $password
-	));
+	]);
 
 	return $result_arr;
 }

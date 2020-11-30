@@ -46,34 +46,11 @@ if (is_user_logged_in()) {
   // var_dump($eventSubscription);
 
   // TODO: get transaction to retrieve status
-  // $LassieTransaction = Lassie2\Model\TransactionModel::get_latest_payments_by_person_id($LassieModelInstance, [
-  //   'person_id' => $lassie_user_id,
-  //   'limit' => 10
-  // ]);
-  // $LassieTransaction = Lassie2\Transaction::getTransaction($LassieModelInstance, [
-  //   'transaction_id' => $eventSubscription->transaction_id
-  // ]);
-  // $LassieTransaction = Lassie2\Model\TransactionModel::get_transaction_by_id($LassieModelInstance, [
-  //   'transaction_id' => $eventSubscription->transaction_id
-  // ]);
-
-  // $LassiePersonInstance = new Lassie2\Instance(
-  // 	get_option('lassie_url') . '/api/v2',
-  // 	get_user_meta(get_current_user_id(), 'api-key', true),
-  // 	get_user_meta(get_current_user_id(), 'api-secret', true),
-  //   true
-  // );
-  //
-  // // Check we can actually call the API, disappoint the user if not
-  // if(!$LassiePersonInstance->validate())
-  // 	send_failure( __( 'Our system couldn’t find you properly. Weird, right? We’re afraid you have to contact us at svid@tudelft.nl', 'svid-theme-domain' ), 403 );
-  //
-  // // Send call to Lassie to sign up for the event and create a payment instance
-  // $LassieTransaction = Lassie2\Person::payments($LassiePersonInstance, [
-  //   'selection' => 'subscriptions'
-  // ]);
-  //
-  // var_dump($LassieTransaction);
+  $LassieTransaction = Lassie2\Model\TransactionModel::getTransactionById($LassieModelInstance, [
+    'transaction_id' => $eventSubscription->transaction_id,
+    'module_name' => 'finance'
+  ]);
+  var_dump($LassieTransaction);
 }
 ?>
 

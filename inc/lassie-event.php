@@ -58,9 +58,9 @@ if (is_user_logged_in()) {
 
 <div class="tickets" id="tickets">
 
-  <h3 class="tickets__title">
-    <?php echo __('Tickets', 'ID ticket title', 'svid-theme-domain'); ?>
-  </h3>
+  <h2 class="tickets__title">
+    <?php echo __("Tickets: €$LassieEvent->fee", 'ID ticket title', 'svid-theme-domain'); ?>
+  </h2>
 
 
 
@@ -106,9 +106,6 @@ else: // yes
 
   // Does the Lassie event exist?
   else: // yes ?>
-
-
-    <?php if (!$user_has_tickets) echo "$LassieEvent->name for €$LassieEvent->fee"; ?>
 
 
   <?php
@@ -178,7 +175,7 @@ else: // yes
           // If the event is members only, is the user logged in (and thus member)?
           if ($LassieEvent->member_only &&
               !is_user_logged_in()): // no
-              notification( "Since this event is members only, you need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button'>Login</a>",
+              notification( "Since this event is members only, you need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
                 'info' );
 
 
@@ -188,7 +185,7 @@ else: // yes
 
             // Is the user logged in?
             if (!is_user_logged_in()):
-              notification( "We’re terribly sorry, but right now our ticket system only works for members.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button'>Login</a>",
+              notification( "We’re terribly sorry, but right now our ticket system only works for members.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
                 'info' );
 
             // Did the user already buy a ticket?
@@ -196,7 +193,7 @@ else: // yes
               // Display ticket
               $buyingMoment = new DateTime($eventSubscription->create_timestamp); ?>
               <div class="ticket">
-                <h4 class="ticket__title">Your ticket for <?php echo $LassieEvent->name; ?></h4>
+                <h3 class="ticket__title">Your ticket for <?php echo $LassieEvent->name; ?></h3>
                 <p class="ticket__message">We can see this in our system, so there’s no separate ticket. But it might speed things up if you can show this page when you arrive at the event. See you there!</p>
                 <p class="ticket__bought-at">Bought on <?php echo $buyingMoment->format('F jS, Y \a\t G:i'); ?></p>
               </div>
@@ -205,7 +202,7 @@ else: // yes
             <?php // Did the user already buy a ticket?
             else: // no
               // Wow, we can actually start selling those sweet tickets ?>
-              <form class="tickets" method="post" id="buy_tickets_form"
+              <form method="post" id="buy_tickets_form"
                 action="<?=esc_url( admin_url('admin-post.php') ) ?>">
 
                 <?php // TODO: add fields for non-member purchases ?>
@@ -220,13 +217,13 @@ else: // yes
 
                 <?php wp_nonce_field( $action = 'buy_ticket' ); ?>
 
-                <button class="button" type="submit">
+                <button class="button tickets__buy" type="submit">
                   <?php echo __('Get your ticket', 'ID ticket link text', 'svid-theme-domain'); ?>
                 </button>
 
               </form><?php
 
-              echo "There are $ticketsLeft tickets left (or maybe even less if the ticket sale is going 🔥).";
+              echo "<p class='tickets__status'>There are $ticketsLeft tickets left (or maybe even less if the ticket sale is going 🔥).</p>";
 
             endif; // Did the user already buy a ticket?
 

@@ -56,7 +56,7 @@ if (is_user_logged_in()) {
 
 
 
-<div class="tickets">
+<div class="tickets" id="tickets">
 
   <h3 class="tickets__title">
     <?php echo __('Tickets', 'ID ticket title', 'svid-theme-domain'); ?>

@@ -26,7 +26,12 @@ $LassieResponse = Lassie\Person\Event::pay($personInstance, [
 
 // TODO: Error handling transaction creation?
 
-$response['mollie_url'] = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;
+$mollie_url = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;
+
+if ($mollie_url === null)
+	send_failure( __( "It looks like you’re already subscribed for this event, so we can’t create a new payment url.", 'svid-theme-domain' ), 500 );
+
+$response['mollie_url'] = $mollie_url;
 $response['message'] = "We’re redirecting you to our payment provider, see you soon!";
 
 wp_send_json_success($response);

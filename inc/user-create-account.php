@@ -84,7 +84,7 @@ if (isset($create->error) || $create == false) {
 if (wp_doing_ajax()) {
 
 	// Construct message with url
-	$success_message = __( 'Your account creation was successful! You should have received an email with a link to activate your account. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
+	$success_message = __( 'The first step was successful! You should have received an email with a link to <strong>activate your account</strong>. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
 	$success_message = sprintf(
 		$success_message,
 		esc_url( home_url('login') )

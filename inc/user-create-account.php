@@ -58,7 +58,7 @@ if (!$success_status) {
 */
 function createAccount($username, $password) {
 	$lassieInstance = Lassie::getLassieApi();
-	$result_arr = $lassieInstance->performRequest('POST', 'auth/login/create', [
+	$result_arr = Lassie\PersonAuth::create($lassieInstance, [
 		'username' => $username,
 		'password' => $password
 	]);

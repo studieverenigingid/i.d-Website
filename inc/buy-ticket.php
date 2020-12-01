@@ -24,8 +24,6 @@ $LassieResponse = Lassie\Person\Event::pay($personInstance, [
   'mollie_redirect_url' => $_POST['event_url'] . '?return_from=mollie',
 ]);
 
-// TODO: Error handling transaction creation?
-
 $mollie_url = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;
 
 if ($LassieResponse->status === false):

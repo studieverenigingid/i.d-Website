@@ -157,6 +157,11 @@ function listenToForm(formId) {
 			.html(response['data']['message'])
 			.prependTo(formId);
 
+		// If it’s the create account form, replace the inputs with the message
+		if (formId === '#create_account_form') {
+			jQuery(formId).html(noti);
+		}
+
 		if (response['data']['mollie_url']) {
 			// We’re working on a transaction, let’s get that dough
 			window.location = response['data']['mollie_url'];

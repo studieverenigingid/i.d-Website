@@ -104,9 +104,9 @@
 			}
 		?>
 
-		<?php include('inc/lassie-event.php'); ?>
-
 		<?php the_content(); ?>
+
+		<?php include('inc/lassie-event.php'); ?>
 
 		<?php
 		// Files

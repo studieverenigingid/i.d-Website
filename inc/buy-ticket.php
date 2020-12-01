@@ -16,7 +16,7 @@ $personInstance = Lassie::getPersonApi();
 
 // Check we can actually call the API, disappoint the user if not
 if(!$personInstance->validate())
-	send_failure( __( 'Our system couldn’t find you properly. Weird, right? We’re afraid you have to contact us at svid@tudelft.nl', 'svid-theme-domain' ), 403 );
+	send_failure( __( 'Our system couldn’t find you properly. Weird, right? We’re afraid you have to contact us at svid@tudelft.nl', 'svid-theme-domain' ), 500 );
 
 // Send call to Lassie to sign up for the event and create a payment instance
 $LassieResponse = Lassie\Person\Event::pay($personInstance, [

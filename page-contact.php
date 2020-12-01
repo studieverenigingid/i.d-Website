@@ -92,7 +92,7 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' ); ?>
 
 	</section>
 
-	<section class="contact-form">
+	<section class="contact-form" id="contact-form">
 		<h2><?= esc_attr_x('Anonymous feedback', '', 'svid-theme-domain')?></h2>
 
 		<form action="#" class="contact-form__wrap" id="anonymous-input">

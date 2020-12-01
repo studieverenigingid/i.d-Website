@@ -164,17 +164,17 @@
 
   &__reg-text,
   &__reg-link[href] {
-    color: $text;
+    color: $background--light;
   }
 
   &__reg-text {
-    font-size: .85em;
     margin: 2.2rem 0;
   }
 
   &__netid {
     &:hover {
       background: #00a6d6;
+      border-color: transparent;
       color: $background--light;
     }
 

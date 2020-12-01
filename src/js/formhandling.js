@@ -2,7 +2,7 @@ function formFails(form, data) {
 	// show error message
 	form.addClass('contact-form--failed');
 	var errorMessage = jQuery('<div>');
-	errorMessage.addClass('contact-form__message contact-form__message--failed');
+	errorMessage.addClass('notification notification--failed');
 	errorMessage.text(data['error']);
 	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
@@ -12,10 +12,11 @@ function formSucceeds(form, data) {
 	// let the textarea fly away, revealing the message the sending was succesful
 	form.addClass('contact-form--success');
 	var errorMessage = jQuery('<div>');
-	errorMessage.addClass('contact-form__message contact-form__message--success');
-	errorMessage.html('Your input was sent, thanks! <a href="#reset" class="contact-form__link js-reset-link">I have even more feedback.</a>');
-	form.append(errorMessage);
+	errorMessage.addClass('notification notification--success');
+	errorMessage.html('Your input was sent, thanks! <a href="./#feedback-form" class="contact-form__link">I have even more feedback.</a>');
+	form.html(errorMessage);
 	form.removeClass('contact-form--sending');
+	window.location.hash = "feedback-form";
 	resetFormLink();
 }
 
@@ -139,7 +140,7 @@ function buyTicketEventPage() {
 
 function listenToForm(formId) {
 
-	var notification = '<h4 class="notification"></h4>',
+	var notification = '<p class="notification"></p>',
 		workingClass = 'login__wrap--working';
 
 

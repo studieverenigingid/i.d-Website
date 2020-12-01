@@ -28,6 +28,12 @@ $LassieResponse = Lassie\Person\Event::pay($personInstance, [
 
 $mollie_url = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;
 
+if ($LassieResponse->status === false):
+	$error = $LassieResponse->error->classname . ' - ' . $LassieResponse->error->message;
+	send_failure( __( "That’s awfully embarrassing. Our system only gives this lousy error: $error. We’re afraid you have to contact us at svid@tudelft.nl" ), $LassieResponse->status_code );
+endif;
+
+
 if ($mollie_url === null)
 	send_failure( __( "It looks like you’re already subscribed for this event, so we can’t create a new payment url.", 'svid-theme-domain' ), 500 );
 

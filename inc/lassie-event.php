@@ -193,7 +193,7 @@ else: // yes
               // Display ticket
               $buyingMoment = new DateTime($eventSubscription->create_timestamp); ?>
               <div class="ticket">
-                <h3 class="ticket__title">Your ticket for <?php echo $LassieEvent->name; ?></h3>
+                <h3 class="ticket__title">🎟&ensp;Your ticket for <?php echo $LassieEvent->name; ?>&ensp;🎟</h3>
                 <p class="ticket__message">We can see this in our system, so there’s no separate ticket. But it might speed things up if you can show this page when you arrive at the event. See you there!</p>
                 <p class="ticket__bought-at">Bought on <?php echo $buyingMoment->format('F jS, Y \a\t G:i'); ?></p>
               </div>

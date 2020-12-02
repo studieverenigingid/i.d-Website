@@ -836,7 +836,7 @@ $ajax-load-size: 44px;
 
 	&--info {
 		border: 2px solid $background--light;
-		background: transparentize(black, 0.9);
+		background: $background--dark;
 		color: $background--light;
 
 		a {

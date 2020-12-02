@@ -46,12 +46,8 @@ class SAMLTUD_Helper {
    * @return string The username (netid) of the Lassie user.
    */
 	private function getUsername($user) {
-		$lassie_api = new Lassie_Api(array(
-      'host' => get_option('lassie_url'),
-      'api_key' => get_user_meta($user->ID, 'api-key', true),
-      'api_secret' => get_user_meta($user->ID, 'api-secret', true),
-    ));
-		$person = $lassie_api->get('person_information');
+		$personInstance = Lassie::getPersonApi();
+    $person = Lassie\Person::getInformation($personInstance);
 		return $person->username;
 	}
 

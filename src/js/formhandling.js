@@ -134,6 +134,10 @@ function createAccountForm() {
 	listenToForm('#create_account_form');
 }
 
+function buyTicketEventPage() {
+	listenToForm('#buy_tickets_form');
+}
+
 function listenToForm(formId) {
 
 	var notification = '<p class="notification"></p>',
@@ -148,13 +152,23 @@ function listenToForm(formId) {
 			return;
 		}
 
-		jQuery(formId).removeClass(workingClass);
-
 		// Otherwise tell it’s done...
 		var noti = jQuery(notification)
 			.addClass('notification--success')
 			.html(response['data']['message'])
 			.prependTo(formId);
+
+		// If it’s the create account form, replace the inputs with the message
+		if (formId === '#create_account_form') {
+			jQuery(formId).html(noti);
+		}
+
+		if (response['data']['mollie_url']) {
+			// We’re working on a transaction, let’s get that dough
+			window.location = response['data']['mollie_url'];
+		}
+
+		jQuery(formId).removeClass(workingClass);
 
 		// ...and reset the form
 		jQuery(formId)[0].reset();
@@ -167,7 +181,8 @@ function listenToForm(formId) {
 		// Tell the user something failed
 		if (response['data'] !== undefined && response['data']['message'] !== undefined) {
 			userError = response['data']['message'];
-		} else if (response['responseJSON']['data']['message'] !== undefined) {
+		} else if (response['responseJSON']['data'] !== undefined &&
+			response['responseJSON']['data']['message'] !== undefined) {
 			userError = response['responseJSON']['data']['message'];
 		} else if (response.readyState === 4) {
 			userError = 'There has been an error, please try again later or send this to someone at ID: ' + error;
@@ -181,7 +196,9 @@ function listenToForm(formId) {
 			.text(userError)
 			.prependTo(formId);
 		jQuery(formId).removeClass(workingClass);
-		grecaptcha.reset();
+		if(typeof grecaptcha !== 'undefined') {
+			grecaptcha.reset();
+		}
 	}
 
 

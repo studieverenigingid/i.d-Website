@@ -17,6 +17,7 @@ function onDocReady () {
 	resetFormLink();
 	showHidePassword();
 	createAccountForm();
+	buyTicketEventPage();
 
 	// userinfoedit.js
 	userInfoEdit();

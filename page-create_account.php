@@ -22,18 +22,16 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 		<div class="login__form">
 
 			<?php
-			if (isset($_GET['account_created'])) {
-				$login = $_GET['account_created'];
-
-				if ( $login === "1" ) {
+      // Was the account just created?
+			if (isset($_GET['account_created']) && $_GET['account_created'] === "1"): // yes
 					$message = __( 'Your account creation was successful! You should have received an email with a link to activate your account. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
 					$message = sprintf(
 						$message,
 						esc_url( home_url('login') )
 					);
-					echo '<p class="notification notification--success">'.$message.'</p>';
-				}
-			}
+          echo '<p class="notification notification--success">'.$message.'</p>';
+      // Was the account just created?
+      else: // no
 			?>
 
 			<form class="login__wrap" method="post" id="create_account_form"
@@ -85,10 +83,9 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
 			</form>
 
-		</div>
+      <?php endif; // Was the account just created? ?>
 
-		<aside class="login__right-column">
-			<hr class="divider divider--light login__divider">
+      <hr class="divider divider--light login__divider">
 			<p class="login__information">
 				If you are already a member of ID, you can easily
 				create your account here. With this, you can log in to read the full
@@ -96,7 +93,8 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 				your contact information. You will get an email to activate your
 				account.
 			</p>
-		</aside>
+
+		</div>
 
 	</main>
 

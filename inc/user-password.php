@@ -12,10 +12,11 @@ if (strlen($new_password) < 8) {
 }
 
 // Update the password
-$update = Lassie::updatePerson(array(
+$personInstance = Lassie::getPersonApi();
+$update = Lassie\Person::update($personInstance, [
   'current_password' => $current_password,
   'password' => $new_password
-));
+]);
 
 // Check if the update was successful
 if ($update->status == true) {

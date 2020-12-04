@@ -71,16 +71,16 @@
         } else {
           $response['success'] = false;
           $response['timestamp'] = date(DATE_ATOM);
-          $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. Does this keep happening? Send an email to svid@tudelft.nl.';
+          $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. If this keeps happening, please contact us at svid@tudelft.nl.';
         }
       } else {
         $response['success'] = false;
-				$response['error'] = 'You have not entered any input, or something else went wrong. Please try again!';
+				$response['error'] = 'You have not entered any input, or something else went wrong. Please try again! If this keeps happening, please contact us at svid@tudelft.nl.';
       }
 
     } else {
       $response['success'] = false;
-      $response['error'] = 'reCaptcha failed, it would appear you are a robot.';
+      $response['error'] = 'reCaptcha failed, it would appear you are a robot. If this keeps happening, please contact us at svid@tudelft.nl.';
     }
 
 		wp_send_json($response);

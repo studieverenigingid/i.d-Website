@@ -76,7 +76,6 @@ if ($_GET['return_from'] == 'mollie'): // yes
     notification( "<strong>Payment didn’t come through.</strong> Well this is shitty, either you didn’t pay or our system screwed up (it says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
       'failed' );
   endif; // Did the user buy tickets?
-  // TODO: check if suscription succeeded for non-members
 // Did we return from Mollie?
 elseif($user_has_subscription && !$user_has_paid): // no, but the user has an unpaid subscription
   notification( "It looks like you tried to buy a ticket recently, but the payment didn’t come through. (The system says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
@@ -138,19 +137,18 @@ else: // yes
         // Check how far away that open datetime is and base the message on the
         // difference for more helpful messages
         $timeDiff = $openDate->diff($today);
-        $whoCanBuy = ($LassieEvent->member_only) ? 'ID members' : 'You';
         switch ($timeDiff) {
           case $timeDiff->d < 1 &&
             $today->format('j') == $openDate->format('j'):
-              notification( "$whoCanBuy can buy tickets from $openTimeHumanReadable, today.",
+              notification( "You can buy tickets from $openTimeHumanReadable, today.",
                 'info');
             break;
           case (int)$today->format('j') + 1 == (int)$openDate->format('j'):
-            notification( "$whoCanBuy can buy tickets from $openTimeHumanReadable, tomorrow.",
+            notification( "You can buy tickets from $openTimeHumanReadable, tomorrow.",
               'info');
             break;
           default:
-            notification( "$whoCanBuy can buy tickets from $openDateHumanReadable.",
+            notification( "You can buy tickets from $openDateHumanReadable.",
               'info' );
             break;
         }
@@ -172,24 +170,18 @@ else: // yes
         // Are there tickets left?
         else: // yes
 
-          // If the event is members only, is the user logged in (and thus member)?
-          if ($LassieEvent->member_only &&
-              !is_user_logged_in()): // no
-              notification( "Since this event is members only, you need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
+          // Is the user logged in (and thus member)?
+          if (!is_user_logged_in()): // no
+              notification( "You need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
                 'info' );
 
 
 
-          // If the event is members only, is the user logged in (and thus member)?
+          // Is the user logged in (and thus member)?
           else: // yes
 
-            // Is the user logged in?
-            if (!is_user_logged_in()):
-              notification( "We’re terribly sorry, but right now our ticket system only works for members.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
-                'info' );
-
             // Did the user already buy a ticket?
-            elseif ($user_has_tickets): // yes
+            if ($user_has_tickets): // yes
               // Display ticket
               $buyingMoment = new DateTime($eventSubscription->create_timestamp); ?>
               <div class="ticket">
@@ -204,8 +196,6 @@ else: // yes
               // Wow, we can actually start selling those sweet tickets ?>
               <form method="post" id="buy_tickets_form"
                 action="<?=esc_url( admin_url('admin-post.php') ) ?>">
-
-                <?php // TODO: add fields for non-member purchases ?>
 
                 <input type="hidden" name="lassie_event_id"
                   value="<?php echo $lassie_event_id; ?>">
@@ -227,7 +217,7 @@ else: // yes
 
             endif; // Did the user already buy a ticket?
 
-          endif; // If the event is members only, is the user logged in (and thus member)?
+          endif; // Is the user logged in (and thus member)?
 
         endif; // Are there tickets left?
 

@@ -61,6 +61,7 @@
 	 add_action('init','custom_login_page');
 	}
 	add_action( 'wp_login_failed', 'login_failed' );
+	add_action( 'wp_login', 'login_success', 10, 2 );
 
 
 	function custom_theme_setup() {

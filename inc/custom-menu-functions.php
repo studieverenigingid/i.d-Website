@@ -43,6 +43,15 @@ function login_failed() {
   }
 }
 
+function login_success($user_login, $user) {
+  // Save username to 1. prefill and 2.
+  setcookie('svid_username', $user->user_email, [
+    'expires' => time()+(60*60*24*365*2),
+    'secure' => true, // only on https because you know
+    'httponly' => true, // just kidding no idea what I’m doing but this seems safer
+  ]);
+}
+
 function verify_username_password($user, $username, $password ) {
   $login_page = login_page_url();
   if ( !array_key_exists('use_sso', $_GET) || $_GET['use_sso'] !== 'true' ) {

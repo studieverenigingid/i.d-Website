@@ -15,11 +15,11 @@
 	 * @param string $input, string $name, string $email
 	 * @return bool
 	 */
-  function send_mail($input, $name, $email) {
+  function send_mail($input, $name, $email, $user_subject) {
 
 		$options = get_option('id_settings');
     $receiver = $options['id_education_email_addresses_field'];
-		$subject = 'Education input form website';
+		$subject = "Education input: $user_subject";
 
     $message = "<!DOCTYPE html>
         <html>
@@ -57,6 +57,7 @@
 
     if ($reCaptchaResponse) {
 
+      $user_subject = $_POST['subject'];
 			$input = $_POST['feedback'];
 	    $name = $_POST['name'];
 	    $email = $_POST['email'];
@@ -65,7 +66,7 @@
       $all_valid = true; // If this value isn't changed to false, it will send. Else it will be reported to the user.
 
       if(!empty($input)) {
-        $send_return = send_mail($input, $name, $email);
+        $send_return = send_mail($input, $name, $email, $user_subject);
         if($send_return) {
           $response['success'] = true;
         } else {

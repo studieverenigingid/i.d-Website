@@ -106,6 +106,8 @@
 
 		<?php the_content(); ?>
 
+		<?php include('inc/lassie-event.php'); ?>
+
 		<?php
 		// Files
 		// Check if there are files

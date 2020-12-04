@@ -378,3 +378,32 @@
 	color: $background--light;
 	text-align: center;
 }
+
+
+
+
+
+
+/*-------------------------------------*\
+	Ticket sales
+\*-------------------------------------*/
+.tickets {
+	padding-top: 1em;
+	text-align: center;
+
+	&__title {
+		margin: .5em 0 .5em;
+	}
+}
+
+.ticket {
+	border-radius: .5em;
+	box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.15);
+	margin: 1em 0;
+	padding: .5em 1.5em .5em;
+
+	&__bought-at {
+		opacity: .8;
+		text-align: center;
+	}
+}

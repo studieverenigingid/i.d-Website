@@ -33,6 +33,11 @@ get_header();
 					  echo '<p class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</p>';
 					}
 				}
+
+        if (empty($_COOKIE['svid_username'])) {
+          echo sprintf('<p class="notification notification--info">Is this your first time logging in? You might need to <a href="%s">create an account first</a>.</p>',
+            esc_url( home_url('create_account') ) );
+        }
 			?>
 			</div>
 

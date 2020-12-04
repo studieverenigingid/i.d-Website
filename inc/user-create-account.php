@@ -14,35 +14,6 @@ $back_link = home_url($page_slug);
 $success_status = true;
 $error_message = '';
 
-/**
- * Sends the appropriate failure notification for an AJAX or direct request.
- *
- * @param string $error_message The message we’ll give to the user
- * @param int $status_code The HTTP status associated with that error
- * @return void
- */
-function send_failure($error_message, $status_code) {
-	if (wp_doing_ajax()) {
-
-		$response = array(
-			'message' => $error_message,
-		);
-		wp_send_json_error($response, $status_code);
-
-	} else {
-
-		wp_die(
-			$error_message,
-			__( 'Error', 'svid-theme-domain' ),
-			array(
-				'response' 	=> $status_code,
-				'back_link' => true,
-			)
-		);
-
-	}
-}
-
 
 
 // Verify the nonce; if it fails we stop the excecution.
@@ -86,10 +57,11 @@ if (!$success_status) {
 * @return $result_arr array|bool
 */
 function createAccount($username, $password) {
-	$result_arr = Lassie::getPersonAuthApi()->post('person_create_login', array(
+	$lassieInstance = Lassie::getLassieApi();
+	$result_arr = Lassie\PersonAuth::create($lassieInstance, [
 		'username' => $username,
 		'password' => $password
-	));
+	]);
 
 	return $result_arr;
 }
@@ -112,7 +84,7 @@ if (isset($create->error) || $create == false) {
 if (wp_doing_ajax()) {
 
 	// Construct message with url
-	$success_message = __( 'Your account creation was successful! You should have received an email with a link to activate your account. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
+	$success_message = __( 'The first step was successful! You should have received an email with a link to <strong>activate your account</strong>. After activation you can login <a href="%s">here</a>.', 'svid-theme-domain' );
 	$success_message = sprintf(
 		$success_message,
 		esc_url( home_url('login') )

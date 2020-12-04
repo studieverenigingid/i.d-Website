@@ -15,11 +15,11 @@
 	 * @param string $input, string $name, string $email
 	 * @return bool
 	 */
-  function send_mail($input, $name, $email) {
+  function send_mail($input, $name, $email, $user_subject) {
 
 		$options = get_option('id_settings');
     $receiver = $options['id_education_email_addresses_field'];
-		$subject = 'Education input form website';
+		$subject = "Education input: $user_subject";
 
     $message = "<!DOCTYPE html>
         <html>
@@ -57,6 +57,7 @@
 
     if ($reCaptchaResponse) {
 
+      $user_subject = $_POST['subject'];
 			$input = $_POST['feedback'];
 	    $name = $_POST['name'];
 	    $email = $_POST['email'];
@@ -65,22 +66,22 @@
       $all_valid = true; // If this value isn't changed to false, it will send. Else it will be reported to the user.
 
       if(!empty($input)) {
-        $send_return = send_mail($input, $name, $email);
+        $send_return = send_mail($input, $name, $email, $user_subject);
         if($send_return) {
           $response['success'] = true;
         } else {
           $response['success'] = false;
           $response['timestamp'] = date(DATE_ATOM);
-          $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. Does this keep happening? Send an email to svid@tudelft.nl.';
+          $response['error'] = 'Something went wrong on the server. Apologies for the inconvenience. If this keeps happening, please contact us at svid@tudelft.nl.';
         }
       } else {
         $response['success'] = false;
-				$response['error'] = 'You have not entered any input, or something else went wrong. Please try again!';
+				$response['error'] = 'You have not entered any input, or something else went wrong. Please try again! If this keeps happening, please contact us at svid@tudelft.nl.';
       }
 
     } else {
       $response['success'] = false;
-      $response['error'] = 'reCaptcha failed, it would appear you are a robot.';
+      $response['error'] = 'reCaptcha failed, it would appear you are a robot. If this keeps happening, please contact us at svid@tudelft.nl.';
     }
 
 		wp_send_json($response);

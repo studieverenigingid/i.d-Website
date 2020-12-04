@@ -1,5 +1,7 @@
 <?php
 
+	include( 'inc/helpers.php' );
+
 	include( 'inc/color-custom-fields.php' );
 
 	include( 'inc/customize-controls.php' );
@@ -53,11 +55,13 @@
 	add_action( 'wp_ajax_user_password', 'user_password');
 	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
 	add_action( 'wp_ajax_nopriv_user_create_account', 'user_create_account' );
+	add_action( 'wp_ajax_buy_ticket', 'buy_ticket' );
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
 	}
 	add_action( 'wp_login_failed', 'login_failed' );
+	add_action( 'wp_login', 'login_success', 10, 2 );
 
 
 	function custom_theme_setup() {
@@ -218,6 +222,10 @@
 	function anonymous_input() {
 		include 'inc/send-anonymous.php';
 		wp_die();
+	}
+
+	function buy_ticket() {
+		include 'inc/buy-ticket.php';
 	}
 
 	function cc_hide_admin_bar() {

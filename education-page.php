@@ -59,11 +59,18 @@ if( have_rows('feedback_step') ) { ?>
 
 			<form action="#" class="contact-form__wrap">
 
-					<label for="feedback" class="contact-form__label">
-						<?= esc_attr_x('Do you have feedback about the faculty of IDE or your education?', 'feedback-form-question', 'svid-theme-domain')?>
+					<label for="subject" class="contact-form__label">
+						<?= esc_attr_x('What course or facility is your feedback about?', 'feedback-form-question', 'svid-theme-domain')?>
 					</label>
-					<textarea name="feedback" id="" cols="30" rows="12"
-						placeholder="<?= esc_attr_x('I love course PO5 because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+					<input name="subject" id="subject" type="text" class="contact-form__input-short"
+						placeholder="<?= esc_attr_x('‘PO5’ or ‘printers’', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						required>
+
+					<label for="feedback" class="contact-form__label">
+						<?= esc_attr_x('What could be improved? Or what should never change?', 'feedback-form-question', 'svid-theme-domain')?>
+					</label>
+					<textarea name="feedback" id="feedback" cols="30" rows="12"
+						placeholder="<?= esc_attr_x('I love this course because...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 						class="contact-form__input-message"
 						required></textarea>
 
@@ -90,17 +97,17 @@ if( have_rows('feedback_step') ) { ?>
 							}
 						?>
 
-						<label for="feedback" class="contact-form__label">
+						<label for="name" class="contact-form__label">
 							<?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input name="name" type="text" class="contact-form__input-short"
+						<input name="name" id="name" type="text" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_name?>">
 
-						<label for="feedback" class="contact-form__label">
+						<label for="email" class="contact-form__label">
 							<?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input type="email" name="email" class="contact-form__input-short"
+						<input type="email" id="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_email?>">
 

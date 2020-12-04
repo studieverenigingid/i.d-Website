@@ -11,7 +11,7 @@ $hours = array(
     ],
   3 => [
     [strtotime('12:45'), strtotime('13:45')],
-    [strtotime('14:45'), strtotime('21:00')]
+    [strtotime('14:45'), strtotime('17:00')]
     ],
   4 => [
     [strtotime('9:00'), strtotime('13:45')],

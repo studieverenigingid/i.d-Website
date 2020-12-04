@@ -90,17 +90,17 @@ if( have_rows('feedback_step') ) { ?>
 							}
 						?>
 
-						<label for="feedback" class="contact-form__label">
+						<label for="name" class="contact-form__label">
 							<?= esc_attr_x('What is your name?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input name="name" type="text" class="contact-form__input-short"
+						<input name="name" id="name" type="text" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_name?>">
 
-						<label for="feedback" class="contact-form__label">
+						<label for="email" class="contact-form__label">
 							<?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
-						<input type="email" name="email" class="contact-form__input-short"
+						<input type="email" id="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_email?>">
 

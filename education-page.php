@@ -4,7 +4,6 @@ Template Name: Education Page
 */
 
 get_header();
-wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
 
 
@@ -111,16 +110,19 @@ if( have_rows('feedback_step') ) { ?>
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_email?>">
 
+						<label for="special" class="contact-form__special">
+							<?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
+						</label>
+						<input name="special" id="special" type="text" class="contact-form__special"
+							placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+							value="">
+
 					</div>
 
 
 					<div class="contact-form__validate-and-send">
 
 						<input type="hidden" name="action" value="education_input">
-
-						<div class="g-recaptcha"
-							data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
-						</div>
 
 						<button type="submit" class="button button--white contact-form__submit">
 							<?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>

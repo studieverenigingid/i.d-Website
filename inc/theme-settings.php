@@ -83,14 +83,6 @@
 			'id_educationInputSettings_section'
 		);
 
-		add_settings_field(
-			'id_recaptcha_secret_field',
-			__( 'reCaptcha secret', 'wordpress' ),
-			'id_recaptcha_secret_render',
-			'ID-website_settings',
-			'id_educationInputSettings_section'
-		);
-
 	}
 
 	// Vimeo form rendering
@@ -158,20 +150,11 @@
 
 	}
 
-	function id_recaptcha_secret_render(  ) {
-
-		$options = get_option( 'id_settings' );
-		?>
-		<input type='text' name='id_settings[id_recaptcha_secret_field]' value='<?php echo $options['id_recaptcha_secret_field']; ?>'>
-		<?php
-
-	}
-
 	// Education input section callback
 
 	function id_educationInputSettings_section_callback(  ) {
 
-		echo __( 'Register the email addresses the education and anonymous input should be sent to from the form. Enter multiple email addresses separated with a comma. Enter the reCaptcha secret, too (reCaptcha is what keeps the spam away).', 'wordpress' );
+		echo __( 'Register the email addresses the education and anonymous input should be sent to from the form. Enter multiple email addresses separated with a comma.', 'wordpress' );
 
 	}
 

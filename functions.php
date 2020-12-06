@@ -56,6 +56,7 @@
 	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
 	add_action( 'wp_ajax_nopriv_user_create_account', 'user_create_account' );
 	add_action( 'wp_ajax_buy_ticket', 'buy_ticket' );
+	add_action( 'wp_ajax_send_ticket', 'send_ticket' );
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
 	 add_action('init','custom_login_page');
@@ -194,6 +195,10 @@
 
 	function buy_ticket() {
 		include 'inc/buy-ticket.php';
+	}
+
+	function send_ticket() {
+		include 'inc/send-ticket.php';
 	}
 
 	function cc_hide_admin_bar() {

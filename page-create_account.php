@@ -8,6 +8,10 @@ get_header();
 ?>
   <main id="site-content" class="page-top login login--create-account">
 
+    <p>
+      <a href="<?php echo home_url('login'); ?>">← Back to login</a>
+    </p>
+
 		<h1 class="login__title">
 	    <?php the_title(); ?>
 	  </h1>

@@ -188,6 +188,24 @@ else: // yes
                 <h3 class="ticket__title">🎟&ensp;Your ticket for <?php echo $LassieEvent->name; ?>&ensp;🎟</h3>
                 <p class="ticket__message">We can see this in our system, so there’s no separate ticket. But it might speed things up if you can show this page when you arrive at the event. See you there!</p>
                 <p class="ticket__bought-at">Bought on <?php echo $buyingMoment->format('F jS, Y \a\t G:i'); ?></p>
+                <form method="post" id="send_tickets_form"
+                  action="<?=esc_url( admin_url('admin-post.php') ) ?>">
+
+                  <input type="hidden" name="lassie_event_id"
+                    value="<?php echo $lassie_event_id; ?>">
+
+                  <input type="hidden" name="event_url"
+                    value="<?php the_permalink(); ?>">
+
+                  <input type="hidden" name="action" value="send_ticket">
+
+                  <?php wp_nonce_field( $action = 'send_ticket' ); ?>
+
+                  <button class="button tickets__buy" type="submit">
+                    <?php echo __('Email me a copy', 'ID ticket link text', 'svid-theme-domain'); ?>
+                  </button>
+
+                </form>
               </div>
 
 

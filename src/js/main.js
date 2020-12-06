@@ -18,6 +18,7 @@ function onDocReady () {
 	showHidePassword();
 	createAccountForm();
 	buyTicketEventPage();
+	sendTicketEventPage();
 
 	// userinfoedit.js
 	userInfoEdit();

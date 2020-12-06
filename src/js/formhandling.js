@@ -137,6 +137,10 @@ function buyTicketEventPage() {
 	listenToForm('#buy_tickets_form');
 }
 
+function sendTicketEventPage() {
+	listenToForm('#send_tickets_form');
+}
+
 function listenToForm(formId) {
 
 	var notification = '<p class="notification"></p>',

@@ -73,6 +73,13 @@ if( have_rows('feedback_step') ) { ?>
 						class="contact-form__input-message"
 						required></textarea>
 
+					<label for="special" class="contact-form__special">
+						<?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
+					</label>
+					<input name="special" id="special" type="text" class="contact-form__special"
+						placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+						value="">
+
 					<div class="contact-form__updater">
 						<p class="contact-form__label contact-form__label--right">
 							<?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form', 'svid-theme-domain')?>
@@ -109,13 +116,6 @@ if( have_rows('feedback_step') ) { ?>
 						<input type="email" id="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
 							value="<?=$current_email?>">
-
-						<label for="special" class="contact-form__special">
-							<?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
-						</label>
-						<input name="special" id="special" type="text" class="contact-form__special"
-							placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-							value="">
 
 					</div>
 

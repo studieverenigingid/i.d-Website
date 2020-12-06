@@ -5,7 +5,6 @@
  */
 
 get_header();
-wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 ?>
   <main id="site-content" class="page-top login login--create-account">
 
@@ -62,14 +61,12 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
           <?php password_show_hide(); ?>
 				</div>
 
-				<div class="form-group">
-					<label for="g-recaptcha" class="login__label">
-			      <?= esc_attr_x('Verification of humanness', 'Recaptcha label for account creation', 'svid-theme-domain')?>
-			    </label>
-					<div class="g-recaptcha"
-						data-sitekey="6Ld7pCUUAAAAAFY2ezdhFaWW25L_c254ali_Hpsg">
-					</div>
-				</div>
+        <label for="special" class="contact-form__special">
+          <?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
+        </label>
+        <input name="special" id="special" type="text" class="contact-form__special"
+          placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+          value="">
 
 				<p class="form-group">
 					<input type="hidden" name="action" value="user_create_account">
@@ -85,7 +82,6 @@ wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
 
       <?php endif; // Was the account just created? ?>
 
-      <hr class="divider divider--light login__divider">
 			<p class="login__information">
 				If you are already a member of ID, you can easily
 				create your account here. With this, you can log in to read the full

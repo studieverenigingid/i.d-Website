@@ -51,11 +51,9 @@
 
 
 
-	if(isset($_POST['submit'])) {
+	if (isset($_POST['submit'])) {
 
-    $reCaptchaResponse = captcha_verification();
-
-    if ($reCaptchaResponse) {
+    if (empty($_POST['special'])) {
 
       $user_subject = $_POST['subject'];
 			$input = $_POST['feedback'];
@@ -81,7 +79,7 @@
 
     } else {
       $response['success'] = false;
-      $response['error'] = 'reCaptcha failed, it would appear you are a robot. If this keeps happening, please contact us at svid@tudelft.nl.';
+      $response['error'] = 'It would appear you are a robot. If this keeps happening, please contact us at svid@tudelft.nl.';
     }
 
 		wp_send_json($response);

@@ -36,8 +36,8 @@ if ( strlen($_POST['user_password']) < 8 ) {
 	$success_status = false;
 }
 
-if (!captcha_verification()) {
-	$error_message .= __( ' reCaptcha failed, it would appear you are a robot.', 'svid-theme-domain' );
+if (!empty($_POST['special'])) {
+	$error_message .= __( ' It would appear you are a robot.', 'svid-theme-domain' );
 	$success_status = false;
 }
 

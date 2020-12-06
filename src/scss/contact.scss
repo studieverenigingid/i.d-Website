@@ -255,18 +255,18 @@
     }
   }
 
+  &__special {
+    display: none;
+    visibility: hidden;
+  }
+
   &__validate-and-send {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 1.5em 0 0;
     padding: 2em 0 1em;
     border-top: 1.5px solid transparentize($background--light, 0.5);
-  }
-
-  &__submit {
-    margin: 1em 0 1em 2em;
-    display: block;
   }
 
   &--sending {

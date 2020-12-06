@@ -60,7 +60,6 @@ function resetForm() {
 	// reset the form to allow for more feedback to be submitted
 	jQuery('.contact-form__wrap').removeClass('contact-form--success');
 	jQuery('.contact-form__input-message').val('');
-	grecaptcha.reset();
 }
 
 function resetFormLink() {
@@ -196,9 +195,6 @@ function listenToForm(formId) {
 			.text(userError)
 			.prependTo(formId);
 		jQuery(formId).removeClass(workingClass);
-		if(typeof grecaptcha !== 'undefined') {
-			grecaptcha.reset();
-		}
 	}
 
 

@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build & publish
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -33,12 +33,6 @@ jobs:
     - name: Run Gulp
       run: gulp build
 
-  upload:
-    name: Upload
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
     - name: Copying files to server
       uses: appleboy/scp-action@master
       with:

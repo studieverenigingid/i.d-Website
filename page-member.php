@@ -39,6 +39,7 @@ if (!is_user_logged_in()) {
 </main>
 
 <?php
+  comments_template();
 	get_footer();
 }
 ?>

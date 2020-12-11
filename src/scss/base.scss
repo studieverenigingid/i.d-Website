@@ -166,7 +166,8 @@ iframe {
 		border-style: dotted;
 	}
 
-	&-columns {
+	&-columns,
+	&-group__inner-container {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;

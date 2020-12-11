@@ -18,7 +18,7 @@ if (!is_user_logged_in()) {
     <?php if ( is_page() && $post->post_parent ): ?>
       <a href="<?php echo get_permalink($post->post_parent); ?>"
         class="news-item__category">
-        <?php echo esc_attr_x( 'Back to the members’ page', 'link under title', 'svid-theme-domain'); ?>
+        ⬉ to <?php echo get_the_title($post->post_parent); ?>
       </a>
     <?php endif; ?>
   </div>

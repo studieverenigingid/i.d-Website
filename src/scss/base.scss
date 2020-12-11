@@ -159,10 +159,28 @@ iframe {
 	}
 }
 
-.wp-block-separator {
-	border-width: 1px 0 0 0;
-	border-color: $background--light;
-	border-style: dotted;
+.wp-block {
+	&-separator {
+		border-width: 1px 0 0 0;
+		border-color: $background--light;
+		border-style: dotted;
+	}
+
+	&-columns {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		margin: 1em -5vw;
+		width: 90vw;
+
+		@media (min-width: 45em) {
+			margin-left: calc(-45vw + 18em);
+		}
+	}
+
+	&-embed-spotify {
+		margin: 1em;
+	}
 }
 
 

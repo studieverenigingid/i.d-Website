@@ -34,7 +34,6 @@ if (!is_user_logged_in()) {
 <main class="primary-content news--page__content">
 
   <?php the_content(); ?>
-  <?php include('inc/lassie-event-subscriptions.php'); ?>
   <?php include('inc/file-list.php'); ?>
 
 </main>

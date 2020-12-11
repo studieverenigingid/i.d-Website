@@ -80,7 +80,6 @@ function login_first_redirect() {
 function custom_menu_items( $items, $args ) {
   if ( $args->theme_location === 'sitemap' ) return $items;
   if ( is_user_logged_in() ) {
-    $items .= '<li class="menu-item"><a href="' . get_home_url(null, 'user') . '">' . __( 'Profile', 'svid-theme-domain' ) . '</a></li>';
     if (login_page_url()) {
       $logout_url = wp_logout_url( get_home_url(null, 'login/?login=false') );
     } else {

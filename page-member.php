@@ -32,47 +32,12 @@ if (!is_user_logged_in()) {
 </header>
 
 <main class="primary-content news--page__content">
+
   <?php the_content(); ?>
+  <?php include('inc/lassie-event-subscriptions.php'); ?>
+  <?php include('inc/file-list.php'); ?>
 
-  <?php
-    include('inc/lassie-event-subscriptions.php');
-  ?>
 </main>
-
-<?php
-// Files
-// Check if there are files
-if ( have_rows('file_list') ): ?>
-
-<section class="event__files">
-
-  <h2 class="event__section-title">
-    <?php echo esc_attr_x('Official documents', 'title above official document list', 'svid-theme-domain'); ?>
-  </h2>
-
-  <?php
-  // loop through the files
-  while ( have_rows('file_list') ) :
-    the_row();
-    $file = get_sub_field('file');
-    if ( get_sub_field('file_name') !== '' ) {
-      $file_name = get_sub_field('file_name');
-    } else {
-      $file_name = $file['name'];
-    } ?>
-    <a class="event__file" target="_blank"
-      href="/download/?id=<?=$file['id']?>">
-      <h3 class="event__file-name">
-        <i class="fas fa-file-alt"></i>
-        <?=$file_name?>
-      </h3>
-    </a>
-  <?php endwhile;?>
-
-</section>
-
-<?php endif; ?>
-
 
 <?php
 	get_footer();

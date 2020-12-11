@@ -1,5 +1,10 @@
 <?php
 
+/*
+   Include: Lassie Event Subscriptions
+   Lists the bought events/subscriptions for this user/member
+*/
+
 // Get subscriptions for person
 $LassieModelInstance = Lassie::getLassieApi();
 $lassie_user_id = (int)$current_user->user_login;

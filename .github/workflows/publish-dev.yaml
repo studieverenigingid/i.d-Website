@@ -16,6 +16,9 @@ jobs:
       with:
         node-version: '12'
 
+    - name: Install Gulp CLI
+      run: npm install -g gulp-cli
+
     - name: Cache Node Modules
       id: cache-node-modules
       uses: actions/cache@v2
@@ -26,7 +29,6 @@ jobs:
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm install
-      run: npm install -g gulp-cli
 
     - name: Run Gulp
       run: gulp
@@ -45,4 +47,4 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         port: ${{ secrets.PORT }}
         source: "."
-        target: "${{ secrets.REMOTE_DIR }}plugins/bookid"
+        target: "${{ secrets.REMOTE_DIR }}themes/i.d-Website"

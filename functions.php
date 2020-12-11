@@ -87,6 +87,8 @@
 			echo "#000000";
 		} elseif (date('W') === '44') {
 			echo '#ef686c'; // mooi koraalroze
+		} elseif (strtotime("today") === strtotime("second friday of december")) {
+			echo '#5d2187'; // purple friday
 
 		} elseif (is_front_page() ||
 			is_post_type_archive('event')) { // use color from upcoming event

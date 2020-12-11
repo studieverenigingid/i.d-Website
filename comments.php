@@ -6,7 +6,8 @@ if ( post_password_required() ) return;
 <section id="comments" class="comments-area">
 
   <?php
-    $person = Lassie::getPerson();
+    $personInstance = Lassie::getPersonApi();
+    $person = Lassie\Person::getInformation($personInstance);
     $first_name = $person->first_name;
     $last_name = $person->last_name;
     $comments_args = array(

@@ -70,11 +70,11 @@ if ($_GET['return_from'] == 'mollie'): // yes
   // Did the user buy tickets?
   if ($user_has_tickets): // yes
     notification( "<strong>Yeah!</strong> Thanks for buying your ticket to $LassieEvent->name!",
-      'success' );
+      'success notification--float' );
   // Did the user buy tickets?
   else: // no
     notification( "<strong>Payment didn’t come through.</strong> Well this is shitty, either you didn’t pay or our system screwed up (it says: <code>$transaction_info</code>). If you did complete the transaction, please contact us at svid@tudelft.nl with this message and we’ll try to sort it out.",
-      'failed' );
+      'failed notification--float' );
   endif; // Did the user buy tickets?
 // Did we return from Mollie?
 elseif($user_has_subscription && !$user_has_paid): // no, but the user has an unpaid subscription
@@ -172,7 +172,7 @@ else: // yes
 
           // Is the user logged in (and thus member)?
           if (!is_user_logged_in()): // no
-              notification( "You need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button button--white'>Login</a>",
+              notification( "You need to log in to buy tickets.<br><a href='" . wp_login_url( get_permalink() ) . "' class='button'>Login</a>",
                 'info' );
 
 

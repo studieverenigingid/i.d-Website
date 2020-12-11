@@ -31,7 +31,7 @@ if (!is_user_logged_in()) {
 
 </header>
 
-<main class="primary-content news--page__content">
+<main class="primary-content">
 
   <?php the_content(); ?>
   <?php include('inc/file-list.php'); ?>

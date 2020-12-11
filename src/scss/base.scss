@@ -165,16 +165,6 @@ iframe {
 	border-style: dotted;
 }
 
-.news--page__content{
-	a:not(.button) {
-		color: var(--theme-color);
-	}
-
-	li {
-		margin-bottom: 1em;
-	}
-}
-
 
 
 
@@ -600,6 +590,14 @@ td {
 	h2 {
 		margin-left: 0;
 		margin-right: 0;
+	}
+
+	a:not(.button) {
+		color: var(--theme-color);
+	}
+
+	li {
+		margin-bottom: 1em;
 	}
 }
 

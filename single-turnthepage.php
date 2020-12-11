@@ -37,7 +37,7 @@
 
 	</header>
 
-	<main class="primary-content news--page__content">
+	<main class="primary-content">
 		<?php the_content(); ?>
 
     <h2><?php echo esc_attr_x('Read Online', 'Read TTP online title', 'svid-theme-domain');?></h2>

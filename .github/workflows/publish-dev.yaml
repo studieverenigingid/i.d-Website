@@ -31,7 +31,7 @@ jobs:
       run: npm install
 
     - name: Run Gulp
-      run: gulp
+      run: gulp build
 
   upload:
     name: Upload

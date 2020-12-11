@@ -30,6 +30,8 @@
 	include( 'inc/career-blocks-custom-fields.php' );
 	include( 'inc/ide-feeds.php' );
 
+	include('inc/lassie-event-subscriptions.php');
+
 	include( 'inc/theme-settings.php');
 
 	include( 'inc/walkers.php' );

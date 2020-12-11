@@ -38,7 +38,7 @@
 
 	</header>
 
-	<main class="primary-content news--page__content">
+	<main class="primary-content">
 		<?php the_content(); ?>
 	</main>
 

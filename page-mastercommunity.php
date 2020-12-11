@@ -11,7 +11,7 @@
 	if(have_posts()) : while(have_posts()) : the_post();
 ?>
 
-	<main id="site-content" class="primary-content news--page__content">
+	<main id="site-content" class="primary-content">
 
 		<h1>
 			<?php if ( has_post_thumbnail() ) : ?>

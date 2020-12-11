@@ -1,5 +1,10 @@
 <?php
 
+/*
+   Shortcode: IDE feeds
+   Loads and shows content from an rss feed
+*/
+
 function get_feed($url, $section, $posts, $length) {
 
   $feed = simplexml_load_file($url);
@@ -79,8 +84,8 @@ function rss_post($atts) {
 
 
 
-function register_shortcodes(){
-   add_shortcode('rss-posts', 'rss_post');
+function register_ide_feeds_shortcode() {
+  add_shortcode('rss-posts', 'rss_post');
 }
 
-add_action( 'init', 'register_shortcodes');
+add_action( 'init', 'register_ide_feeds_shortcode');

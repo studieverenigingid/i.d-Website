@@ -14,7 +14,7 @@ function formSucceeds(form, data) {
 	var errorMessage = jQuery('<div>');
 	errorMessage.addClass('notification notification--float notification--success');
 	errorMessage.html('Your input was sent, thanks!');
-	form.html('<p>Your input was sent, thanks! <a href="./#feedback-form" class="contact-form__link">I have even more feedback.</a></p>')
+	form.html('<p>Your input was sent, thanks!</p>')
 	form.append(errorMessage);
 	form.removeClass('contact-form--sending');
 	window.location.hash = "feedback-form";

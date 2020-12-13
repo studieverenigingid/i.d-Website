@@ -409,7 +409,8 @@ td {
 		padding: .8rem 1.4rem;
 		display: block;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			text-decoration: underline;
 		}
 	}
@@ -575,7 +576,8 @@ td {
 	}
 }
 
-.menu-item:hover .sub-menu {
+.menu-item:hover .sub-menu,
+.menu-item:focus-within .sub-menu {
 	opacity: 1;
 	transform: translateY(0);
 	pointer-events: inherit;

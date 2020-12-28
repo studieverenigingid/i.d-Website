@@ -41,5 +41,5 @@ jobs:
         key: ${{ secrets.SSH2 }}
         passphrase: ${{ secrets.PASSPHRASE }}
         port: ${{ secrets.PORT }}
-        source: "."
+        source: ".,!node_modules,!.git,!.github,!src,!.gitignore,!package.json,!package-lock.json,!README.md,!inc/API,!CONTRIBUTING.md,!gulpfile.js"
         target: "${{ secrets.REMOTE_DIR }}themes/i.d-Website"

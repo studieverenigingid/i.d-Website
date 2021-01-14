@@ -31,6 +31,8 @@ get_header();
 					  echo '<p class="notification notification--failed">'.esc_attr_x('Your NetID is not connected to an account on this website. Please try logging in with your username and password; this functionality should work afterwards. If you do not have a password, please register. If those actions do not help, please verify with us that your NetID is known to us.', 'Username and/or password is empty error', 'svid-theme-domain').'</p>';
 					} elseif ( $login === "false" ) {
 					  echo '<p class="notification notification--success">'.esc_attr_x('You are logged out.', 'You are logged out success message', 'svid-theme-domain').'</p>';
+          } elseif ( $login === "account_activated" ) {
+					  echo '<p class="notification notification--success">'.esc_attr_x('Your account was created successfully, you can now log in!', 'Account creation success message', 'svid-theme-domain').'</p>';
 					}
 				}
 

@@ -74,7 +74,7 @@
 
 	</header>
 
-	<main class="primary-content news--page__content">
+	<main class="primary-content">
 
 		<div class="vacancy__button-group">
 			<?php

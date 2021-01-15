@@ -21,13 +21,9 @@ global $img_folder;
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-300.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-300.woff" as="font" type="font/woff" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-300.ttf" as="font" type="font/ttf" crossorigin>
-		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-300.svg#Lora" as="font" type="font/svg" crossorigin>
-		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-300.eot" as="font" type="font/eot" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.woff" as="font" type="font/woff" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.ttf" as="font" type="font/ttf" crossorigin>
-		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.svg#Lora" as="font" type="font/svg" crossorigin>
-		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.eot" as="font" type="font/eot" crossorigin>
 
 		<?php $theme_info = wp_get_theme(); ?>
 

@@ -135,11 +135,11 @@
 
 	&__more-button {
 		position: absolute;
-		top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+		top: calc(50% - 1.2em);
+		left: calc(50% - 4.5em);
     text-align: center;
 		cursor: pointer;
+		width: 9em;
 
 		@media (min-width: $brk--phone) {
 			font-size: 1.4rem;

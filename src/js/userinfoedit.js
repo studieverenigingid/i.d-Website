@@ -1,4 +1,4 @@
-var notification = '<p class="notification"></p>',
+var notification = '<p class="notification notification--float"></p>',
 	working;
 
 function userInfoEdit() {
@@ -16,6 +16,7 @@ function userInfoEdit() {
 	// Make the form editable
 	function formEditable() {
 		toggleFormButtons();
+		jQuery('.notification').remove();
 		jQuery('.user__info__input--editable')
 			.attr('readonly', false)
 			.each(function () {

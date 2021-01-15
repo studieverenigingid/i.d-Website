@@ -1,0 +1,45 @@
+name: Publish to development
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build:
+    name: Build & publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Setup Node
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+
+    - name: Install Gulp CLI
+      run: npm install -g gulp-cli
+
+    - name: Cache Node Modules
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
+
+    - name: Run Gulp
+      run: gulp build
+
+    - name: Copying files to server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH2 }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        port: ${{ secrets.PORT }}
+        source: ".,!node_modules,!.git,!.github,!src,!.gitignore,!package.json,!package-lock.json,!README.md,!inc/API,!CONTRIBUTING.md,!gulpfile.js"
+        target: "${{ secrets.REMOTE_DIR }}themes/i.d-Website"

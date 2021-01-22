@@ -6,6 +6,13 @@
 		<?php echo esc_attr_x( 'Events', 'archive title', 'svid-theme-domain'); ?>
 	</h1>
 
+	<div class="archive__button">
+		<a class="button"
+			href="https://studieverenigingid.nl/members/add-id-activities-to-calendar/">
+				Add to calendar
+			</a>
+	</div>
+
 	<div class="events">
 
 		<?php

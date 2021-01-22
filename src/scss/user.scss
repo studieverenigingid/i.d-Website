@@ -9,6 +9,7 @@
 
 	user.scss:
 	+ User page top
+  + Memberspace
 
 \*-------------------------------------*/
 
@@ -205,5 +206,88 @@
     &__tickets {
 			padding: 4rem 10% 2em;
 		}
+  }
+}
+
+
+
+
+
+
+/*-------------------------------------*\
+	Memberspace
+\*-------------------------------------*/
+.memberspace {
+  height: 90vw;
+  position: relative;
+  width: 100vw;
+
+  &::after {
+    background: plum;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 33%;
+    position: absolute;
+    transform: skewY(7.5deg);
+    width: 100vw;
+    z-index: 0;
+  }
+
+  &__sign,
+  &__bookcase,
+  &__couch,
+  &__speaker {
+    display: block;
+    position: absolute;
+    z-index: 2;
+
+    &:hover {
+      transform: translateY(-.1em);
+    }
+  }
+
+  &__sign {
+    left: 35%;
+    margin: auto;
+    top: 5%;
+    width: 30%;
+  }
+
+  &__bookcase {
+    left: 7.5%;
+    top: 30%;
+    width: 20%;
+  }
+
+  &__couch {
+    left: 35%;
+    top: 48%;
+    width: 50%;
+  }
+
+  &__speaker {
+    right: 7.5%;
+    top: 12.5%;
+    width: 17%;
+  }
+
+  &__item {
+    max-height: 60vh;
+  }
+
+  &__label {
+    background: var(--theme-color);
+    border-radius: .25em;
+    box-shadow: .2em .2em 0 $background--dark;
+    color: $background--dark;
+    display: block;
+    font-size: 3.5vw;
+    font-weight: bold;
+    float: right;
+    margin: -1em 0 2.5em;
+    padding: .4em .7em;
+    position: relative;
+    text-align: center;
   }
 }

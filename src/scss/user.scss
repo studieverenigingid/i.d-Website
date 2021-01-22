@@ -23,7 +23,8 @@
   background: var(--theme-color);
 
   &__top,
-  &__mid {
+  &__mid,
+  &__tickets {
 		padding: .1rem 5% 1em;
 		margin: 0;
 	}
@@ -150,6 +151,10 @@
 
 
 
+  &__tickets {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
   &__mid {
     background: rgba(0, 0, 0, 0.3);
   }
@@ -163,6 +168,12 @@
     margin: .5em 2rem 1.5rem;
     max-width: 40rem;
     color: $background--light;
+  }
+
+  &__list {
+    li {
+      margin: .75em 0;
+    }
   }
 
   &__password {
@@ -182,14 +193,16 @@
 
   @media (min-width: $brk--phone) {
 		&__top,
-    &__mid {
+    &__mid,
+    &__tickets {
 			padding: .1rem 8% 1.5em;
 		}
   }
 
   @media (min-width: $brk--tablet) {
 		&__top,
-    &__mid {
+    &__mid,
+    &__tickets {
 			padding: 4rem 10% 2em;
 		}
   }

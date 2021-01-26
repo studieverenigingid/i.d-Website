@@ -72,6 +72,10 @@
 						class="button button--vimeo">
 						<i class="fab fa-vimeo-v"></i> Vimeo
 					</a>
+					<a rel="noopener" href="https://open.spotify.com/user/cp84jl8181x81l69e9c8a5fag?si=ORIpH3zBRiOTGe9rcmFZTw"
+						class="button button--spotify">
+						<i class="fab fa-spotify"></i> Spotify
+					</a>
 				</div>
 			</div>
 

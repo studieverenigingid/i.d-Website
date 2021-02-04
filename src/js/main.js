@@ -24,7 +24,7 @@ function onDocReady () {
 	userInfoEdit();
 
 	// social.js
-	socialFeed();
+	if (!!document.getElementById('js-feed')) socialFeed();
 
 	// filters.js
 	registerFilters();

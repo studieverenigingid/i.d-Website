@@ -209,7 +209,7 @@ function createFlickrArray($options, $offset) {
  */
 function latestPosts($offset, $latestPosts) {
 
-	$latestPosts = call_user_func_array(array_merge_recursive, $latestPosts);
+	$latestPosts = call_user_func_array('array_merge_recursive', $latestPosts);
 
 	// Sort collected posts based on date (newest -> oldest)
 	function sortFunction($a, $b){

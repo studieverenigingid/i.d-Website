@@ -201,7 +201,7 @@ wp_reset_postdata();
 <!-- ****** -->
 <!-- SOCIAL -->
 <!-- ****** -->
-<section class="social">
+<section class="social" id="js-feed">
 
 	<h2 class="section__title section__title--social">Social Media</h2>
 

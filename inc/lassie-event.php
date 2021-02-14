@@ -47,7 +47,7 @@ if (is_user_logged_in()) {
     'transaction_id' => $eventSubscription->transaction_id,
     'module_name' => 'finance'
   ]);
-  $user_has_paid = (bool)$LassieTransaction->active;
+  $user_has_paid = $LassieTransaction->active === "1";
   $user_has_tickets = $user_has_subscription && $user_has_paid;
   $transaction_info = $LassieTransaction->extra_info;
   // var_dump($LassieTransaction);

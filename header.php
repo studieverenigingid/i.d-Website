@@ -5,6 +5,8 @@ global $img_folder;
 <html <?php language_attributes(); ?>>
 	<head>
 
+		<?php $theme_info = wp_get_theme(); ?>
+
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="<?php theme_color(true); ?>">
@@ -24,8 +26,6 @@ global $img_folder;
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.woff" as="font" type="font/woff" crossorigin>
 		<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/static/fonts/mulish-v1-latin-800.ttf" as="font" type="font/ttf" crossorigin>
-
-		<?php $theme_info = wp_get_theme(); ?>
 
 		<?php wp_enqueue_style('main',
 			get_template_directory_uri() . '/static/css/main.css',

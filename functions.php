@@ -53,6 +53,8 @@
 	add_action( 'wp_ajax_education_input', 'education_input' );
 	add_action( 'wp_ajax_nopriv_anonymous_input', 'anonymous_input' );
 	add_action( 'wp_ajax_anonymous_input', 'anonymous_input' );
+	add_action( 'wp_ajax_nopriv_memberspace_feedback', 'memberspace_feedback' );
+	add_action( 'wp_ajax_memberspace_feedback', 'memberspace_feedback' );
 	add_action( 'wp_ajax_user_update', 'user_update');
 	add_action( 'wp_ajax_user_password', 'user_password');
 	add_action( 'admin_post_nopriv_user_create_account', 'user_create_account' );
@@ -194,6 +196,11 @@
 
 	function anonymous_input() {
 		include 'inc/send-anonymous.php';
+		wp_die();
+	}
+
+	function memberspace_feedback() {
+		include 'inc/send-memberspace.php';
 		wp_die();
 	}
 

@@ -82,7 +82,7 @@
 
 .event--small {
 	position: relative;
-	margin: 0 1rem 2rem;
+	margin: 0 .5rem 1rem;
 	width: 100%;
 
 	@media (min-width: 600px) {
@@ -107,6 +107,7 @@
 
 	&__name {
 		word-wrap: break-word;
+		margin: .75em 0 0;
 	}
 
 	&__anchor {
@@ -137,7 +138,7 @@
 	}
 
 	&__datetime {
-		margin: .3em 0 1em;
+		margin: 0 0 1em;
 		color: $text;
 	}
 }
@@ -370,6 +371,11 @@
 /*-------------------------------------*\
 	Event archive
 \*-------------------------------------*/
+.archive__button {
+	margin-top: -3.75em;
+	text-align: center;
+}
+
 .archive__title {
 	padding: .8em 2rem .8em;
 	margin: 0 0 2rem;

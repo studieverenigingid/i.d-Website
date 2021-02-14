@@ -82,6 +82,49 @@ if (!is_user_logged_in()) {
       <input type="hidden" name="action" value="user_update">
     </form>
 
+    <section class="user__tickets">
+      <h2 class="user__heading">🎟 Your event tickets & signups</h2>
+      <?php
+        // Get subscriptions for person
+        $LassieModelInstance = Lassie::getLassieApi();
+        $current_user = wp_get_current_user();
+        $lassie_user_id = (int)$current_user->user_login;
+        $LassiePersonSubscriptions = Lassie\Model\PersonModel::get_subscriptions_by_person_id($LassieModelInstance, [
+          'person_id' => $lassie_user_id
+        ]);
+
+        $event_archive_link = get_post_type_archive_link('event');
+
+      // Are there event subscriptions in the list?
+      if ($LassiePersonSubscriptions): // yes ?>
+
+        <ul class="user__instructions user__list">
+
+        <?php foreach ($LassiePersonSubscriptions as $subscription):
+
+          $lassie_event_id = $subscription->event_id;
+          $LassieEvent = Lassie\Model\EventModel::get_event_by_id($LassieModelInstance, [
+            'id' => $lassie_event_id,
+          ]);
+          $startDate = new DateTime($LassieEvent->start_date);
+          $startDateHumanReadable = $startDate->format('F jS, Y \a\t G:i');
+          echo "<li><strong>$LassieEvent->name</strong><br> ($startDateHumanReadable)</li>";
+
+          // TODO: get a link from the event on the website
+
+        endforeach; ?>
+
+        </ul>
+      <?php // Are there event subscriptions in the list?
+      else: // no ?>
+        <p class="user__instructions">It looks like you haven’t bought any tickets or signed up for any of our events yet. Hope we’ll see you at one of our <a href="<?php echo $event_archive_link; ?>">events</a> soon!</p>
+      <?php endif; ?>
+      <p class="user__instructions">
+        <a href="<?php echo $event_archive_link; ?>"
+          class="button button--white">Find more events to join</a>
+      </p>
+    </section>
+
     <section class="user__mid">
       <h2 class="user__heading">
         <?php echo esc_attr_e('Password change', 'svid-theme-domain'); ?>

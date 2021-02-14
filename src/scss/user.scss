@@ -9,6 +9,7 @@
 
 	user.scss:
 	+ User page top
+  + Memberspace
 
 \*-------------------------------------*/
 
@@ -23,7 +24,8 @@
   background: var(--theme-color);
 
   &__top,
-  &__mid {
+  &__mid,
+  &__tickets {
 		padding: .1rem 5% 1em;
 		margin: 0;
 	}
@@ -150,6 +152,10 @@
 
 
 
+  &__tickets {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
   &__mid {
     background: rgba(0, 0, 0, 0.3);
   }
@@ -163,6 +169,12 @@
     margin: .5em 2rem 1.5rem;
     max-width: 40rem;
     color: $background--light;
+  }
+
+  &__list {
+    li {
+      margin: .75em 0;
+    }
   }
 
   &__password {
@@ -182,15 +194,88 @@
 
   @media (min-width: $brk--phone) {
 		&__top,
-    &__mid {
+    &__mid,
+    &__tickets {
 			padding: .1rem 8% 1.5em;
 		}
   }
 
   @media (min-width: $brk--tablet) {
 		&__top,
-    &__mid {
+    &__mid,
+    &__tickets {
 			padding: 4rem 10% 2em;
 		}
+  }
+}
+
+
+
+
+
+
+/*-------------------------------------*\
+	Memberspace
+\*-------------------------------------*/
+.memberspace {
+  height: 90vw;
+  position: relative;
+  width: 100vw;
+
+  &__sign,
+  &__bookcase,
+  &__couch,
+  &__speaker {
+    display: block;
+    position: absolute;
+    z-index: 2;
+
+    &:hover {
+      transform: translateY(-.1em);
+    }
+  }
+
+  &__sign {
+    left: 35%;
+    margin: auto;
+    top: 5%;
+    width: 30%;
+  }
+
+  &__bookcase {
+    left: 7.5%;
+    top: 25%;
+    width: 20%;
+  }
+
+  &__couch {
+    left: 35%;
+    top: 42%;
+    width: 50%;
+  }
+
+  &__speaker {
+    right: 7.5%;
+    top: 7.5%;
+    width: 15%;
+  }
+
+  &__item {
+    max-height: 60vh;
+  }
+
+  &__label {
+    background: var(--theme-color);
+    border-radius: .25em;
+    box-shadow: .2em .2em 0 $background--dark;
+    color: $background--dark;
+    display: block;
+    font-size: 3.5vw;
+    font-weight: bold;
+    float: right;
+    margin: -1em 0 2.5em;
+    padding: .4em .7em;
+    position: relative;
+    text-align: center;
   }
 }

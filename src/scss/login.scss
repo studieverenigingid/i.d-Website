@@ -52,6 +52,10 @@
       width: 10em;
       margin: 0;
     }
+
+		&--white-bg {
+			color: #444;
+		}
   }
 
   &__label-supplement {
@@ -72,10 +76,19 @@
     appearance: none;
     background: none;
 
+		&--white-bg {
+			border-color: #444;
+			color: #444;
+		}
+
     &::placeholder {
       color: $background--light;
       opacity: .8;
     }
+
+		&--white-bg::placeholder {
+			color: #777;
+		}
   }
 
   &__remember {

@@ -85,8 +85,8 @@
 			$end->setTimezone(new DateTimeZone('UTC'));
 			$google_cal_url = "https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml";
 			$google_cal_url .= "&text=" . urlencode(get_the_title());
-			$google_cal_url .= "&dates=" . $start->format('Ymd\THis\Z') .
-				"/" . $end->format('Ymd\THis\Z');
+			$google_cal_url .= "&dates=" . $start->format('Ymd\THis') .
+				"/" . $end->format('Ymd\THis');
 			$google_cal_url .= "&location=" . urlencode($location_name);
 			$google_cal_url .= "&details=" . urlencode(get_the_excerpt());
 

@@ -22,6 +22,7 @@ if(!$personInstance->validate())
 $LassieResponse = Lassie\Person\Event::pay($personInstance, [
   'activity_id' => $lassie_event_id,
   'mollie_redirect_url' => $_POST['event_url'] . '?return_from=mollie',
+	'subscription_notes' => sanitize_text_field($_POST['notes']),
 ]);
 
 $mollie_url = $LassieResponse->transactions->mollie_transaction->links->paymentUrl;

@@ -221,6 +221,12 @@ else: // yes
                 <input type="hidden" name="event_url"
                   value="<?php the_permalink(); ?>">
 
+                <label for="notes" class="login__label login__label--white-bg">
+                  Notes for the organisers</label>
+                <textarea name="notes" id="notes" cols="30" rows="2"
+                  placeholder="Could you send my goodiebag to address..."
+                  class="login__input login__input--white-bg"></textarea>
+
                 <input type="hidden" name="action" value="buy_ticket">
 
                 <?php wp_nonce_field( $action = 'buy_ticket' ); ?>

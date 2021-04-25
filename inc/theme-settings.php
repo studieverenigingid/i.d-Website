@@ -69,7 +69,7 @@
 
 		add_settings_field(
 			'id_education_email_addresses_field',
-			__( 'Education input receiver email adresses', 'wordpress' ),
+			__( 'Education input receiver email addresses', 'wordpress' ),
 			'id_education_input_email_addresses_render',
 			'ID-website_settings',
 			'id_educationInputSettings_section'
@@ -77,7 +77,7 @@
 
 		add_settings_field(
 			'id_anonymous_email_addresses_field',
-			__( 'Anonymous input receiver email adresses', 'wordpress' ),
+			__( 'Anonymous input receiver email addresses', 'wordpress' ),
 			'id_anonymous_input_email_addresses_render',
 			'ID-website_settings',
 			'id_educationInputSettings_section'

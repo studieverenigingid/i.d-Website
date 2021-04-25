@@ -83,6 +83,22 @@
 			'id_educationInputSettings_section'
 		);
 
+		add_settings_field(
+			'id_declaration_name_addresses_field',
+			__( 'Name treasurer', 'wordpress' ),
+			'id_declaration_name_addresses_render',
+			'ID-website_settings',
+			'id_educationInputSettings_section'
+		);
+
+		add_settings_field(
+			'id_declaration_email_addresses_field',
+			__( 'Email address treasurer', 'wordpress' ),
+			'id_declaration_email_addresses_render',
+			'ID-website_settings',
+			'id_educationInputSettings_section'
+		);
+
 	}
 
 	// Vimeo form rendering
@@ -146,6 +162,24 @@
 		$options = get_option( 'id_settings' );
 		?>
 		<input type='email' name='id_settings[id_anonymous_email_addresses_field]' value='<?php echo $options['id_anonymous_email_addresses_field']; ?>'>
+		<?php
+
+	}
+
+	function id_declaration_name_addresses_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='text' name='id_settings[id_declaration_name_addresses_field]' value='<?php echo $options['id_declaration_name_addresses_field']; ?>'>
+		<?php
+
+	}
+
+	function id_declaration_email_addresses_render(  ) {
+
+		$options = get_option( 'id_settings' );
+		?>
+		<input type='email' name='id_settings[id_declaration_email_addresses_field]' value='<?php echo $options['id_declaration_email_addresses_field']; ?>'>
 		<?php
 
 	}

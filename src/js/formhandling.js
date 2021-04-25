@@ -160,7 +160,7 @@ function listenToForm(formId) {
 
 		// Otherwise tell it’s done...
 		var noti = jQuery(notification)
-			.addClass('notification--success')
+			.addClass('notification notification--float notification--success')
 			.html(response['data']['message'])
 			.prependTo(formId);
 

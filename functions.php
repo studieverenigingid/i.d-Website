@@ -6,6 +6,8 @@
 
 	include( 'inc/customize-controls.php' );
 
+	include( 'inc/declarations-custom-fields.php' );
+
 	include( 'inc/event-post-type.php' );
 	include( 'inc/event-custom-fields.php' );
 

@@ -62,7 +62,7 @@
 
 		add_settings_section(
 			'id_educationInputSettings_section',
-			__( 'Education input receivers', 'wordpress' ),
+			__( 'Form receivers', 'wordpress' ),
 			'id_educationInputSettings_section_callback',
 			'ID-website_settings'
 		);

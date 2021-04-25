@@ -64,37 +64,42 @@ if (!is_user_logged_in()) {
 
   <?php the_content(); ?>
   <?php include('inc/file-list.php'); ?>
+  <?php if (get_the_title() == 'Declarations'):
+    include('inc/declaration-form.php');
+  else: ?>
 
-  <h2>Feedback memberspace</h2>
+    <h2>Feedback memberspace</h2>
 
-  <form action="#" class="contact-form__wrap">
+    <form action="#" class="contact-form__wrap">
 
-      <label for="feedback" class="contact-form__label">
-        <?= esc_attr_x('What could be improved? Or what should never change?', 'feedback-form-question', 'svid-theme-domain')?>
-      </label>
-      <textarea name="feedback" id="feedback" cols="30" rows="6"
-        placeholder="<?= esc_attr_x('I would change...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-        class="contact-form__input-message"
-        required></textarea>
+        <label for="feedback" class="contact-form__label">
+          <?= esc_attr_x('What could be improved? Or what should never change?', 'feedback-form-question', 'svid-theme-domain')?>
+        </label>
+        <textarea name="feedback" id="feedback" cols="30" rows="6"
+          placeholder="<?= esc_attr_x('I would change...', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+          class="contact-form__input-message"
+          required></textarea>
 
-      <label for="special" class="contact-form__special">
-        <?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
-      </label>
-      <input name="special" id="special" type="text" class="contact-form__special"
-        placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-        value="">
+        <label for="special" class="contact-form__special">
+          <?= esc_attr_x('This is for robots', 'feedback-form-question', 'svid-theme-domain')?>
+        </label>
+        <input name="special" id="special" type="text" class="contact-form__special"
+          placeholder="<?= esc_attr_x('silence', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
+          value="">
 
-      <div class="contact-form__validate-and-send">
+        <div class="contact-form__validate-and-send">
 
-        <input type="hidden" name="action" value="memberspace_feedback">
+          <input type="hidden" name="action" value="memberspace_feedback">
 
-        <button type="submit" class="button button--white contact-form__submit">
-          <?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
-        </button>
+          <button type="submit" class="button button--white contact-form__submit">
+            <?= esc_attr_x('Send input', 'feedback-form-button', 'svid-theme-domain')?>
+          </button>
 
-      </div>
+        </div>
 
-  </form>
+    </form>
+
+  <?php endif; ?>
 
 </main>
 

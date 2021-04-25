@@ -43,7 +43,7 @@ function send_failure($error_message, $status_code) {
  * @param string $email
  * @return bool
  */
-function send_mail($receiver, $subject, $body, $sender) {
+function send_mail($receiver, $subject, $body, $sender, $attachments = []) {
 
 	$message = "<!DOCTYPE html>
 			<html>
@@ -62,7 +62,9 @@ function send_mail($receiver, $subject, $body, $sender) {
 	$headers .= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-	return wp_mail($receiver, $subject, $message, $headers);
+
+
+	return wp_mail($receiver, $subject, $message, $headers, $attachments);
 
 }
 
@@ -88,6 +90,9 @@ function validate_form($callback) {
 				$send_return = call_user_func($callback);
 
 				if($send_return) {
+					if($callback == 'send_decl') {
+						$response['data']['message'] = 'Eyoo, you just declared something, you topper, you! 😎💰';
+					}
 					$response['success'] = true;
 				} else {
 					$response['success'] = false;
@@ -107,7 +112,7 @@ function validate_form($callback) {
 
 	} else {
 
-		wp_send_json(array( 'error' => 'no-submit' ));
+		send_failure( 'We miss a submit button in the original form. Please contact us at svid@tudelft.nl', 403 );
 
 	}
 }

@@ -20,7 +20,7 @@
     <label for="committee" class="login__label login__label--white-bg">For which committee?</label>
     <select id="committee" name="committee" required
       class="login__input login__input--white-bg">
-      <option value="ID Algemeen">ID Algemeen</option>
+      <option value="ID Algemeen;svid@tudelft.nl">ID Algemeen</option>
       <?php
         $args = array( 'post_type' => 'committee', 'posts_per_page' => -1 );
     		$committee_loop = new WP_Query( $args );

@@ -10,10 +10,9 @@
 
   <div class="decl-form__rule">
     <label for="amount" class="login__label login__label--white-bg">How much did it cost?</label>
-    <input id="amount" name="amount" type="number" required
+    <input id="amount" name="amount" type="text" required
       class="login__input login__input--white-bg"
-      placeholder="44,44"
-      min="0" max="1000" step="0.01">
+      placeholder="44,44">
   </div>
 
   <div class="decl-form__rule">

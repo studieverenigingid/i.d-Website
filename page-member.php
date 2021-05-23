@@ -45,11 +45,11 @@ if (!is_user_logged_in()) {
       </svg>
       <span class="memberspace__label">Ask the IDE’er</span>
     </a>
-    <a href="<?php echo get_home_url(null, 'members/thoughts'); ?>" class="memberspace__couch">
+    <a href="<?php echo get_home_url(null, 'members/funfunfun'); ?>" class="memberspace__couch">
       <svg class="memberspace__item" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 554.85 290.23">
         <g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="memberspace__cls-2" d="M3.9,73.22c-5.21,8.7-5.19,146.73,0,149.33S433.7,294,441.49,290.07s109.08-38.95,110.38-46.74,5.19-154.52,1.29-158.42-42.85-5.19-45.44-5.19,13-50.64,13-59.73-10.39-16.88-13-16.88S318.14-3.39,310.35,5.7c0,0-1.3-3.89-9.09-5.19S139,.51,135.05,3.11s-13,57.13-11.68,62.32S7.8,66.73,3.9,73.22Z"/><path class="memberspace__cls-1" d="M441.49,290.07c7.8-3.89,109.08-38.95,110.38-46.74s5.19-154.52,1.29-158.42-110.37,13-115.56,24.67C433.76,118.22,437.05,292.3,441.49,290.07Z"/><path class="memberspace__cls-1" d="M32.47,81c-5.81,2.9-1.3,44.14,0,44.14s32.46-10.38,48.05-14.28,41.55-2.6,44.14-3.89-1.29-14.29,5.2-32.47C131.43,70.11,35.07,79.72,32.47,81Z"/></g></g>
       </svg>
-      <span class="memberspace__label">Thoughts</span>
+      <span class="memberspace__label">Fun fun fun</span>
     </a>
     <a href="<?php echo get_home_url(null, 'members/music'); ?>" class="memberspace__speaker">
       <svg class="memberspace__item" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147.31 195.67">

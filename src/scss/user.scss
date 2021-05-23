@@ -23,12 +23,17 @@
 .user {
   background: var(--theme-color);
 
+  &__back,
   &__top,
   &__mid,
   &__tickets {
 		padding: .1rem 5% 1em;
 		margin: 0;
 	}
+
+  &__back-link {
+    padding: 0 2rem;
+  }
 
   &__info {
     color: $background--light;
@@ -193,6 +198,7 @@
 
 
   @media (min-width: $brk--phone) {
+    &__back,
 		&__top,
     &__mid,
     &__tickets {
@@ -201,6 +207,7 @@
   }
 
   @media (min-width: $brk--tablet) {
+    &__back,
 		&__top,
     &__mid,
     &__tickets {

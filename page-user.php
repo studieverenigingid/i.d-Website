@@ -26,6 +26,14 @@ if (!is_user_logged_in()) {
   ?>
 
 
+  <div class="news-item__meta--large user user__back">
+    <?php if ( is_page() && $post->post_parent ): ?>
+      <a href="<?php echo get_permalink($post->post_parent); ?>"
+        class="news-item__category user__back-link">
+        ⬉ to <?php echo get_the_title($post->post_parent); ?>
+      </a>
+    <?php endif; ?>
+  </div>
 
 	<main id="site-content" class="user">
     <form action="#" class="user__top user__info">

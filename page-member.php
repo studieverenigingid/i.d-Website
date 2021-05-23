@@ -64,6 +64,7 @@ if (!is_user_logged_in()) {
 
   <?php the_content(); ?>
   <?php include('inc/file-list.php'); ?>
+  <?php comments_template(); ?>
   <?php if (get_the_title() == 'Declarations'):
     include('inc/declaration-form.php');
   else: ?>
@@ -104,7 +105,6 @@ if (!is_user_logged_in()) {
 </main>
 
 <?php
-  comments_template();
 	get_footer();
 }
 ?>

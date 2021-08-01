@@ -9,7 +9,7 @@ var concat = require('gulp-concat');
 var terser = require('gulp-terser');
 
 var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var sourcemaps = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');

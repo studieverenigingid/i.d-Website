@@ -232,7 +232,8 @@
   &__sign,
   &__bookcase,
   &__couch,
-  &__speaker {
+  &__speaker,
+  &__smiley {
     display: block;
     position: absolute;
     z-index: 2;
@@ -256,8 +257,8 @@
   }
 
   &__couch {
-    left: 35%;
-    top: 42%;
+    left: 42%;
+    top: 53%;
     width: 50%;
   }
 
@@ -265,6 +266,13 @@
     right: 7.5%;
     top: 7.5%;
     width: 15%;
+  }
+
+  &__smiley {
+    left: 35%;
+    top: 26%;
+    width: 15%;
+    height: 15%;
   }
 
   &__item {

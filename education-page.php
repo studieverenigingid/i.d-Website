@@ -82,11 +82,11 @@ if( have_rows('feedback_step') ) { ?>
 
 					<div class="contact-form__updater">
 						<p class="contact-form__label contact-form__label--right">
-							<?= esc_attr_x('Do you want to be updated about this input?', 'feedback-form', 'svid-theme-domain')?>
+							<?= esc_attr_x('Do you want to stay anonymous?', 'feedback-form', 'svid-theme-domain')?>
 						</p>
-						<input type="checkbox" name="update" value="true"
+						<input type="checkbox" name="anonymous" value="true"
 							class="js-edu-checkbox contact-form__toggle">
-						<label for="update"
+						<label for="anonymous"
 							class="contact-form__toggle-button js-edu-toggle"></label>
 					</div>
 
@@ -108,14 +108,14 @@ if( have_rows('feedback_step') ) { ?>
 						</label>
 						<input name="name" id="name" type="text" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('Jamie Doe', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-							value="<?=$current_name?>">
+							value="<?=$current_name?>" required>
 
 						<label for="email" class="contact-form__label">
 							<?= esc_attr_x('And your email address?', 'feedback-form-question', 'svid-theme-domain')?>
 						</label>
 						<input type="email" id="email" name="email" class="contact-form__input-short"
 							placeholder="<?= esc_attr_x('jamie@doe.com', 'feedback-form-placeholder', 'svid-theme-domain') ?>"
-							value="<?=$current_email?>">
+							value="<?=$current_email?>" required>
 
 					</div>
 

@@ -81,8 +81,6 @@ function hideUpdateFields() {
 		checkbox = jQuery('.js-edu-checkbox'),
 		toggle = jQuery('.js-edu-toggle');
 
-	fields.hide();
-
 	toggle.click(function() {
 		checkbox.click();
 	});

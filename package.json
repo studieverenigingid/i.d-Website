@@ -24,7 +24,7 @@
     "gulp-autoprefixer": "*",
     "gulp-cache": "*",
     "gulp-concat": "*",
-    "gulp-imagemin": "*",
+    "gulp-imagemin": "^7.1.0",
     "gulp-plumber": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",

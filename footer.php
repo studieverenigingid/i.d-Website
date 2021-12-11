@@ -74,7 +74,11 @@
 					</a>
 					<a rel="noopener" href="https://open.spotify.com/user/cp84jl8181x81l69e9c8a5fag?si=ORIpH3zBRiOTGe9rcmFZTw"
 						class="button button--spotify">
-						<i class="fab fa-spotify"></i> Spotify
+						<i class="fab fa-spotify"></i> Spotify	
+					</a>
+					<a rel="noopener" href="https://soundcloud.com/user-255423945"
+						class="button button--soundcloud">
+						<i class="fab fa-soundcloud"></i> Soundcloud
 					</a>
 				</div>
 			</div>

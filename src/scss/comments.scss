@@ -34,10 +34,10 @@
 
 .logged-in-as {
   background: transparentize($background--light, .35);
-  border-radius: (.75rem / .8) (.75rem / .8) 0 0;
+  border-radius: calc(.75rem / .8) calc(.75rem / .8) 0 0;
   color: $background--dark;
   font-size: .8em;
-  margin: (-.5rem / .8) (-1.5rem / .8) 1.5rem;
+  margin: calc(-.5rem / .8) calc(-1.5rem / .8) 1.5rem;
   padding: .5em;
   text-align: center;
 }

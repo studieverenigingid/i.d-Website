@@ -24,12 +24,12 @@
     "gulp-autoprefixer": "*",
     "gulp-cache": "*",
     "gulp-concat": "*",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "*",
     "gulp-plumber": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-sourcemaps": "*",
     "gulp-terser": "*",
-    "sass": "^1.49.0"
+    "sass": "*"
   }
 }

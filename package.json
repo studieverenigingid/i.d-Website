@@ -29,9 +29,7 @@
     "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-sourcemaps": "*",
-    "gulp-terser": "*"
-  },
-  "dependencies": {
-    "node-sass": "^7.0.1"
+    "gulp-terser": "*",
+    "sass": "^1.49.0"
   }
 }

@@ -229,7 +229,7 @@ function listenToForm(formId) {
 			processData: false,
 			contentType: false,
 			statusCode: {
-				413: formFail(undefined, 413, undefined)
+				413: formFail(['data' = undefined], 413, '')
 			}
 		})
 		.done(formDone)

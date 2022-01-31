@@ -191,7 +191,7 @@ function listenToForm(formId) {
 		// Tell the user something failed
 		if (response['data'] !== undefined && response['data']['message'] !== undefined) {
 			userError = response['data']['message'];
-		} else if (status === 413) {
+		} else if (response.status === 413) {
 			userError = 'Your file is too large, please try making it smaller than 2MB.';
 		} else if (response['responseJSON'] !== undefined &&
 			response['responseJSON']['data'] !== undefined &&
@@ -205,7 +205,7 @@ function listenToForm(formId) {
 			userError = 'There has been an error we don’t even understand :/';
 		}
 		jQuery(notification)
-			.addClass('notification--failed')
+			.addClass('notification--failed notification--float')
 			.text(userError)
 			.prependTo(formId);
 		jQuery(formId).removeClass(workingClass);
@@ -228,10 +228,7 @@ function listenToForm(formId) {
 			dataType: 'JSON',
 			data: formData,
 			processData: false,
-			contentType: false,
-			statusCode: {
-				413: formFail({'data': undefined, 'responseJSON': {'data': undefined}}, 413, '')
-			}
+			contentType: false
 		})
 		.done(formDone)
 		.fail(formFail);

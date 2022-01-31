@@ -193,7 +193,8 @@ function listenToForm(formId) {
 			userError = response['data']['message'];
 		} else if (status === 413) {
 			userError = 'Your file is too large, please try making it smaller than 2MB.';
-		} else if (response['responseJSON']['data'] !== undefined &&
+		} else if (response['responseJSON'] !== undefined &&
+			response['responseJSON']['data'] !== undefined &&
 			response['responseJSON']['data']['message'] !== undefined) {
 			userError = response['responseJSON']['data']['message'];
 		} else if (response.readyState === 4) {

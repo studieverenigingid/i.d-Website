@@ -30,11 +30,9 @@
     $body .= "<br><br>" . esc_html($input);
 
     if($email !== '') {
-      if(isset($_POST['anonymous'])) {
-        $sender = "Anonymous <anonymous@svid.nl>";
-      } else {
+      if(!isset($_POST['anonymous'])) {
         $sender = "$name <$email>";
-      }
+      } 
 		} else {
 			$sender = "Anonymous <anonymous@svid.nl>";
 		}

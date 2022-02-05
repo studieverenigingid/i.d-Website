@@ -53,4 +53,4 @@ class SAMLTUD_Helper {
 
 }
 
-// $samltud_helper = new SAMLTUD_Helper();
+$samltud_helper = new SAMLTUD_Helper();

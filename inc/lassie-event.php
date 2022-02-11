@@ -222,9 +222,9 @@ else: // yes
                   value="<?php the_permalink(); ?>">
 
                 <label for="notes" class="login__label login__label--white-bg">
-                  Notes for the organisers</label>
+                  Notes for the organisers (optional)</label>
                 <textarea name="notes" id="notes" cols="30" rows="2"
-                  placeholder="Could you send my goodiebag to address..."
+                  placeholder="..."
                   class="login__input login__input--white-bg"></textarea>
 
                 <input type="hidden" name="action" value="buy_ticket">

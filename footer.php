@@ -68,7 +68,7 @@
 						class="button button--flickr">
 						<i class="fab fa-flickr"></i> Flickr
 					</a>
-					<a rel="noopener" href="https://vimeo.com/studieverenigingid"
+					<a rel="noopener" href="https://vimeo.com/studieverenigingid/videos"
 						class="button button--vimeo">
 						<i class="fab fa-vimeo-v"></i> Vimeo
 					</a>

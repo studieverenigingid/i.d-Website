@@ -29,13 +29,11 @@
     $body = "<i>Sent using the contact form at " . get_site_url() . "</i>";
     $body .= "<br><br>" . esc_html($input);
 
-    if($email !== '') {
-      if(!isset($_POST['anonymous'])) {
-        $sender = "$name <$email>";
-      } 
-		} else {
-			$sender = "Anonymous <anonymous@svid.nl>";
-		}
+    if($email !== '' && !isset($_POST['anonymous'])) {
+      $sender = "$name <$email>";
+    } else {
+      $sender = "Anonymous <anonymous@svid.nl>";
+    }
 
     return send_mail($receiver, $subject, $body, $sender);
 

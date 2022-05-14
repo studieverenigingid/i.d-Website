@@ -6,10 +6,11 @@ global $img_folder;
 	<head>
 
 		<?php $theme_info = wp_get_theme(); ?>
+		<?php $theme_color = theme_color(true); ?>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="<?php theme_color(true); ?>">
+		<meta name="theme-color" content="<?php echo $theme_color; ?>">
 
 		<link rel="apple-touch-icon" sizes="180x180"
 			href="/apple-touch-icon.png?v=<?php echo $theme_info->version; ?>">
@@ -52,7 +53,7 @@ global $img_folder;
 
 	</head>
 	<body<?php if(is_home()) { echo ' class="home"'; } ?>
-		style="--theme-color: <?php theme_color(true); ?>;">
+		style="--theme-color: <?php echo $theme_color; ?>; --text-color: <?php echo get_contrast_color($theme_color); ?>">
 
 		<a href="#site-content" class="skip">
 			<?php echo esc_attr_x('Skip to content', 'Accessibility skip to content element', 'svid-theme-domain');?>

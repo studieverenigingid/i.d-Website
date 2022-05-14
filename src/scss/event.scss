@@ -170,19 +170,21 @@
 		width: 80%;
 		margin: 1em 0 10% 10%;
 		padding: 2em;
-		border: .7em solid $background--light;
+		background: var(--theme-color);
 		text-decoration: none;
+		border: .7em solid $background--light;
 		text-shadow: 0 .05rem .1rem transparentize(black, .7);
 
 		&--short-header {
 			margin-bottom: -4em;
 			background: var(--theme-color);
+			border: .7em solid $background--light;
 		}
 	}
 
 	&__indication {
 		line-height: 2rem;
-		color: $background--light;
+		color: var(--text-color);
 		text-transform: uppercase;
 		font-size: .8em;
 		font-weight: $bold-weight;
@@ -191,7 +193,7 @@
 	&__name {
 		font-size: 2em;
 		margin: 0;
-		color: $background--light;
+		color: var(--text-color);
 		text-align: left;
 		position: relative;
 		z-index: 2;
@@ -204,7 +206,7 @@
 	}
 
 	&__datetime {
-		color: $background--light;
+		color: var(--text-color);
 		margin: .7rem 0;
 		position: relative;
 		z-index: 2;
@@ -269,7 +271,7 @@
 
 	@media (min-width: $brk--tablet) {
 		&__short-info {
-			width: 46%;
+			width: 42%;
 			margin: 3em 0 4% 14%;
 			padding: 3em;
 

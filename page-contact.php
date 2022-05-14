@@ -35,7 +35,7 @@ get_header();
 <?php if( have_rows('board_members') ): ?>
 	<section class="board-members contact--page__container" id="board">
 		<h2 class="board-members__title contact--page__blocktitle">
-			Send one of our board members an email
+			Send one of us an email
 		</h2>
 	</section>
 	<section>

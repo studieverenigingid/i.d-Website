@@ -66,7 +66,7 @@
 	add_action( 'wp_ajax_declaration', 'send_declaration' );
 	add_action( 'after_setup_theme', 'cc_hide_admin_bar' );
 	if(!is_user_logged_in()){
-	 add_action('init','custom_login_page');
+	 // add_action('init','custom_login_page');
 	}
 	add_action( 'wp_login_failed', 'login_failed' );
 	add_action( 'wp_login', 'login_success', 10, 2 );

@@ -5,7 +5,7 @@
   * its url
   */
 function login_page_url($ignore_redirect_to = false) {
-  $login_page = home_url( '/login' ) . '?'; // new login page
+  $login_page = home_url( '/wp-login.php' ) . '?'; // new login page
   $exists = get_page_by_path( '/login' );
   if (!empty($_GET['redirect_to']) && !$ignore_redirect_to) { // if there is a redirect supplied
     $login_page .= 'redirect_to=' . urlencode($_GET['redirect_to']) . '&'; // make sure it sustains
@@ -61,7 +61,7 @@ function verify_username_password($user, $username, $password ) {
     }
   }
 }
-add_filter( 'authenticate', 'verify_username_password', 1, 3);
+// add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 function complete_redirect($redirect_to, $request, $user) {
   if (!empty($_GET['redirect_to'])) {
@@ -70,10 +70,10 @@ function complete_redirect($redirect_to, $request, $user) {
     return home_url();
   }
 }
-add_filter('login_redirect', 'complete_redirect', 10, 3);
+// add_filter('login_redirect', 'complete_redirect', 10, 3);
 
 function login_first_redirect() {
-  header('Location: '. get_home_url(null, 'login') . '?redirect_to=' . urlencode(get_permalink()));
+  header('Location: '. get_home_url(null, 'wp-login.php') . '?redirect_to=' . urlencode(get_permalink()));
 }
 
 

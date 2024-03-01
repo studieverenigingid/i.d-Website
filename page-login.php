@@ -46,6 +46,29 @@ get_header();
 			<?php custom_login_form(); ?>
 		</div>
 
+		<div class="login__right-column">
+			<hr class="divider divider--light login__divider">
+			<span class="login__divider-text">or</span>
+			<?php
+			/**
+			 * Detect if SAMLTUD is active. (This is a little hacky but quite useful at
+			 * the moment.)
+			 */
+			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			if ( is_plugin_active( 'samltud/samltud.php' ) ) {
+        if ( $SAML_Client->settings->get_enabled() ) {
+          $saml_url = site_url('wp-login.php?use_sso=true');
+          if (!empty($_GET['redirect_to'])) { // if there is a redirect supplied
+            $saml_url .= '&redirect_to=' . urlencode($_GET['redirect_to']); // make sure it sustains
+          } ?>
+			<a href="<?php echo $saml_url; ?>"
+				class="login__netid button button--white">
+				<?php echo esc_attr_x('Login using', 'login page', 'svid-theme-domain'); ?>
+				<span class="login__netid-name">NetID</span>
+			</a>
+		<?php } } ?>
+		</div>
+
     <div class="login__reg-text">
       <p>
         <?php echo __('<strong>Do you want to become a member?</strong> Cool! For identification purposes, you should come by the counter at the faculty of IDE. Trust us, it’s worth it.', 'svid-theme-domain' ); ?>

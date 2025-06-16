@@ -1,18 +1,6 @@
 <article class="event--small"
 	<?php if (isset($order_override))
 	 	echo $order_override; ?>>
-	<a href="<?php the_permalink(); ?>"
-		class="event--small__anchor">
-		<?php if (has_post_thumbnail()): ?>
-			<div class="event--small__thumb">
-				<?php
-					the_post_thumbnail(
-						'medium',
-						array('class' => 'event--small__img')
-					); ?>
-			</div>
-		<?php endif; ?>
-		</a>
 		<a href="<?php the_permalink(); ?>" class="event--small__anchor" >
 			<h3 class="event--small__name"><?php the_title(); ?></h3>
 		</a>

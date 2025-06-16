@@ -49,17 +49,6 @@
 				?>
 			</div>
 
-			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="event--page__thumb">
-					<?php
-					the_post_thumbnail(
-						'large',
-						array('class' => 'event--page__img')
-					);
-					?>
-				</div>
-			<?php endif; ?>
-
 		</div>
 
 	</header>

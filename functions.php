@@ -89,11 +89,11 @@
 			&& !empty(get_theme_mod('in_memoriam_body'));
 
 		if ($in_memoriam) {
-			echo "#000000";
+			return "#000000";
 		} elseif (date('W') === '44') {
-			echo '#ef686c'; // mooi koraalroze
+			return '#ef686c'; // mooi koraalroze
 		} elseif (strtotime("today") === strtotime("second friday of december")) {
-			echo '#5d2187'; // purple friday
+			return '#5d2187'; // purple friday
 
 		} elseif (is_front_page() ||
 			is_post_type_archive('event')) { // use color from upcoming event
@@ -117,16 +117,16 @@
 			  $upcoming_no = 0;
 			  while($upcoming_loop->have_posts()) :
 			    $upcoming_loop->the_post();
-					echo get_field('page_color');
+					return get_field('page_color');
 				endwhile;
 			endif;
 
 		} elseif (is_post_type_archive('turnthepage')) { // Last TTP
 			$fp = get_posts("post_type=turnthepage&numberposts=1");
-			echo get_field("page_color", $fp[0]->ID);
+			return get_field("page_color", $fp[0]->ID);
 		} elseif(is_post_type_archive('board')) { // Last Board
 			$fp = get_posts("post_type=board&numberposts=1");
-			echo get_field("page_color", $fp[0]->ID);
+			return get_field("page_color", $fp[0]->ID);
 		} elseif(is_singular('committee')) {
 			$groups = wp_get_post_terms(get_the_ID(), 'committee-group');
 			foreach ($groups as $key => $group) {
@@ -137,17 +137,57 @@
 				if($group_slug === 'education') $page_color = "#f58220";
 				if($group_slug === 'career') $page_color = "#00aeef";
 			}
-			echo $page_color;
+			return $page_color;
 
 		} elseif ($page_color !== '#f6b632' &&
 				$page_color !== '' &&
 				!is_archive() &&
 				!is_home() &&
 				!is_404()) {
-			echo $page_color;
+			return $page_color;
 		} elseif ($default){
-			echo "#f6b632";
+			return "#f6b632";
 		}
+
+	}
+
+
+
+	function get_contrast_color($hexColor) {
+		// hexColor RGB
+        $R1 = hexdec(substr($hexColor, 1, 2));
+        $G1 = hexdec(substr($hexColor, 3, 2));
+        $B1 = hexdec(substr($hexColor, 5, 2));
+
+        // Black RGB
+        $blackColor = "#000000";
+        $R2BlackColor = hexdec(substr($blackColor, 1, 2));
+        $G2BlackColor = hexdec(substr($blackColor, 3, 2));
+        $B2BlackColor = hexdec(substr($blackColor, 5, 2));
+
+         // Calc contrast ratio
+         $L1 = 0.2126 * pow($R1 / 255, 2.2) +
+               0.7152 * pow($G1 / 255, 2.2) +
+               0.0722 * pow($B1 / 255, 2.2);
+
+        $L2 = 0.2126 * pow($R2BlackColor / 255, 2.2) +
+              0.7152 * pow($G2BlackColor / 255, 2.2) +
+              0.0722 * pow($B2BlackColor / 255, 2.2);
+
+        $contrastRatio = 0;
+        if ($L1 > $L2) {
+            $contrastRatio = (int)(($L1 + 0.05) / ($L2 + 0.05));
+        } else {
+            $contrastRatio = (int)(($L2 + 0.05) / ($L1 + 0.05));
+        }
+
+        // If contrast is more than 5, return black color
+        if ($contrastRatio > 10) {
+            return '#222';
+        } else { 
+            // if not, return white color.
+            return '#fafafa';
+        }
 
 	}
 
